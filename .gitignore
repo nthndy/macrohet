@@ -1,0 +1,9 @@
+__pycache__
+.DS_Store
+*.egg-info/
+*.pkl
+*.pickle
+*.tif
+*.tiff
+*.jpg
+*.png
