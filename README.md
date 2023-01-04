@@ -1,4 +1,4 @@
-# macrohet
+# macro_het_
 
 A repo for bringing together all of the threads of my analyses for studying the single cell heterogeneity of human macrophages infected with Mtb.
 
