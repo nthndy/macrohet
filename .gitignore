@@ -8,3 +8,6 @@ __pycache__
 *.jpg
 *.png
 *.ipynb_checkpoints*
+*.h5
+*.hdf5
+notify.py
