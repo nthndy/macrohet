@@ -6,6 +6,14 @@ import pandas as pd
 from tqdm.auto import tqdm
 
 
+def track_to_df(track):
+    """
+    Quick hack to return a single track as a dataframe for output into excel
+    """
+
+    return pd.DataFrame(track.to_dict(), columns=list(track.to_dict().keys()))
+
+
 def read_harmony_metadata(metadata_path: os.PathLike, assay_layout=False,
                           mask_exist=False, image_dir=None, image_metadata=None
                           ) -> pd.DataFrame:
