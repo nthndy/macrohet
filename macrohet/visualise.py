@@ -12,6 +12,16 @@ napari_scale = [1.4949402023919043E-7, 1.4949402023919043E-7]
 scale_factor = 6048 / 1200
 
 
+def clear_previous_cell_highlight(viewer):
+    """
+    Clears latest added points layer (presuming its the points layer)
+    Useful if iteratively checking on cell identities, just call before either
+    of the other cell highlight functions (highlight_cell/highlight_cell_fate)
+    """
+    name = viewer.layers[-1].name
+    viewer.layers.remove(name)
+
+
 def highlight_cell_fate(cell_ID, viewer, tracks,
                         scale_factor=scale_factor,
                         napari_scale=napari_scale):
