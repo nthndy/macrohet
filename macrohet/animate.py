@@ -5,6 +5,123 @@ import numpy as np
 from natsort import natsorted
 from tqdm.auto import tqdm
 
+# default scale value taken from harmony metadata
+napari_scale = [1.4949402023919043E-7, 1.4949402023919043E-7]
+# default scale factor
+# for datasets that have been tracked on scaled down images
+scale_factor = 6048 / 1200
+
+
+def highlight_cell_fate(cell_ID, viewer, tracks,
+                        scale_factor=scale_factor,
+                        napari_scale=napari_scale):
+    """
+    Puts a napari point layer around the final frame of the cell of interest
+
+    Parameters
+    ----------
+    cell_ID : int
+        ID of the cell of interest
+    viewer : napari.viewer.Viewer
+        The viewer instance to launch the visualisation in
+    tracks : list of btrack.btypes.Tracklet
+        List of tracks in which the cell of interest is stored
+    scale_factor : float
+        If cells have been tracked on downscaled images then rescale tracks
+    napari_scale : list of float
+        Pixel to m scale for napari in case scale bar is required
+
+
+    Returns
+    ----------
+    highlight : napari.layers.points.points.Points
+        Napari layer with cell highlighted at final frame
+    """
+
+    track = [track for track in tracks if track.ID == cell_ID][0]
+    x, y = track.x[-1] * scale_factor, track.y[-1] * scale_factor
+    t = track.t[-1]
+    highlight = viewer.add_points([t, y, x], size=300,
+                                  face_color='transparent',
+                                  edge_color='white',
+                                  edge_width=0.1,
+                                  name=f'cell {cell_ID} fate',
+                                  scale=napari_scale)
+    viewer.dims.current_step = (t, y, x)
+
+    return highlight
+
+
+def highlight_cell(cell_ID, viewer, tracks, scale_factor=scale_factor,
+                   napari_scale=napari_scale):
+    """
+    Puts a napari point layer around the cell of interest over all frames
+
+    Parameters
+    ----------
+    cell_ID : int
+        ID of the cell of interest
+    viewer : napari.viewer.Viewer
+        The viewer instance to launch the visualisation in
+    tracks : list of btrack.btypes.Tracklet
+        List of tracks in which the cell of interest is stored
+    scale_factor : float
+        If cells have been tracked on downscaled images then rescale tracks
+    napari_scale : list of float
+        Pixel to m scale for napari in case scale bar is required
+
+
+    Returns
+    ----------
+    highlight : napari.layers.points.points.Points
+        Napari layer with cell highlighted at final frame
+    """
+    track = [track for track in tracks if track.ID == cell_ID][0]
+    points = [[track.t[i], track.y[i] * scale_factor, track.x[i] * scale_factor]
+              for i in range(len(track))]
+    highlight = viewer.add_points(points, size=300,
+                                  face_color='transparent',
+                                  edge_color='white',
+                                  edge_width=0.1,
+                                  name=f'cell {cell_ID}',
+                                  scale=napari_scale)
+    viewer.dims.current_step = (points[0])
+
+    return highlight
+
+
+def scale_napari_tracks(napari_tracks, scale=scale_factor):
+    """
+    Quick fix for tracking hack:
+    Iterates over each track entry from the output of
+    btrack.utils.tracks_to_napari() and scales the xy coords up to original
+    image size
+
+    Parameters
+    ----------
+    napari_tracks : array (N, D+1)
+        Coordinates for N points in D+1 dimensions. ID,T,Y,X. The first
+        axis is the integer ID of the track. D is 3 for planar timeseries only.
+    scale : int
+        Integer value to scale tracks up by to match original image
+
+    Returns
+    ----------
+    scaled_tracks : array (N, D+1)
+        Scaled coordinates for N points in D+1 dimensions. ID,T,Y,X. The first
+        axis is the integer ID of the track. D is 3 for planar timeseries only.
+
+    """
+
+    scaled_tracks = np.zeros((napari_tracks.shape))
+    for n, entry in enumerate(napari_tracks):
+        y, x = entry[-2], entry[-1]
+        scaled_y, scaled_x = y * scale, x * scale
+        scaled_entry = [entry[0], entry[1], scaled_y, scaled_x]
+        scaled_tracks[n] = scaled_entry
+
+    return scaled_tracks
+
 
 def create_glimpse_from_sc_df(sc_df, acq_ID, ID, images,
                               scale=6048 / 1200, size=500):
