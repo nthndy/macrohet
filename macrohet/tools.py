@@ -1,45 +1,78 @@
+import math
+
 import numpy as np
 import pandas as pd
 
-
-def msd_calc(x1, y1, x2, y2):
-    """
-    Displacement calculation for cell movement between frames
-    """
-    return np.sqrt((x1 - x2)**2 + (y1 - y2)**2)
+from macrohet import dataio
 
 
-def scale_napari_tracks(napari_tracks, scale=6048 / 1200):
+def euc_dist(x1, y1, x2, y2):
     """
-    Quick fix for tracking hack:
-    Iterates over each track entry from the output of
-    btrack.utils.tracks_to_napari() and scales the xy coords up to original
-    image size
+    Euclidean distance diplacement calculation for cell movement between frames
 
     Parameters
     ----------
-    napari_tracks : array (N, D+1)
-        Coordinates for N points in D+1 dimensions. ID,T,Y,X. The first
-        axis is the integer ID of the track. D is 3 for planar timeseries only.
-    scale : int
-        Integer value to scale tracks up by to match original image
+    x1, y1, x2, y2 : float
+        Coordinates for 2 cells in 2 dimensions at 2 different time points.
 
     Returns
     ----------
-    scaled_tracks : array (N, D+1)
-        Scaled coordinates for N points in D+1 dimensions. ID,T,Y,X. The first
-        axis is the integer ID of the track. D is 3 for planar timeseries only.
+    euc_dist : float
+        The Euclidean distance between the two cells
 
     """
 
-    scaled_tracks = np.zeros((napari_tracks.shape))
-    for n, entry in enumerate(napari_tracks):
-        y, x = entry[-2], entry[-1]
-        scaled_y, scaled_x = y * scale, x * scale
-        scaled_entry = [entry[0], entry[1], scaled_y, scaled_x]
-        scaled_tracks[n] = scaled_entry
+    euc_dist = np.sqrt((x1 - x2)**2 + (y1 - y2)**2)
 
-    return scaled_tracks
+    return euc_dist
+
+
+def calc_eccentricity(major_axis, minor_axis):
+    """
+    Calculates the eccentricity of an object given its major and minor axis
+    lengths
+
+    Parameters
+    ----------
+    major_axis, minor_axis : float
+        Scalar values for major and minor axis of object in question
+
+    Returns
+    ----------
+    eccentricity : float
+        The eccentricity of the object
+    """
+
+    if major_axis < minor_axis:
+        major_axis, minor_axis = minor_axis, major_axis  # swap if major axis is smaller
+    eccentricity = math.sqrt(1 - (minor_axis**2 / major_axis**2))
+
+    return eccentricity
+
+
+def track_euc_dist(track):
+    """
+    Calculate the Euclidean distance between frames for a track over all frames
+
+    Parameters
+    ----------
+    track : btrack.btypes.Tracklet
+        btrack track of interest
+
+    Returns
+    ----------
+    euc_dist : list
+        List of Euclidean distance between frames for track of interest
+    """
+    # first convert it to a df
+    track = dataio.track_to_df(track)
+    # now calculate the diff between rows
+    dxs = track['x'].diff()
+    dys = track['y'].diff()
+    # now calculate the Euclidean distance
+    euc_dist = [np.sqrt(dxs[i]**2 + dys[i]**2) for i in range(1, len(track))]
+
+    return euc_dist
 
 
 def compile_multi_track_df(tracks_dict, assay_layout, track_len=75):
@@ -79,12 +112,12 @@ def compile_multi_track_df(tracks_dict, assay_layout, track_len=75):
                  'Macroph. GFP expression': track['mean_intensity-0'],
                  'Eccentricity': np.sqrt(1 - ((track['minor_axis_length']**2)
                                               / (track['major_axis_length']**2))),
-                 'MSD': [msd_calc(track['x'][i - 1],
-                                  track['y'][i - 1],
-                                  track['x'][i],
-                                  track['y'][i])
-                         if i != 0 else 0
-                         for i in range(0, len(track))],
+                 'Interframe displacement': [euc_dist(track['x'][i - 1],
+                                                      track['y'][i - 1],
+                                                      track['x'][i],
+                                                      track['y'][i])
+                                             if i != 0 else 0
+                                             for i in range(0, len(track))],
                  'Strain': [info['Strain'] for i in range(len(track['t']))],
                  'Compound': [info['Compound'] for i in range(len(track['t']))],
                  'Concentration': [info['ConcentrationEC']
