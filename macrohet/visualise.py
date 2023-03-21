@@ -6,7 +6,7 @@ from natsort import natsorted
 from tqdm.auto import tqdm
 
 # default scale value taken from harmony metadata
-napari_scale = [1.4949402023919043E-7, 1.4949402023919043E-7]
+napari_scale = [1.49e-05, 1.4949402023919043E-7, 1.4949402023919043E-7]
 # default scale factor
 # for datasets that have been tracked on scaled down images
 scale_factor = 6048 / 1200
