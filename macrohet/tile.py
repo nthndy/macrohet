@@ -138,12 +138,12 @@ def compile_mosaic(image_directory: os.PathLike,
     # rechunk so they are more managable
     images = [frame.rechunk(2016, 2016) for frame in images]
     # stack them together
-    images = da.stack(images, axis=0)
+    images = np.stack(images, axis=0)
     # # reshape them according to TCZXY
     images = images.reshape((len(timepoint_IDs),
                              len(channel_IDs),
                              len(plane_IDs),
-                             images.shape[-2], images.shape[-1])).compute()
+                             images.shape[-2], images.shape[-1]))
     # conduct projection according to specified type
     if projection == 'max_proj':
         images = np.max(images, axis=2)
