@@ -3,6 +3,7 @@ import os
 import cv2
 import numpy as np
 from natsort import natsorted
+from skimage.morphology import area_closing, label, remove_small_objects
 from tqdm.auto import tqdm
 
 # default scale value taken from harmony metadata
@@ -131,6 +132,53 @@ def scale_napari_tracks(napari_tracks, scale=scale_factor):
         scaled_tracks[n] = scaled_entry
 
     return scaled_tracks
+
+
+def scale_masks(masks_stack, final_image_size=(6048, 6048)):
+    """
+    Quick fix for upscaling masks to be original image size (after they were
+    downscaled for tracking hacky fix)
+
+    Parameters
+    ----------
+    masks_stack : array ()
+        2D (XY) or 3D (TXY) array of instance segmentation for resizing
+    final_image_size : tuple
+        Desired final image size of a single time frame in the array
+
+    Returns
+    ----------
+    mod_masks : array ()
+        2D (XY) or 3D (TXY) array of instance segmentation that has been resized
+
+    """
+    # ensure that downsized masks have unique IDs for latter steps
+    mod_masks = np.stack([label(masks)
+                          for masks in tqdm(masks_stack,
+                                            desc='Labelling')],
+                         axis=0)
+    # remove small objects
+    mod_masks = np.stack([remove_small_objects(masks,
+                                               min_size=64,
+                                               connectivity=1)
+                          for masks in tqdm(mod_masks,
+                                            desc='Remove small objs')],
+                         axis=0)
+    # fill small holes
+    mod_masks = np.stack([area_closing(masks,
+                                       area_threshold=64)
+                          for masks in tqdm(mod_masks,
+                                            desc='Remove small holes')],
+                         axis=0).astype(np.uint16)
+    # upscale
+    mod_masks = np.stack([cv2.resize(masks,
+                                     (6048, 6048),
+                                     interpolation=cv2.INTER_NEAREST)
+                          for masks in tqdm(mod_masks,
+                                            desc='Upscaling')],
+                         axis=0)
+
+    return mod_masks
 
 
 def create_glimpse_from_sc_df(sc_df, acq_ID, ID, images,
