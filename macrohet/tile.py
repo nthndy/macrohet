@@ -71,16 +71,19 @@ def compile_mosaic(image_directory: os.PathLike,
         image, such as a crop, a transpose or a background removal.
     set_plane : int or str
         Optional input to define a single plane to compile. If left blank then
-        mosaic will be compiled over all planes available.
+        mosaic will be compiled over all planes available. Must have same index
+        as filename or will return error.
         If a string input of 'max_proj' or 'sum_proj' is provided then images
         will be either taken as a max pixel value projection or summed
         projection over the Z axis.
     set_channel : int
         Optional input to define a single channel to compile. If left blank then
-        mosaic will be compiled over all channels available.
+        mosaic will be compiled over all channels available. Must have same
+        index as filename or will return error.
     set_time : int
         Optional input to define a single frame to compile. If left blank then
-        mosaic will be compiled over all frames available.
+        mosaic will be compiled over all frames available. Must have same index
+        as filename or will return error.
     projection : str
         Specify a string input of 'max_proj' or 'sum_proj' if you want to
         conduct a projection along the
@@ -140,7 +143,7 @@ def compile_mosaic(image_directory: os.PathLike,
     images = images.reshape((len(timepoint_IDs),
                              len(channel_IDs),
                              len(plane_IDs),
-                             images.shape[-2], images.shape[-1]))
+                             images.shape[-2], images.shape[-1])).compute()
     # conduct projection according to specified type
     if projection == 'max_proj':
         images = np.max(images, axis=2)
