@@ -172,10 +172,10 @@ def scale_masks(masks_stack, final_image_size=(6048, 6048)):
                          axis=0).astype(np.uint16)
     # upscale
     mod_masks = np.stack([cv2.resize(masks,
-                                     (6048, 6048),
+                                     final_image_size,
                                      interpolation=cv2.INTER_NEAREST)
                           for masks in tqdm(mod_masks,
-                                            desc='Upscaling')],
+                                            desc=f'Scaling to {final_image_size}')],
                          axis=0)
 
     return mod_masks
