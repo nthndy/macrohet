@@ -6,6 +6,25 @@ import pandas as pd
 from tqdm.auto import tqdm
 
 
+def load_macrohet_metadata(location='desktop'):
+    """
+    Lazy function for loading a couple of bits of info that usually take the
+    first couple of cells to load
+    """
+
+    if location == 'desktop':
+        base_dir = '/mnt/DATA/sandbox/pierre_live_cell_data/outputs/Replication_IPSDM_GFP/'
+    else:
+        base_dir = '/Volumes/lab-gutierrezm/home/users/dayn/macrohet/'
+    metadata_fn = os.path.join(base_dir, 'macrohet_images/Index.idx.xml')
+    metadata = read_harmony_metadata(metadata_fn)
+    metadata_path = os.path.join(base_dir, 'macrohet_images/Assaylayout/20210602_Live_cell_IPSDMGFP_ATB.xml')
+    assay_layout = read_harmony_metadata(metadata_path,
+                                         assay_layout=True,)
+
+    return metadata, assay_layout
+
+
 def track_to_df(track):
     """
     Quick hack to return a single track as a dataframe for output into excel
