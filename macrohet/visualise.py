@@ -13,6 +13,85 @@ napari_scale = [1.49e-05, 1.4949402023919043E-7, 1.4949402023919043E-7]
 scale_factor = 6048 / 1200
 
 
+def add_napari_grid_overlay(
+    viewer, N_rows_cols=10, scale_factor=1, edge_width=10, edge_color="cyan"
+):
+    """
+    Adds a rectangular grid overlay to a Napari viewer window.
+
+    Parameters:
+    viewer (napari.viewer.Viewer): A Napari viewer instance.
+    N_rows_cols (int, optional): The number of divisions to divide the grid
+        into. Default is 10.
+    scale_factor (float, optional): A scaling factor applied to the grid size.
+        Default is 1.
+    edge_width (int, optional): The width of the grid lines. Default is 10.
+    edge_color (str, optional): The color of the grid lines. Default is 'cyan'.
+
+    Returns:
+    napari.layers.Shapes: A shapes layer representing the grid lines.
+
+    This function adds a rectangular grid overlay to the Napari viewer window.
+    The grid is divided into N_rows_cols rows and N_rows_cols columns, forming
+    a rectangular shape. It can be used to aid with manual labeling of large
+    images.
+
+    Note:
+    - The function assumes that the first layer in the viewer contains the
+      image data used to determine the maximum coordinate value.
+    - The viewer should be displayed before calling this function.
+
+    Example:
+    ```
+    import napari
+
+    # Create a Napari viewer and add an image layer
+    viewer = napari.Viewer()
+    viewer.add_image(image_data)
+
+    # Add a grid overlay with 5 rows and 5 columns, set the edge width to 5,
+    # and scale the grid size by a factor of 1.5
+    grid_layer = add_napari_grid_overlay(viewer, N_rows_cols=5,
+                                         scale_factor=1.5, edge_width=5)
+
+    # Display the viewer
+    napari.run()
+    ```
+    """
+
+    # Get the spatial extent of what is presumed to be a square image, scaled
+    # by the factor
+    max_coord = max(viewer.layers[0].data.shape) * scale_factor
+
+    # rescale the edge_width
+    edge_width = edge_width * scale_factor
+
+    # Calculate the vertical lines
+    vertical_grid_lines = [
+        np.array([[0, (max_coord / (N_rows_cols)) * i],
+                  [max_coord, (max_coord / (N_rows_cols)) * i]])
+        for i in range(1, N_rows_cols)
+    ]
+
+    # Calculate the horizontal lines
+    horizontal_grid_lines = [
+        np.array([[(max_coord / (N_rows_cols)) * i, 0],
+                  [(max_coord / (N_rows_cols)) * i, max_coord]])
+        for i in range(1, N_rows_cols)
+    ]
+
+    # Append the vertical and horizontal lines together
+    grid_lines = vertical_grid_lines + horizontal_grid_lines
+
+    # Add the grid lines to a shapes layer with line shape type, specified
+    # edge width, and edge color
+    shapes_layer = viewer.add_shapes(
+        grid_lines, shape_type="line", edge_width=edge_width, edge_color=edge_color
+    )
+
+    return shapes_layer
+
+
 def clear_previous_cell_highlight(viewer):
     """
     Clears latest added points layer (presuming its the points layer)
