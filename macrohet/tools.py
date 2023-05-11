@@ -3,9 +3,93 @@ import math
 import numpy as np
 import pandas as pd
 from skimage.morphology import binary_erosion
+from skimage.transform import downscale_local_mean, resize
 from tqdm.auto import tqdm
 
 from macrohet import dataio
+
+
+def upscale_labels_post_manual_annotation(labels, scale_factor):
+    """
+    Upscales labels after manual annotation to restore to original size.
+
+    Parameters:
+    labels (numpy.ndarray): The input labels to be upscaled.
+    scale_factor (int): The scale factor for upscaling the labels.
+
+    Returns:
+    numpy.ndarray: The upscaled labels.
+
+    This function takes in manually annotated labels and a scale factor and performs
+    upscaling to restore the labels to their original size. The scale factor determines
+    how much to increase the dimensions of the labels.
+
+    Note:
+    - The input labels should be in the form of a binary mask or integer-valued image.
+
+    Example:
+    ```
+    # Upscale the labels with a scale factor of 2
+    upscaled_labels = upscale_labels_post_manual_annotation(labels, scale_factor=2)
+    ```
+
+    """
+    # Upscale the labels using resize
+    upscaled_labels = resize(labels, (labels.shape[0] * scale_factor,
+                                      labels.shape[1] * scale_factor),
+                             anti_aliasing=False, order=0, preserve_range=True)
+
+    return upscaled_labels
+
+
+def downscale_images_for_manual_annotation(image, labels, scale_factor):
+    """
+    Downscale an image and its corresponding labels for manual annotation.
+
+    Parameters:
+        image (ndarray): The original image.
+        labels (ndarray): The original labels.
+        scale_factor (int): The scale factor for downsampling.
+
+    Returns:
+        tuple: A tuple containing the downsampled image and downsampled labels.
+
+    This function downscales an image and its corresponding labels to a lower resolution
+    to facilitate manual annotation. The downsampling is performed using the
+    `downscale_local_mean` function from the `skimage.transform` module.
+
+    The image and labels are downsampled by the specified scale factor, which represents
+    the factor by which the image and labels are reduced in size.
+
+    The downscaled labels are rounded to the nearest integer to ensure they remain valid
+    pixel labels.
+
+    Note:
+    - The image and labels should be NumPy arrays.
+    - The image and labels should have the same dimensions.
+
+    Example:
+    ```
+    import numpy as np
+    from skimage.transform import downscale_local_mean
+
+    # Assuming 'image' and 'labels' are your original image and labels
+    scale_factor = 4
+
+    # Downscale the image and labels for manual annotation
+    downsampled_image, downsampled_labels = downscale_images_for_manual_annotation(image, labels, scale_factor)
+    ```
+    """
+    # Downscale the image using the 'downscale_local_mean' function
+    downsampled_image = downscale_local_mean(image, (scale_factor, scale_factor))
+
+    # Downscale the labels using the 'downscale_local_mean' function
+    downsampled_labels = downscale_local_mean(labels.astype(float), (scale_factor, scale_factor))
+
+    # Round the downsampled labels to the nearest integer
+    downsampled_labels = np.round(downsampled_labels).astype(int)
+
+    return downsampled_image, downsampled_labels
 
 
 def instance_to_semantic(instance_image):
