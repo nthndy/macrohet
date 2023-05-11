@@ -2,8 +2,33 @@ import math
 
 import numpy as np
 import pandas as pd
+from skimage.morphology import binary_erosion
+from tqdm.auto import tqdm
 
 from macrohet import dataio
+
+
+def instance_to_semantic(instance_image):
+    """
+    Quick function to change instance segmentation map to semantic segmentation
+    """
+
+    # Get unique labels from the instance image
+    unique_labels = np.unique(instance_image)
+
+    # Create a blank semantic segmentation map
+    semantic_map = np.zeros_like(instance_image, dtype=np.uint8)
+
+    # Assign unique labels to the semantic map preserving boundaries
+    for label in tqdm(unique_labels[1:]):
+        segment = instance_image == label
+        eroded_segment = binary_erosion(segment, footprint=np.ones((5, 5)))
+        semantic_map[eroded_segment] = 1
+        # set background to zero
+        semantic_map[instance_image == 0] = 0
+        semantic_map = semantic_map.astype('i2')
+
+    return semantic_map
 
 
 def euc_dist(x1, y1, x2, y2):
