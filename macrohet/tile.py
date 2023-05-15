@@ -33,6 +33,36 @@ FilePath = Union[Path, str]
 ArrayLike = Union[np.ndarray, "dask.array.Array"]
 
 
+class FileNotFoundError(Exception):
+    """
+    Custom exception raised when a file is not found.
+    """
+    pass
+
+
+def find_files_exist(fns: List[str], image_dir: str):
+    """
+    Check if the given list of filenames exist in the specified directory.
+
+    Parameters
+    ----------
+    fns : List[str]
+        List of filenames to check.
+    image_dir : str
+        Directory where the files should exist.
+
+    Raises
+    ------
+    FileNotFoundError
+        If any of the files do not exist.
+
+    """
+    for fn in fns:
+        file_path = os.path.join(image_dir, fn)
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(f"The file '{file_path}' does not exist.")
+
+
 def compile_mosaic(image_directory: os.PathLike,
                    metadata: pd.DataFrame,
                    row: int,
@@ -492,6 +522,8 @@ def stitch(load_transform_image: partial,
         assert masks_exist is True, "Cannot find all corresponding masks"
         # this is achieved by replacing the
         fns = fns.str.replace(r'ch(\d+)', 'ch99', regex=True)
+    # check if files have actually be found
+    find_files_exist(fns, image_dir)
     # build into full file path
     fns = [glob.glob(os.path.join(image_dir, fn))[0] for fn in fns]
     # stack single slice mosaic into lazy array
