@@ -227,39 +227,51 @@ def highlight_cell_fate(cell_ID, viewer, tracks,
 
 
 def highlight_cell(cell_ID, viewer, tracks, scale_factor=scale_factor,
-                   napari_scale=napari_scale):
+                   napari_scale=napari_scale, size=300, opacity=1,
+                   symbol='o', reset_position=True):
     """
-    Puts a napari point layer around the cell of interest over all frames
+    Puts a Napari point layer around the cell of interest over all frames.
 
     Parameters
     ----------
     cell_ID : int
-        ID of the cell of interest
+        ID of the cell of interest.
     viewer : napari.viewer.Viewer
-        The viewer instance to launch the visualisation in
+        The viewer instance to launch the visualization in.
     tracks : list of btrack.btypes.Tracklet
-        List of tracks in which the cell of interest is stored
-    scale_factor : float
-        If cells have been tracked on downscaled images then rescale tracks
-    napari_scale : list of float
-        Pixel to m scale for napari in case scale bar is required
-
+        List of tracks in which the cell of interest is stored.
+    scale_factor : float, optional
+        Scale factor for rescaling tracks if cells have been tracked on downscaled images.
+    napari_scale : list of float, optional
+        Pixel-to-meter scale for Napari in case a scale bar is required.
+    size : int, optional
+        Size of the points in the Napari point layer.
+    opacity : float, optional
+        Opacity of the points in the Napari point layer.
+    symbol : str, optional
+        Symbol used for the points in the Napari point layer.
+    reset_position : bool, optional
+        Whether to reset the viewer's position to the first frame of the highlighted cell.
 
     Returns
     ----------
     highlight : napari.layers.points.points.Points
-        Napari layer with cell highlighted at final frame
+        Napari layer with the cell highlighted at the final frame.
     """
     track = [track for track in tracks if track.ID == cell_ID][0]
     points = [[track.t[i], track.y[i] * scale_factor, track.x[i] * scale_factor]
               for i in range(len(track))]
-    highlight = viewer.add_points(points, size=300,
+    highlight = viewer.add_points(points, size=size,
+                                  symbol=symbol,
                                   face_color='transparent',
                                   edge_color='white',
                                   edge_width=0.1,
                                   name=f'cell {cell_ID}',
-                                  scale=napari_scale)
-    viewer.dims.current_step = (points[0])
+                                  opacity=opacity
+                                  # scale=napari_scale
+                                  )
+    if reset_position:
+        viewer.dims.current_step = (points[0])
 
     return highlight
 
