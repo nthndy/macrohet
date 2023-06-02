@@ -14,147 +14,208 @@
   <body>
     <div
       class="bk-root"
-      id="813e58e9-605b-4097-81a1-1e5f364f673b"
-      data-root-id="9350"
+      id="ec699d7b-ebed-4755-bba3-71b4dd4fd1fb"
+      data-root-id="24901"
     ></div>
 
-    <script type="application/json" id="10045">
+    <script type="application/json" id="25164">
       {
-        "5e0db00a-1a94-4cc0-9359-b21dc6ee9fab": {
+        "1d5c0a47-c2bd-4a4b-bc7d-c60bb86b8741": {
           "defs": [],
           "roots": {
             "references": [
+              { "attributes": {}, "id": "24922", "type": "ZoomOutTool" },
               {
                 "attributes": {
-                  "below": [{ "id": "9359" }],
-                  "center": [{ "id": "9362" }, { "id": "9366" }],
-                  "left": [{ "id": "9363" }],
-                  "renderers": [{ "id": "9420" }],
-                  "title": { "id": "9402" },
-                  "toolbar": { "id": "9386" },
-                  "width": 900,
-                  "x_range": { "id": "9351" },
-                  "x_scale": { "id": "9355" },
-                  "y_range": { "id": "9353" },
-                  "y_scale": { "id": "9357" }
+                  "align": "center",
+                  "coordinates": null,
+                  "group": null,
+                  "text": "Is the intra-macrophage Mtb load at t=0 correlated to subsequent Mtb growth?",
+                  "text_font_size": "13pt"
                 },
-                "id": "9350",
-                "subtype": "Figure",
-                "type": "Plot"
+                "id": "24953",
+                "type": "Title"
               },
-              { "attributes": {}, "id": "9788", "type": "Selection" },
+              { "attributes": {}, "id": "24991", "type": "Selection" },
               {
                 "attributes": {
-                  "active_scroll": { "id": "9369" },
-                  "tools": [
-                    { "id": "9367" },
-                    { "id": "9368" },
-                    { "id": "9369" },
-                    { "id": "9370" },
-                    { "id": "9371" },
-                    { "id": "9372" },
-                    { "id": "9373" },
-                    { "id": "9374" },
-                    { "id": "9375" },
-                    { "id": "9376" },
-                    { "id": "9377" },
-                    { "id": "9378" },
-                    { "id": "9379" },
-                    { "id": "9380" },
-                    { "id": "9381" },
-                    { "id": "9422" }
-                  ]
-                },
-                "id": "9386",
-                "type": "Toolbar"
-              },
-              {
-                "attributes": {
-                  "fill_alpha": { "value": 0.1 },
-                  "fill_color": { "field": "Color_codes" },
-                  "hatch_alpha": { "value": 0.1 },
-                  "line_alpha": { "value": 0.1 },
+                  "fill_alpha": { "value": 0.7 },
+                  "fill_color": { "field": "eccentricity_color_codes" },
                   "line_color": { "value": null },
-                  "radius": { "value": 5 },
+                  "radius": { "field": "area_point_size" },
                   "x": { "field": "Intracellular_thresholded_Mtb_content" },
                   "y": { "field": "delta_Mtb_foldchange" }
                 },
-                "id": "9418",
+                "id": "24968",
                 "type": "Circle"
               },
               {
                 "attributes": {
-                  "bottom_units": "screen",
+                  "background_fill_alpha": 0.5,
+                  "background_fill_color": "rgb(140, 191, 38)",
                   "coordinates": null,
-                  "fill_alpha": 0.5,
-                  "fill_color": "lightgrey",
                   "group": null,
-                  "left_units": "screen",
-                  "level": "overlay",
-                  "line_alpha": 1.0,
-                  "line_color": "black",
-                  "line_dash": [4, 4],
-                  "line_width": 2,
-                  "right_units": "screen",
-                  "syncable": false,
-                  "top_units": "screen"
+                  "text": "Point size represents cell area",
+                  "x": 100,
+                  "y": 60
                 },
-                "id": "9383",
-                "type": "BoxAnnotation"
+                "id": "24979",
+                "type": "Label"
+              },
+              { "attributes": {}, "id": "24990", "type": "UnionRenderers" },
+              {
+                "attributes": {
+                  "fill_alpha": { "value": 0.1 },
+                  "fill_color": { "field": "eccentricity_color_codes" },
+                  "hatch_alpha": { "value": 0.1 },
+                  "line_alpha": { "value": 0.1 },
+                  "line_color": { "value": null },
+                  "radius": { "field": "area_point_size" },
+                  "x": { "field": "Intracellular_thresholded_Mtb_content" },
+                  "y": { "field": "delta_Mtb_foldchange" }
+                },
+                "id": "24969",
+                "type": "Circle"
+              },
+              { "attributes": {}, "id": "24956", "type": "BasicTickFormatter" },
+              {
+                "attributes": {
+                  "background_fill_alpha": 0.5,
+                  "background_fill_color": "rgb(197, 27, 125)",
+                  "coordinates": null,
+                  "group": null,
+                  "text": "Point colour represents cell eccentricity",
+                  "x": 100,
+                  "y": 50
+                },
+                "id": "24980",
+                "type": "Label"
               },
               {
                 "attributes": {
-                  "bottom_units": "screen",
                   "coordinates": null,
-                  "fill_alpha": 0.5,
-                  "fill_color": "lightgrey",
-                  "group": null,
-                  "left_units": "screen",
-                  "level": "overlay",
-                  "line_alpha": 1.0,
-                  "line_color": "black",
-                  "line_dash": [4, 4],
-                  "line_width": 2,
-                  "right_units": "screen",
-                  "syncable": false,
-                  "top_units": "screen"
-                },
-                "id": "9382",
-                "type": "BoxAnnotation"
-              },
-              {
-                "attributes": {
-                  "coordinates": null,
-                  "data_source": { "id": "9415" },
-                  "glyph": { "id": "9417" },
+                  "data_source": { "id": "24966" },
+                  "glyph": { "id": "24968" },
                   "group": null,
                   "hover_glyph": null,
-                  "muted_glyph": { "id": "9419" },
-                  "nonselection_glyph": { "id": "9418" },
-                  "view": { "id": "9421" }
+                  "muted_glyph": { "id": "24970" },
+                  "nonselection_glyph": { "id": "24969" },
+                  "view": { "id": "24972" }
                 },
-                "id": "9420",
+                "id": "24971",
                 "type": "GlyphRenderer"
               },
-              { "attributes": {}, "id": "9381", "type": "HelpTool" },
+              { "attributes": {}, "id": "24920", "type": "WheelZoomTool" },
+              {
+                "attributes": { "source": { "id": "24966" } },
+                "id": "24972",
+                "type": "CDSView"
+              },
+              { "attributes": {}, "id": "24924", "type": "UndoTool" },
               {
                 "attributes": {
-                  "callback": null,
-                  "tooltips": "\n        &lt;div&gt;\n            &lt;div&gt;\n                &lt;img\n                    src=\"@glimpse_url\" height=\"120\" alt=\"@glimpse_url\" width=\"120\"\n                    style=\"float: left; margin: 0px 15px 15px 0px;\"\n                    border=\"2\"\n                &gt;&lt;/img&gt;\n            &lt;/div&gt;\n            &lt;div&gt;\n                &lt;span style=\"font-size: 17px; font-weight: bold; color: black;\"&gt;Cell ID: @Cell_ID&lt;/span&gt;\n            &lt;/div&gt;\n            &lt;div&gt;\n                &lt;span style=\"font-size: 15px; color: black;\"&gt;\u0394Mtb: @delta_Mtb_foldchange&lt;/span&gt;\n            &lt;/div&gt;\n            &lt;div&gt;\n                &lt;span style=\"font-size: 15px; color: black;\"&gt;Area: @Area&lt;/span&gt;\n            &lt;/div&gt;\n            &lt;div&gt;\n                &lt;span style=\"font-size: 15px; color: black;\"&gt;Infection Status: @Infection_status&lt;/span&gt;\n            &lt;/div&gt;\n            &lt;div&gt;\n                &lt;span style=\"font-size: 15px; color: black;\"&gt;Strain: @Strain&lt;/span&gt;\n            &lt;/div&gt;\n            &lt;div&gt;\n                &lt;span style=\"font-size: 15px; color: black;\"&gt;Compound: @Compound&lt;/span&gt;\n            &lt;/div&gt;\n            &lt;div&gt;\n                &lt;span style=\"font-size: 15px; color: black;\"&gt;Concentration: @Concentration&lt;/span&gt;\n            &lt;/div&gt;\n        &lt;/div&gt;\n"
+                  "fill_alpha": { "value": 0.2 },
+                  "fill_color": { "field": "eccentricity_color_codes" },
+                  "hatch_alpha": { "value": 0.2 },
+                  "line_alpha": { "value": 0.2 },
+                  "line_color": { "value": null },
+                  "radius": { "field": "area_point_size" },
+                  "x": { "field": "Intracellular_thresholded_Mtb_content" },
+                  "y": { "field": "delta_Mtb_foldchange" }
                 },
-                "id": "9422",
-                "type": "HoverTool"
+                "id": "24970",
+                "type": "Circle"
               },
               {
-                "attributes": { "overlay": { "id": "9384" } },
-                "id": "9380",
+                "attributes": {
+                  "below": [{ "id": "24910" }],
+                  "center": [
+                    { "id": "24913" },
+                    { "id": "24917" },
+                    { "id": "24981" },
+                    { "id": "24979" },
+                    { "id": "24980" }
+                  ],
+                  "left": [{ "id": "24914" }],
+                  "renderers": [{ "id": "24971" }],
+                  "title": { "id": "24953" },
+                  "toolbar": { "id": "24937" },
+                  "width": 900,
+                  "x_range": { "id": "24902" },
+                  "x_scale": { "id": "24906" },
+                  "y_range": { "id": "24904" },
+                  "y_scale": { "id": "24908" }
+                },
+                "id": "24901",
+                "subtype": "Figure",
+                "type": "Plot"
+              },
+              { "attributes": {}, "id": "24959", "type": "BasicTickFormatter" },
+              { "attributes": {}, "id": "24925", "type": "RedoTool" },
+              {
+                "attributes": { "overlay": { "id": "24935" } },
+                "id": "24931",
                 "type": "LassoSelectTool"
               },
               {
-                "attributes": { "overlay": { "id": "9385" } },
-                "id": "9379",
-                "type": "PolySelectTool"
+                "attributes": {
+                  "axis_label": "Intracellular \u0394Mtb growth over M\u03a6 lifetime \n (fold-change in thresholded pixel intensity)",
+                  "coordinates": null,
+                  "formatter": { "id": "24956" },
+                  "group": null,
+                  "major_label_policy": { "id": "24957" },
+                  "ticker": { "id": "24915" }
+                },
+                "id": "24914",
+                "type": "LinearAxis"
               },
+              { "attributes": {}, "id": "24902", "type": "DataRange1d" },
+              {
+                "attributes": {
+                  "callback": null,
+                  "tooltips": "\n        &lt;div&gt;\n            &lt;div&gt;\n                &lt;img\n                    src=\"@glimpse_url\" height=\"120\" alt=\"@glimpse_url\" width=\"120\"\n                    style=\"float: left; margin: 0px 15px 15px 0px;\"\n                    border=\"2\"\n                &gt;&lt;/img&gt;\n            &lt;/div&gt;\n            &lt;div&gt;\n                &lt;span style=\"font-size: 17px; font-weight: bold; color: black;\"&gt;Cell ID: @Cell_ID&lt;/span&gt;\n            &lt;/div&gt;\n            &lt;div&gt;\n                &lt;span style=\"font-size: 15px; color: black;\"&gt;\u0394Mtb: @delta_Mtb_foldchange&lt;/span&gt;\n            &lt;/div&gt;\n            &lt;div&gt;\n                &lt;span style=\"font-size: 15px; color: black;\"&gt;Area: @Area&lt;/span&gt;\n            &lt;/div&gt;\n            &lt;div&gt;\n                &lt;span style=\"font-size: 15px; color: black;\"&gt;Eccentricity: @Eccentricity&lt;/span&gt;\n            &lt;/div&gt;\n            &lt;div&gt;\n                &lt;span style=\"font-size: 15px; color: black;\"&gt;Strain: @Strain&lt;/span&gt;\n            &lt;/div&gt;\n            &lt;div&gt;\n                &lt;span style=\"font-size: 15px; color: black;\"&gt;Compound: @Compound&lt;/span&gt;\n            &lt;/div&gt;\n            &lt;div&gt;\n                &lt;span style=\"font-size: 15px; color: black;\"&gt;Concentration: @Concentration&lt;/span&gt;\n            &lt;/div&gt;\n        &lt;/div&gt;\n    "
+                },
+                "id": "24973",
+                "type": "HoverTool"
+              },
+              {
+                "attributes": {
+                  "background_fill_alpha": 0.5,
+                  "background_fill_color": "rgb(211, 211, 211)",
+                  "coordinates": null,
+                  "group": null,
+                  "text": "Try panning and zooming to \ninspect single-cell outliers",
+                  "x": 270,
+                  "y": 15
+                },
+                "id": "24981",
+                "type": "Label"
+              },
+              {
+                "attributes": { "callback": null },
+                "id": "24927",
+                "type": "TapTool"
+              },
+              { "attributes": {}, "id": "24932", "type": "HelpTool" },
+              {
+                "attributes": {
+                  "axis": { "id": "24910" },
+                  "coordinates": null,
+                  "group": null,
+                  "ticker": null
+                },
+                "id": "24913",
+                "type": "Grid"
+              },
+              { "attributes": {}, "id": "24904", "type": "DataRange1d" },
+              {
+                "attributes": { "overlay": { "id": "24934" } },
+                "id": "24923",
+                "type": "BoxZoomTool"
+              },
+              { "attributes": {}, "id": "24918", "type": "CrosshairTool" },
+              { "attributes": {}, "id": "24960", "type": "AllLabels" },
+              { "attributes": {}, "id": "24911", "type": "BasicTicker" },
               {
                 "attributes": {
                   "coordinates": null,
@@ -170,119 +231,34 @@
                   "xs_units": "screen",
                   "ys_units": "screen"
                 },
-                "id": "9384",
+                "id": "24935",
                 "type": "PolyAnnotation"
               },
               {
-                "attributes": { "overlay": { "id": "9382" } },
-                "id": "9378",
-                "type": "BoxSelectTool"
-              },
-              { "attributes": {}, "id": "9377", "type": "SaveTool" },
-              { "attributes": {}, "id": "9374", "type": "RedoTool" },
-              { "attributes": {}, "id": "9373", "type": "UndoTool" },
-              {
-                "attributes": { "overlay": { "id": "9383" } },
-                "id": "9372",
-                "type": "BoxZoomTool"
-              },
-              { "attributes": {}, "id": "9371", "type": "ZoomOutTool" },
-              { "attributes": {}, "id": "9351", "type": "DataRange1d" },
-              { "attributes": {}, "id": "9370", "type": "ZoomInTool" },
-              { "attributes": {}, "id": "9375", "type": "ResetTool" },
-              { "attributes": {}, "id": "9787", "type": "UnionRenderers" },
-              { "attributes": {}, "id": "9367", "type": "CrosshairTool" },
-              {
-                "attributes": { "callback": null },
-                "id": "9376",
-                "type": "TapTool"
-              },
-              {
                 "attributes": {
-                  "axis_label": "Intracellular_thresholded_Mtb_content \n(thresh. px. int.)",
-                  "coordinates": null,
-                  "formatter": { "id": "9408" },
-                  "group": null,
-                  "major_label_policy": { "id": "9409" },
-                  "ticker": { "id": "9360" }
+                  "active_scroll": { "id": "24920" },
+                  "tools": [
+                    { "id": "24918" },
+                    { "id": "24919" },
+                    { "id": "24920" },
+                    { "id": "24921" },
+                    { "id": "24922" },
+                    { "id": "24923" },
+                    { "id": "24924" },
+                    { "id": "24925" },
+                    { "id": "24926" },
+                    { "id": "24927" },
+                    { "id": "24928" },
+                    { "id": "24929" },
+                    { "id": "24930" },
+                    { "id": "24931" },
+                    { "id": "24932" },
+                    { "id": "24973" }
+                  ]
                 },
-                "id": "9359",
-                "type": "LinearAxis"
+                "id": "24937",
+                "type": "Toolbar"
               },
-              { "attributes": {}, "id": "9353", "type": "DataRange1d" },
-              { "attributes": {}, "id": "9405", "type": "BasicTickFormatter" },
-              { "attributes": {}, "id": "9406", "type": "AllLabels" },
-              {
-                "attributes": {
-                  "axis": { "id": "9359" },
-                  "coordinates": null,
-                  "group": null,
-                  "ticker": null
-                },
-                "id": "9362",
-                "type": "Grid"
-              },
-              { "attributes": {}, "id": "9357", "type": "LinearScale" },
-              { "attributes": {}, "id": "9409", "type": "AllLabels" },
-              {
-                "attributes": {
-                  "axis_label": "Intracellular Mtb growth over M\u03a6 lifetime \n (\u0394 fold-change in thresh. px. int.)",
-                  "coordinates": null,
-                  "formatter": { "id": "9405" },
-                  "group": null,
-                  "major_label_policy": { "id": "9406" },
-                  "ticker": { "id": "9364" }
-                },
-                "id": "9363",
-                "type": "LinearAxis"
-              },
-              { "attributes": {}, "id": "9360", "type": "BasicTicker" },
-              {
-                "attributes": {
-                  "align": "center",
-                  "coordinates": null,
-                  "group": null,
-                  "text": "Intra-M\u03a6 Mtb @ t=0 versus \u0394Mtb",
-                  "text_font_size": "13pt"
-                },
-                "id": "9402",
-                "type": "Title"
-              },
-              {
-                "attributes": {
-                  "axis": { "id": "9363" },
-                  "coordinates": null,
-                  "dimension": 1,
-                  "group": null,
-                  "ticker": null
-                },
-                "id": "9366",
-                "type": "Grid"
-              },
-              {
-                "attributes": { "source": { "id": "9415" } },
-                "id": "9421",
-                "type": "CDSView"
-              },
-              { "attributes": {}, "id": "9364", "type": "BasicTicker" },
-              { "attributes": {}, "id": "9369", "type": "WheelZoomTool" },
-              { "attributes": {}, "id": "9368", "type": "PanTool" },
-              { "attributes": {}, "id": "9408", "type": "BasicTickFormatter" },
-              {
-                "attributes": {
-                  "fill_alpha": { "value": 0.2 },
-                  "fill_color": { "field": "Color_codes" },
-                  "hatch_alpha": { "value": 0.2 },
-                  "line_alpha": { "value": 0.2 },
-                  "line_color": { "value": null },
-                  "radius": { "value": 5 },
-                  "x": { "field": "Intracellular_thresholded_Mtb_content" },
-                  "y": { "field": "delta_Mtb_foldchange" }
-                },
-                "id": "9419",
-                "type": "Circle"
-              },
-              { "attributes": {}, "id": "9355", "type": "LinearScale" },
               {
                 "attributes": {
                   "data": {
@@ -1463,7 +1439,7 @@
                       "210.3.5"
                     ],
                     "area_point_size": {
-                      "__ndarray__": "OUVHcvmPAkBYqDXNO44SQF3+Q/rt6+Y/jLlrCfmgD0CamZmZmZkDQEku/yH99gxArrZif9k9BUCfPCzUmuYFQArXo3A9igdA0LNZ9blaEkDQs1n1uZoZQBE2PL1SVhlAhlrTvOMU9T/yQc9m1ZdAQDnWxW00ABVAKe0NvjCZC0Cad5yiIzkDQGTMXUvIxxxAzF1LyAc9AUDmriXkgx4UQFdbsb/sngdARpT2Bl9YIEAydy0hH/QXQAK8BRIUvwxAv30dOGfkIEDkg57Nqs8AQL8OnDOiNBJARrbz/dQ4GkASFD/G3HUXQJT2Bl+YTAtAOiNKe4MvA0B24JwRpb0QQF8pyxDHOhxAe4MvTKaKKEBApN++DlwZQH/ZPXlYqPs/bjSAt0ACCkDZPXlYqDUGQIXrUbgeBRZAorQ3+MJkE0CzDHGsi9v6PxIUP8bclSFAQj7o2ax6CUBlqmBUUqcHQNIA3gIJig1A/Yf029dBFkDXEvJBz2YVQC0hH/RsVhdAj8L1KFwPB0AtIR/0bNYRQABvgQTFDxVAAG+BBMWPBEBO0ZFc/oMQQHBfB84ZkRBAm1Wfq63Y9T82PL1SluEWQAYSFD/G/CdAU5YhjnVx/T9O0ZFc/oMRQMDsnjws1AZAukkMAisHAUAwTKYKRiUMQH/7OnDOiAlAxEKtad5xBEDKw0KtaZ4XQFuxv+yevAhA1JrmHafoF0CGyVTBqOQXQISezarPVQBA5q4l5IOeBEAU0ETY8NQoQEXY8PRKOStAih9j7lriNEBuNIC3QIIFQBTQRNjwNBlAfa62Yn8ZGkDImLuWkE8cQK8l5IOeTSZAwhcmUwWj/D/sL7snD0sUQOXyH9JvXwhAIR/0bFa9EECBJsKGpxcmQOf7qfHSTRxAHcnlP6RfAECF61G4HsUVQAtGJXUC2hVA5BQdyeW/EECYTBWMSuoMQGiz6nO1FfI/8WPMXUvICUD+Q/rt60AcQIXrUbgeRRJA9pfdk4eF9z+QMXctIR8dQD55WKg1zf4/Dk+vlGXIEkCtad5xio4GQGN/2T152BZAyJi7lpAPAUBUUiegifAVQEmdgCbC5i5Aw/UoXI9CGUAtQxzr4nYVQKyt2F92TwNA5x2n6EhuG0BseHqlLIMTQH3Qs1n1uRBAW7G/7J58FUDnHafoSG4TQNXnaiv2l+U/NxrAWyBB9D++wRcmU8URQKvP1Vbsrw9A5x2n6EjOIECZKhiV1IkZQAN4CyQo/hBAnRGlvcEX8T+7uI0G8DYzQD55WKg1zRRATfOOU3TkF0CZu5aQD7oWQBdIUPwY8wNA",
+                      "__ndarray__": "OUVHcvmP8j9YqDXNO44CQF3+Q/rt69Y/jLlrCfmg/z+amZmZmZnzP0ku/yH99vw/rrZif9k99T+fPCzUmub1PwrXo3A9ivc/0LNZ9blaAkDQs1n1uZoJQBE2PL1SVglAhlrTvOMU5T/yQc9m1ZcwQDnWxW00AAVAKe0NvjCZ+z+ad5yiIznzP2TMXUvIxwxAzF1LyAc98T/mriXkgx4EQFdbsb/snvc/RpT2Bl9YEEAydy0hH/QHQAK8BRIUv/w/v30dOGfkEEDkg57Nqs/wP78OnDOiNAJARrbz/dQ4CkASFD/G3HUHQJT2Bl+YTPs/OiNKe4Mv8z924JwRpb0AQF8pyxDHOgxAe4MvTKaKGEBApN++DlwJQH/ZPXlYqOs/bjSAt0AC+j/ZPXlYqDX2P4XrUbgeBQZAorQ3+MJkA0CzDHGsi9vqPxIUP8bclRFAQj7o2ax6+T9lqmBUUqf3P9IA3gIJiv0//Yf029dBBkDXEvJBz2YFQC0hH/RsVgdAj8L1KFwP9z8tIR/0bNYBQABvgQTFDwVAAG+BBMWP9D9O0ZFc/oMAQHBfB84ZkQBAm1Wfq63Y5T82PL1SluEGQAYSFD/G/BdAU5YhjnVx7T9O0ZFc/oMBQMDsnjws1PY/ukkMAisH8T8wTKYKRiX8P3/7OnDOiPk/xEKtad5x9D/Kw0KtaZ4HQFuxv+yevPg/1JrmHafoB0CGyVTBqOQHQISezarPVfA/5q4l5IOe9D8U0ETY8NQYQEXY8PRKORtAih9j7lriJEBuNIC3QIL1PxTQRNjwNAlAfa62Yn8ZCkDImLuWkE8MQK8l5IOeTRZAwhcmUwWj7D/sL7snD0sEQOXyH9JvX/g/IR/0bFa9AECBJsKGpxcWQOf7qfHSTQxAHcnlP6Rf8D+F61G4HsUFQAtGJXUC2gVA5BQdyeW/AECYTBWMSur8P2iz6nO1FeI/8WPMXUvI+T/+Q/rt60AMQIXrUbgeRQJA9pfdk4eF5z+QMXctIR8NQD55WKg1ze4/Dk+vlGXIAkCtad5xio72P2N/2T152AZAyJi7lpAP8T9UUiegifAFQEmdgCbC5h5Aw/UoXI9CCUAtQxzr4nYFQKyt2F92T/M/5x2n6EhuC0BseHqlLIMDQH3Qs1n1uQBAW7G/7J58BUDnHafoSG4DQNXnaiv2l9U/NxrAWyBB5D++wRcmU8UBQKvP1Vbsr/8/5x2n6EjOEECZKhiV1IkJQAN4CyQo/gBAnRGlvcEX4T+7uI0G8DYjQD55WKg1zQRATfOOU3TkB0CZu5aQD7oGQBdIUPwY8/M/",
                       "dtype": "float64",
                       "order": "little",
                       "shape": [123]
@@ -1486,6 +1462,131 @@
                       "order": "little",
                       "shape": [123]
                     },
+                    "eccentricity_color_codes": [
+                      [53, 118, 28],
+                      [180, 222, 129],
+                      [252, 227, 240],
+                      [97, 163, 46],
+                      [244, 194, 224],
+                      [173, 218, 121],
+                      [151, 203, 94],
+                      [129, 189, 67],
+                      [205, 57, 141],
+                      [56, 121, 28],
+                      [142, 198, 83],
+                      [113, 176, 56],
+                      [245, 199, 226],
+                      [241, 182, 218],
+                      [58, 123, 29],
+                      [117, 179, 58],
+                      [85, 153, 38],
+                      [167, 214, 113],
+                      [160, 209, 105],
+                      [242, 246, 237],
+                      [99, 164, 47],
+                      [73, 141, 32],
+                      [232, 245, 214],
+                      [240, 246, 232],
+                      [233, 245, 215],
+                      [246, 246, 244],
+                      [185, 21, 115],
+                      [162, 211, 108],
+                      [39, 100, 25],
+                      [46, 109, 26],
+                      [160, 209, 105],
+                      [251, 230, 241],
+                      [239, 246, 229],
+                      [103, 168, 49],
+                      [91, 158, 42],
+                      [252, 222, 238],
+                      [250, 234, 242],
+                      [76, 145, 32],
+                      [251, 219, 236],
+                      [117, 179, 58],
+                      [247, 245, 246],
+                      [89, 156, 41],
+                      [249, 237, 243],
+                      [138, 195, 78],
+                      [186, 226, 138],
+                      [149, 202, 92],
+                      [201, 232, 161],
+                      [162, 211, 108],
+                      [213, 86, 156],
+                      [111, 174, 54],
+                      [251, 231, 241],
+                      [95, 161, 44],
+                      [87, 155, 39],
+                      [188, 226, 141],
+                      [129, 189, 67],
+                      [234, 245, 218],
+                      [121, 183, 61],
+                      [87, 155, 39],
+                      [103, 168, 49],
+                      [115, 178, 57],
+                      [123, 184, 62],
+                      [217, 239, 187],
+                      [195, 26, 124],
+                      [228, 244, 205],
+                      [220, 241, 193],
+                      [193, 229, 149],
+                      [193, 229, 149],
+                      [149, 202, 92],
+                      [223, 123, 177],
+                      [242, 246, 235],
+                      [213, 237, 181],
+                      [213, 237, 181],
+                      [201, 232, 161],
+                      [236, 168, 208],
+                      [240, 246, 230],
+                      [95, 161, 44],
+                      [52, 116, 27],
+                      [184, 225, 135],
+                      [162, 211, 108],
+                      [251, 230, 241],
+                      [127, 188, 65],
+                      [186, 226, 138],
+                      [140, 196, 81],
+                      [245, 246, 243],
+                      [238, 173, 211],
+                      [253, 224, 239],
+                      [204, 234, 167],
+                      [99, 164, 47],
+                      [165, 212, 111],
+                      [245, 195, 225],
+                      [249, 236, 243],
+                      [248, 207, 230],
+                      [252, 225, 239],
+                      [230, 146, 192],
+                      [74, 143, 32],
+                      [190, 227, 144],
+                      [192, 228, 147],
+                      [245, 246, 243],
+                      [165, 212, 111],
+                      [247, 244, 246],
+                      [81, 150, 36],
+                      [62, 128, 30],
+                      [64, 130, 30],
+                      [250, 232, 241],
+                      [156, 206, 100],
+                      [56, 121, 28],
+                      [213, 237, 181],
+                      [111, 174, 54],
+                      [142, 1, 82],
+                      [76, 145, 32],
+                      [240, 246, 230],
+                      [224, 242, 199],
+                      [95, 161, 44],
+                      [103, 168, 49],
+                      [149, 202, 92],
+                      [144, 199, 86],
+                      [97, 163, 46],
+                      [200, 39, 131],
+                      [184, 225, 135],
+                      [76, 145, 32],
+                      [149, 202, 92],
+                      [62, 128, 30],
+                      [121, 183, 61]
+                    ],
                     "glimpse_url": [
                       "https://macrohet.s3.eu-west-2.amazonaws.com/3,5/glimpse_423.3.5_t0.png",
                       "https://macrohet.s3.eu-west-2.amazonaws.com/3,5/glimpse_414.3.5_t0.png",
@@ -1652,12 +1753,27 @@
                       "shape": [123]
                     }
                   },
-                  "selected": { "id": "9788" },
-                  "selection_policy": { "id": "9787" }
+                  "selected": { "id": "24991" },
+                  "selection_policy": { "id": "24990" }
                 },
-                "id": "9415",
+                "id": "24966",
                 "type": "ColumnDataSource"
               },
+              {
+                "attributes": {
+                  "axis_label": "Intra-M\u03a6 Mtb load at t=0 \n(thresholded pixel intensity)",
+                  "coordinates": null,
+                  "formatter": { "id": "24959" },
+                  "group": null,
+                  "major_label_policy": { "id": "24960" },
+                  "ticker": { "id": "24911" }
+                },
+                "id": "24910",
+                "type": "LinearAxis"
+              },
+              { "attributes": {}, "id": "24926", "type": "ResetTool" },
+              { "attributes": {}, "id": "24957", "type": "AllLabels" },
+              { "attributes": {}, "id": "24906", "type": "LinearScale" },
               {
                 "attributes": {
                   "coordinates": null,
@@ -1673,23 +1789,77 @@
                   "xs_units": "screen",
                   "ys_units": "screen"
                 },
-                "id": "9385",
+                "id": "24936",
                 "type": "PolyAnnotation"
               },
               {
                 "attributes": {
-                  "fill_alpha": { "value": 0.7 },
-                  "fill_color": { "field": "Color_codes" },
-                  "line_color": { "value": null },
-                  "radius": { "value": 5 },
-                  "x": { "field": "Intracellular_thresholded_Mtb_content" },
-                  "y": { "field": "delta_Mtb_foldchange" }
+                  "bottom_units": "screen",
+                  "coordinates": null,
+                  "fill_alpha": 0.5,
+                  "fill_color": "lightgrey",
+                  "group": null,
+                  "left_units": "screen",
+                  "level": "overlay",
+                  "line_alpha": 1.0,
+                  "line_color": "black",
+                  "line_dash": [4, 4],
+                  "line_width": 2,
+                  "right_units": "screen",
+                  "syncable": false,
+                  "top_units": "screen"
                 },
-                "id": "9417",
-                "type": "Circle"
-              }
+                "id": "24933",
+                "type": "BoxAnnotation"
+              },
+              {
+                "attributes": { "overlay": { "id": "24933" } },
+                "id": "24929",
+                "type": "BoxSelectTool"
+              },
+              { "attributes": {}, "id": "24928", "type": "SaveTool" },
+              { "attributes": {}, "id": "24919", "type": "PanTool" },
+              {
+                "attributes": { "overlay": { "id": "24936" } },
+                "id": "24930",
+                "type": "PolySelectTool"
+              },
+              { "attributes": {}, "id": "24915", "type": "BasicTicker" },
+              {
+                "attributes": {
+                  "bottom_units": "screen",
+                  "coordinates": null,
+                  "fill_alpha": 0.5,
+                  "fill_color": "lightgrey",
+                  "group": null,
+                  "left_units": "screen",
+                  "level": "overlay",
+                  "line_alpha": 1.0,
+                  "line_color": "black",
+                  "line_dash": [4, 4],
+                  "line_width": 2,
+                  "right_units": "screen",
+                  "syncable": false,
+                  "top_units": "screen"
+                },
+                "id": "24934",
+                "type": "BoxAnnotation"
+              },
+              {
+                "attributes": {
+                  "axis": { "id": "24914" },
+                  "coordinates": null,
+                  "dimension": 1,
+                  "group": null,
+                  "ticker": null
+                },
+                "id": "24917",
+                "type": "Grid"
+              },
+              { "attributes": {}, "id": "24908", "type": "LinearScale" },
+              { "attributes": {}, "id": "24921", "type": "ZoomInTool" }
             ],
-            "root_ids": ["9350"]
+            "root_ids": ["24901"]
           },
           "title": "Bokeh Application",
           "version": "2.4.3"
@@ -1702,12 +1872,12 @@
           Bokeh.safely(function () {
             (function (root) {
               function embed_document(root) {
-                const docs_json = document.getElementById("10045").textContent;
+                const docs_json = document.getElementById("25164").textContent;
                 const render_items = [
                   {
-                    docid: "5e0db00a-1a94-4cc0-9359-b21dc6ee9fab",
-                    root_ids: ["9350"],
-                    roots: { 9350: "813e58e9-605b-4097-81a1-1e5f364f673b" },
+                    docid: "1d5c0a47-c2bd-4a4b-bc7d-c60bb86b8741",
+                    root_ids: ["24901"],
+                    roots: { 24901: "ec699d7b-ebed-4755-bba3-71b4dd4fd1fb" },
                   },
                 ];
                 root.Bokeh.embed.embed_items(docs_json, render_items);
