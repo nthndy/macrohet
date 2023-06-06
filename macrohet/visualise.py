@@ -1,17 +1,64 @@
 import os
 
 import cv2
+import matplotlib.pyplot as plt
 import numpy as np
 from natsort import natsorted
 from skimage.morphology import area_closing, label, remove_small_objects
 from skimage.transform import downscale_local_mean, resize
 from tqdm.auto import tqdm
 
+from .colours import custom_colours
+
 # default scale value taken from harmony metadata
 napari_scale = [1.49e-05, 1.4949402023919043E-7, 1.4949402023919043E-7]
 # default scale factor
 # for datasets that have been tracked on scaled down images
 scale_factor = 6048 / 1200
+
+
+def show_colors(color_map):
+    """
+    Display the colors in the specified color map as bars.
+
+    Parameters:
+        color_map (str): The name of the color map to display.
+
+    Returns:
+        None
+    """
+    colors = custom_colours[color_map]
+    num_colors = len(colors)
+
+    fig, ax = plt.subplots()
+    for i, color in enumerate(colors):
+        ax.bar(i, 1, color=color)
+
+    ax.set_xlim(-0.5, num_colors - 0.5)
+    ax.set_ylim(0, 1)
+    ax.set_xticks(range(num_colors))
+    ax.set_xticklabels(['' for _ in range(num_colors)])
+    ax.set_yticks([])
+    ax.spines['left'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    ax.spines['bottom'].set_visible(False)
+
+    plt.title(color_map)
+    plt.show()
+
+
+def color_palette(color_map):
+    """
+    Get the color palette of the specified color map.
+
+    Parameters:
+        color_map (str): The name of the color map.
+
+    Returns:
+        list: The color palette as a list of color codes.
+    """
+    return custom_colours[color_map]
 
 
 def upscale_labels_post_manual_annotation(labels, scale_factor):
