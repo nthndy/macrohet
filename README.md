@@ -17,4 +17,7 @@ Currently mainly using it to back up various messy notebooks etc.
 
 Both sections contain `dev` folders where the bulk of the WIP notebooks will be located and zipped in archive. The more generally applicable and polished notebooks will be in the main directories of each section.
 
+### Here is an interactive example graph for browsing: 
+[![Example analysis](example_graph.png)](https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_kde.html)
+
 <!-- #endregion -->
