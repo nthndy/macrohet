@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bokeh Plot</title>
+    <script
+      type="text/javascript"
+      src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.3.min.js"
+    ></script>
+    <script type="text/javascript">
+      Bokeh.set_log_level("info");
+    </script>
+  </head>
+  <body>
+    <div
+      class="bk-root"
+      id="b73630f1-2554-462d-a6f5-64429c97fc60"
+      data-root-id="624751"
+    ></div>
+
+    <script type="application/json" id="630335">
+      {
+        "dec91b5e-9b3d-4119-9dbd-2ed59b3b37d3": {
+          "defs": [],
+          "roots": {
+            "references": [
+              {
+                "attributes": {
+                  "children": [{ "id": "624750" }, { "id": "624748" }]
+                },
+                "id": "624751",
+                "type": "Column"
+              },
+              {
+                "attributes": {
+                  "coordinates": null,
+                  "data_source": { "id": "624684" },
+                  "glyph": { "id": "624686" },
+                  "group": null,
+                  "hover_glyph": null,
+                  "muted_glyph": { "id": "624688" },
+                  "nonselection_glyph": { "id": "624687" },
+                  "view": { "id": "624690" }
+                },
+                "id": "624689",
+                "type": "GlyphRenderer"
+              },
+              { "attributes": {}, "id": "624674", "type": "Selection" },
+              {
+                "attributes": { "overlay": { "id": "624580" } },
+                "id": "624577",
+                "type": "BoxZoomTool"
+              },
+              { "attributes": {}, "id": "624539", "type": "WheelZoomTool" },
+              {
+                "attributes": { "overlay": { "id": "624540" } },
+                "id": "624537",
+                "type": "BoxZoomTool"
+              },
+              { "attributes": {}, "id": "624742", "type": "UnionRenderers" },
+              { "attributes": {}, "id": "624536", "type": "PanTool" },
+              { "attributes": {}, "id": "624578", "type": "ResetTool" },
+              { "attributes": {}, "id": "624743", "type": "Selection" },
+              { "attributes": {}, "id": "624597", "type": "AllLabels" },
+              { "attributes": {}, "id": "624673", "type": "UnionRenderers" },
+              { "attributes": {}, "id": "624538", "type": "ResetTool" },
+              {
+                "attributes": { "coordinates": null, "group": null },
+                "id": "624592",
+                "type": "Title"
+              },
+              {
+                "attributes": {},
+                "id": "624596",
+                "type": "BasicTickFormatter"
+              },
+              { "attributes": {}, "id": "624534", "type": "CrosshairTool" },
+              {
+                "attributes": {
+                  "axis": { "id": "624530" },
+                  "coordinates": null,
+                  "dimension": 1,
+                  "group": null,
+                  "ticker": null
+                },
+                "id": "624533",
+                "type": "Grid"
+              },
+              { "attributes": {}, "id": "624551", "type": "AllLabels" },
+              {
+                "attributes": {
+                  "fill_alpha": 0.6,
+                  "fill_color": "#1a9641",
+                  "hatch_alpha": { "value": 0.6 },
+                  "x": { "field": "x" },
+                  "y1": { "value": 0 },
+                  "y2": { "field": "kde_values" }
+                },
+                "id": "624604",
+                "type": "VArea"
+              },
+              { "attributes": {}, "id": "624744", "type": "UnionRenderers" },
+              {
+                "attributes": {
+                  "axis_label": "Frequency",
+                  "coordinates": null,
+                  "formatter": { "id": "624550" },
+                  "group": null,
+                  "major_label_policy": { "id": "624551" },
+                  "ticker": { "id": "624531" }
+                },
+                "id": "624530",
+                "type": "LinearAxis"
+              },
+              { "attributes": {}, "id": "624531", "type": "BasicTicker" },
+              { "attributes": {}, "id": "624745", "type": "Selection" },
+              { "attributes": {}, "id": "624535", "type": "SaveTool" },
+              { "attributes": {}, "id": "624520", "type": "DataRange1d" },
+              {
+                "attributes": {
+                  "data": {
+                    "cell_ID": {
+                      "__ndarray__": "pQEAAHEAAAAaAAAAPwAAABMBAAAIAQAA0QAAAKQCAAC4AgAACwQAACIFAACGBQAAiAYAABEHAACZCAAA",
+                      "dtype": "int32",
+                      "order": "little",
+                      "shape": [15]
+                    },
+                    "compound": [
+                      "BDQ",
+                      "BDQ",
+                      "BDQ",
+                      "BDQ",
+                      "BDQ",
+                      "BDQ",
+                      "BDQ",
+                      "BDQ",
+                      "BDQ",
+                      "BDQ",
+                      "BDQ",
+                      "BDQ",
+                      "BDQ",
+                      "BDQ",
+                      "BDQ"
+                    ],
+                    "concentration": [
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50"
+                    ],
+                    "dMtb": {
+                      "__ndarray__": "ZFHvUghAzz/nvn5iL9XxP6QlcShvTdA/GkB1R77Fwz8yOdnmEovEPygKqyouOso/hz9PKGUx2T+8w9YADZm9P04064J34Nw//4vU1Z4Lwz8ZSo8cEh3wP0ChpM5jOOE/COh4xA/j1T8nCvJVSOnGv0hRFcR889c/",
+                      "dtype": "float64",
+                      "order": "little",
+                      "shape": [15]
+                    },
+                    "glimpse_url_t0": [
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_421.3.9_t0.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_113.3.9_t0.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_26.3.9_t0.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_63.3.9_t0.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_275.3.9_t0.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_264.3.9_t0.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_209.3.9_t0.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_676.3.9_t2.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_696.3.9_t2.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1035.3.9_t6.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1314.3.9_t10.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1414.3.9_t12.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1672.3.9_t17.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1809.3.9_t19.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2201.3.9_t29.png"
+                    ],
+                    "glimpse_url_tn": [
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_421.3.9_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_113.3.9_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_26.3.9_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_63.3.9_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_275.3.9_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_264.3.9_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_209.3.9_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_676.3.9_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_696.3.9_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1035.3.9_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1314.3.9_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1414.3.9_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1672.3.9_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1809.3.9_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2201.3.9_t-1.png"
+                    ],
+                    "strain": [
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT"
+                    ],
+                    "tech_rep": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                    "x": {
+                      "__ndarray__": "ZFHvUghAzz/nvn5iL9XxP6QlcShvTdA/GkB1R77Fwz8yOdnmEovEPygKqyouOso/hz9PKGUx2T+8w9YADZm9P04064J34Nw//4vU1Z4Lwz8ZSo8cEh3wP0ChpM5jOOE/COh4xA/j1T8nCvJVSOnGv0hRFcR889c/",
+                      "dtype": "float64",
+                      "order": "little",
+                      "shape": [15]
+                    },
+                    "y": {
+                      "__ndarray__": "tMwiFFtB0z9KQiJt40/UPzCCxkyiXtQ/C5jArbt51D9D5PT1fM3UP5QRF4BG6dQ/1gCloUYh1T900CUceovVP9An8iTpmtU/lu1D3nL11T9lAKjixi3WPwuW6gJeZtY/xqhr7X2q1j9OuFfmrbrWP4YEjC5vDtc/",
+                      "dtype": "float64",
+                      "order": "little",
+                      "shape": [15]
+                    }
+                  },
+                  "name": "WT, BDQ, EC50",
+                  "selected": { "id": "624739" },
+                  "selection_policy": { "id": "624738" }
+                },
+                "id": "624621",
+                "type": "ColumnDataSource"
+              },
+              {
+                "attributes": {
+                  "coordinates": null,
+                  "data_source": { "id": "624648" },
+                  "glyph": { "id": "624650" },
+                  "group": null,
+                  "hover_glyph": null,
+                  "muted_glyph": { "id": "624652" },
+                  "nonselection_glyph": { "id": "624651" },
+                  "view": { "id": "624654" }
+                },
+                "id": "624653",
+                "type": "GlyphRenderer"
+              },
+              { "attributes": {}, "id": "624594", "type": "AllLabels" },
+              {
+                "attributes": {
+                  "fill_alpha": { "value": 0.1 },
+                  "fill_color": { "value": "#1a9641" },
+                  "hatch_alpha": { "value": 0.1 },
+                  "hatch_color": { "value": "#1a9641" },
+                  "line_alpha": { "value": 0.1 },
+                  "size": { "value": 20 },
+                  "x": { "field": "x" },
+                  "y": { "field": "y" }
+                },
+                "id": "624624",
+                "type": "Scatter"
+              },
+              {
+                "attributes": {
+                  "fill_alpha": { "value": 0.9 },
+                  "fill_color": { "value": "#1a9641" },
+                  "hatch_alpha": { "value": 0.9 },
+                  "hatch_color": { "value": "#1a9641" },
+                  "line_alpha": { "value": 0.9 },
+                  "size": { "value": 20 },
+                  "x": { "field": "x" },
+                  "y": { "field": "y" }
+                },
+                "id": "624623",
+                "type": "Scatter"
+              },
+              {
+                "attributes": { "ticks": [] },
+                "id": "624588",
+                "type": "FixedTicker"
+              },
+              {
+                "attributes": { "source": { "id": "624628" } },
+                "id": "624634",
+                "type": "CDSView"
+              },
+              {
+                "attributes": {
+                  "toolbars": [{ "id": "624541" }, { "id": "624581" }],
+                  "tools": [
+                    { "id": "624534" },
+                    { "id": "624535" },
+                    { "id": "624536" },
+                    { "id": "624537" },
+                    { "id": "624538" },
+                    { "id": "624539" },
+                    { "id": "624574" },
+                    { "id": "624575" },
+                    { "id": "624576" },
+                    { "id": "624577" },
+                    { "id": "624578" },
+                    { "id": "624579" },
+                    { "id": "624600" }
+                  ]
+                },
+                "id": "624749",
+                "type": "ProxyToolbar"
+              },
+              {
+                "attributes": {
+                  "fill_alpha": 0.1,
+                  "fill_color": "#a6d96a",
+                  "hatch_alpha": { "value": 0.1 },
+                  "x": { "field": "x" },
+                  "y1": { "value": 0 },
+                  "y2": { "field": "kde_values" }
+                },
+                "id": "624631",
+                "type": "VArea"
+              },
+              { "attributes": {}, "id": "624522", "type": "LinearScale" },
+              {
+                "attributes": { "source": { "id": "624684" } },
+                "id": "624690",
+                "type": "CDSView"
+              },
+              {
+                "attributes": {
+                  "fill_alpha": 0.6,
+                  "fill_color": "#a6d96a",
+                  "hatch_alpha": { "value": 0.6 },
+                  "x": { "field": "x" },
+                  "y1": { "value": 0 },
+                  "y2": { "field": "kde_values" }
+                },
+                "id": "624630",
+                "type": "VArea"
+              },
+              {
+                "attributes": {
+                  "label": { "value": "WT, RIF, EC50" },
+                  "renderers": [{ "id": "624689" }]
+                },
+                "id": "624707",
+                "type": "LegendItem"
+              },
+              {
+                "attributes": { "source": { "id": "624621" } },
+                "id": "624627",
+                "type": "CDSView"
+              },
+              {
+                "attributes": { "end": 0.5, "start": -0.5 },
+                "id": "624557",
+                "type": "Range1d"
+              },
+              {
+                "attributes": {
+                  "axis_label": "\u0394Mtb \n(fold-change relative to area)",
+                  "coordinates": null,
+                  "formatter": { "id": "624596" },
+                  "group": null,
+                  "major_label_policy": { "id": "624597" },
+                  "ticker": { "id": "624567" }
+                },
+                "id": "624566",
+                "type": "LinearAxis"
+              },
+              {
+                "attributes": {
+                  "fill_alpha": { "value": 0.1 },
+                  "fill_color": { "value": "#1a9641" },
+                  "hatch_alpha": { "value": 0.1 },
+                  "hatch_color": { "value": "#1a9641" },
+                  "line_alpha": { "value": 0.1 },
+                  "line_color": { "value": "#1a9641" },
+                  "size": { "value": 20 },
+                  "x": { "field": "x" },
+                  "y": { "field": "y" }
+                },
+                "id": "624625",
+                "type": "Scatter"
+              },
+              {
+                "attributes": {
+                  "coordinates": null,
+                  "data_source": { "id": "624621" },
+                  "glyph": { "id": "624623" },
+                  "group": null,
+                  "hover_glyph": null,
+                  "muted_glyph": { "id": "624625" },
+                  "nonselection_glyph": { "id": "624624" },
+                  "view": { "id": "624627" }
+                },
+                "id": "624626",
+                "type": "GlyphRenderer"
+              },
+              {
+                "attributes": {
+                  "label": { "value": "WT, PZA, EC50" },
+                  "renderers": [{ "id": "624660" }]
+                },
+                "id": "624676",
+                "type": "LegendItem"
+              },
+              {
+                "attributes": {
+                  "callback": null,
+                  "tooltips": " &lt;div&gt;\n        &lt;div style=\"position: relative; display: inline-block;\"&gt;\n            &lt;img\n                src=\"@glimpse_url_t0\" height=\"120\" alt=\"@glimpse_url_t0\" width=\"120\"\n                style=\"float: left; margin: 0px 15px 15px 0px;\"\n                border=\"2\"\n            &gt;\n            &lt;div style=\"position: absolute; bottom: 5px; right: 5px; background-color: lightgrey; padding: 5px;\"&gt;\n                &lt;span style=\"font-size: 12px; color: black;\"&gt;t = 0&lt;/span&gt;\n            &lt;/div&gt;\n            &lt;/img&gt;\n        &lt;/div&gt;\n        &lt;div style=\"position: relative; display: inline-block;\"&gt;\n            &lt;img\n                src=\"@glimpse_url_tn\" height=\"120\" alt=\"@glimpse_url_tn\" width=\"120\"\n                style=\"float: left; margin: 0px 15px 15px 0px;\"\n                border=\"2\"\n            &gt;\n            &lt;div style=\"position: absolute; bottom: 5px; right: 5px; background-color: lightgrey; padding: 5px;\"&gt;\n                &lt;span style=\"font-size: 12px; color: black;\"&gt;t = final&lt;/span&gt;\n            &lt;/div&gt;\n            &lt;/img&gt;\n        &lt;/div&gt;\n        &lt;div&gt;\n             &lt;span style=\"font-size: 17px; font-weight: bold; color: black;\"&gt;Cell ID: @cell_ID&lt;/span&gt;\n         &lt;/div&gt;\n         &lt;div&gt;\n             &lt;span style=\"font-size: 15px; color: black;\"&gt;\u0394Mtb: @x&lt;/span&gt;\n         &lt;/div&gt;\n         &lt;div&gt;\n             &lt;span style=\"font-size: 15px; color: black;\"&gt;Strain: @strain&lt;/span&gt;\n         &lt;/div&gt;\n         &lt;div&gt;\n             &lt;span style=\"font-size: 15px; color: black;\"&gt;Compound: @compound&lt;/span&gt;\n         &lt;/div&gt;\n         &lt;div&gt;\n             &lt;span style=\"font-size: 15px; color: black;\"&gt;Concentration: @concentration&lt;/span&gt;\n         &lt;/div&gt;\n         &lt;div&gt;\n             &lt;span style=\"font-size: 15px; color: black;\"&gt;Tech. replicate: @tech_rep&lt;/span&gt;\n         &lt;/div&gt;\n    &lt;/div&gt;\n"
+                },
+                "id": "624600",
+                "type": "HoverTool"
+              },
+              { "attributes": {}, "id": "624524", "type": "LinearScale" },
+              { "attributes": {}, "id": "624564", "type": "LinearScale" },
+              {
+                "attributes": {},
+                "id": "624550",
+                "type": "BasicTickFormatter"
+              },
+              {
+                "attributes": {
+                  "below": [{ "id": "624526" }],
+                  "center": [
+                    { "id": "624529" },
+                    { "id": "624533" },
+                    { "id": "624619" }
+                  ],
+                  "height": 400,
+                  "left": [{ "id": "624530" }],
+                  "renderers": [
+                    { "id": "624607" },
+                    { "id": "624633" },
+                    { "id": "624660" },
+                    { "id": "624689" }
+                  ],
+                  "title": { "id": "624516" },
+                  "toolbar": { "id": "624541" },
+                  "toolbar_location": null,
+                  "width": 1000,
+                  "x_range": { "id": "624557" },
+                  "x_scale": { "id": "624522" },
+                  "y_range": { "id": "624520" },
+                  "y_scale": { "id": "624524" }
+                },
+                "id": "624515",
+                "subtype": "Figure",
+                "type": "Plot"
+              },
+              { "attributes": {}, "id": "624560", "type": "DataRange1d" },
+              {
+                "attributes": {
+                  "active_scroll": { "id": "624539" },
+                  "tools": [
+                    { "id": "624534" },
+                    { "id": "624535" },
+                    { "id": "624536" },
+                    { "id": "624537" },
+                    { "id": "624538" },
+                    { "id": "624539" }
+                  ]
+                },
+                "id": "624541",
+                "type": "Toolbar"
+              },
+              {
+                "attributes": {},
+                "id": "624553",
+                "type": "BasicTickFormatter"
+              },
+              { "attributes": {}, "id": "624554", "type": "AllLabels" },
+              { "attributes": {}, "id": "624562", "type": "LinearScale" },
+              {
+                "attributes": {
+                  "coordinates": null,
+                  "formatter": { "id": "624553" },
+                  "group": null,
+                  "major_label_policy": { "id": "624554" },
+                  "ticker": { "id": "624527" },
+                  "visible": false
+                },
+                "id": "624526",
+                "type": "LinearAxis"
+              },
+              { "attributes": {}, "id": "624567", "type": "BasicTicker" },
+              {
+                "attributes": {
+                  "axis": { "id": "624566" },
+                  "coordinates": null,
+                  "group": null,
+                  "ticker": null
+                },
+                "id": "624569",
+                "type": "Grid"
+              },
+              {
+                "attributes": {
+                  "children": [
+                    [{ "id": "624515" }, 0, 0],
+                    [{ "id": "624558" }, 1, 0]
+                  ]
+                },
+                "id": "624748",
+                "type": "GridBox"
+              },
+              { "attributes": {}, "id": "624575", "type": "SaveTool" },
+              {
+                "attributes": {
+                  "axis_label": "Outlier browser \n(1 S.D. from mean)",
+                  "coordinates": null,
+                  "formatter": { "id": "624590" },
+                  "group": null,
+                  "major_label_policy": { "id": "624594" },
+                  "ticker": { "id": "624588" }
+                },
+                "id": "624570",
+                "type": "LinearAxis"
+              },
+              {
+                "attributes": {
+                  "axis": { "id": "624570" },
+                  "coordinates": null,
+                  "dimension": 1,
+                  "group": null,
+                  "ticker": null
+                },
+                "id": "624573",
+                "type": "Grid"
+              },
+              { "attributes": {}, "id": "624579", "type": "WheelZoomTool" },
+              { "attributes": {}, "id": "624576", "type": "PanTool" },
+              { "attributes": {}, "id": "624574", "type": "CrosshairTool" },
+              {
+                "attributes": {
+                  "fill_alpha": 0.1,
+                  "fill_color": "#d02c91",
+                  "hatch_alpha": { "value": 0.1 },
+                  "hatch_color": { "value": "#d02c91" },
+                  "x": { "field": "x" },
+                  "y1": { "value": 0 },
+                  "y2": { "field": "kde_values" }
+                },
+                "id": "624688",
+                "type": "VArea"
+              },
+              {
+                "attributes": {
+                  "active_scroll": { "id": "624579" },
+                  "tools": [
+                    { "id": "624574" },
+                    { "id": "624575" },
+                    { "id": "624576" },
+                    { "id": "624577" },
+                    { "id": "624578" },
+                    { "id": "624579" },
+                    { "id": "624600" }
+                  ]
+                },
+                "id": "624581",
+                "type": "Toolbar"
+              },
+              {
+                "attributes": {
+                  "fill_alpha": 0.1,
+                  "fill_color": "#d02c91",
+                  "hatch_alpha": { "value": 0.1 },
+                  "x": { "field": "x" },
+                  "y1": { "value": 0 },
+                  "y2": { "field": "kde_values" }
+                },
+                "id": "624687",
+                "type": "VArea"
+              },
+              {
+                "attributes": {
+                  "click_policy": "mute",
+                  "coordinates": null,
+                  "group": null,
+                  "items": [
+                    { "id": "624620" },
+                    { "id": "624647" },
+                    { "id": "624676" },
+                    { "id": "624707" }
+                  ],
+                  "location": "top_left"
+                },
+                "id": "624619",
+                "type": "Legend"
+              },
+              {
+                "attributes": {
+                  "fill_alpha": 0.1,
+                  "fill_color": "#a6d96a",
+                  "hatch_alpha": { "value": 0.1 },
+                  "hatch_color": { "value": "#a6d96a" },
+                  "x": { "field": "x" },
+                  "y1": { "value": 0 },
+                  "y2": { "field": "kde_values" }
+                },
+                "id": "624632",
+                "type": "VArea"
+              },
+              {
+                "attributes": {
+                  "data": {
+                    "kde_values": {
+                      "__ndarray__": "txYYhBi4oT9rhZI1L0WfP8QtYbeNsJU/TKciSZzNiT/0xd2mFjyEP4inqigNC5E/z3TXAwNwpD+dzBITyaS7P3PF0Iec49Q/1UPJDDed7z+gv4CaDAcFQARmPFuk4BZAK0DQZT3CI0AJZfjsgcoqQGPpY3C1aixA+8GJkl+aJ0CzaRO93OYeQK5Zru1UOxBAEvfg33ym/D+bZyqEtX7nP0t4z3jnydQ/becd1dkXxj/ZIMFb0MC9Pzkmi67NiLo/s5qoq1N6vD8NFqokJKC+P26KZuRcmr0/XCZlZjJcuT9ipcPyc460P+1S+RNKs7E/hUcwsJhnsT8doCqti8CyP/DIuBRD8LM/2gnOmsX6sj9fJoiG5m2uP7Os59wfVaQ/mb+i/OxfmT8Wb+QXNXOVP5eDp3G+6Zw/B1p0AkqYpT+0TZIAOFKtP7supSSczrE/Wg7cZ9+Rsz+Yj0DqYVSzPz4KeI9o/bA/h2/ge3lmqz8ywbO843+mP7O9ULWQr6Q/EwlZMF3goz9tzzleR02hP2avD57pzpk/R/11GAqgkj96V2ndfyGSP2PCPo+ehZg/8jEZGjNLoD8hA9AufbyhPx0y/DUvQ54/03YX1IgPlD/RqNkl66GEP1vvdgcedXA/yGB3A0dcVD+uTYChrogzPzhfmhQdEQ0/Su+wWlLF4D63oayA+AOuPi49isls1HQ+0I/ANHRrNj65RNLPorbyPZ3D3kreOag98SQG00dSWD3rshFBbu8CPWb/f6lO3aY8+S5/aOZrRTxCpcHYXCEGPMfW5hiRDGc8nuzq+/OUxjyGgzvPTCghPZDuUAf3N3Q9i+HZiRF6wj3dkL1qQDAKPiIIRBUGyUw+PTVgIEGJiD7pds17BTjAPiFTTIzDoPA+OFvxVrdwGj/maEdZTU1AP5D1HV+aLV8/C/NxGPwedz/taibO3peKP/Nm6S5OuJc/FPAJDlhooD9Gw6gyWZuhPxao15OBW50/kpDZ4JpCkz/TvMU0HNyFP6j8gpq1moA/OmW1PS7GiD+iM5GKMpCVPwvXGMSzPp8/RKeZHZW3oT8=",
+                      "dtype": "float64",
+                      "order": "little",
+                      "shape": [100]
+                    },
+                    "x": {
+                      "__ndarray__": "JwryVUjpxr9ChuooIj3Fv14C4/v7kMO/en7bztXkwb+V+tOhrzjAv2HtmOkSGb2/mOWJj8bAub/P3Xo1emi2vwbWa9stELO/epy5AsNvr7/ojJtOKr+ov1R9fZqRDqK/iNu+zPG7lr/QeAXJgLWCvwCL5Q7EGXA/6IH1a6JnkT8IoTHU08iePxTgNp4CFaY/qO9UUpvFrD+efzkDGruxP2aHSF1mE7U/Lo9Xt7JruD/6lmYR/8O7P8KedWtLHL8/RVPC4ks6wT8p18kPcubCPw1b0TyYksQ/897Yab4+xj/XYuCW5OrHP7vm58MKl8k/oWrv8DBDyz+F7vYdV+/MP2ly/kp9m84/JvsCvNEj0D8YvYbS5PnQPwx/Cun3z9E//kCO/wqm0j/wAhIWHnzTP+LElSwxUtQ/1IYZQ0Qo1T/GSJ1ZV/7VP7gKIXBq1NY/qsykhn2q1z+cjiidkIDYP5BQrLOjVtk/ghIwyrYs2j901LPgyQLbP2aWN/fc2Ns/WFi7DfCu3D9KGj8kA4XdPzzcwjoWW94/Lp5GUSkx3z8QMOUzngPgPwoRJ7+nbuA/A/JoSrHZ4D/80qrVukThP/Wz7GDEr+E/7pQu7M0a4j/ndXB314XiP+BWsgLh8OI/2jf0jepb4z/TGDYZ9MbjP8z5d6T9MeQ/xdq5Lwed5D++u/u6EAjlP7ecPUYac+U/sH1/0SPe5T+pXsFcLUnmP6I/A+g2tOY/nCBFc0Af5z+VAYf+SYrnP47iyIlT9ec/h8MKFV1g6D+ApEygZsvoP3mFjitwNuk/cmbQtnmh6T9sRxJCgwzqP2QoVM2Md+o/XgmWWJbi6j9W6tfjn03rP1DLGW+puOs/Sqxb+rIj7D9CjZ2FvI7sPzxu3xDG+ew/NE8hnM9k7T8uMGMn2c/tPyYRpbLiOu4/IPLmPeyl7j8a0yjJ9RDvPxK0alT/e+8/DJWs3wjn7z8CO3c1CSnwP38rGPuNXvA/+xu5wBKU8D94DFqGl8nwP/T8+ksc//A/ce2bEaE08T/u3TzXJWrxP2rO3Zyqn/E/575+Yi/V8T8=",
+                      "dtype": "float64",
+                      "order": "little",
+                      "shape": [100]
+                    }
+                  },
+                  "selected": { "id": "624617" },
+                  "selection_policy": { "id": "624616" }
+                },
+                "id": "624602",
+                "type": "ColumnDataSource"
+              },
+              { "attributes": {}, "id": "624616", "type": "UnionRenderers" },
+              {
+                "attributes": {
+                  "bottom_units": "screen",
+                  "coordinates": null,
+                  "fill_alpha": 0.5,
+                  "fill_color": "lightgrey",
+                  "group": null,
+                  "left_units": "screen",
+                  "level": "overlay",
+                  "line_alpha": 1.0,
+                  "line_color": "black",
+                  "line_dash": [4, 4],
+                  "line_width": 2,
+                  "right_units": "screen",
+                  "syncable": false,
+                  "top_units": "screen"
+                },
+                "id": "624580",
+                "type": "BoxAnnotation"
+              },
+              {
+                "attributes": {
+                  "data": {
+                    "cell_ID": {
+                      "__ndarray__": "QwEAACsBAAClAAAAqQAAAOYEAADjBAAA8wcAAHAJAAA=",
+                      "dtype": "int32",
+                      "order": "little",
+                      "shape": [8]
+                    },
+                    "compound": [
+                      "PZA",
+                      "PZA",
+                      "PZA",
+                      "PZA",
+                      "PZA",
+                      "PZA",
+                      "PZA",
+                      "PZA"
+                    ],
+                    "concentration": [
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50"
+                    ],
+                    "dMtb": {
+                      "__ndarray__": "cm/Q7jXx3j/z/QaJrigGQKLLTZQHeuE/KPPSnXfv3L978H3CnsLcv2eOEXWabQVAg0kaL2/k4D+I3zivVjbVPw==",
+                      "dtype": "float64",
+                      "order": "little",
+                      "shape": [8]
+                    },
+                    "glimpse_url_t0": [
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_323.3.6_t0.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_299.3.6_t0.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_165.3.6_t0.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_169.3.6_t0.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1254.3.6_t7.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1251.3.6_t7.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2035.3.6_t19.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2416.3.6_t26.png"
+                    ],
+                    "glimpse_url_tn": [
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_323.3.6_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_299.3.6_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_165.3.6_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_169.3.6_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1254.3.6_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1251.3.6_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2035.3.6_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2416.3.6_t-1.png"
+                    ],
+                    "strain": ["WT", "WT", "WT", "WT", "WT", "WT", "WT", "WT"],
+                    "tech_rep": [1, 1, 1, 1, 1, 1, 1, 1],
+                    "x": {
+                      "__ndarray__": "cm/Q7jXx3j/z/QaJrigGQKLLTZQHeuE/KPPSnXfv3L978H3CnsLcv2eOEXWabQVAg0kaL2/k4D+I3zivVjbVPw==",
+                      "dtype": "float64",
+                      "order": "little",
+                      "shape": [8]
+                    },
+                    "y": {
+                      "__ndarray__": "pn9JKlPMwT+k/KTap+PBP+RmuAGfH8I/fZHQlnMpwj9vRzgteNHDP8aIRKFl3cM/TihEwCFUxT/nGJC93v3FPw==",
+                      "dtype": "float64",
+                      "order": "little",
+                      "shape": [8]
+                    }
+                  },
+                  "name": "WT, PZA, EC50",
+                  "selected": { "id": "624743" },
+                  "selection_policy": { "id": "624742" }
+                },
+                "id": "624677",
+                "type": "ColumnDataSource"
+              },
+              { "attributes": {}, "id": "624644", "type": "UnionRenderers" },
+              {
+                "attributes": {
+                  "label": { "value": "WT, BDQ, EC50" },
+                  "renderers": [{ "id": "624607" }]
+                },
+                "id": "624620",
+                "type": "LegendItem"
+              },
+              { "attributes": {}, "id": "624645", "type": "Selection" },
+              {
+                "attributes": {
+                  "fill_alpha": { "value": 0.9 },
+                  "fill_color": { "value": "#f1b6da" },
+                  "hatch_alpha": { "value": 0.9 },
+                  "hatch_color": { "value": "#f1b6da" },
+                  "line_alpha": { "value": 0.9 },
+                  "size": { "value": 20 },
+                  "x": { "field": "x" },
+                  "y": { "field": "y" }
+                },
+                "id": "624679",
+                "type": "Scatter"
+              },
+              {
+                "attributes": { "source": { "id": "624677" } },
+                "id": "624683",
+                "type": "CDSView"
+              },
+              {
+                "attributes": {
+                  "fill_alpha": { "value": 0.1 },
+                  "fill_color": { "value": "#f1b6da" },
+                  "hatch_alpha": { "value": 0.1 },
+                  "hatch_color": { "value": "#f1b6da" },
+                  "line_alpha": { "value": 0.1 },
+                  "size": { "value": 20 },
+                  "x": { "field": "x" },
+                  "y": { "field": "y" }
+                },
+                "id": "624680",
+                "type": "Scatter"
+              },
+              {
+                "attributes": {
+                  "coordinates": null,
+                  "data_source": { "id": "624677" },
+                  "glyph": { "id": "624679" },
+                  "group": null,
+                  "hover_glyph": null,
+                  "muted_glyph": { "id": "624681" },
+                  "nonselection_glyph": { "id": "624680" },
+                  "view": { "id": "624683" }
+                },
+                "id": "624682",
+                "type": "GlyphRenderer"
+              },
+              {
+                "attributes": {
+                  "fill_alpha": { "value": 0.1 },
+                  "fill_color": { "value": "#f1b6da" },
+                  "hatch_alpha": { "value": 0.1 },
+                  "hatch_color": { "value": "#f1b6da" },
+                  "line_alpha": { "value": 0.1 },
+                  "line_color": { "value": "#f1b6da" },
+                  "size": { "value": 20 },
+                  "x": { "field": "x" },
+                  "y": { "field": "y" }
+                },
+                "id": "624681",
+                "type": "Scatter"
+              },
+              {
+                "attributes": {
+                  "toolbar": { "id": "624749" },
+                  "toolbar_location": "above"
+                },
+                "id": "624750",
+                "type": "ToolbarBox"
+              },
+              {
+                "attributes": {
+                  "below": [{ "id": "624566" }],
+                  "center": [{ "id": "624569" }, { "id": "624573" }],
+                  "height": 200,
+                  "left": [{ "id": "624570" }],
+                  "renderers": [
+                    { "id": "624626" },
+                    { "id": "624653" },
+                    { "id": "624682" },
+                    { "id": "624713" }
+                  ],
+                  "title": { "id": "624592" },
+                  "toolbar": { "id": "624581" },
+                  "toolbar_location": null,
+                  "width": 1000,
+                  "x_range": { "id": "624557" },
+                  "x_scale": { "id": "624562" },
+                  "y_range": { "id": "624560" },
+                  "y_scale": { "id": "624564" }
+                },
+                "id": "624558",
+                "subtype": "Figure",
+                "type": "Plot"
+              },
+              {
+                "attributes": { "format": "0" },
+                "id": "624590",
+                "type": "NumeralTickFormatter"
+              },
+              {
+                "attributes": {
+                  "fill_alpha": 0.6,
+                  "fill_color": "#d02c91",
+                  "hatch_alpha": { "value": 0.6 },
+                  "x": { "field": "x" },
+                  "y1": { "value": 0 },
+                  "y2": { "field": "kde_values" }
+                },
+                "id": "624686",
+                "type": "VArea"
+              },
+              { "attributes": {}, "id": "624704", "type": "UnionRenderers" },
+              {
+                "attributes": {
+                  "data": {
+                    "cell_ID": {
+                      "__ndarray__": "UgEAAA0CAACgAAAAKwAAADEBAACwAAAAsgAAAJcCAAA3AwAAiQMAAHwDAAC9AwAASwUAAFUFAAAmBQAAGwcAANAHAAAJCAAAKAgAAHAIAAA=",
+                      "dtype": "int32",
+                      "order": "little",
+                      "shape": [20]
+                    },
+                    "compound": [
+                      "RIF",
+                      "RIF",
+                      "RIF",
+                      "RIF",
+                      "RIF",
+                      "RIF",
+                      "RIF",
+                      "RIF",
+                      "RIF",
+                      "RIF",
+                      "RIF",
+                      "RIF",
+                      "RIF",
+                      "RIF",
+                      "RIF",
+                      "RIF",
+                      "RIF",
+                      "RIF",
+                      "RIF",
+                      "RIF"
+                    ],
+                    "concentration": [
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50"
+                    ],
+                    "dMtb": {
+                      "__ndarray__": "54vDpAsOwb+CeKvFfAm1v2xqe9xoE9a/x4Mm3/y9rz9eb8KO+h7mPxBP3Pjk5LY/mbGmbzGrsj8jC2Qd0N3AP4QHD2wEF64/Uz7SGws70L/xhWQExR29Pz9XJal0fLg/Rynch+ULwD9vChSZYKOxP83mzhS+66w/oX+ODjtlsL+6pbRhlJS9Pye1LChjLeA/YqjFzZJJrj9zZv9ylAGwPw==",
+                      "dtype": "float64",
+                      "order": "little",
+                      "shape": [20]
+                    },
+                    "glimpse_url_t0": [
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_338.3.7_t0.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_525.3.7_t0.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_160.3.7_t0.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_43.3.7_t0.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_305.3.7_t0.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_176.3.7_t0.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_178.3.7_t0.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_663.3.7_t1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_823.3.7_t2.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_905.3.7_t3.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_892.3.7_t3.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_957.3.7_t4.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1355.3.7_t9.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1365.3.7_t9.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1318.3.7_t9.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1819.3.7_t17.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2000.3.7_t20.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2057.3.7_t21.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2088.3.7_t22.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2160.3.7_t23.png"
+                    ],
+                    "glimpse_url_tn": [
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_338.3.7_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_525.3.7_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_160.3.7_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_43.3.7_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_305.3.7_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_176.3.7_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_178.3.7_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_663.3.7_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_823.3.7_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_905.3.7_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_892.3.7_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_957.3.7_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1355.3.7_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1365.3.7_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1318.3.7_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1819.3.7_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2000.3.7_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2057.3.7_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2088.3.7_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2160.3.7_t-1.png"
+                    ],
+                    "strain": [
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT"
+                    ],
+                    "tech_rep": [
+                      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+                    ],
+                    "x": {
+                      "__ndarray__": "54vDpAsOwb+CeKvFfAm1v2xqe9xoE9a/x4Mm3/y9rz9eb8KO+h7mPxBP3Pjk5LY/mbGmbzGrsj8jC2Qd0N3AP4QHD2wEF64/Uz7SGws70L/xhWQExR29Pz9XJal0fLg/Rynch+ULwD9vChSZYKOxP83mzhS+66w/oX+ODjtlsL+6pbRhlJS9Pye1LChjLeA/YqjFzZJJrj9zZv9ylAGwPw==",
+                      "dtype": "float64",
+                      "order": "little",
+                      "shape": [20]
+                    },
+                    "y": {
+                      "__ndarray__": "TZ8dcF0xxz+Kdap8z0jIP2o0uRgD68g/MbYQ5KCEyT+K6NfWT//JP5+qQgOxbMo/murJ/KNvyj94R8Zq8//KP7yS5Lm+D8s/PuqvV1hwyz/erwJ8t3nLP5pDUgslk8s/fxKfO8H+yz+YT1YMVwfMPyxmhLcHIcw/jGoRUUzezD+RCfg1kgTNP8hD393KEs0/C7Q7pBggzT/+1eO+1TrNPw==",
+                      "dtype": "float64",
+                      "order": "little",
+                      "shape": [20]
+                    }
+                  },
+                  "name": "WT, RIF, EC50",
+                  "selected": { "id": "624745" },
+                  "selection_policy": { "id": "624744" }
+                },
+                "id": "624708",
+                "type": "ColumnDataSource"
+              },
+              {
+                "attributes": {
+                  "coordinates": null,
+                  "group": null,
+                  "text": "Histogram showing the distribution of the change in intracellular Mtb (\u0394Mtb)"
+                },
+                "id": "624516",
+                "type": "Title"
+              },
+              {
+                "attributes": {
+                  "fill_alpha": { "value": 0.9 },
+                  "fill_color": { "value": "#d02c91" },
+                  "hatch_alpha": { "value": 0.9 },
+                  "hatch_color": { "value": "#d02c91" },
+                  "line_alpha": { "value": 0.9 },
+                  "size": { "value": 20 },
+                  "x": { "field": "x" },
+                  "y": { "field": "y" }
+                },
+                "id": "624710",
+                "type": "Scatter"
+              },
+              { "attributes": {}, "id": "624705", "type": "Selection" },
+              {
+                "attributes": { "source": { "id": "624708" } },
+                "id": "624714",
+                "type": "CDSView"
+              },
+              {
+                "attributes": {
+                  "fill_alpha": { "value": 0.1 },
+                  "fill_color": { "value": "#d02c91" },
+                  "hatch_alpha": { "value": 0.1 },
+                  "hatch_color": { "value": "#d02c91" },
+                  "line_alpha": { "value": 0.1 },
+                  "size": { "value": 20 },
+                  "x": { "field": "x" },
+                  "y": { "field": "y" }
+                },
+                "id": "624711",
+                "type": "Scatter"
+              },
+              {
+                "attributes": {
+                  "coordinates": null,
+                  "data_source": { "id": "624708" },
+                  "glyph": { "id": "624710" },
+                  "group": null,
+                  "hover_glyph": null,
+                  "muted_glyph": { "id": "624712" },
+                  "nonselection_glyph": { "id": "624711" },
+                  "view": { "id": "624714" }
+                },
+                "id": "624713",
+                "type": "GlyphRenderer"
+              },
+              { "attributes": {}, "id": "624527", "type": "BasicTicker" },
+              {
+                "attributes": {
+                  "fill_alpha": { "value": 0.1 },
+                  "fill_color": { "value": "#d02c91" },
+                  "hatch_alpha": { "value": 0.1 },
+                  "hatch_color": { "value": "#d02c91" },
+                  "line_alpha": { "value": 0.1 },
+                  "line_color": { "value": "#d02c91" },
+                  "size": { "value": 20 },
+                  "x": { "field": "x" },
+                  "y": { "field": "y" }
+                },
+                "id": "624712",
+                "type": "Scatter"
+              },
+              {
+                "attributes": {
+                  "label": { "value": "WT, INH, EC50" },
+                  "renderers": [{ "id": "624633" }]
+                },
+                "id": "624647",
+                "type": "LegendItem"
+              },
+              { "attributes": {}, "id": "624738", "type": "UnionRenderers" },
+              {
+                "attributes": {
+                  "coordinates": null,
+                  "data_source": { "id": "624655" },
+                  "glyph": { "id": "624657" },
+                  "group": null,
+                  "hover_glyph": null,
+                  "muted_glyph": { "id": "624659" },
+                  "nonselection_glyph": { "id": "624658" },
+                  "view": { "id": "624661" }
+                },
+                "id": "624660",
+                "type": "GlyphRenderer"
+              },
+              {
+                "attributes": {
+                  "fill_alpha": 0.6,
+                  "fill_color": "#f1b6da",
+                  "hatch_alpha": { "value": 0.6 },
+                  "x": { "field": "x" },
+                  "y1": { "value": 0 },
+                  "y2": { "field": "kde_values" }
+                },
+                "id": "624657",
+                "type": "VArea"
+              },
+              { "attributes": {}, "id": "624739", "type": "Selection" },
+              {
+                "attributes": {
+                  "fill_alpha": 0.1,
+                  "fill_color": "#f1b6da",
+                  "hatch_alpha": { "value": 0.1 },
+                  "hatch_color": { "value": "#f1b6da" },
+                  "x": { "field": "x" },
+                  "y1": { "value": 0 },
+                  "y2": { "field": "kde_values" }
+                },
+                "id": "624659",
+                "type": "VArea"
+              },
+              {
+                "attributes": { "source": { "id": "624655" } },
+                "id": "624661",
+                "type": "CDSView"
+              },
+              { "attributes": {}, "id": "624617", "type": "Selection" },
+              {
+                "attributes": {
+                  "coordinates": null,
+                  "data_source": { "id": "624628" },
+                  "glyph": { "id": "624630" },
+                  "group": null,
+                  "hover_glyph": null,
+                  "muted_glyph": { "id": "624632" },
+                  "nonselection_glyph": { "id": "624631" },
+                  "view": { "id": "624634" }
+                },
+                "id": "624633",
+                "type": "GlyphRenderer"
+              },
+              {
+                "attributes": {
+                  "data": {
+                    "kde_values": {
+                      "__ndarray__": "xFD2RnsSoD9tUIB4hmubP6KxZjrWh5A/ZWZt4LoyfD+NpnHx23lhP1sq479JCkw/sg+m1GGyYT+pqOJ31xuCPzK4YKdFc6I/em50Jxgpwz+vefIpNAbiPzVimf1l6vo/SO+Ug+bSDUCfwtFRgeMXQIYDNozJahtAEyPNIq6FFkD9zL/uU6sKQHVu9G63Ufc/6vAwreIo4D+XIvCR6P/EP5r9W9896q8/4tuDQbRsnj+WzXOiAxCTP7FYvwglNpE/mX+kGUB/kT+tHYkceW6PP5CKqWszE4w/IObi0GulkT8+pn1XMMSbP5JH9ggOgaM/FFIT1eGYpT9YsNGS3zyiP7wpswusEJc/GHfbyJKBhT/x11TH+jNtPzMVehKRnkw/mj80UD8fJD9NujrZjjj0Phyh3Gj097w+tYLYhXyHfT6bb2J1+2M1PrE2m1FGAOY9jM9Ej4UNkD1ABglidZswPb2aGD/uWMg8xIYc+tlHWTz+YJj5hJXiO1LsHyxeVmM7KsjCtTN53DpUW7s3X6hNOo8LvpEB2bU5H1u0OPfCFjk7If1nMsRwOGRFAYROdsE3LPYI0z+2CTdlAEnjkMJKNo8Lx0Y+r4M1wqIwdpd3tDSgQXZeORTeMxmFctYuPf8y23vn30jtFjIG9Zv448cnMb4030cjbjEwKNWqyU4OMi8UaTgpFClUL5u+HDWXklIw0LjpWbEtSDHlpBUqeT02Mqr/NgGd6BwznsTAWeSM+jN5F7dSrTrRNJiWOqFTmZ812KkgK1V5ZDbezCM9B78iNwnpYi9dQdg3nMlK5qkshjjyNLHWq6UsOZ2jcBFAJso53KNO9IXdYDqHCR7VFr7uOkxyi6YezHM7qVOkGBME8js0OFhxACtnPC7PqoMMDdU8EpLDVpAHOz21Edf1qoWYPcofbrpDcO89xko8PJx6PD6KsB7kgjqCPmqs+UZBfcA+oxn6BEkV9T5GGyk4BA8jP3ONB3TrYkg/wWQAf60kZj93VWF4grx8P5N5uDKnHYs/MunqoOlYkz+yi4ejU2SWP8efWH4WpJY/YkVfqBgtlD8=",
+                      "dtype": "float64",
+                      "order": "little",
+                      "shape": [100]
+                    },
+                    "x": {
+                      "__ndarray__": "KPPSnXfv3L8pcj/uPtravynxqz4Gxdi/KnAYj82v1r8q74TflJrUvytu8S9chdK/LO1dgCNw0L9Z2JSh1bXMv1rWbUJki8i/XNRG4/JgxL9c0h+EgTbAv7yg8UkgGLi/gDlHF3uGr78AY1Y1a7mdv4BnDR/+0Gw/eN6MXtV2oj84c5RtTZCxPzh34isw5bk/mD0YdQkdwT+YPz/UekfFP5hBZjPscck/lEONkl2czT/KItp4Z+PQP8qjbSig+NI/yCQB2NgN1T/IpZSHESPXP8gmKDdKONk/yKe75oJN2z/GKE+Wu2LdP8ap4kX0d98/YxW7epbG4D/i1YTSMtHhP2KWTirP2+I/4lYYgmvm4z9iF+LZB/HkP+LXqzGk++U/YJh1iUAG5z/gWD/h3BDoP2AZCTl5G+k/4NnSkBUm6j9gmpzosTDrP+BaZkBOO+w/XhswmOpF7T/e2/nvhlDuP16cw0cjW+8/b67Gz98y8D+vjqv7LbjwP+9ukCd8PfE/Lk91U8rC8T9uL1p/GEjyP64PP6tmzfI/7u8j17RS8z8u0AgDA9jzP26w7S5RXfQ/rpDSWp/i9D/tcLeG7Wf1Py1RnLI77fU/bTGB3oly9j+tEWYK2Pf2P+3xSjYmffc/LdIvYnQC+D9sshSOwof4P6yS+bkQDfk/7HLe5V6S+T8sU8MRrRf6P2wzqD37nPo/rBONaUki+z/s83GVl6f7PyzUVsHlLPw/bLQ77TOy/D+slCAZgjf9P+p0BUXQvP0/KlXqcB5C/j9qNc+cbMf+P6oVtMi6TP8/6vWY9AjS/z8V6z6QqysAQDVbMaZSbgBAVcsjvPmwAEB1OxbSoPMAQJWrCOhHNgFAtRv7/e54AUDVi+0TlrsBQPX73yk9/gFAFGzSP+RAAkA03MRVi4MCQFRMt2syxgJAdLypgdkIA0CULJyXgEsDQLScjq0njgNA1AyBw87QA0D0fHPZdRMEQBTtZe8cVgRANF1YBcSYBEBUzUoba9sEQHQ9PTESHgVAk60vR7lgBUCzHSJdYKMFQNONFHMH5gVA8/0Gia4oBkA=",
+                      "dtype": "float64",
+                      "order": "little",
+                      "shape": [100]
+                    }
+                  },
+                  "selected": { "id": "624674" },
+                  "selection_policy": { "id": "624673" }
+                },
+                "id": "624655",
+                "type": "ColumnDataSource"
+              },
+              {
+                "attributes": {
+                  "fill_alpha": 0.1,
+                  "fill_color": "#f1b6da",
+                  "hatch_alpha": { "value": 0.1 },
+                  "x": { "field": "x" },
+                  "y1": { "value": 0 },
+                  "y2": { "field": "kde_values" }
+                },
+                "id": "624658",
+                "type": "VArea"
+              },
+              {
+                "attributes": {
+                  "fill_alpha": 0.1,
+                  "fill_color": "#1a9641",
+                  "hatch_alpha": { "value": 0.1 },
+                  "x": { "field": "x" },
+                  "y1": { "value": 0 },
+                  "y2": { "field": "kde_values" }
+                },
+                "id": "624605",
+                "type": "VArea"
+              },
+              { "attributes": {}, "id": "624740", "type": "UnionRenderers" },
+              {
+                "attributes": { "source": { "id": "624602" } },
+                "id": "624608",
+                "type": "CDSView"
+              },
+              {
+                "attributes": {
+                  "fill_alpha": 0.1,
+                  "fill_color": "#1a9641",
+                  "hatch_alpha": { "value": 0.1 },
+                  "hatch_color": { "value": "#1a9641" },
+                  "x": { "field": "x" },
+                  "y1": { "value": 0 },
+                  "y2": { "field": "kde_values" }
+                },
+                "id": "624606",
+                "type": "VArea"
+              },
+              { "attributes": {}, "id": "624741", "type": "Selection" },
+              {
+                "attributes": {
+                  "data": {
+                    "kde_values": {
+                      "__ndarray__": "iNFJ38xfsD9UldfWaRWqP9LZpqB3XJo/848crUb5gD8rQiErjf9gP1WNGwODCGg/xHz8bTYxiD/cMJq4OqGgP0kl8savDK0/jEdOYasYsD8As1MT5KGmP3u6NVgNMJQ/PTO3vNLYdj+/Yth4BGlQP7VwoUvELiA/fQ8gNyrhIT99ILf8xwpSPwFtu8EVkXg/kB/bsIA6lT/emUYxnkenP75MM9L7OrA/1bWW3UlKrT9PDLsO+86jP0leCbWnyqI/5LuJrlNgrz84DoHMxjK4Py2IdJckAr0/KxZmId73vz+w1YuKYmbNPysQEK0atus/tx4m/dEeC0CtLFqzI3cjQBchWEBSpTJAh7S+pjA9N0AOaFiTHdIyQI4THg+pMyRAl4bQxSsFD0D4BaNCd6b2P6NexTAuROo/T+tIHxcq5T8W0U2OC57fP0vFT5nyvdU/IVgsuDPz0D/4Je+ynWjQP/BpdZ0y2dA/3C0vRCALzj/YGw+Qn4XEP6p98j6SH7Q/REJ2mZNCmz+yQVf8i9Z4P+1EZ8rC300/lvOc4odpFz/iRMk7w7XXPtlWBIDj244+dJr7kRO3OT4RLmj1ZV/bPeKh3NnNk3I92P/WBbgOAD3Ua7BrCKmBPBv3hMtssvg7V/RcOTryZTuwG4uaPcbIOvOBZdU/wiE6NB2Nc/gvcDkP3vSGmrKTOWgVVBFhs0M6id7DWUIA6TrgkFTvnCCEO3WMq0MZjxQ8rYI4td2kmjyMxj6dyecVPdXmnYye2YY9NDKV8+Y97j11M5ZCIGRJPsc4dDRdDJs+J71MjWtH4j4LWbcGgVgfPwwyAjHXDFE/fbteI6mIdz+66uAuWJuUP33q6JO/5KY/Bu2xXpAisD+1VjJDMtusPzt5rQ2UXqA/4yRqjkqQhz8vQDC5pIRlP/T70daA7jg/lYTO9EdTAj9uWZNu+hbBPg+lY08sOXQ+7q3j4DGdJD6YJmV+KUZgPs2kF2M4264+Whbey86S8j72ARODqV4sP2ESGIBofVs/19HkvfjlgD81ra9K5luaP6C4tSBnFao/irAS18xfsD8=",
+                      "dtype": "float64",
+                      "order": "little",
+                      "shape": [100]
+                    },
+                    "x": {
+                      "__ndarray__": "bGp73GgT1r/EEXHK62fVvxu5ZrhuvNS/cmBcpvEQ1L/KB1KUdGXTvyKvR4L3udK/eVY9cHoO0r/Q/TJe/WLRvyilKEyAt9C/gEweOgMM0L+u5ydQDMHOv102EywSas2/DIX+BxgTzL+70+njHbzKv2oi1b8jZcm/GXHAmykOyL/Iv6t3L7fGv3cOl1M1YMW/Jl2CLzsJxL/Vq20LQbLCv4T6WOdGW8G/M0lEw0wEwL/EL18+pVq9vyLNNfawrLq/gGoMrrz+t7/gB+NlyFC1vzyluR3UorK/MIUgq7/pr7/wv80a142qv7D6eoruMaW/0GpQ9Ausn79A4KrTOvSUv4CrCmbTeIS/ADANaNvZPj+gfosccWaGP+BJ664J65U/MGrIZ21RoD9wLxv4Va2lP7j0bYg+Cas/AF1gjJMysD+gv4nUh+CyP0Aisxx8jrU/5ITcZHA8uD+I5wWtZOq6PyhKL/VYmL0/ZFasniYjwD+2B8HCIHrBPwi51eYa0cI/WGrqChUoxD+oG/8uD3/FP/jME1MJ1sY/TH4odwMtyD+cLz2b/YPJP+zgUb/32so/QJJm4/ExzD+QQ3sH7IjNP+D0jyvm384/GFPSJ3Ab0D/Aq9w57cbQP2oE50tqctE/El3xXecd0j+6tftvZMnSP2QOBoLhdNM/DGcQlF4g1D+0vxqm28vUP1wYJbhYd9U/BHEvytUi1j+uyTncUs7WP1YiRO7Pedc//npOAE0l2D+o01gSytDYP1AsYyRHfNk/+IRtNsQn2j+g3XdIQdPaP0g2glq+fts/8o6MbDsq3D+a55Z+uNXcP0JAoZA1gd0/7JirorIs3j+U8bW0L9jePzxKwMasg98/clFl7JQX4D/GfWp1U23gPxuqb/4Rw+A/b9Z0h9AY4T/DAnoQj27hPxgvf5lNxOE/bFuEIgwa4j/Ah4mrym/iPxS0jjSJxeI/aOCTvUcb4z+9DJlGBnHjPxE5ns/ExuM/ZWWjWIMc5D+6kajhQXLkPw6+rWoAyOQ/Yuqy874d5T+2Frh8fXPlPwpDvQU8yeU/Xm/Cjvoe5j8=",
+                      "dtype": "float64",
+                      "order": "little",
+                      "shape": [100]
+                    }
+                  },
+                  "selected": { "id": "624705" },
+                  "selection_policy": { "id": "624704" }
+                },
+                "id": "624684",
+                "type": "ColumnDataSource"
+              },
+              {
+                "attributes": {
+                  "data": {
+                    "cell_ID": {
+                      "__ndarray__": "dAEAAFcCAABLAQAABwMAANQCAACJAwAARwMAAAcHAADeBwAAYAgAAJoIAAD1CQAA",
+                      "dtype": "int32",
+                      "order": "little",
+                      "shape": [12]
+                    },
+                    "compound": [
+                      "INH",
+                      "INH",
+                      "INH",
+                      "INH",
+                      "INH",
+                      "INH",
+                      "INH",
+                      "INH",
+                      "INH",
+                      "INH",
+                      "INH",
+                      "INH"
+                    ],
+                    "concentration": [
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50",
+                      "EC50"
+                    ],
+                    "dMtb": {
+                      "__ndarray__": "wxasyuDy5D/0L2ti7qLHP0IHjUtMid0/ULJM/0to+D9XjxYsxhMBQEh+haHreck/iqMrwYmh6D9x1/MbdGX+v6W4YsijXtE/c9OIwFBdzT+plZM+1U7TPwSJjK1RJcw/",
+                      "dtype": "float64",
+                      "order": "little",
+                      "shape": [12]
+                    },
+                    "glimpse_url_t0": [
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_372.3.8_t0.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_599.3.8_t0.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_331.3.8_t0.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_775.3.8_t1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_724.3.8_t1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_905.3.8_t2.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_839.3.8_t2.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1799.3.8_t14.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2014.3.8_t19.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2144.3.8_t21.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2202.3.8_t23.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2549.3.8_t30.png"
+                    ],
+                    "glimpse_url_tn": [
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_372.3.8_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_599.3.8_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_331.3.8_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_775.3.8_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_724.3.8_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_905.3.8_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_839.3.8_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_1799.3.8_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2014.3.8_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2144.3.8_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2202.3.8_t-1.png",
+                      "https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_glimpses/glimpse_2549.3.8_t-1.png"
+                    ],
+                    "strain": [
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT",
+                      "WT"
+                    ],
+                    "tech_rep": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                    "x": {
+                      "__ndarray__": "wxasyuDy5D/0L2ti7qLHP0IHjUtMid0/ULJM/0to+D9XjxYsxhMBQEh+haHreck/iqMrwYmh6D9x1/MbdGX+v6W4YsijXtE/c9OIwFBdzT+plZM+1U7TPwSJjK1RJcw/",
+                      "dtype": "float64",
+                      "order": "little",
+                      "shape": [12]
+                    },
+                    "y": {
+                      "__ndarray__": "7bsi+N9Kzj8jERrBxvXPP/5IERlW8dA/mpMXmYBf0T8HCObo8XvRP1FpxMw+j9E/vt2SHLCr0T9vD0JAvoTSP6ncRC3NrdI/8N3mjZPC0j8+esN95NbSP9ZSQNr/ANM/",
+                      "dtype": "float64",
+                      "order": "little",
+                      "shape": [12]
+                    }
+                  },
+                  "name": "WT, INH, EC50",
+                  "selected": { "id": "624741" },
+                  "selection_policy": { "id": "624740" }
+                },
+                "id": "624648",
+                "type": "ColumnDataSource"
+              },
+              {
+                "attributes": {
+                  "fill_alpha": { "value": 0.9 },
+                  "fill_color": { "value": "#a6d96a" },
+                  "hatch_alpha": { "value": 0.9 },
+                  "hatch_color": { "value": "#a6d96a" },
+                  "line_alpha": { "value": 0.9 },
+                  "size": { "value": 20 },
+                  "x": { "field": "x" },
+                  "y": { "field": "y" }
+                },
+                "id": "624650",
+                "type": "Scatter"
+              },
+              {
+                "attributes": { "source": { "id": "624648" } },
+                "id": "624654",
+                "type": "CDSView"
+              },
+              {
+                "attributes": {
+                  "data": {
+                    "kde_values": {
+                      "__ndarray__": "onmNyjGIkj+E2rmNWZ2JP+wnp9PI6HA/SxblfEdTRT/cXX/arLAJP8qN8YD3j70+TYL8elU/YD6O0VJ/Kw/xPe7cUmEKHHE91Ew8fDdk4DzYND8oJQA+PDNxMZ6OOYo7hS/qFc3lxTpCB7MPNHfxObnKvBkSnQo5co9Ttk1eEzg885Aavu0KN/OU+Q634fE1w5w4i0yvxjTtaVFDOX2LM7Bjyxe80T8yFHOX5EyX4TB1HYBhe+p6L5g/HOOsi9AwioCbl45lLzKu/pe+WHx8MyuN9W6Mt7g0vezIjIqD5DUZgvo8gkkAN/SXuCjBvgg4JhEmJRn9ATmr0YkKigjpOd1Qy+EJrcA68h0Z9atGhTtmg+XXDwE6PMGCGqYRdt48AWeFAGIccT2CR7/W9XTyPXlOphRgJ2M+mUVYM3g1wz5uhqmRMtsSP6db8SIE/VI/5Psr1SRGhz96PYSpcUC4P8B5crM0r+U/zhcUwCXOB0CnIAXvr+gaQMX2R+1gER5AAt20M+7XEECGu6B8hdb0P/0vHogOnNQ/JkDDC01dwT9QjeSt7G65P8576T/53bI/yLyxrCOkpz+s3gDgRhKWP+UCs2kqpYQ/x6Py6phRjD/ve4U935KSP1zBylELx4g/qGN3OzW3dD+Aunnww298P/1Z+/Zsr48/cNAKyvmskz8dAWnA88WRP4z8uG3XZ5M/NX0e/YtAkT9RYkzxbkmAPyYQz6lny10/ZA0tHBgUKj9DxkfK+s7lPtP956bha5E+AOfisFeWKj4KBJZwFGGzPb4leJ5y/Co9wJ3Tqwxu2Dx7xj1mLURpPZv/No2RKeo9mHwsM4TgWT7NROCm03K4PpbfwvWAEAY/84cB+WYFQz/AAuf7ilNvPzx3gYcNpIg/dKOpnZyDkj9T6PQkVpOKPymj7WknOHI/YhjzeMvcRz9/U2k6lNoNP4yIkveh1sE+A1+RffRcZD4jkvFlXUX2PfSeKxZMJvE9rBb/kVU/YD6HufGA94+9Ptxdf9qssAk/SxblfEdTRT/sJ6fTyOhwP4TauY1ZnYk/onmNyjGIkj8=",
+                      "dtype": "float64",
+                      "order": "little",
+                      "shape": [100]
+                    },
+                    "x": {
+                      "__ndarray__": "cdfzG3Rl/r/gLJ7KiL79v0+CSHmdF/2/vtfyJ7Jw/L8sLZ3Wxsn7v5uCR4XbIvu/CtjxM/B7+r95LZziBNX5v+iCRpEZLvm/V9jwPy6H+L/GLZvuQuD3vzSDRZ1XOfe/pNjvS2yS9r8SLpr6gOv1v4GDRKmVRPW/8NjuV6qd9L9fLpkGv/bzv86DQ7XTT/O/PdntY+io8r+sLpgS/QHyvxqEQsERW/G/itnsbya08L/4LpceOw3wv84Ig5qfzO6/rLPX98h+7b+KXixV8jDsv2gJgbIb4+q/RrTVD0WV6b8iXyptbkfovwAKf8qX+ea/3rTTJ8Gr5b+8XyiF6l3kv5oKfeITEOO/eLXRPz3C4b9WYCadZnTgv2gW9vQfTd6/JGyfr3Kx27/cwUhqxRXZv5gX8iQYeta/VG2b32re078Qw0SavULRv5gx3KkgTs2/EN0uH8YWyL+IiIGUa9/Cv/BnqBMiULu/4L5N/mzhsL9AV8yj38qZvwCaPGPp348/oHiEg2TVrD9g5RxXZ9m4PzjHOzYOpME/yBvpwGjbxj9IcJZLwxLMP2ziIesOpdA/rIx4MLxA0z/0Ns91adzVPzzhJbsWeNg/fIt8AMQT2z/ENdNFca/dPwLwlEWPJeA/JkVA6GVz4T9GmuuKPMHiP2rvli0TD+Q/ikRC0Olc5T+ume1ywKrmP9LumBWX+Oc/8kNEuG1G6T8Wme9aRJTqPzbumv0a4us/WkNGoPEv7T96mPFCyH3uP57tnOWey+8/XyEkxLqM8D/xy3kVpjPxP4N2z2aR2vE/EyEluHyB8j+ly3oJaCjzPzV20FpTz/M/xyAmrD529D9Xy3v9KR31P+l10U4VxPU/eyAnoABr9j8Ly3zx6xH3P5110kLXuPc/LSAolMJf+D+/yn3lrQb5P0910zaZrfk/4R8piIRU+j9zyn7Zb/v6PwN11Cpbovs/lR8qfEZJ/D8lyn/NMfD8P7d01R4dl/0/Rx8rcAg+/j/ZyYDB8+T+P2l01hLfi/8/fg8WMmUZAEDG5MDa2mwAQA66a4NQwABAV48WLMYTAUA=",
+                      "dtype": "float64",
+                      "order": "little",
+                      "shape": [100]
+                    }
+                  },
+                  "selected": { "id": "624645" },
+                  "selection_policy": { "id": "624644" }
+                },
+                "id": "624628",
+                "type": "ColumnDataSource"
+              },
+              {
+                "attributes": {
+                  "fill_alpha": { "value": 0.1 },
+                  "fill_color": { "value": "#a6d96a" },
+                  "hatch_alpha": { "value": 0.1 },
+                  "hatch_color": { "value": "#a6d96a" },
+                  "line_alpha": { "value": 0.1 },
+                  "size": { "value": 20 },
+                  "x": { "field": "x" },
+                  "y": { "field": "y" }
+                },
+                "id": "624651",
+                "type": "Scatter"
+              },
+              {
+                "attributes": {
+                  "bottom_units": "screen",
+                  "coordinates": null,
+                  "fill_alpha": 0.5,
+                  "fill_color": "lightgrey",
+                  "group": null,
+                  "left_units": "screen",
+                  "level": "overlay",
+                  "line_alpha": 1.0,
+                  "line_color": "black",
+                  "line_dash": [4, 4],
+                  "line_width": 2,
+                  "right_units": "screen",
+                  "syncable": false,
+                  "top_units": "screen"
+                },
+                "id": "624540",
+                "type": "BoxAnnotation"
+              },
+              {
+                "attributes": {
+                  "axis": { "id": "624526" },
+                  "coordinates": null,
+                  "group": null,
+                  "ticker": null
+                },
+                "id": "624529",
+                "type": "Grid"
+              },
+              {
+                "attributes": {
+                  "fill_alpha": { "value": 0.1 },
+                  "fill_color": { "value": "#a6d96a" },
+                  "hatch_alpha": { "value": 0.1 },
+                  "hatch_color": { "value": "#a6d96a" },
+                  "line_alpha": { "value": 0.1 },
+                  "line_color": { "value": "#a6d96a" },
+                  "size": { "value": 20 },
+                  "x": { "field": "x" },
+                  "y": { "field": "y" }
+                },
+                "id": "624652",
+                "type": "Scatter"
+              },
+              {
+                "attributes": {
+                  "coordinates": null,
+                  "data_source": { "id": "624602" },
+                  "glyph": { "id": "624604" },
+                  "group": null,
+                  "hover_glyph": null,
+                  "muted_glyph": { "id": "624606" },
+                  "nonselection_glyph": { "id": "624605" },
+                  "view": { "id": "624608" }
+                },
+                "id": "624607",
+                "type": "GlyphRenderer"
+              }
+            ],
+            "root_ids": ["624751"]
+          },
+          "title": "Bokeh Application",
+          "version": "2.4.3"
+        }
+      }
+    </script>
+    <script type="text/javascript">
+      (function () {
+        const fn = function () {
+          Bokeh.safely(function () {
+            (function (root) {
+              function embed_document(root) {
+                const docs_json = document.getElementById("630335").textContent;
+                const render_items = [
+                  {
+                    docid: "dec91b5e-9b3d-4119-9dbd-2ed59b3b37d3",
+                    root_ids: ["624751"],
+                    roots: { 624751: "b73630f1-2554-462d-a6f5-64429c97fc60" },
+                  },
+                ];
+                root.Bokeh.embed.embed_items(docs_json, render_items);
+              }
+              if (root.Bokeh !== undefined) {
+                embed_document(root);
+              } else {
+                let attempts = 0;
+                const timer = setInterval(
+                  function (root) {
+                    if (root.Bokeh !== undefined) {
+                      clearInterval(timer);
+                      embed_document(root);
+                    } else {
+                      attempts++;
+                      if (attempts > 100) {
+                        clearInterval(timer);
+                        console.log(
+                          "Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing"
+                        );
+                      }
+                    }
+                  },
+                  10,
+                  root
+                );
+              }
+            })(window);
+          });
+        };
+        if (document.readyState != "loading") fn();
+        else document.addEventListener("DOMContentLoaded", fn);
+      })();
+    </script>
+  </body>
+</html>

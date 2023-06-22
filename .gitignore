@@ -12,3 +12,4 @@ __pycache__
 *.hdf5
 notify.py
 *.npy
+aws_tools.py

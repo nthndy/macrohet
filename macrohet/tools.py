@@ -8,6 +8,81 @@ from tqdm.auto import tqdm
 from macrohet import dataio
 
 
+def create_track_dictionary(track, info, key):
+    """
+    Create a dictionary of track information for a single track.
+
+    Parameters:
+    - track (dict): Track information dictionary
+    - info (Series): Assay layout info for the track
+
+    Returns:
+    - dict: Dictionary containing track information
+    """
+    # Raw MTB values (interpolated)
+    raw_mtb_values = pd.Series(track['mean_intensity'][:, 1]).interpolate(method='linear')
+
+    # Raw GFP values (interpolated)
+    raw_gfp = pd.Series(track['mean_intensity'][:, 0]).interpolate(method='linear')
+
+    # Thresholded MTB values (interpolated)
+    mtb_values = pd.Series(track['mean_intensity'][:, 2]).interpolate(method='linear')
+
+    # Smoothed MTB signal using a rolling window of 4 with median values,
+    # then backfilling missing values at the start
+    mtb_smooth = np.array(mtb_values.rolling(window=4).median().interpolate(method='backfill'))
+
+    # Interpolate other variables using appropriate methods
+    minor_axis_length = pd.Series(track['minor_axis_length']).interpolate(method='linear')
+    major_axis_length = pd.Series(track['major_axis_length']).interpolate(method='linear')
+
+    # Interpolate infection status using a combination of approaches
+    infection_status = pd.Series(track['Infected'])
+
+    # If the first value is missing, assign it the closest infection value
+    if pd.isnull(infection_status.iloc[0]):
+        infection_status.iloc[0] = infection_status.iloc[infection_status.first_valid_index()]
+
+    # Fill subsequent missing values with the previous value
+    infection_status = infection_status.fillna(method='ffill')
+
+    # Interpolate area based on linear method
+    area = pd.Series(track['area']).interpolate(method='linear')
+
+    # Compile single track dictionary of info
+    d = {
+        'Time (hours)': track['t'],
+        'x': track['x'],
+        'y': track['y'],
+        'x scaled': [track['x'][i] * 5.04 for i, x in enumerate(track['x'])],
+        'y scaled': [track['y'][i] * 5.04 for i, y in enumerate(track['y'])],
+        'Infection status': track['Infected'],
+        'Initial infection status': track['Infected'][0],
+        'Final infection status': track['Infected'][-1],
+        'Area': track['area'],
+        'Intracellular mean Mtb content': raw_mtb_values,
+        'Intracellular thresholded Mtb content': mtb_values,
+        'Intracellular thresholded Mtb content smooth': mtb_smooth,
+        'Macroph. GFP expression': raw_gfp,
+        'delta Mtb raw': [np.array(mtb_values)[-1] - np.array(mtb_values)[0] for i in range(len(track))],
+        'delta Mtb max raw': [(max(mtb_values) - min(mtb_values)) * (1 if np.argmax(mtb_values) > np.argmin(mtb_values) else -1) for i in range(len(track))],
+        'delta Mtb max smooth': [(max(mtb_smooth) - min(mtb_smooth)) * (1 if np.argmax(mtb_smooth) > np.argmin(mtb_smooth) else -1) for i in range(len(track))],
+        'delta Mtb max fold-change': [max(mtb_smooth) / min(mtb_smooth[mtb_smooth > 0]) * (1 if np.argmax(mtb_smooth) > np.argmin(mtb_smooth) else -1) if np.any(mtb_smooth > 0) else 0 for i in range(len(track))],
+        'delta Mtb max fold-change normalised mean area': [(max(mtb_smooth) / min(mtb_smooth[mtb_smooth > 0]) * (1 if np.argmax(mtb_smooth) > np.argmin(mtb_smooth) else -1)) / np.mean(area) if np.any(mtb_smooth > 0) else 0 for i in range(len(track))],
+        'delta Mtb max fold-change normalised max area': [(max(mtb_smooth) / min(mtb_smooth[mtb_smooth > 0]) * (1 if np.argmax(mtb_smooth) > np.argmin(mtb_smooth) else -1)) / np.max(area) if np.any(mtb_smooth > 0) else 0 for i in range(len(track))],
+        'delta Mtb/dt': np.polyfit(np.arange(len(mtb_smooth)), mtb_smooth, 1)[0],
+        'Eccentricity': np.sqrt(1 - ((minor_axis_length ** 2) / (major_axis_length ** 2))),
+        'MSD': [euc_dist(track['x'][i - 1], track['y'][i - 1], track['x'][i], track['y'][i]) if i != 0 else 0 for i in range(0, len(track))],
+        'Strain': [info['Strain'] for i in range(len(track['t']))],
+        'Compound': [info['Compound'] for i in range(len(track['t']))],
+        'Concentration': [info['ConcentrationEC'] for i in range(len(track['t']))],
+        'Cell ID': [track.ID for i in range(len(track['t']))],
+        'Acquisition ID': [key for i in range(len(track['t']))],
+        'Unique ID': [f'{track.ID}.{key[0]}.{key[1]}' for i in range(len(track['t']))]}
+
+    return d
+
+
 def instance_to_semantic(instance_image):
     """
     Quick function to change instance segmentation map to semantic segmentation

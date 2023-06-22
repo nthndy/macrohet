@@ -27,7 +27,7 @@ expanded_piyg = [
     '#978897',  # Rose Quartz in hexadecimal format
     '#d1d1ca',  # Timberwolf in RGB normalized form
     '#f1b6da',  # Second-to-last color from sns.color_palette('PiYG')
-    '#4d4d42'   # Last color from sns.color_palette('PiYG')
+    '#d02c91'   # Last color from sns.color_palette('PiYG')
 ]
 
 # Define the custom_colours dictionary

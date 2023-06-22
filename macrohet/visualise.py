@@ -1,5 +1,6 @@
 import os
 
+import btrack
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
@@ -8,6 +9,8 @@ from skimage.morphology import area_closing, label, remove_small_objects
 from skimage.transform import downscale_local_mean, resize
 from tqdm.auto import tqdm
 
+from macrohet import dataio, tile
+
 from .colours import custom_colours
 
 # default scale value taken from harmony metadata
@@ -15,6 +18,37 @@ napari_scale = [1.49e-05, 1.4949402023919043E-7, 1.4949402023919043E-7]
 # default scale factor
 # for datasets that have been tracked on scaled down images
 scale_factor = 6048 / 1200
+
+
+class ColorPalette:
+    def __init__(self, color_map):
+        self.colors = custom_colours[color_map]
+
+    def replace(self, index, new_color):
+        """
+        Replace a color code at the specified index with a new color.
+
+        Parameters:
+            index (int): The index of the color code to replace.
+            new_color (str): The new color code.
+
+        Returns:
+            None
+        """
+        self.colors[index] = new_color
+
+
+def color_palette(color_map):
+    """
+    Get the color palette of the specified color map.
+
+    Parameters:
+        color_map (str): The name of the color map.
+
+    Returns:
+        ColorPalette: The color palette object.
+    """
+    return ColorPalette(color_map)
 
 
 def show_colors(color_map):
@@ -46,19 +80,6 @@ def show_colors(color_map):
 
     plt.title(color_map)
     plt.show()
-
-
-def color_palette(color_map):
-    """
-    Get the color palette of the specified color map.
-
-    Parameters:
-        color_map (str): The name of the color map.
-
-    Returns:
-        list: The color palette as a list of color codes.
-    """
-    return custom_colours[color_map]
 
 
 def upscale_labels_post_manual_annotation(labels, scale_factor):
@@ -606,3 +627,166 @@ def add_time(viewer, frame_rate=1, font_size=24, text_colour='white',
     viewer.text_overlay.position = 'bottom_left'
     viewer.text_overlay.font_size = font_size
     viewer.dims.events.current_step.connect(update_slider)
+
+
+def tn_glimpse_maker(unique_ID, df, time, metadata=None, base_dir='desktop',
+                     crop_size=None, track_scale_factor=5.04, mask_outline=True):
+    """
+    Create a cropped RGB image for a specific unique ID and time.
+
+    Args:
+        unique_ID (str): The unique identifier of the cell.
+        df (pandas.DataFrame): The DataFrame containing the cell data.
+        time (int, list, tuple, range): The time value(s) to extract the image(s) for.
+        metadata (object, optional): The metadata object. Default is None. Best to supply beforehand otherwise
+            it will result in a slow loading of the metadata (which is the same for all cells) for each cell.
+        base_dir (str, optional): The base directory path or special string value ('desktop' or 'laptop')
+            to determine the path. Default is 'desktop'.
+        crop_size (int, optional): The desired size of the cropped image.
+            If None, it's calculated based on the area. Default is None.
+        track_scale_factor (float, optional): The scale factor to apply to the tracking coordinates. Default is 5.04.
+        mask_outline (bool, optional): Whether to draw the mask outline on the image. Default is True.
+
+    Returns:
+        numpy.ndarray: The cropped RGB image.
+
+    Raises:
+        ValueError: If an invalid input type is provided for 'time'.
+    """
+    # extract row and column from unique_ID
+    cell_ID, row, column = unique_ID.split('.')
+
+    # Replace base_dir with appropriate string path if 'desktop' or 'laptop' is provided
+    if base_dir == 'desktop':
+        base_dir = '/mnt/DATA/macrohet/'
+    elif base_dir == 'laptop':
+        base_dir = '/Volumes/lab-gutierrezm/home/users/dayn/macrohet/'
+    # check if metadata has been supplied, if not then load using basedir
+    if metadata is None:
+        # load metadata and preload images
+        metadata_fn = os.path.join(base_dir, 'macrohet_images/Index.idx.xml')
+        metadata = dataio.read_harmony_metadata(metadata_fn)
+
+    image_dir = os.path.join(base_dir, 'macrohet_images/Images')
+    images = tile.compile_mosaic(image_dir, metadata, row, column, set_plane='sum_proj')
+
+    # load segmentation
+    with btrack.io.HDF5FileHandler(os.path.join(base_dir,
+                                                f'labels/macrohet_seg_model/{int(row),int(column)}.h5'),
+                                   'r',
+                                   obj_type='obj_type_1') as reader:
+        segmentation = reader.segmentation
+
+    # extract single cell df
+    sc_df = df[df['Unique ID'] == unique_ID]
+
+    if isinstance(time, int):
+        time_values = [time]
+    elif isinstance(time, (list, tuple)):
+        time_values = time
+    elif isinstance(time, range):
+        time_values = list(time)
+    else:
+        raise ValueError("Invalid input type for 'time'. Please provide an integer, a list of integers, or a range.")
+
+    for t in time_values:
+        if t == -1:
+            t = sc_df['Time (hours)'].iloc[-1]
+
+        sc_df_t = sc_df[sc_df['Time (hours)'] == t]
+
+        # Extract xy coordinates and transpose for python and area from the cell information
+        y_coord, x_coord, area, t = sc_df_t.loc[:, ['x', 'y', 'Area', 'Time (hours)']].values[0]
+
+        # Scale according to tracking shrinkage
+        y_coord, x_coord = y_coord * track_scale_factor, x_coord * track_scale_factor
+
+        if not crop_size:
+            # Calculate the side length for cropping based on the square root of the area
+            side_length = int(np.sqrt(area)) * 2
+
+        # Calculate the cropping boundaries
+        x_start = int(x_coord - side_length / 2)
+        x_end = int(x_coord + side_length / 2)
+        y_start = int(y_coord - side_length / 2)
+        y_end = int(y_coord + side_length / 2)
+
+        # Pad the boundaries if they exceed the image dimensions
+        if x_start < 0:
+            x_pad = abs(x_start)
+            x_start = 0
+        else:
+            x_pad = 0
+
+        if x_end > images.shape[2]:
+            x_pad_end = x_end - images.shape[2]
+            x_end = images.shape[2]
+        else:
+            x_pad_end = 0
+
+        if y_start < 0:
+            y_pad = abs(y_start)
+            y_start = 0
+        else:
+            y_pad = 0
+
+        if y_end > images.shape[3]:
+            y_pad_end = y_end - images.shape[3]
+            y_end = images.shape[3]
+        else:
+            y_pad_end = 0
+
+        # Crop the image
+        cropped_image = images[t, :, x_start:x_end, y_start:y_end]
+
+        # Pad the cropped image if necessary
+        cropped_image = np.pad(cropped_image, ((0, 0), (x_pad, x_pad_end), (y_pad, y_pad_end)), mode='constant')
+
+        # extract the gfp and rfp channels to apply some vis techn
+        gfp = cropped_image[0, ...].compute().compute()
+        rfp = cropped_image[1, ...].compute().compute()
+
+        # clip the images so that the contrast is more apparent
+        contrast_lim_gfp = np.clip(gfp, 358, 5886)
+        contrast_lim_rfp = np.clip(rfp, 480, 1300)
+
+        norm_gfp = cv2.normalize(contrast_lim_gfp, None, 0, 65535, cv2.NORM_MINMAX, dtype=cv2.CV_16U)
+        norm_rfp = cv2.normalize(contrast_lim_rfp, None, 0, 65535, cv2.NORM_MINMAX, dtype=cv2.CV_16U)
+
+        # put the modified gfp rfp back in place
+        cropped_image[0, ...] = norm_gfp
+        cropped_image[1, ...] = norm_rfp
+
+        # Create an empty RGB image with the same shape as the input image
+        rgb_image = np.zeros((cropped_image.shape[1], cropped_image.shape[2], 3), dtype=np.uint16)
+
+        # Assign the first channel to the green channel of the RGB image
+        rgb_image[:, :, 1] = cropped_image[0]
+
+        # Assign the second channel to the red and blue channels of the RGB image to create magenta
+        rgb_image[:, :, 0] = cropped_image[1]
+        rgb_image[:, :, 2] = cropped_image[1]
+
+        # scale down to 8bit
+        rgb_image = np.uint8(rgb_image >> 8)
+
+        if mask_outline:
+            # load mask (singular)
+            cropped_masks = segmentation[int(t), x_start:x_end, y_start:y_end]
+
+            # Pad the cropped image if necessary
+            cropped_masks = np.pad(cropped_masks, ((x_pad, x_pad_end), (y_pad, y_pad_end)), mode='constant')
+
+            # extract only that segment
+            seg_ID = cropped_masks[int(cropped_masks.shape[0] / 2), int(cropped_masks.shape[1] / 2)]
+            instance_mask = (cropped_masks == seg_ID).astype(np.uint8)
+
+            # draw outline
+            contours, _ = cv2.findContours(instance_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            cv2.drawContours(rgb_image, contours, -1, (0, 2 ** 8, 2 ** 8), thickness=2)  # make 8bit
+
+        # downsize image to reduce storage demands
+        rgb_image = cv2.resize(rgb_image, (rgb_image.shape[1] // 2, rgb_image.shape[0] // 2))
+
+        # Return the cropped RGB image
+        return rgb_image
