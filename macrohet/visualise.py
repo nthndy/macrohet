@@ -629,8 +629,9 @@ def add_time(viewer, frame_rate=1, font_size=24, text_colour='white',
     viewer.dims.events.current_step.connect(update_slider)
 
 
-def tn_glimpse_maker(unique_ID, df, time, metadata=None, base_dir='desktop',
-                     crop_size=None, track_scale_factor=5.04, mask_outline=True):
+def tn_glimpse_maker(unique_ID, df, time, metadata=None, segmentation=None,
+                     base_dir='desktop', crop_size=None,
+                     track_scale_factor=5.04, mask_outline=True):
     """
     Create a cropped RGB image for a specific unique ID and time.
 
@@ -670,12 +671,13 @@ def tn_glimpse_maker(unique_ID, df, time, metadata=None, base_dir='desktop',
     image_dir = os.path.join(base_dir, 'macrohet_images/Images')
     images = tile.compile_mosaic(image_dir, metadata, row, column, set_plane='sum_proj')
 
-    # load segmentation
-    with btrack.io.HDF5FileHandler(os.path.join(base_dir,
-                                                f'labels/macrohet_seg_model/{int(row),int(column)}.h5'),
-                                   'r',
-                                   obj_type='obj_type_1') as reader:
-        segmentation = reader.segmentation
+    if segmentation is None:
+        # load segmentation
+        with btrack.io.HDF5FileHandler(os.path.join(base_dir,
+                                                    f'labels/macrohet_seg_model/{int(row),int(column)}.h5'),
+                                       'r',
+                                       obj_type='obj_type_1') as reader:
+            segmentation = reader.segmentation
 
     # extract single cell df
     sc_df = df[df['Unique ID'] == unique_ID]
