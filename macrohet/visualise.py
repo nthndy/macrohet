@@ -781,11 +781,16 @@ def tn_glimpse_maker(unique_ID, df, time, metadata=None, segmentation=None,
 
             # extract only that segment
             seg_ID = cropped_masks[int(cropped_masks.shape[0] / 2), int(cropped_masks.shape[1] / 2)]
-            instance_mask = (cropped_masks == seg_ID).astype(np.uint8)
 
-            # draw outline
-            contours, _ = cv2.findContours(instance_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-            cv2.drawContours(rgb_image, contours, -1, (0, 2 ** 8, 2 ** 8), thickness=2)  # make 8bit
+            # check if mask actually exists at location, if not do not try and draw
+            if seg_ID != 0:
+
+                # isolate mask
+                instance_mask = (cropped_masks == seg_ID).astype(np.uint8)
+
+                # draw outline
+                contours, _ = cv2.findContours(instance_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+                cv2.drawContours(rgb_image, contours, -1, (0, 2 ** 8, 2 ** 8), thickness=2)  # make 8bit
 
         # downsize image to reduce storage demands
         rgb_image = cv2.resize(rgb_image, (rgb_image.shape[1] // 2, rgb_image.shape[0] // 2))
