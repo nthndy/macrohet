@@ -198,7 +198,7 @@ def semantic_to_instance(semantic_image):
     else:
         raise ImageDimensionError(expected_dimensionality="2 or 3", received_dimensionality=len(instance_image.shape))
 
-        return instance_image
+    return instance_image
 
 
 def euc_dist(x1, y1, x2, y2):
