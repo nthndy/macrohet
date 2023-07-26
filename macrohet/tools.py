@@ -190,7 +190,7 @@ def semantic_to_instance(semantic_image):
         instance_image = np.stack(instance_stack, axis=0)
 
     # if it's just a frame then do not iterate over
-    elif len(instance_image.shape) == 2:
+    elif len(semantic_image.shape) == 2:
 
         # get unique labels from single frame
         instance_image = label(semantic_image)
