@@ -55,7 +55,7 @@ def remove_small_segments(mask_stack, threshold_size=1000):
         coords = [props.coords for props in regionprops(frame) if props.area < threshold_size]
 
         # Iterate over each segment's coordinates and set them to 0 (remove small segments)
-        for segment_coords in tqdm(coords, desc='Iterating over segments in frame', leave=False):
+        for segment_coords in coords:
             for x, y in segment_coords:
                 frame[x, y] = 0
 
