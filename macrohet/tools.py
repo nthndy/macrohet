@@ -45,6 +45,10 @@ def remove_small_segments(mask_stack, threshold_size=1000):
         # Assuming you have a 3D mask_stack and want to remove segments smaller than 500 pixels.
         modified_mask_stack = remove_small_segments(mask_stack, threshold_size=500)
     """
+    # Check the dimensionality of the input mask_stack
+    if len(mask_stack.shape) != 3:
+        raise ImageDimensionError(expected_dimensionality=3, received_dimensionality=len(mask_stack.shape))
+
     # Iterate over each frame (2D mask) in the mask_stack
     for n, frame in tqdm(enumerate(mask_stack), desc='Iterating over frames', total=len(mask_stack)):
         # Get coordinates of segments with area less than threshold_size using regionprops
