@@ -138,7 +138,9 @@ def compile_mosaic(image_dir: os.PathLike,
     timepoint_IDs = (metadata['TimepointID'].unique()
                      if set_time is None else [set_time])
     # take a sample image to find dtype and image shape
-    dtype = imread(glob.glob(image_dir + '/*.tif*')[0]).dtype
+    # dtype = imread(glob.glob(image_dir + '/*.tif*')[0]).dtype
+    sample_fn = metadata['URL'].iloc[0]
+    dtype = imread(image_dir + f'/{sample_fn}').dtype
     # set a few parameters for the tiling approach, remove this hardcoded val
     chunk_fraction = 9
     load_transform_image = partial(load_image, transforms=input_transforms)
