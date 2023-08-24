@@ -318,16 +318,16 @@ def track_euc_dist(track):
     return euc_dist
 
 
-def compile_multi_track_df(tracks_dict, assay_layout, track_len=75):
+def compile_multi_track_df(tracks_dict, assay_layout, track_len=None):
     """
     Iterates over many tracks stored in dictionary format and returns a df with
     additional features calculated
 
     Parameters
     ----------
-    tracks_dict : dict()
+    tracks_dict : dict
         A dictionary containing different sets of tracks from different expts
-    track_len : int
+    track_len : int, optional
         Optional input to only store tracks of a set length
     """
 
@@ -335,40 +335,25 @@ def compile_multi_track_df(tracks_dict, assay_layout, track_len=75):
     dfs = list()
     # empty dictionary for filtered tracks
     filtered_tracks = dict()
-    # iterate over all tracks
-    for key in tracks_dict.keys():
-        # extract tracks only with max length
-        filtered_tracks[key] = [track for track in tracks_dict[key]
-                                if len(track) == track_len]
+
+    # iterate over all tracks with tqdm
+    for key in tqdm(tracks_dict.keys(), desc="Processing Tracks"):
+        if track_len:
+            # extract tracks only with max length
+            filtered_tracks[key] = [track for track in tracks_dict[key]
+                                    if len(track) == track_len]
+        else:
+            filtered_tracks[key] = tracks_dict[key]
+
         # iterate over full length tracks
         for track in filtered_tracks[key]:
             # get info for assay layout
             info = assay_layout.loc[key]
             # compile single track dictionary of info
-            d = {'Time (hours)': track['t'],
-                 'x': track['x'],
-                 'y': track['y'],
-                 'Area': track['area'],
-                 'Intracellular Mtb content': track['mean_intensity-1'],
-                 'Mean Mtb content': [np.nanmean(track['mean_intensity-1'])
-                                      for i in range(len(track['t']))],
-                 'Macroph. GFP expression': track['mean_intensity-0'],
-                 'Eccentricity': np.sqrt(1 - ((track['minor_axis_length']**2)
-                                              / (track['major_axis_length']**2))),
-                 'Interframe displacement': [euc_dist(track['x'][i - 1],
-                                                      track['y'][i - 1],
-                                                      track['x'][i],
-                                                      track['y'][i])
-                                             if i != 0 else 0
-                                             for i in range(0, len(track))],
-                 'Strain': [info['Strain'] for i in range(len(track['t']))],
-                 'Compound': [info['Compound'] for i in range(len(track['t']))],
-                 'Concentration': [info['ConcentrationEC']
-                                   for i in range(len(track['t']))],
-                 'Cell ID': [track.ID for i in range(len(track['t']))],
-                 'Acquisition ID': [key for i in range(len(track['t']))]}
+            d = create_track_dictionary(track, info, key)
             # append df to list of dfs
             dfs.append(pd.DataFrame(d))
+
     # concat single track dfs into big df
     df = pd.concat(dfs, ignore_index=True)
     # interpolate missing values as sometimes segmentation drops result in NaN
