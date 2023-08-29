@@ -665,10 +665,10 @@ def tn_glimpse_maker(unique_ID, df, time, metadata=None, segmentation=None,
     # check if metadata has been supplied, if not then load using basedir
     if metadata is None:
         # load metadata and preload images
-        metadata_fn = os.path.join(base_dir, 'macrohet_images/Index.idx.xml')
+        metadata_fn = os.path.join(base_dir, 'macrohet_images/PS0000/Index.idx.xml')
         metadata = dataio.read_harmony_metadata(metadata_fn)
 
-    image_dir = os.path.join(base_dir, 'macrohet_images/Images')
+    image_dir = os.path.join(base_dir, 'macrohet_images/PS0000/Images')
     images = tile.compile_mosaic(image_dir, metadata, row, column, set_plane='sum_proj')
 
     if segmentation is None:

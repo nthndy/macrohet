@@ -130,6 +130,7 @@ def create_track_dictionary(track, info, key):
         'Strain': [info['Strain'] for i in range(len(track['t']))],
         'Compound': [info['Compound'] for i in range(len(track['t']))],
         'Concentration': [info['ConcentrationEC'] for i in range(len(track['t']))],
+        'Technical replicate': [info['Technical replicate'] for i in range(len(track['t']))],
         'Cell ID': [track.ID for i in range(len(track['t']))],
         'Acquisition ID': [key for i in range(len(track['t']))],
         'Unique ID': [f'{track.ID}.{key[0]}.{key[1]}' for i in range(len(track['t']))]}
