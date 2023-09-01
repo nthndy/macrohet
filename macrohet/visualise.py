@@ -556,7 +556,7 @@ def create_mask_glimpse_from_sc_df(sc_df, acq_ID, ID, masks,
     return mask_glimpse_stack, mask_shapes
 
 
-def compile_mp4(input_dir, output_fn, fps, fileformat : str = '.tiff'):
+def compile_mp4(input_dir, output_fn, frame_rate=3, fileformat : str = '.tiff'):
     """
     Take a series of images and compile mp4 video from them.
 
@@ -566,14 +566,12 @@ def compile_mp4(input_dir, output_fn, fps, fileformat : str = '.tiff'):
         The full path to a directory containing a series of .tiff images.
     output_fn : PathLike
         Filename for output mp4 video.
-    fps : int
+    frame_rate : int
         The number of frames per second you would like to generate the video at.
     fileformat : str
         Optional input for different types of image fileformat
     """
 
-    # Set the frame rate of the output video
-    frame_rate = 3
     # Get the list of images in the directory
     frames = [img for img in os.listdir(input_dir) if img.endswith(fileformat)]
     # Sort the images in alphabetical order
@@ -588,7 +586,7 @@ def compile_mp4(input_dir, output_fn, fps, fileformat : str = '.tiff'):
                                    frame_rate,
                                    (width, height))
     # Loop through the images and add them to the video
-    for image in frames:
+    for image in tqdm(frames):
         img_path = os.path.join(input_dir, image)
         frame = cv2.imread(img_path)
         # Write the frame to the video
