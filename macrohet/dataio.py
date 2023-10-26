@@ -102,8 +102,16 @@ def read_harmony_metadata(metadata_path: os.PathLike, assay_layout=False,
             df.at[(row, col), 'Missing masks'] = missing_mask_dict[row, col]
             df = df.where(pd.notnull(df), None)
 
-    # add names to assay layout indexing
-    # df.index.set_names(['Row', 'Column'], inplace = True)
+    # final few aesthetic touches to assay layout
+    if assay_layout:
+        # add names to assay layout indexing
+        df.index.set_names(['Row', 'Column'], inplace=True)
+        # clearing few hacky errors in some recent assay layout
+        if 'Cell Count' in df.columns:
+            if pd.isna(df['Cell Count']).any():
+                df.drop(columns='Cell Count', inplace=True)
+        if 'double' in df.columns:
+            df.rename(columns={'double': 'Cell Count'}, inplace=True)
 
     print('Extracting metadata complete!')
     return df
