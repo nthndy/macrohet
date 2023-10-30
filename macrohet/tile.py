@@ -350,7 +350,7 @@ def stitch(load_transform_image: partial,
 
     # Tile images together
     frame = da.map_blocks(func=_fuse_func, chunks=chunks, input_tile_info=chunk_tiles, dtype=sample.dtype)
-    frame = np.rot90(frame)  # Need this to bridge cartesian coords with python image coords
+    frame = da.rot90(frame)  # Need this to bridge cartesian coords with python image coords
 
     # logging.info('Exiting function: stitch')
     return frame, tiles_shifted_shapely
@@ -555,7 +555,7 @@ def load_image(file: Union[str, Path], transforms: List[Callable[[np.ndarray], n
     except Exception as e:
         raise Exception(f'{e} \n Could not load file: {file}') from e
 
-    img = np.rot90(img, k=3)  # Need this to bridge cartesian coords with python image coords
+    img = da.rot90(img, k=3)  # Need this to bridge cartesian coords with python image coords
 
     if transforms is not None:
         for transform in transforms:
