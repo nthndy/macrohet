@@ -2,8 +2,9 @@ import math
 
 import numpy as np
 import pandas as pd
+from scipy.ndimage import binary_erosion
 from skimage.measure import regionprops
-from skimage.morphology import binary_erosion, label
+from skimage.morphology import label
 from tqdm.auto import tqdm
 
 from macrohet import dataio
@@ -158,28 +159,27 @@ def instance_to_semantic(instance_image):
             # Create a blank semantic segmentation map
             semantic_map = np.zeros_like(frame, dtype=np.uint8)
 
-            # Assign unique labels to the semantic map preserving boundaries
-            for sc_label in tqdm(unique_labels[1:], leave=False):
+            # Set background to zero
+            semantic_map[frame == 0] = 0
 
-                # get single cell label
+            # Assign unique labels to the semantic map preserving boundaries
+            for sc_label in tqdm(unique_labels[1:], total=len(unique_labels) - 1,
+                                 desc='Iterating over segments',
+                                 leave=False):
+
+                # Get single cell label
                 segment = frame == sc_label
 
-                # erode segment so that it doesnt touch neighbours
-                eroded_segment = binary_erosion(segment, footprint=np.ones((5, 5)))
+                # Erode segment so that it doesn't touch neighbors
+                eroded_segment = binary_erosion(segment, structure=np.ones((5, 5)))
 
-                # relabel segment semantically
+                # Relabel segment semantically
                 semantic_map[eroded_segment] = 1
 
-                # set background to zero
-                semantic_map[frame == 0] = 0
-
-                # set dtype
-                semantic_map = semantic_map.astype('i2')
-
-            # append results to stack
+            # Append results to stack
             semantic_stack.append(semantic_map)
 
-        # convert from list to stack
+        # Convert from list to stack
         semantic_map = np.stack(semantic_stack, axis=0)
 
     # if it's just a frame then do not iterate over
@@ -191,23 +191,22 @@ def instance_to_semantic(instance_image):
         # Create a blank semantic segmentation map
         semantic_map = np.zeros_like(instance_image, dtype=np.uint8)
 
+        # Set background to zero
+        semantic_map[instance_image == 0] = 0
+
         # Assign unique labels to the semantic map preserving boundaries
-        for sc_label in tqdm(unique_labels[1:], leave=False):
+        for sc_label in tqdm(unique_labels[1:], total=len(unique_labels) - 1,
+                             desc='Iterating over segments',
+                             leave=False):
 
-            # get single cell label
-            segment = frame == sc_label
+            # Get single cell label
+            segment = instance_image == sc_label
 
-            # erode segment so that it doesnt touch neighbours
-            eroded_segment = binary_erosion(segment, footprint=np.ones((5, 5)))
+            # Erode segment so that it doesn't touch neighbors
+            eroded_segment = binary_erosion(segment, structure=np.ones((5, 5)))
 
-            # relabel segment semantically
+            # Relabel segment semantically
             semantic_map[eroded_segment] = 1
-
-            # set background to zero
-            semantic_map[frame == 0] = 0
-
-            # set dtype
-            semantic_map = semantic_map.astype('i2')
 
     else:
         raise ImageDimensionError(expected_dimensionality="2 or 3", received_dimensionality=len(instance_image.shape))
