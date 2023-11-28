@@ -162,7 +162,7 @@ def compile_mosaic(
     >>> mosaic = compile_mosaic(image_dir, metadata, row=1, col=2)
     """
 
-    logging.info(f'Entering function: compile_mosaic\n Parameters: row, col, plane, channel, time {row, col, set_plane, set_channel, set_time} ')
+    # logging.info(f'Entering function: compile_mosaic\n Parameters: row, col, plane, channel, time {row, col, set_plane, set_channel, set_time} ')
 
     # check if specified row and column exists by checking metadata
     if str(row) not in metadata['Row'].unique():
@@ -222,7 +222,8 @@ def compile_mosaic(
     images = [da.from_delayed(frame,
                               shape=image_size,
                               dtype=dtype)
-              for frame in tqdm(images, desc='Stitching images together')]
+              # for frame in tqdm(images, desc='Stitching images together')]
+              for frame in images]
 
     # rechunk so they are more managable along original image tile size
     images = [frame.rechunk(tile_size, tile_size) for frame in images]
