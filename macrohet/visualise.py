@@ -501,32 +501,39 @@ def create_mask_glimpse_from_sc_df(sc_df, acq_ID, ID, masks,
 
     # create empty list for stack of images
     mask_glimpse_stack = list()
-    coords_stack = list()
     # iterate over time points from single cell
     for row in tqdm(sc_df.iterrows(), total=len(sc_df),
                     desc=f'Creating mask glimpse ID: {acq_ID, ID}'):
         # get coords
-        t, x, y = row[1]['Time (hours)'], row[1]['y'], row[1]['x']
+        t, y, x = row[1]['Time (hours)'], row[1]['y'], row[1]['x']
         # select proper frame
         frame = masks[t, ...]
-        # scale as tracking was done on rescaled images
-        x1, y1 = x, y
-        # create window for glimpse
-        x1, x2, y1, y2 = x1, x1 + np.ceil(size / scale), y1, y1 + np.ceil(size / scale)
-        # add padding for boundary casess
-        frame = np.pad(frame, [(int(np.ceil(size / scale) / 2),
-                       int(np.ceil(size / scale) / 2)),
-                      (int(np.ceil(size / scale) / 2),
-                       int(np.ceil(size / scale) / 2))],
-                       'constant', constant_values=0)
-        # create glimpse image by cropping original image
-        mask_glimpse = frame[int(x1): int(x2), int(y1): int(y2)]
+        # Calculate the half window size considering the scale
+        half_window_size = np.ceil(size / 2)
+
+        # Calculate window bounds, ensuring they are centered around (x, y)
+        x1 = int(np.round(x * scale - half_window_size))
+        y1 = int(np.round(y * scale - half_window_size))
+        x2 = int(x1 + size)
+        y2 = int(y1 + size)
+
+        # Add padding to the frame to handle edge cases
+        pad_size = int(half_window_size)
+        frame_padded = np.pad(frame, pad_size, mode='constant', constant_values=0)
+
+        # Adjust coordinates to account for the padding
+        x1_padded = x1 + pad_size
+        x2_padded = x2 + pad_size
+        y1_padded = y1 + pad_size
+        y2_padded = y2 + pad_size
+
+        # Crop the window from the padded frame
+        mask_glimpse = frame_padded[y1_padded: y2_padded, x1_padded: x2_padded]
+
         # check to see if mask exists
-        if mask_glimpse[int(np.ceil(size / scale) / 2), int(np.ceil(size / scale) / 2)]:
+        if mask_glimpse[int(half_window_size), int(half_window_size)]:
             # select cell of interest
-            mask_glimpse = mask_glimpse == mask_glimpse[int(np.ceil(size
-                                                        / scale) / 2),
-                                                        int(np.ceil(size / scale) / 2)]
+            mask_glimpse = mask_glimpse == mask_glimpse[int(half_window_size), int(half_window_size)]
             # resize to image size
             mask_glimpse = cv2.resize(mask_glimpse.astype(np.uint8),
                                       (size , size))
@@ -535,7 +542,7 @@ def create_mask_glimpse_from_sc_df(sc_df, acq_ID, ID, masks,
                                     cv2.RETR_EXTERNAL,
                                     cv2.CHAIN_APPROX_SIMPLE)
             cnts = cnts[0] if len(cnts) == 2 else cnts[1]
-            coords = np.asarray([[t, i[0][1], i[0][0]] for i in cnts[0]])
+            # draw contours
             for c in cnts:
                 cv2.drawContours(mask_glimpse, [c], -1, (255, 255, 255),
                                  thickness=5)
@@ -543,17 +550,13 @@ def create_mask_glimpse_from_sc_df(sc_df, acq_ID, ID, masks,
             mask_glimpse = (mask_glimpse == 255).astype(np.uint16)
         # if mask doesnt exist then leave blank
         else:
-            coords = [t, 0, 0]
             mask_glimpse = np.zeros((size, size))
         # append to mask glimpse stack
         mask_glimpse_stack.append(mask_glimpse)
-        coords_stack.append(coords)
     # stack mask glimpse together
     mask_glimpse_stack = np.stack(mask_glimpse_stack, axis=0)
-    # build coords into shape for napari
-    mask_shapes = np.asarray(coords_stack, )
 
-    return mask_glimpse_stack, mask_shapes
+    return mask_glimpse_stack
 
 
 def compile_mp4(input_dir, output_fn, frame_rate=3, fileformat : str = '.tiff'):
