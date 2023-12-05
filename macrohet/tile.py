@@ -76,87 +76,69 @@ def compile_mosaic(
     set_channel: Optional[int] = None,
     set_time: Optional[int] = None,
     overlap_percentage: float = 0.1,
+    subset_field_IDs: Optional[List[int]] = None,
+    n_tile_rows: Optional[int] = None,
+    n_tile_cols: Optional[int] = None
 ) -> np.ndarray:
     """
-    Uses the stitch function to compile a mosaic set of images that have been
-    exported and fragmented from the Harmony software and returns a dask array
-    that can be lazily loaded and stitched together on the fly.
+    Compiles a mosaic of images from fragmented image files, typically exported
+    from the Harmony software, and returns a dask array for on-the-fly stitching.
 
-    The function supports a variety of options for selecting specific planes,
-    channels, and timepoints, as well as applying image transformations and
-    conducting Z-projections.
+    This function is versatile, allowing for the stitching of any contiguous region
+    of tiles, regardless of whether they form a square shape. It supports selective
+    compilation based on planes, channels, timepoints, and applies optional image
+    transformations. Handles Z-projections and efficient memory usage with dask.
+
+    For non-square mosaics or when stitching specific regions within a well that
+    may not include all image tiles, the `subset_field_IDs` parameter can be used
+    to specify exactly which tiles to include. Additionally, for non-square shapes,
+    `n_tile_rows` and `n_tile_cols` should be provided to define the mosaic's
+    row and column dimensions.
 
     Parameters
     ----------
     image_dir : os.PathLike
-        Location of fragmented images, typically located in a folder named
-        "/Experiment_ID/Images" that was exported form the Harmony software.
+        Directory containing fragmented images.
     metadata : pd.DataFrame
-        pd.DataFrame representation of the experiment metadata file, typically
-        located in a file called "/Experiment_ID/Index.idx.xml". This metadata
-        can be extracted and formatted using the `read_harmony_metadata`
-        function in `utils.py`.
-    row : str
-        Each experiment will be conducted over a multiwell plate, so the row and
-        column of the desired well needs to be defined as a string input. This
-        input defines the row of choice.
-    col : str
-        Corresponding column of choice.
-    input_transforms : Optional[List[Callable[[np.ndarray], np.ndarray]]]
-        Optional pre-processing transformations that can be applied to each
-        image, such as a crop, a transpose or a background removal. Defaults to
-        None.
+        DataFrame with image metadata.
+    row : int
+        Row index of the well in the multiwell plate.
+    col : int
+        Column index of the well.
+    input_transforms : Optional[List[Callable]]
+        List of functions for image preprocessing.
     set_plane : Optional[Any]
-        Optional input to define a single plane to compile. If left blank then
-        mosaic will be compiled over all planes available. Must have same index
-        as filename or will return error.
-        If a string input of 'max_proj' or 'sum_proj' is provided then images
-        will be either taken as a max pixel value projection or summed
-        projection over the Z axis.
+        Specific plane to compile, or 'max_proj'/'sum_proj' for Z-projections.
     set_channel : Optional[int]
-        Optional input to define a single channel to compile. If left blank then
-        mosaic will be compiled over all channels available. Must have same
-        index as filename or will return error.
+        Specific channel to compile.
     set_time : Optional[int]
-        Optional input to define a single frame to compile. If left blank then
-        mosaic will be compiled over all frames available. Must have same index
-        as filename or will return error.
+        Specific time frame to compile.
     overlap_percentage : float
-        The percentage of overlap between tiles in the mosaic. This is used to
-        calculate the size of the final stitched image. Must be a value between
-        0 and 1, where 0 means no overlap and 1 means 100% overlap. Defaults to
-        0.1 (10% overlap).
+        Overlap between tiles as a percentage.
+    subset_field_IDs : Optional[List[int]]
+        Specific field IDs to include in the compilation. Essential for stitching
+        specific regions or non-square tile arrangements.
+    n_tile_rows : Optional[int]
+        Number of tile rows in the mosaic. Required for non-square mosaics.
+    n_tile_cols : Optional[int]
+        Number of tile columns in the mosaic. Required for non-square mosaics.
 
     Returns
     -------
     np.ndarray
-        A lazily-loaded dask array representing the stitched image. The array
-        can be converted to a NumPy array or saved to disk using dask's
-        functionality.
+        Dask array representing the stitched image.
 
     Raises
     ------
     ValueError
-        If the specified row or column is not found in the metadata.
+        If specified row or column is not in the metadata.
     TypeError
-        If set_plane is a string but not 'max_proj' or 'sum_proj'.
+        If set_plane is not an integer, 'max_proj', or 'sum_proj'.
     ValueError
-        If the number of tiles is not a perfect square when calculating the size
-        of the final stitched image.
-
-    Notes
-    -----
-    The function is designed to be flexible and handle a variety of use cases,
-    from loading a single plane, channel, or timepoint, to compiling a complete
-    mosaic with Z-projections and image transformations. The use of dask allows
-    for efficient memory usage and lazy loading, making it suitable for large
-    image datasets.
+        If the number of tiles is not a perfect square (if n_tile_rows/cols not provided).
 
     Examples
     --------
-    Compile a mosaic from the images in 'image_dir', using the metadata in
-    'metadata', for the well at row 1 and column 2:
-
     >>> image_dir = '/path/to/images'
     >>> metadata = pd.read_csv('/path/to/metadata.csv')
     >>> mosaic = compile_mosaic(image_dir, metadata, row=1, col=2)
@@ -170,8 +152,6 @@ def compile_mosaic(
     if str(col) not in metadata['Col'].unique():
         raise ValueError("Column not found in metadata.")
 
-    # set final chunk fraction according to how many tiles there are
-    chunk_fraction = int(metadata['FieldID'].max())
     # check if projection is to be conducted over Z
     if isinstance(set_plane, str):
         # if set_plane is str, then specify which type of projection to
@@ -198,9 +178,18 @@ def compile_mosaic(
     dtype = imread(image_dir + f'/{sample_fn}').dtype
 
     # use metadata and overlap percentage to calculate the final expected size
-    number_tiles = int(metadata['FieldID'].max())
+    if subset_field_IDs:
+        number_tiles = len(subset_field_IDs)
+    else:
+        number_tiles = int(metadata['FieldID'].max())
+
+    # if n_tile_rows or cols are not supplied, then assumme mosaic is square
+    if not n_tile_rows:
+        n_tile_rows = n_tile_cols = np.sqrt(number_tiles)
+
     tile_size = int(metadata['ImageSizeX'].max())
-    image_size = final_image_size(number_tiles, tile_size, overlap_percentage)
+    image_size = final_image_size(tile_size, overlap_percentage,
+                                  n_tile_rows, n_tile_cols)
 
     load_transform_image = partial(load_image, transforms=input_transforms)
 
@@ -213,7 +202,9 @@ def compile_mosaic(
                                    channel,
                                    str(row),
                                    str(col),
-                                   chunk_fraction)[0]
+                                   n_tile_rows,
+                                   n_tile_cols,
+                                   subset_field_IDs)[0]
               for time in timepoint_IDs
               for channel in channel_IDs
               for plane in plane_IDs]
@@ -262,9 +253,15 @@ def stitch(load_transform_image: partial,
            channel: int,
            row: int,
            col: int,
-           chunk_fraction: int) -> Tuple[da.Array, List[Tuple]]:
+           n_tile_rows: int,
+           n_tile_cols: int,
+           subset_field_IDs=None,) -> Tuple[da.Array, List[Tuple]]:
     """
-    Function to stitch a single-frame/slice mosaic image together.
+    Function to stitch a single-frame/slice mosaic image together from individual image tiles.
+
+    This function takes metadata for image tiles and their spatial coordinates, then
+    stitches them together into a single large image. It supports selective stitching
+    based on a subset of field IDs and handles non-square mosaics.
 
     Parameters
     ----------
@@ -275,31 +272,37 @@ def stitch(load_transform_image: partial,
     image_dir : str
         Directory containing the images.
     time : int
-        Time index.
+        Time index for selecting the relevant images.
     plane : int
-        Z index.
+        Z-plane index for selecting the relevant images.
     channel : int
-        Channel index.
+        Channel index for selecting the relevant images.
     row : int
-        Row index of the FOV.
+        Row index of the Field of View (FOV).
     col : int
         Column index of the FOV.
-    chunk_fraction : int
-        Number of Dask array chunks to divide the mosaic image into.
+    n_tile_rows : int
+        Number of tile rows in the mosaic.
+    n_tile_cols : int
+        Number of tile columns in the mosaic.
+    subset_field_IDs : list, optional
+        List of field IDs to include in the stitching. If None, all fields are included.
 
     Returns
     -------
     frame : dask.Array
-        Stitched mosaic image.
+        Stitched mosaic image as a Dask array.
     tiles_shifted_shapely : List[Tuple]
-        Chunk information.
+        List of tuples containing chunk information and transformations for each tile.
     """
-    # logging.info('Entering function: stitch')
 
     # Filter metadata for the current mosaic
     conditions = (df['TimepointID'] == str(time)) & (df['PlaneID'] == str(plane)) & \
                  (df['ChannelID'] == str(channel)) & (df['Row'] == str(row)) & (df['Col'] == str(col))
     filtered_df = df[conditions]
+
+    if subset_field_IDs:
+        filtered_df = filtered_df[filtered_df['FieldID'].isin(subset_field_IDs)]
 
     # Extract filenames
     fns = filtered_df['URL']
@@ -325,13 +328,13 @@ def stitch(load_transform_image: partial,
     transforms = [AffineTransform(translation=stage_coord).params for stage_coord in norm_coords]
     tiles = [transform_tile_coord(sample.shape, transform) for transform in transforms]
     all_bboxes = np.vstack(tiles)
-    stitched_shape = tuple(np.ceil(all_bboxes.max(axis=0) - all_bboxes.min(axis=0)).astype(int))
+    stitched_shape = tuple(np.round(all_bboxes.max(axis=0) - all_bboxes.min(axis=0)).astype(int))
     shift_to_origin = AffineTransform(translation=-all_bboxes.min(axis=0))
     transforms_with_shift = [t @ shift_to_origin.params for t in transforms]
     shifted_tiles = [transform_tile_coord(sample.shape, t) for t in transforms_with_shift]
 
     # Determine chunk size and boundaries
-    chunk_size = (stitched_shape[0] / np.sqrt(chunk_fraction),) * 2
+    chunk_size = (stitched_shape[0] / n_tile_rows, stitched_shape[1] / n_tile_cols)
     chunks = normalize_chunks(chunk_size, shape=stitched_shape)
     assert np.all(np.array(stitched_shape) == np.array(list(map(sum, chunks)))), "Chunks do not fit into mosaic size"
     chunk_boundaries = list(get_chunk_coord(stitched_shape, chunk_size))
@@ -353,7 +356,6 @@ def stitch(load_transform_image: partial,
     frame = da.map_blocks(func=_fuse_func, chunks=chunks, input_tile_info=chunk_tiles, dtype=sample.dtype)
     frame = da.rot90(frame)  # Need this to bridge cartesian coords with python image coords
 
-    # logging.info('Exiting function: stitch')
     return frame, tiles_shifted_shapely
 
 
@@ -565,32 +567,29 @@ def load_image(file: Union[str, Path], transforms: List[Callable[[np.ndarray], n
     return img
 
 
-def final_image_size(num_tiles, size_of_tile, overlap_percentage):
+def final_image_size(size_of_tile, overlap_percentage, n_tile_rows, n_tile_cols):
     """
-    Calculate the size of the final stitched image.
+    Calculate the size of the final stitched image for a rectangular mosaic.
 
     Parameters:
-    num_tiles (int): Total number of tiles (must be a perfect square).
+    n_tile_rows (int): Number of tiles along the width.
+    n_tile_cols (int): Number of tiles along the height.
     size_of_tile (int): Size of each tile in pixels.
     overlap_percentage (float): Overlap between the tiles as a percentage (0.1 for 10%).
 
     Returns:
-    int: Size of the final stitched image in pixels.
+    tuple: Size of the final stitched image in pixels (width, height).
     """
-    # Check if num_tiles is a perfect square
-    if not np.sqrt(num_tiles).is_integer():
-        raise ValueError("The number of tiles must be a perfect square.")
-
-    # Calculate the number of tiles along one dimension
-    tiles_per_side = int(np.sqrt(num_tiles))
-
     # Calculate the actual overlap in pixels
     overlap = overlap_percentage * size_of_tile
 
-    # Calculate the size of the final stitched image
-    final_image_size = (tiles_per_side * size_of_tile) - ((tiles_per_side - 1) * overlap)
+    # Calculate the size of the final stitched image in width
+    final_image_width = (n_tile_cols * size_of_tile) - ((n_tile_cols - 1) * overlap)
 
-    return (int(final_image_size), int(final_image_size))
+    # Calculate the size of the final stitched image in height
+    final_image_height = (n_tile_rows * size_of_tile) - ((n_tile_rows - 1) * overlap)
+
+    return (int(final_image_width), int(final_image_height))
 
 
 def compile_and_export_mosaic(image_dir: str, metadata_file_path: str, chunk_fraction=9):
