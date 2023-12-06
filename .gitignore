@@ -15,3 +15,6 @@ notify.py
 aws_tools.py
 *.html
 *.json
+*.svg
+*.pdf
+*.mp4
