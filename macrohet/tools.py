@@ -16,6 +16,67 @@ class ImageDimensionError(Exception):
         super().__init__(message)
 
 
+def measure_mtb_area(track, masks, rfp_images, threshold=480, scale_factor=5.04, image_resolution=1.4949402023919043e-07):
+    """
+    Measures the area of a region (presumably microtubule) in each frame of an image sequence.
+
+    Parameters:
+    - track (object): An object containing tracking information with attributes 't', 'x', 'y', and 'ID'.
+    - masks (array): A numpy array representing the segmented masks of the images.
+    - rfp_images (array): A numpy array of RFP (red fluorescent protein) images.
+    - threshold (int): The intensity threshold for considering a pixel as part of the microtubule region.
+    - scale_factor (float): Factor for scaling the coordinates from the track object.
+    - image_resolution (float): The resolution of the images in pixels per meter.
+
+    Returns:
+    - mtb_areas (list): A list of areas (in micrometers squared) of the microtubule region for each frame.
+
+    The function iterates over each frame specified in the track object, scales the coordinates,
+    and selects the corresponding mask. If a mask exists at the specified coordinates, it calculates
+    the area of the region with intensity above the threshold in the RFP image. The area is then converted
+    from pixels to micrometers squared using the image resolution.
+    """
+
+    mtb_areas = []
+    for t, x, y in tqdm(zip(track.t, track.x, track.y),
+                        total=len(track),
+                        desc=f'Calculating mtb area for every frame in track: {track.ID}'):
+        # Scale coordinates
+        x, y = int(x * scale_factor), int(y * scale_factor)
+
+        # Select the corresponding frame from the masks
+        frame = masks[t, ...]
+
+        # Check to see if mask exists at the specified coordinates
+        if frame[y, x]:
+            # Select the specific cell of interest based on the mask
+            mask = frame == frame[y, x]
+
+            # Apply mask to the corresponding RFP frame
+            rfp_frame = rfp_images[t]
+            masked_image = rfp_frame * mask
+
+            # Apply threshold to identify microtubule region
+            thresholded_masked_image = masked_image >= threshold
+
+            # Calculate the area of the microtubule region
+            mtb_area = np.sum(thresholded_masked_image)
+
+            # Convert the resolution to pixels per micrometer
+            resolution_micrometers_per_pixel = image_resolution * 1_000_000
+
+            # Convert area from pixels to micrometers squared
+            mtb_area = mtb_area * (resolution_micrometers_per_pixel ** 2)
+
+            # Append the calculated area to the list
+            mtb_areas.append(mtb_area)
+        else:
+            # Append 0 if no mask exists at the specified coordinates
+            mtb_areas.append(0)
+
+    return mtb_areas
+
+
 def remove_small_segments(mask_stack, threshold_size=1000):
     """
     Remove small segments from a stack of binary masks.
