@@ -16,6 +16,96 @@ class ImageDimensionError(Exception):
         super().__init__(message)
 
 
+def merge_tracks(track_ID_1, track_ID_2, tracks):
+    """
+    Merges two tracks identified by their IDs into a single pandas DataFrame.
+
+    This function finds the tracks with the specified IDs from a list of track objects,
+    converts them to dictionaries, applies the split_mean_intensity function to split
+    the 'mean_intensity' into separate channels, and then merges the two tracks into a
+    single DataFrame.
+
+    Parameters:
+    track_ID_1 (int): The ID of the first track to merge.
+    track_ID_2 (int): The ID of the second track to merge.
+    tracks (list): A list of track objects, each with a 'to_dict' method and an 'ID' attribute.
+
+    Returns:
+    pandas.DataFrame: A DataFrame containing the merged data from the two specified tracks.
+
+    Raises:
+    ValueError: If track IDs are not found in the provided track list.
+    """
+
+    # Find and validate tracks by IDs
+    track_1 = next((t for t in tracks if t.ID == track_ID_1), None)
+    track_2 = next((t for t in tracks if t.ID == track_ID_2), None)
+
+    if not track_1 or not track_2:
+        raise ValueError("One or both track IDs not found in the provided track list.")
+
+    # Convert tracks to dictionaries and split mean intensity
+    track_1_dict = split_mean_intensity(track_1.to_dict())
+    track_2_dict = split_mean_intensity(track_2.to_dict())
+
+    # Convert dictionaries to pandas DataFrames
+    track_1_df = pd.DataFrame(track_1_dict)
+    track_2_df = pd.DataFrame(track_2_dict)
+
+    # Merge the two DataFrames
+    final_track = pd.concat([track_1_df, track_2_df], ignore_index=True)
+
+    return final_track
+
+
+def split_mean_intensity(input_dict):
+    """
+    Splits the 'mean_intensity' entry in a track dictionary from a multi-dimensional
+    array into separate entries for each channel. This is useful for integrating the data
+    into a pandas DataFrame when each channel needs to be a separate column.
+
+    The function dynamically handles any number of intensity channels.
+
+    Parameters:
+    input_dict (dict): A dictionary containing a 'mean_intensity' key with a multi-dimensional
+                       array as its value.
+
+    Returns:
+    dict: The modified dictionary with separate entries for each intensity channel.
+          The original 'mean_intensity' key is removed.
+
+    Example:
+    input_dict = {
+        'mean_intensity': array([[val00, val01, val02], [val10, val11, val12], ...])
+    }
+    output_dict = split_mean_intensity(input_dict)
+    # output_dict will have keys 'mean_intensity_0', 'mean_intensity_1', 'mean_intensity_2', etc.
+    """
+    # Check if 'mean_intensity' is in the dictionary
+    if 'mean_intensity' in input_dict:
+        # Extract the array
+        mean_intensity_array = input_dict['mean_intensity']
+
+        # Determine the number of channels (columns in the array)
+        num_channels = mean_intensity_array.shape[1]
+
+        # Initialize lists for the split entries for each channel
+        intensity_channels = {f'mean_intensity_{i}': [] for i in range(num_channels)}
+
+        # Iterate through the array and split the values for each channel
+        for row in mean_intensity_array:
+            for i in range(num_channels):
+                intensity_channels[f'mean_intensity_{i}'].append(row[i])
+
+        # Update the dictionary with new entries for each channel
+        input_dict.update(intensity_channels)
+
+        # Remove the original 'mean_intensity' entry
+        del input_dict['mean_intensity']
+
+    return input_dict
+
+
 def measure_mtb_area(track, masks, rfp_images, threshold=480, scale_factor=5.04, image_resolution=1.4949402023919043e-07):
     """
     Measures the area of a region (presumably microtubule) in each frame of an image sequence.
@@ -40,7 +130,8 @@ def measure_mtb_area(track, masks, rfp_images, threshold=480, scale_factor=5.04,
     mtb_areas = []
     for t, x, y in tqdm(zip(track.t, track.x, track.y),
                         total=len(track),
-                        desc=f'Calculating mtb area for every frame in track: {track.ID}'):
+                        desc=f'Calculating mtb area for every frame in track: {track.ID}',
+                        leave=False):
         # Scale coordinates
         x, y = int(x * scale_factor), int(y * scale_factor)
 
