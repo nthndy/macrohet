@@ -6,6 +6,27 @@ import pandas as pd
 from tqdm.auto import tqdm
 
 
+def generate_url(row):
+    """
+    Generate a properly formatted local file address for the 'URL' column in Harmony metadata.
+    This function replaces remote addresses, ensuring consistency when metadata is exported separately from the images.
+
+    Parameters:
+    row (pd.Series): A row of Harmony metadata containing 'Row', 'Col', 'FieldID', 'PlaneID', 'ChannelID', 'TimepointID', and 'FlimID' columns.
+
+    Returns:
+    str: The formatted local file address.
+    """
+    m_row = row['Row'].zfill(2)
+    m_col = row['Col'].zfill(2)
+    m_field = row['FieldID'].zfill(2)
+    m_plane = row['PlaneID'].zfill(2)
+    m_ch = row['ChannelID']
+    m_time = int(row['TimepointID']) + 1
+    m_flim = row['FlimID']
+    return f'r{m_row}c{m_col}f{m_field}p{m_plane}-ch{m_ch}sk{m_time}fk1fl{m_flim}.tiff'
+
+
 def load_macrohet_metadata(location='desktop'):
     """
     Lazy function for loading a couple of bits of info that usually take the
