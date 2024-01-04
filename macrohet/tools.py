@@ -108,18 +108,18 @@ def split_mean_intensity(input_dict):
 
 def measure_mtb_area(track, masks, rfp_images, threshold=480, scale_factor=5.04, image_resolution=1.4949402023919043e-07):
     """
-    Measures the area of a region (presumably microtubule) in each frame of an image sequence.
+    Measures the area of a region in each frame of an image sequence.
 
     Parameters:
     - track (object): An object containing tracking information with attributes 't', 'x', 'y', and 'ID'.
     - masks (array): A numpy array representing the segmented masks of the images.
     - rfp_images (array): A numpy array of RFP (red fluorescent protein) images.
-    - threshold (int): The intensity threshold for considering a pixel as part of the microtubule region.
+    - threshold (int): The intensity threshold for considering a pixel as part of the region.
     - scale_factor (float): Factor for scaling the coordinates from the track object.
     - image_resolution (float): The resolution of the images in pixels per meter.
 
     Returns:
-    - mtb_areas (list): A list of areas (in micrometers squared) of the microtubule region for each frame.
+    - mtb_areas (list): A list of areas (in micrometers squared) of the region for each frame.
 
     The function iterates over each frame specified in the track object, scales the coordinates,
     and selects the corresponding mask. If a mask exists at the specified coordinates, it calculates
