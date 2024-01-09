@@ -3,7 +3,9 @@ import os
 import btrack
 import cv2
 import matplotlib.pyplot as plt
+import napari
 import numpy as np
+from magicgui import magicgui
 from natsort import natsorted
 from skimage.morphology import area_closing, label, remove_small_objects
 from skimage.transform import downscale_local_mean, resize
@@ -18,6 +20,84 @@ napari_scale = [1.49e-05, 1.4949402023919043E-7, 1.4949402023919043E-7]
 # default scale factor
 # for datasets that have been tracked on scaled down images
 scale_factor = 6048 / 1200
+
+
+def highlight_cell_gui(tracks):
+    @magicgui(call_button='Highlight cell ID',
+              cell_ID={"widget_type": "SpinBox", "min": 0, "max": max([track.ID for track in tracks])},
+              size={"widget_type": "Slider", "min": 1, "max": 1000},
+              opacity={"widget_type": "FloatSlider", "min": 0.0, "max": 1.0},
+              symbol={"choices": ["o", "s", "t", "+", "x"]},
+              edge_color={"choices": ["white", "black", "gray", "red", "green", "blue", "yellow", "purple", "orange", "cyan", "magenta"]},
+              edge_width={"widget_type": "FloatSlider", "min": 0.0, "max": 1.0},
+              cell_property={"choices": list(tracks[0].properties.keys()) + ["Show All"]},
+              )
+    def highlight_cell(cell_ID=1, size=100, opacity=1, symbol="o", edge_color="white", edge_width=0.1, cell_property="area", tracking_scale_factor=6048 / 1200) -> napari.types.LayerDataTuple:
+        """
+        Highlights and displays a specific cell in Napari viewer with customizable visualization parameters.
+
+        Parameters
+        ----------
+        cell_ID : int
+            The identifier of the cell to be highlighted. Range: 0 to 1000.
+        size : int
+            Size of the symbol used to represent the cell. Range: 1 to 1000.
+        opacity : float
+            Opacity of the symbol. Range: 0.0 (fully transparent) to 1.0 (fully opaque).
+        symbol : str
+            Shape of the symbol representing the cell. Choices: 'o', 's', 't', '+', 'x'.
+        edge_color : str
+            Color of the symbol's edge. Choices include various common colors.
+        edge_width : float
+            Width of the symbol's edge. Range: 0.0 to 1.0.
+        cell_property : str
+            Specific property of the cell to display. If 'Show All' is selected, all properties are shown.
+
+        Returns
+        -------
+        napari.types.LayerDataTuple
+            A tuple containing the data for the Napari points layer. This includes the cell's coordinates,
+            properties, and visual representation parameters like size, opacity, and color.
+
+        Notes
+        -----
+        - The function uses a list of tracks to find the specific cell by its ID.
+        - 'scale_factor' is applied to rescale the cell coordinates appropriately.
+        - If 'Show All' is selected for cell_property, all properties of the cell are included.
+          Otherwise, only the specified property is included. Special handling is applied
+          if the property is 'mean_intensity'.
+        """
+        try:
+            # Attempt to find the track with the given cell_ID
+            track = next(track for track in tracks if track.ID == cell_ID)
+        except StopIteration:
+            # If no track is found with the given cell_ID, print an error message and return
+            print(f"Error: No cell found with ID {cell_ID}")
+            return
+
+        # Get tracking position data
+        data = np.array([[track.t[i], track.y[i] * tracking_scale_factor, track.x[i] * tracking_scale_factor]
+                         for i in range(len(track))])
+
+        # Display all track properties
+        if cell_property == 'Show All':
+            props = {cell_property: list(map(str, track.properties[cell_property]))
+                     for cell_property in track.properties.keys()}
+        # Or select a single track property to display
+        else:
+            props = {cell_property: list(map(str, track.properties[cell_property]))}
+
+        return (data, {'properties': props,
+                       'size': size,
+                       'opacity': opacity,
+                       'symbol': symbol,
+                       'name': f'Cell ID:{cell_ID}',
+                       'face_color': 'transparent',
+                       'edge_color': edge_color,
+                       'edge_width': edge_width},
+                'points')
+
+    return highlight_cell
 
 
 class ColorPalette:
