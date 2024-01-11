@@ -22,7 +22,7 @@ napari_scale = [1.49e-05, 1.4949402023919043E-7, 1.4949402023919043E-7]
 scale_factor = 6048 / 1200
 
 
-def highlight_cell_gui(tracks):
+def highlight_cell_gui(tracks, viewer):
     @magicgui(call_button='Highlight cell ID',
               cell_ID={"widget_type": "SpinBox", "min": 0, "max": max([track.ID for track in tracks])},
               size={"widget_type": "Slider", "min": 1, "max": 1000},
@@ -86,6 +86,9 @@ def highlight_cell_gui(tracks):
         # Or select a single track property to display
         else:
             props = {cell_property: list(map(str, track.properties[cell_property]))}
+
+        # change position to where cell is
+        viewer.dims.current_step = tuple(data[0])
 
         return (data, {'properties': props,
                        'size': size,
