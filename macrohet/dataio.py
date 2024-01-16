@@ -3,6 +3,7 @@ import xml.etree.ElementTree as ET
 
 import numpy as np
 import pandas as pd
+from lxml import etree as ET_iter
 from tqdm.auto import tqdm
 
 
@@ -70,31 +71,35 @@ def read_harmony_metadata(metadata_path: os.PathLike, assay_layout=False,
     """
     # read xml metadata file
     print('Reading metadata XML file...')
-    xml_data = open(metadata_path, 'r', encoding="utf-8-sig").read()
-    root = ET.XML(xml_data)
+
     # extraction procedure for image volume metadata
     if not assay_layout:
-        # extract the metadata from the xml file
-        images_metadata = [child for child in root if "Images" in child.tag][0]
-        # create an empty list for storing individual image metadata
-        metadata = list()
-        # iterate over every image entry extracting the metadata
-        for image_metadata in tqdm(images_metadata, total=len(images_metadata),
-                                   desc='Extracting HarmonyV5 metadata'):
-            # create empty dict to store single image metadata
-            single_image_dict = dict()
-            # iterate over every metadata item in that image metadata
-            for item in image_metadata:
-                # get column names from metadata
-                col = item.tag.replace('{http://www.perkinelmer.com/PEHH/HarmonyV5}', '')
-                # get metadata
-                entry = item.text
-                # make dictionary out of metadata
-                single_image_dict[col] = entry
-            # append that image metadata to list of all images
-            metadata.append(single_image_dict)
+        metadata = []
+
+        # for the large image metadata file using iterative reading of metadata
+        for event, elem in tqdm(ET_iter.iterparse(metadata_path, events=("end",))):
+            # Check for the 'Images' tag in the element
+            if event == "end" and "Images" in elem.tag:
+                for image_metadata in elem:
+                    single_image_dict = {}
+                    for item in image_metadata:
+                        # Extract column name, removing namespace if necessary
+                        col = item.tag.split('}')[-1]  # This splits the tag by '}' and takes the last part
+                        # Get metadata value
+                        entry = item.text
+                        # Store in dictionary
+                        single_image_dict[col] = entry
+
+                    # Append to list
+                    metadata.append(single_image_dict)
+
+                # Clear processed element to free memory
+                elem.clear()
+
     # extraction procedure for assay layout metadata
     if assay_layout:
+        xml_data = open(metadata_path, 'r', encoding="utf-8-sig").read()
+        root = ET.XML(xml_data)
         metadata = dict()
         for branch in root:
             for subbranch in branch:
