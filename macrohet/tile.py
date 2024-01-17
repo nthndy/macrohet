@@ -218,10 +218,9 @@ def compile_mosaic(
 
     # rechunk so they are more managable along original image tile size
     images = [frame.rechunk(tile_size, tile_size) for frame in images]
-
-    # stack them together
-    images = np.stack(images, axis=0)
-
+    print(type(images))
+    # stack them together and call compute so the it returns a single da and not a da of a da
+    images = da.stack(images, axis=0).compute()
     # # reshape them according to TCZXY
     images = images.reshape((len(timepoint_IDs),
                              len(channel_IDs),
@@ -354,7 +353,7 @@ def stitch(load_transform_image: partial,
 
     # Tile images together
     frame = da.map_blocks(func=_fuse_func, chunks=chunks, input_tile_info=chunk_tiles, dtype=sample.dtype)
-    frame = da.rot90(frame)  # Need this to bridge cartesian coords with python image coords
+    frame = da.rot90(frame)  # Need this to bridge cartesian coords with python image coords?
 
     return frame, tiles_shifted_shapely
 
