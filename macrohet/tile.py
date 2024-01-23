@@ -218,10 +218,9 @@ def compile_mosaic(
 
     # rechunk so they are more managable along original image tile size
     images = [frame.rechunk(tile_size, tile_size) for frame in images]
-    print(type(images))
     # stack them together and call compute so the it returns a single da and not a da of a da
-    images = da.stack(images, axis=0).compute()
-    # # reshape them according to TCZXY
+    images = da.stack(images, axis=0)  # .compute()
+    # reshape them according to TCZXY
     images = images.reshape((len(timepoint_IDs),
                              len(channel_IDs),
                              len(plane_IDs),
