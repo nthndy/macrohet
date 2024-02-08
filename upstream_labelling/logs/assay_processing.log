@@ -1,0 +1,1962 @@
+2024-01-30 10:36:54,075 [INFO]: Position 1: Processing completed successfully
+2024-01-30 10:40:22,921 [INFO]: Position (3, 1): Starting new acquisition
+2024-01-30 10:45:56,252 [INFO]: Position (3, 1): Images loaded and stacked
+2024-01-30 10:45:56,253 [INFO]: Position (3, 1): Starting segmentation
+2024-01-30 13:16:45,349 [INFO]: Position (3, 1): Finished segmentation
+2024-01-30 13:16:45,351 [INFO]: Position (3, 1): Measuring Mtb area
+2024-01-30 13:18:16,537 [INFO]: Position (3, 1): Creating intensity image for localisation
+2024-01-30 13:26:48,300 [INFO]: Position (3, 1): Starting new acquisition
+2024-01-30 13:32:24,110 [INFO]: Position (3, 1): Images loaded and stacked
+2024-01-30 13:32:24,111 [INFO]: Position (3, 1): Starting segmentation
+2024-01-30 16:17:43,494 [INFO]: Position (3, 1): Finished segmentation
+2024-01-30 16:17:43,504 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 1)_first_pass_seg_backup.h5...
+2024-01-30 16:17:43,541 [INFO]: Position (3, 1): Processing failed: [Errno 2] Unable to synchronously create file (unable to open file: name = '/mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 1)_first_pass_seg_backup.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242)
+2024-01-30 16:17:43,545 [INFO]: Position (3, 2): Starting new acquisition
+2024-01-30 16:24:13,428 [INFO]: Position (3, 2): Images loaded and stacked
+2024-01-30 16:24:13,437 [INFO]: Position (3, 2): Starting segmentation
+2024-01-30 18:56:14,137 [INFO]: Position (3, 2): Finished segmentation
+2024-01-30 18:56:14,146 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 2)_first_pass_seg_backup.h5...
+2024-01-30 18:57:33,166 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 2)_first_pass_seg_backup.h5
+2024-01-30 18:57:33,295 [INFO]: Position (3, 2): Saved out masks
+2024-01-30 18:57:33,297 [INFO]: Position (3, 2): Measuring Mtb area
+2024-01-30 19:08:49,599 [INFO]: Position (3, 2): Creating intensity image for localisation
+2024-01-30 19:16:10,544 [INFO]: Position (3, 2): Localising objects
+2024-01-30 19:16:10,548 [INFO]: Localizing objects from segmentation...
+2024-01-30 19:16:10,550 [WARNING]: Multichannel intensity image detected, using unweighted centroid.
+2024-01-30 19:16:12,318 [INFO]: Position (3, 2): Processing failed: Label and intensity image shapes must match, except for channel (last) axis.
+2024-01-30 19:16:12,328 [INFO]: Position (3, 3): Starting new acquisition
+2024-01-31 09:08:34,590 [INFO]: Position (3, 1): Starting new acquisition
+2024-01-31 09:08:34,594 [INFO]: Position (3, 1): Images loaded and stacked
+2024-01-31 09:08:34,596 [INFO]: Processing completed
+2024-01-31 09:10:57,464 [INFO]: Position (3, 1): Starting new acquisition
+2024-01-31 09:10:57,466 [INFO]: Position (3, 1): Skipping uninfected acquisition for now
+2024-01-31 09:10:57,468 [INFO]: Position (3, 2): Starting new acquisition
+2024-01-31 09:10:57,469 [INFO]: Position (3, 2): Skipping uninfected acquisition for now
+2024-01-31 09:10:57,470 [INFO]: Position (3, 3): Starting new acquisition
+2024-01-31 09:17:33,525 [INFO]: Position (3, 3): Images loaded and stacked
+2024-01-31 09:17:33,535 [INFO]: Position (3, 3): Starting segmentation
+2024-01-31 12:09:49,537 [INFO]: Position (3, 3): Finished segmentation
+2024-01-31 12:09:49,546 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 3)_first_pass_seg_backup.h5...
+2024-01-31 12:11:23,465 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 3)_first_pass_seg_backup.h5
+2024-01-31 12:11:23,664 [INFO]: Position (3, 3): Saved out masks
+2024-01-31 12:11:23,665 [INFO]: Position (3, 3): Measuring Mtb area
+2024-01-31 12:12:29,495 [INFO]: Position (3, 3): Creating intensity image for localisation
+2024-01-31 12:14:28,075 [INFO]: Position (3, 3): Localising objects
+2024-01-31 12:14:28,077 [INFO]: Localizing objects from segmentation...
+2024-01-31 12:14:28,078 [WARNING]: Multichannel intensity image detected, using unweighted centroid.
+2024-01-31 12:24:30,810 [INFO]: Objects are of type: <class 'dict'>
+2024-01-31 12:24:32,162 [INFO]: ...Found 56808 objects in 150 frames.
+2024-01-31 12:24:32,165 [INFO]: Position (3, 3): Filtering small objects
+2024-01-31 12:24:32,210 [INFO]: Position (3, 3): Adding infection labels to objects
+2024-01-31 12:24:32,299 [INFO]: Position (3, 3): Beginning tracking
+2024-01-31 12:24:32,345 [INFO]: Loaded btrack: /home/dayn/analysis/btrack/btrack/libs/libtracker.so
+2024-01-31 12:24:32,348 [INFO]: Starting BayesianTracker session
+2024-01-31 12:24:32,364 [INFO]: Loading configuration file: /home/dayn/analysis/models/btrack/particle_config_pnassign.json
+2024-01-31 12:24:32,368 [INFO]: Objects are of type: <class 'list'>
+2024-01-31 12:24:33,342 [INFO]: Starting tracking...
+2024-01-31 12:24:33,345 [INFO]: Update using: ['MOTION', 'VISUAL']
+2024-01-31 12:24:33,422 [INFO]: Tracking objects in frames 0 to 24 (of 150)...
+2024-01-31 12:24:36,417 [INFO]:  - Timing (Bayesian updates: 55.39ms, Linking: 4.50ms)
+2024-01-31 12:24:36,420 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-01-31 12:24:36,422 [INFO]:  - Stats (Active: 586, Lost: 2709, Conflicts resolved: 3274)
+2024-01-31 12:24:36,423 [INFO]: Tracking objects in frames 25 to 49 (of 150)...
+2024-01-31 12:24:41,034 [INFO]:  - Timing (Bayesian updates: 31.65ms, Linking: 2.90ms)
+2024-01-31 12:24:41,036 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.99990)
+2024-01-31 12:24:41,038 [INFO]:  - Stats (Active: 565, Lost: 5100, Conflicts resolved: 6633)
+2024-01-31 12:24:41,039 [INFO]: Tracking objects in frames 50 to 74 (of 150)...
+2024-01-31 12:24:45,155 [INFO]:  - Timing (Bayesian updates: 55.69ms, Linking: 4.20ms)
+2024-01-31 12:24:45,169 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.99530)
+2024-01-31 12:24:45,175 [INFO]:  - Stats (Active: 547, Lost: 7587, Conflicts resolved: 9918)
+2024-01-31 12:24:45,179 [INFO]: Tracking objects in frames 75 to 99 (of 150)...
+2024-01-31 12:24:49,544 [INFO]:  - Timing (Bayesian updates: 43.92ms, Linking: 3.39ms)
+2024-01-31 12:24:49,545 [INFO]:  - Probabilities (Link: 0.99998, Lost: 1.00000)
+2024-01-31 12:24:49,546 [INFO]:  - Stats (Active: 569, Lost: 9820, Conflicts resolved: 13193)
+2024-01-31 12:24:49,547 [INFO]: Tracking objects in frames 100 to 124 (of 150)...
+2024-01-31 12:24:53,681 [INFO]:  - Timing (Bayesian updates: 30.88ms, Linking: 2.82ms)
+2024-01-31 12:24:53,682 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-01-31 12:24:53,683 [INFO]:  - Stats (Active: 529, Lost: 11925, Conflicts resolved: 16302)
+2024-01-31 12:24:53,686 [INFO]: Tracking objects in frames 125 to 149 (of 150)...
+2024-01-31 12:24:56,691 [INFO]:  - Timing (Bayesian updates: 25.06ms, Linking: 2.53ms)
+2024-01-31 12:24:56,693 [INFO]:  - Probabilities (Link: 0.99444, Lost: 0.69804)
+2024-01-31 12:24:56,694 [INFO]: SUCCESS.
+2024-01-31 12:24:56,696 [INFO]:  - Found 6033 tracks in 150 frames (in 0.0s)
+2024-01-31 12:24:56,757 [INFO]:  - Inserted 12655 dummy objects to fill tracking gaps
+2024-01-31 12:24:56,759 [INFO]: Loading hypothesis model: particle_hypothesis
+2024-01-31 12:24:56,765 [INFO]: Calculating hypotheses (relax: True)...
+2024-01-31 12:24:56,835 [INFO]: Setting up constraints matrix for global optimisation...
+2024-01-31 12:24:56,836 [INFO]: Using GLPK options: {'tm_lim': 60000}...
+2024-01-31 12:24:57,237 [INFO]: Optimizing...
+2024-01-31 12:25:02,208 [INFO]: Optimization complete. (Solution: optimal)
+2024-01-31 12:25:02,250 [INFO]:  - Fates.FALSE_POSITIVE: 2635 (of 6033)
+2024-01-31 12:25:02,252 [INFO]:  - Fates.LINK: 1446 (of 2617)
+2024-01-31 12:25:02,254 [INFO]:  - Fates.INITIALIZE_BORDER: 207 (of 517)
+2024-01-31 12:25:02,256 [INFO]:  - Fates.INITIALIZE_FRONT: 360 (of 564)
+2024-01-31 12:25:02,259 [INFO]:  - Fates.INITIALIZE_LAZY: 1385 (of 4952)
+2024-01-31 12:25:02,260 [INFO]:  - Fates.TERMINATE_BORDER: 181 (of 497)
+2024-01-31 12:25:02,262 [INFO]:  - Fates.TERMINATE_BACK: 349 (of 436)
+2024-01-31 12:25:02,264 [INFO]:  - Fates.TERMINATE_LAZY: 1422 (of 5100)
+2024-01-31 12:25:02,265 [INFO]:  - TOTAL: 20716 hypotheses
+2024-01-31 12:25:02,393 [INFO]: Completed optimization with 4587 tracks
+2024-01-31 12:25:03,297 [INFO]: Ending BayesianTracker session
+2024-01-31 12:25:03,445 [INFO]: Position (3, 3): Saving tracking
+2024-01-31 12:25:03,447 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 3)_first_pass.h5...
+2024-01-31 12:25:04,163 [INFO]: Writing objects/obj_type_1
+2024-01-31 12:25:04,181 [INFO]: Writing labels/obj_type_1
+2024-01-31 12:25:04,185 [INFO]: Loading objects/obj_type_1 (43070, 5) (43070 filtered: None)
+2024-01-31 12:25:04,771 [INFO]: Writing properties/obj_type_1/area (43070,)
+2024-01-31 12:25:04,814 [INFO]: Writing properties/obj_type_1/major_axis_length (43070,)
+2024-01-31 12:25:04,860 [INFO]: Writing properties/obj_type_1/minor_axis_length (43070,)
+2024-01-31 12:25:04,909 [INFO]: Writing properties/obj_type_1/orientation (43070,)
+2024-01-31 12:25:04,988 [INFO]: Writing properties/obj_type_1/mean_intensity (43070, 3)
+2024-01-31 12:25:05,046 [INFO]: Writing properties/obj_type_1/Infected (43070,)
+2024-01-31 12:25:05,060 [INFO]: Writing tracks/obj_type_1
+2024-01-31 12:25:05,112 [INFO]: Writing LBEP/obj_type_1
+2024-01-31 12:25:05,114 [INFO]: Writing fates/obj_type_1
+2024-01-31 12:26:31,598 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 3)_first_pass.h5
+2024-01-31 12:26:31,845 [INFO]: Position (3, 3): Processing completed successfully
+2024-01-31 12:26:31,849 [INFO]: Position (3, 4): Starting new acquisition
+2024-01-31 12:34:53,519 [INFO]: Position (3, 4): Images loaded and stacked
+2024-01-31 12:34:53,520 [INFO]: Position (3, 4): Starting segmentation
+2024-01-31 17:03:19,347 [INFO]: Position (3, 4): Finished segmentation
+2024-01-31 17:03:19,356 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 4)_first_pass_seg_backup.h5...
+2024-01-31 17:04:29,050 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 4)_first_pass_seg_backup.h5
+2024-01-31 17:04:49,549 [INFO]: Position (3, 4): Saved out masks
+2024-01-31 17:04:49,551 [INFO]: Position (3, 4): Measuring Mtb area
+2024-01-31 17:05:15,760 [INFO]: Position (3, 4): Creating intensity image for localisation
+2024-01-31 17:06:11,096 [INFO]: Position (3, 4): Localising objects
+2024-01-31 17:06:11,097 [INFO]: Localizing objects from segmentation...
+2024-01-31 17:06:11,098 [WARNING]: Multichannel intensity image detected, using unweighted centroid.
+2024-01-31 17:14:55,778 [INFO]: Objects are of type: <class 'dict'>
+2024-01-31 17:14:56,942 [INFO]: ...Found 82620 objects in 150 frames.
+2024-01-31 17:14:56,964 [INFO]: Position (3, 4): Filtering small objects
+2024-01-31 17:14:57,010 [INFO]: Position (3, 4): Adding infection labels to objects
+2024-01-31 17:14:57,099 [INFO]: Position (3, 4): Beginning tracking
+2024-01-31 17:14:57,117 [INFO]: Loaded btrack: /home/dayn/analysis/btrack/btrack/libs/libtracker.so
+2024-01-31 17:14:57,123 [INFO]: Starting BayesianTracker session
+2024-01-31 17:14:57,125 [INFO]: Loading configuration file: /home/dayn/analysis/models/btrack/particle_config_pnassign.json
+2024-01-31 17:14:57,128 [INFO]: Objects are of type: <class 'list'>
+2024-01-31 17:14:58,079 [INFO]: Starting tracking...
+2024-01-31 17:14:58,081 [INFO]: Update using: ['MOTION', 'VISUAL']
+2024-01-31 17:14:58,305 [INFO]: Tracking objects in frames 0 to 24 (of 150)...
+2024-01-31 17:15:03,519 [INFO]:  - Timing (Bayesian updates: 55.79ms, Linking: 3.03ms)
+2024-01-31 17:15:03,522 [INFO]:  - Probabilities (Link: 0.99525, Lost: 1.00000)
+2024-01-31 17:15:03,524 [INFO]:  - Stats (Active: 692, Lost: 3264, Conflicts resolved: 4134)
+2024-01-31 17:15:03,525 [INFO]: Tracking objects in frames 25 to 49 (of 150)...
+2024-01-31 17:15:08,317 [INFO]:  - Timing (Bayesian updates: 50.63ms, Linking: 3.14ms)
+2024-01-31 17:15:08,319 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-01-31 17:15:08,320 [INFO]:  - Stats (Active: 692, Lost: 6160, Conflicts resolved: 8436)
+2024-01-31 17:15:08,321 [INFO]: Tracking objects in frames 50 to 74 (of 150)...
+2024-01-31 17:15:13,572 [INFO]:  - Timing (Bayesian updates: 52.44ms, Linking: 3.26ms)
+2024-01-31 17:15:13,575 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-01-31 17:15:13,577 [INFO]:  - Stats (Active: 701, Lost: 8934, Conflicts resolved: 12534)
+2024-01-31 17:15:13,579 [INFO]: Tracking objects in frames 75 to 99 (of 150)...
+2024-01-31 17:15:18,671 [INFO]:  - Timing (Bayesian updates: 63.57ms, Linking: 3.58ms)
+2024-01-31 17:15:18,673 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-01-31 17:15:18,675 [INFO]:  - Stats (Active: 705, Lost: 11668, Conflicts resolved: 16750)
+2024-01-31 17:15:18,677 [INFO]: Tracking objects in frames 100 to 124 (of 150)...
+2024-01-31 17:15:23,149 [INFO]:  - Timing (Bayesian updates: 79.63ms, Linking: 5.15ms)
+2024-01-31 17:15:23,151 [INFO]:  - Probabilities (Link: 0.99999, Lost: 1.00000)
+2024-01-31 17:15:23,152 [INFO]:  - Stats (Active: 692, Lost: 14432, Conflicts resolved: 20830)
+2024-01-31 17:15:23,154 [INFO]: Tracking objects in frames 125 to 149 (of 150)...
+2024-01-31 17:15:27,177 [INFO]:  - Timing (Bayesian updates: 52.97ms, Linking: 3.19ms)
+2024-01-31 17:15:27,180 [INFO]:  - Probabilities (Link: 0.99991, Lost: 0.99934)
+2024-01-31 17:15:27,181 [INFO]: SUCCESS.
+2024-01-31 17:15:27,183 [INFO]:  - Found 8013 tracks in 150 frames (in 0.0s)
+2024-01-31 17:15:27,273 [INFO]:  - Inserted 16351 dummy objects to fill tracking gaps
+2024-01-31 17:15:27,275 [INFO]: Loading hypothesis model: particle_hypothesis
+2024-01-31 17:15:27,277 [INFO]: Calculating hypotheses (relax: True)...
+2024-01-31 17:15:28,274 [INFO]: Setting up constraints matrix for global optimisation...
+2024-01-31 17:15:28,276 [INFO]: Using GLPK options: {'tm_lim': 60000}...
+2024-01-31 17:15:29,045 [INFO]: Optimizing...
+2024-01-31 17:15:36,556 [INFO]: Optimization complete. (Solution: optimal)
+2024-01-31 17:15:36,619 [INFO]:  - Fates.FALSE_POSITIVE: 3363 (of 8013)
+2024-01-31 17:15:36,622 [INFO]:  - Fates.LINK: 2113 (of 3996)
+2024-01-31 17:15:36,625 [INFO]:  - Fates.INITIALIZE_BORDER: 279 (of 682)
+2024-01-31 17:15:36,628 [INFO]:  - Fates.INITIALIZE_FRONT: 463 (of 722)
+2024-01-31 17:15:36,631 [INFO]:  - Fates.INITIALIZE_LAZY: 1795 (of 6609)
+2024-01-31 17:15:36,634 [INFO]:  - Fates.TERMINATE_BORDER: 287 (of 710)
+2024-01-31 17:15:36,636 [INFO]:  - Fates.TERMINATE_BACK: 415 (of 580)
+2024-01-31 17:15:36,639 [INFO]:  - Fates.TERMINATE_LAZY: 1835 (of 6723)
+2024-01-31 17:15:36,641 [INFO]:  - TOTAL: 28035 hypotheses
+2024-01-31 17:15:36,739 [INFO]: Completed optimization with 5900 tracks
+2024-01-31 17:15:36,886 [INFO]: Ending BayesianTracker session
+2024-01-31 17:15:37,202 [INFO]: Position (3, 4): Saving tracking
+2024-01-31 17:15:37,204 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 4)_first_pass.h5...
+2024-01-31 17:15:37,803 [INFO]: Writing objects/obj_type_1
+2024-01-31 17:15:37,815 [INFO]: Writing labels/obj_type_1
+2024-01-31 17:15:37,820 [INFO]: Loading objects/obj_type_1 (50141, 5) (50141 filtered: None)
+2024-01-31 17:15:38,200 [INFO]: Writing properties/obj_type_1/area (50141,)
+2024-01-31 17:15:38,223 [INFO]: Writing properties/obj_type_1/major_axis_length (50141,)
+2024-01-31 17:15:38,239 [INFO]: Writing properties/obj_type_1/minor_axis_length (50141,)
+2024-01-31 17:15:38,267 [INFO]: Writing properties/obj_type_1/orientation (50141,)
+2024-01-31 17:15:38,334 [INFO]: Writing properties/obj_type_1/mean_intensity (50141, 3)
+2024-01-31 17:15:38,391 [INFO]: Writing properties/obj_type_1/Infected (50141,)
+2024-01-31 17:15:38,403 [INFO]: Writing tracks/obj_type_1
+2024-01-31 17:15:38,453 [INFO]: Writing LBEP/obj_type_1
+2024-01-31 17:15:38,456 [INFO]: Writing fates/obj_type_1
+2024-01-31 17:16:49,630 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 4)_first_pass.h5
+2024-01-31 17:16:49,751 [INFO]: Position (3, 4): Processing completed successfully
+2024-01-31 17:16:49,753 [INFO]: Position (3, 5): Starting new acquisition
+2024-01-31 17:24:48,455 [INFO]: Position (3, 5): Images loaded and stacked
+2024-01-31 17:24:48,457 [INFO]: Position (3, 5): Starting segmentation
+2024-01-31 20:49:10,781 [INFO]: Position (3, 5): Finished segmentation
+2024-01-31 20:49:10,791 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 5)_first_pass_seg_backup.h5...
+2024-01-31 20:50:17,325 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 5)_first_pass_seg_backup.h5
+2024-01-31 20:50:39,144 [INFO]: Position (3, 5): Saved out masks
+2024-01-31 20:50:39,146 [INFO]: Position (3, 5): Measuring Mtb area
+2024-01-31 20:50:59,129 [INFO]: Position (3, 5): Creating intensity image for localisation
+2024-01-31 20:52:17,010 [INFO]: Position (3, 5): Localising objects
+2024-01-31 20:52:17,020 [INFO]: Localizing objects from segmentation...
+2024-01-31 20:52:17,023 [WARNING]: Multichannel intensity image detected, using unweighted centroid.
+2024-01-31 21:00:31,120 [INFO]: Objects are of type: <class 'dict'>
+2024-01-31 21:00:31,569 [INFO]: ...Found 68852 objects in 150 frames.
+2024-01-31 21:00:31,599 [INFO]: Position (3, 5): Filtering small objects
+2024-01-31 21:00:31,650 [INFO]: Position (3, 5): Adding infection labels to objects
+2024-01-31 21:00:31,703 [INFO]: Position (3, 5): Beginning tracking
+2024-01-31 21:00:31,739 [INFO]: Loaded btrack: /home/dayn/analysis/btrack/btrack/libs/libtracker.so
+2024-01-31 21:00:31,744 [INFO]: Starting BayesianTracker session
+2024-01-31 21:00:31,746 [INFO]: Loading configuration file: /home/dayn/analysis/models/btrack/particle_config_pnassign.json
+2024-01-31 21:00:31,749 [INFO]: Objects are of type: <class 'list'>
+2024-01-31 21:00:33,553 [INFO]: Starting tracking...
+2024-01-31 21:00:33,555 [INFO]: Update using: ['MOTION', 'VISUAL']
+2024-01-31 21:00:33,751 [INFO]: Tracking objects in frames 0 to 24 (of 150)...
+2024-01-31 21:00:37,162 [INFO]:  - Timing (Bayesian updates: 35.17ms, Linking: 2.60ms)
+2024-01-31 21:00:37,164 [INFO]:  - Probabilities (Link: 0.99880, Lost: 0.99966)
+2024-01-31 21:00:37,164 [INFO]:  - Stats (Active: 604, Lost: 2929, Conflicts resolved: 3394)
+2024-01-31 21:00:37,165 [INFO]: Tracking objects in frames 25 to 49 (of 150)...
+2024-01-31 21:00:41,086 [INFO]:  - Timing (Bayesian updates: 68.17ms, Linking: 4.43ms)
+2024-01-31 21:00:41,088 [INFO]:  - Probabilities (Link: 0.99981, Lost: 0.99416)
+2024-01-31 21:00:41,090 [INFO]:  - Stats (Active: 615, Lost: 5478, Conflicts resolved: 6862)
+2024-01-31 21:00:41,091 [INFO]: Tracking objects in frames 50 to 74 (of 150)...
+2024-01-31 21:00:44,278 [INFO]:  - Timing (Bayesian updates: 44.90ms, Linking: 3.23ms)
+2024-01-31 21:00:44,280 [INFO]:  - Probabilities (Link: 0.99995, Lost: 0.73602)
+2024-01-31 21:00:44,281 [INFO]:  - Stats (Active: 640, Lost: 8019, Conflicts resolved: 10460)
+2024-01-31 21:00:44,282 [INFO]: Tracking objects in frames 75 to 99 (of 150)...
+2024-01-31 21:00:48,396 [INFO]:  - Timing (Bayesian updates: 34.42ms, Linking: 2.60ms)
+2024-01-31 21:00:48,398 [INFO]:  - Probabilities (Link: 0.69373, Lost: 1.00000)
+2024-01-31 21:00:48,400 [INFO]:  - Stats (Active: 607, Lost: 10610, Conflicts resolved: 14161)
+2024-01-31 21:00:48,402 [INFO]: Tracking objects in frames 100 to 124 (of 150)...
+2024-01-31 21:00:51,996 [INFO]:  - Timing (Bayesian updates: 58.18ms, Linking: 4.04ms)
+2024-01-31 21:00:51,999 [INFO]:  - Probabilities (Link: 0.99999, Lost: 1.00000)
+2024-01-31 21:00:52,000 [INFO]:  - Stats (Active: 560, Lost: 13228, Conflicts resolved: 17637)
+2024-01-31 21:00:52,002 [INFO]: Tracking objects in frames 125 to 149 (of 150)...
+2024-01-31 21:00:54,486 [INFO]:  - Timing (Bayesian updates: 28.01ms, Linking: 2.05ms)
+2024-01-31 21:00:54,489 [INFO]:  - Probabilities (Link: 0.99985, Lost: 1.00000)
+2024-01-31 21:00:54,490 [INFO]: SUCCESS.
+2024-01-31 21:00:54,491 [INFO]:  - Found 6868 tracks in 150 frames (in 0.0s)
+2024-01-31 21:00:54,545 [INFO]:  - Inserted 14025 dummy objects to fill tracking gaps
+2024-01-31 21:00:54,548 [INFO]: Loading hypothesis model: particle_hypothesis
+2024-01-31 21:00:54,550 [INFO]: Calculating hypotheses (relax: True)...
+2024-01-31 21:00:54,620 [INFO]: Setting up constraints matrix for global optimisation...
+2024-01-31 21:00:54,622 [INFO]: Using GLPK options: {'tm_lim': 60000}...
+2024-01-31 21:00:54,985 [INFO]: Optimizing...
+2024-01-31 21:00:59,600 [INFO]: Optimization complete. (Solution: optimal)
+2024-01-31 21:00:59,625 [INFO]:  - Fates.FALSE_POSITIVE: 3035 (of 6868)
+2024-01-31 21:00:59,629 [INFO]:  - Fates.LINK: 1632 (of 2983)
+2024-01-31 21:00:59,632 [INFO]:  - Fates.INITIALIZE_BORDER: 237 (of 580)
+2024-01-31 21:00:59,635 [INFO]:  - Fates.INITIALIZE_FRONT: 405 (of 581)
+2024-01-31 21:00:59,638 [INFO]:  - Fates.INITIALIZE_LAZY: 1559 (of 5707)
+2024-01-31 21:00:59,641 [INFO]:  - Fates.TERMINATE_BORDER: 248 (of 609)
+2024-01-31 21:00:59,643 [INFO]:  - Fates.TERMINATE_BACK: 365 (of 510)
+2024-01-31 21:00:59,646 [INFO]:  - Fates.TERMINATE_LAZY: 1588 (of 5749)
+2024-01-31 21:00:59,647 [INFO]:  - TOTAL: 23587 hypotheses
+2024-01-31 21:00:59,758 [INFO]: Completed optimization with 5236 tracks
+2024-01-31 21:00:59,906 [INFO]: Ending BayesianTracker session
+2024-01-31 21:01:00,218 [INFO]: Position (3, 5): Saving tracking
+2024-01-31 21:01:00,220 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 5)_first_pass.h5...
+2024-01-31 21:01:00,905 [INFO]: Writing objects/obj_type_1
+2024-01-31 21:01:00,916 [INFO]: Writing labels/obj_type_1
+2024-01-31 21:01:00,921 [INFO]: Loading objects/obj_type_1 (43616, 5) (43616 filtered: None)
+2024-01-31 21:01:01,266 [INFO]: Writing properties/obj_type_1/area (43616,)
+2024-01-31 21:01:01,298 [INFO]: Writing properties/obj_type_1/major_axis_length (43616,)
+2024-01-31 21:01:01,327 [INFO]: Writing properties/obj_type_1/minor_axis_length (43616,)
+2024-01-31 21:01:01,354 [INFO]: Writing properties/obj_type_1/orientation (43616,)
+2024-01-31 21:01:01,407 [INFO]: Writing properties/obj_type_1/mean_intensity (43616, 3)
+2024-01-31 21:01:01,446 [INFO]: Writing properties/obj_type_1/Infected (43616,)
+2024-01-31 21:01:01,460 [INFO]: Writing tracks/obj_type_1
+2024-01-31 21:01:01,522 [INFO]: Writing LBEP/obj_type_1
+2024-01-31 21:01:01,524 [INFO]: Writing fates/obj_type_1
+2024-01-31 21:02:10,787 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 5)_first_pass.h5
+2024-01-31 21:02:10,895 [INFO]: Position (3, 5): Processing completed successfully
+2024-01-31 21:02:10,899 [INFO]: Position (3, 6): Starting new acquisition
+2024-01-31 21:10:19,261 [INFO]: Position (3, 6): Images loaded and stacked
+2024-01-31 21:10:19,270 [INFO]: Position (3, 6): Starting segmentation
+2024-02-01 00:24:27,521 [INFO]: Position (3, 6): Finished segmentation
+2024-02-01 00:24:27,530 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 6)_first_pass_seg_backup.h5...
+2024-02-01 00:25:21,894 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 6)_first_pass_seg_backup.h5
+2024-02-01 00:25:22,514 [INFO]: Position (3, 6): Saved out masks
+2024-02-01 00:25:22,515 [INFO]: Position (3, 6): Measuring Mtb area
+2024-02-01 00:25:31,356 [INFO]: Position (3, 6): Creating intensity image for localisation
+2024-02-01 00:26:50,008 [INFO]: Position (3, 6): Localising objects
+2024-02-01 00:26:50,017 [INFO]: Localizing objects from segmentation...
+2024-02-01 00:26:50,019 [WARNING]: Multichannel intensity image detected, using unweighted centroid.
+2024-02-01 00:33:18,016 [INFO]: Objects are of type: <class 'dict'>
+2024-02-01 00:33:18,560 [INFO]: ...Found 64708 objects in 150 frames.
+2024-02-01 00:33:18,589 [INFO]: Position (3, 6): Filtering small objects
+2024-02-01 00:33:18,641 [INFO]: Position (3, 6): Adding infection labels to objects
+2024-02-01 00:33:18,734 [INFO]: Position (3, 6): Beginning tracking
+2024-02-01 00:33:18,768 [INFO]: Loaded btrack: /home/dayn/analysis/btrack/btrack/libs/libtracker.so
+2024-02-01 00:33:18,771 [INFO]: Starting BayesianTracker session
+2024-02-01 00:33:18,773 [INFO]: Loading configuration file: /home/dayn/analysis/models/btrack/particle_config_pnassign.json
+2024-02-01 00:33:18,776 [INFO]: Objects are of type: <class 'list'>
+2024-02-01 00:33:20,236 [INFO]: Starting tracking...
+2024-02-01 00:33:20,238 [INFO]: Update using: ['MOTION', 'VISUAL']
+2024-02-01 00:33:20,340 [INFO]: Tracking objects in frames 0 to 24 (of 150)...
+2024-02-01 00:33:23,236 [INFO]:  - Timing (Bayesian updates: 37.34ms, Linking: 2.38ms)
+2024-02-01 00:33:23,239 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-01 00:33:23,240 [INFO]:  - Stats (Active: 607, Lost: 2598, Conflicts resolved: 3424)
+2024-02-01 00:33:23,241 [INFO]: Tracking objects in frames 25 to 49 (of 150)...
+2024-02-01 00:33:26,018 [INFO]:  - Timing (Bayesian updates: 32.77ms, Linking: 2.28ms)
+2024-02-01 00:33:26,020 [INFO]:  - Probabilities (Link: 0.99998, Lost: 1.00000)
+2024-02-01 00:33:26,022 [INFO]:  - Stats (Active: 603, Lost: 5306, Conflicts resolved: 6938)
+2024-02-01 00:33:26,023 [INFO]: Tracking objects in frames 50 to 74 (of 150)...
+2024-02-01 00:33:28,410 [INFO]:  - Timing (Bayesian updates: 31.75ms, Linking: 2.06ms)
+2024-02-01 00:33:28,412 [INFO]:  - Probabilities (Link: 0.99998, Lost: 0.99981)
+2024-02-01 00:33:28,420 [INFO]:  - Stats (Active: 574, Lost: 7815, Conflicts resolved: 10166)
+2024-02-01 00:33:28,421 [INFO]: Tracking objects in frames 75 to 99 (of 150)...
+2024-02-01 00:33:30,873 [INFO]:  - Timing (Bayesian updates: 31.09ms, Linking: 1.94ms)
+2024-02-01 00:33:30,875 [INFO]:  - Probabilities (Link: 0.64046, Lost: 1.00000)
+2024-02-01 00:33:30,876 [INFO]:  - Stats (Active: 535, Lost: 9953, Conflicts resolved: 13310)
+2024-02-01 00:33:30,877 [INFO]: Tracking objects in frames 100 to 124 (of 150)...
+2024-02-01 00:33:33,757 [INFO]:  - Timing (Bayesian updates: 37.38ms, Linking: 2.23ms)
+2024-02-01 00:33:33,759 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.99471)
+2024-02-01 00:33:33,761 [INFO]:  - Stats (Active: 573, Lost: 12067, Conflicts resolved: 16440)
+2024-02-01 00:33:33,762 [INFO]: Tracking objects in frames 125 to 149 (of 150)...
+2024-02-01 00:33:36,541 [INFO]:  - Timing (Bayesian updates: 38.16ms, Linking: 2.14ms)
+2024-02-01 00:33:36,543 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.99999)
+2024-02-01 00:33:36,544 [INFO]: SUCCESS.
+2024-02-01 00:33:36,545 [INFO]:  - Found 6111 tracks in 150 frames (in 0.0s)
+2024-02-01 00:33:36,625 [INFO]:  - Inserted 13272 dummy objects to fill tracking gaps
+2024-02-01 00:33:36,627 [INFO]: Loading hypothesis model: particle_hypothesis
+2024-02-01 00:33:36,629 [INFO]: Calculating hypotheses (relax: True)...
+2024-02-01 00:33:36,713 [INFO]: Setting up constraints matrix for global optimisation...
+2024-02-01 00:33:36,716 [INFO]: Using GLPK options: {'tm_lim': 60000}...
+2024-02-01 00:33:37,010 [INFO]: Optimizing...
+2024-02-01 00:33:39,963 [INFO]: Optimization complete. (Solution: optimal)
+2024-02-01 00:33:39,989 [INFO]:  - Fates.FALSE_POSITIVE: 2526 (of 6111)
+2024-02-01 00:33:39,992 [INFO]:  - Fates.LINK: 1536 (of 2668)
+2024-02-01 00:33:39,996 [INFO]:  - Fates.INITIALIZE_BORDER: 232 (of 538)
+2024-02-01 00:33:39,999 [INFO]:  - Fates.INITIALIZE_FRONT: 424 (of 604)
+2024-02-01 00:33:40,002 [INFO]:  - Fates.INITIALIZE_LAZY: 1393 (of 4969)
+2024-02-01 00:33:40,005 [INFO]:  - Fates.TERMINATE_BORDER: 225 (of 517)
+2024-02-01 00:33:40,008 [INFO]:  - Fates.TERMINATE_BACK: 429 (of 548)
+2024-02-01 00:33:40,011 [INFO]:  - Fates.TERMINATE_LAZY: 1395 (of 5046)
+2024-02-01 00:33:40,013 [INFO]:  - TOTAL: 21001 hypotheses
+2024-02-01 00:33:40,086 [INFO]: Completed optimization with 4575 tracks
+2024-02-01 00:33:40,228 [INFO]: Ending BayesianTracker session
+2024-02-01 00:33:40,490 [INFO]: Position (3, 6): Saving tracking
+2024-02-01 00:33:40,492 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 6)_first_pass.h5...
+2024-02-01 00:33:41,110 [INFO]: Writing objects/obj_type_1
+2024-02-01 00:33:41,114 [INFO]: Writing labels/obj_type_1
+2024-02-01 00:33:41,126 [INFO]: Loading objects/obj_type_1 (45006, 5) (45006 filtered: None)
+2024-02-01 00:33:42,037 [INFO]: Writing properties/obj_type_1/area (45006,)
+2024-02-01 00:33:42,067 [INFO]: Writing properties/obj_type_1/major_axis_length (45006,)
+2024-02-01 00:33:42,094 [INFO]: Writing properties/obj_type_1/minor_axis_length (45006,)
+2024-02-01 00:33:42,121 [INFO]: Writing properties/obj_type_1/orientation (45006,)
+2024-02-01 00:33:42,189 [INFO]: Writing properties/obj_type_1/mean_intensity (45006, 3)
+2024-02-01 00:33:42,236 [INFO]: Writing properties/obj_type_1/Infected (45006,)
+2024-02-01 00:33:42,246 [INFO]: Writing tracks/obj_type_1
+2024-02-01 00:33:42,290 [INFO]: Writing LBEP/obj_type_1
+2024-02-01 00:33:42,292 [INFO]: Writing fates/obj_type_1
+2024-02-01 00:34:37,255 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 6)_first_pass.h5
+2024-02-01 00:34:37,894 [INFO]: Position (3, 6): Processing completed successfully
+2024-02-01 00:34:37,896 [INFO]: Position (3, 7): Starting new acquisition
+2024-02-01 00:41:34,112 [INFO]: Position (3, 7): Images loaded and stacked
+2024-02-01 00:41:34,121 [INFO]: Position (3, 7): Starting segmentation
+2024-02-01 02:54:15,239 [INFO]: Position (3, 7): Finished segmentation
+2024-02-01 02:54:15,241 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 7)_first_pass_seg_backup.h5...
+2024-02-01 02:55:02,786 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 7)_first_pass_seg_backup.h5
+2024-02-01 02:55:03,195 [INFO]: Position (3, 7): Saved out masks
+2024-02-01 02:55:03,196 [INFO]: Position (3, 7): Measuring Mtb area
+2024-02-01 02:55:10,610 [INFO]: Position (3, 7): Creating intensity image for localisation
+2024-02-01 02:55:28,774 [INFO]: Position (3, 7): Localising objects
+2024-02-01 02:55:28,775 [INFO]: Localizing objects from segmentation...
+2024-02-01 02:55:28,776 [WARNING]: Multichannel intensity image detected, using unweighted centroid.
+2024-02-01 03:00:02,790 [INFO]: Objects are of type: <class 'dict'>
+2024-02-01 03:00:03,187 [INFO]: ...Found 42626 objects in 150 frames.
+2024-02-01 03:00:03,213 [INFO]: Position (3, 7): Filtering small objects
+2024-02-01 03:00:03,259 [INFO]: Position (3, 7): Adding infection labels to objects
+2024-02-01 03:00:03,318 [INFO]: Position (3, 7): Beginning tracking
+2024-02-01 03:00:03,320 [INFO]: Loaded btrack: /home/dayn/analysis/btrack/btrack/libs/libtracker.so
+2024-02-01 03:00:03,323 [INFO]: Starting BayesianTracker session
+2024-02-01 03:00:03,325 [INFO]: Loading configuration file: /home/dayn/analysis/models/btrack/particle_config_pnassign.json
+2024-02-01 03:00:03,328 [INFO]: Objects are of type: <class 'list'>
+2024-02-01 03:00:04,684 [INFO]: Starting tracking...
+2024-02-01 03:00:04,686 [INFO]: Update using: ['MOTION', 'VISUAL']
+2024-02-01 03:00:04,739 [INFO]: Tracking objects in frames 0 to 24 (of 150)...
+2024-02-01 03:00:05,628 [INFO]:  - Timing (Bayesian updates: 10.97ms, Linking: 1.29ms)
+2024-02-01 03:00:05,631 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-01 03:00:05,633 [INFO]:  - Stats (Active: 386, Lost: 2234, Conflicts resolved: 1876)
+2024-02-01 03:00:05,635 [INFO]: Tracking objects in frames 25 to 49 (of 150)...
+2024-02-01 03:00:06,634 [INFO]:  - Timing (Bayesian updates: 7.91ms, Linking: 1.06ms)
+2024-02-01 03:00:06,637 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.92984)
+2024-02-01 03:00:06,638 [INFO]:  - Stats (Active: 355, Lost: 4451, Conflicts resolved: 3661)
+2024-02-01 03:00:06,640 [INFO]: Tracking objects in frames 50 to 74 (of 150)...
+2024-02-01 03:00:07,595 [INFO]:  - Timing (Bayesian updates: 9.15ms, Linking: 1.06ms)
+2024-02-01 03:00:07,598 [INFO]:  - Probabilities (Link: 0.99998, Lost: 1.00000)
+2024-02-01 03:00:07,599 [INFO]:  - Stats (Active: 356, Lost: 6498, Conflicts resolved: 5585)
+2024-02-01 03:00:07,600 [INFO]: Tracking objects in frames 75 to 99 (of 150)...
+2024-02-01 03:00:08,320 [INFO]:  - Timing (Bayesian updates: 6.43ms, Linking: 0.90ms)
+2024-02-01 03:00:08,323 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.99990)
+2024-02-01 03:00:08,324 [INFO]:  - Stats (Active: 310, Lost: 8615, Conflicts resolved: 7414)
+2024-02-01 03:00:08,325 [INFO]: Tracking objects in frames 100 to 124 (of 150)...
+2024-02-01 03:00:08,819 [INFO]:  - Timing (Bayesian updates: 4.13ms, Linking: 0.79ms)
+2024-02-01 03:00:08,822 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.83974)
+2024-02-01 03:00:08,824 [INFO]:  - Stats (Active: 291, Lost: 10542, Conflicts resolved: 8889)
+2024-02-01 03:00:08,825 [INFO]: Tracking objects in frames 125 to 149 (of 150)...
+2024-02-01 03:00:09,469 [INFO]:  - Timing (Bayesian updates: 5.66ms, Linking: 1.06ms)
+2024-02-01 03:00:09,472 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-01 03:00:09,474 [INFO]: SUCCESS.
+2024-02-01 03:00:09,475 [INFO]:  - Found 4522 tracks in 150 frames (in 0.0s)
+2024-02-01 03:00:09,520 [INFO]:  - Inserted 6786 dummy objects to fill tracking gaps
+2024-02-01 03:00:09,522 [INFO]: Loading hypothesis model: particle_hypothesis
+2024-02-01 03:00:09,524 [INFO]: Calculating hypotheses (relax: True)...
+2024-02-01 03:00:09,597 [INFO]: Setting up constraints matrix for global optimisation...
+2024-02-01 03:00:09,599 [INFO]: Using GLPK options: {'tm_lim': 60000}...
+2024-02-01 03:00:09,850 [INFO]: Optimizing...
+2024-02-01 03:00:11,273 [INFO]: Optimization complete. (Solution: optimal)
+2024-02-01 03:00:11,313 [INFO]:  - Fates.FALSE_POSITIVE: 2592 (of 4522)
+2024-02-01 03:00:11,316 [INFO]:  - Fates.LINK: 739 (of 1509)
+2024-02-01 03:00:11,319 [INFO]:  - Fates.INITIALIZE_BORDER: 184 (of 467)
+2024-02-01 03:00:11,321 [INFO]:  - Fates.INITIALIZE_FRONT: 217 (of 356)
+2024-02-01 03:00:11,324 [INFO]:  - Fates.INITIALIZE_LAZY: 790 (of 3699)
+2024-02-01 03:00:11,327 [INFO]:  - Fates.TERMINATE_BORDER: 184 (of 467)
+2024-02-01 03:00:11,330 [INFO]:  - Fates.TERMINATE_BACK: 155 (of 269)
+2024-02-01 03:00:11,332 [INFO]:  - Fates.TERMINATE_LAZY: 852 (of 3786)
+2024-02-01 03:00:11,334 [INFO]:  - TOTAL: 15075 hypotheses
+2024-02-01 03:00:11,401 [INFO]: Completed optimization with 3783 tracks
+2024-02-01 03:00:11,541 [INFO]: Ending BayesianTracker session
+2024-02-01 03:00:11,781 [INFO]: Position (3, 7): Saving tracking
+2024-02-01 03:00:11,783 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 7)_first_pass.h5...
+2024-02-01 03:00:12,105 [INFO]: Writing objects/obj_type_1
+2024-02-01 03:00:12,109 [INFO]: Writing labels/obj_type_1
+2024-02-01 03:00:12,112 [INFO]: Loading objects/obj_type_1 (23214, 5) (23214 filtered: None)
+2024-02-01 03:00:12,361 [INFO]: Writing properties/obj_type_1/area (23214,)
+2024-02-01 03:00:12,374 [INFO]: Writing properties/obj_type_1/major_axis_length (23214,)
+2024-02-01 03:00:12,385 [INFO]: Writing properties/obj_type_1/minor_axis_length (23214,)
+2024-02-01 03:00:12,396 [INFO]: Writing properties/obj_type_1/orientation (23214,)
+2024-02-01 03:00:12,423 [INFO]: Writing properties/obj_type_1/mean_intensity (23214, 3)
+2024-02-01 03:00:12,444 [INFO]: Writing properties/obj_type_1/Infected (23214,)
+2024-02-01 03:00:12,450 [INFO]: Writing tracks/obj_type_1
+2024-02-01 03:00:12,488 [INFO]: Writing LBEP/obj_type_1
+2024-02-01 03:00:12,490 [INFO]: Writing fates/obj_type_1
+2024-02-01 03:01:00,600 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 7)_first_pass.h5
+2024-02-01 03:01:01,019 [INFO]: Position (3, 7): Processing completed successfully
+2024-02-01 03:01:01,021 [INFO]: Position (3, 8): Starting new acquisition
+2024-02-01 03:07:14,221 [INFO]: Position (3, 8): Images loaded and stacked
+2024-02-01 03:07:14,224 [INFO]: Position (3, 8): Starting segmentation
+2024-02-01 05:49:26,501 [INFO]: Position (3, 8): Finished segmentation
+2024-02-01 05:49:26,503 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 8)_first_pass_seg_backup.h5...
+2024-02-01 05:50:15,178 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 8)_first_pass_seg_backup.h5
+2024-02-01 05:50:15,657 [INFO]: Position (3, 8): Saved out masks
+2024-02-01 05:50:15,658 [INFO]: Position (3, 8): Measuring Mtb area
+2024-02-01 05:50:22,868 [INFO]: Position (3, 8): Creating intensity image for localisation
+2024-02-01 05:50:38,042 [INFO]: Position (3, 8): Localising objects
+2024-02-01 05:50:38,043 [INFO]: Localizing objects from segmentation...
+2024-02-01 05:50:38,045 [WARNING]: Multichannel intensity image detected, using unweighted centroid.
+2024-02-01 05:56:09,856 [INFO]: Objects are of type: <class 'dict'>
+2024-02-01 05:56:10,307 [INFO]: ...Found 44461 objects in 150 frames.
+2024-02-01 05:56:10,331 [INFO]: Position (3, 8): Filtering small objects
+2024-02-01 05:56:10,391 [INFO]: Position (3, 8): Adding infection labels to objects
+2024-02-01 05:56:10,448 [INFO]: Position (3, 8): Beginning tracking
+2024-02-01 05:56:10,450 [INFO]: Loaded btrack: /home/dayn/analysis/btrack/btrack/libs/libtracker.so
+2024-02-01 05:56:10,460 [INFO]: Starting BayesianTracker session
+2024-02-01 05:56:10,462 [INFO]: Loading configuration file: /home/dayn/analysis/models/btrack/particle_config_pnassign.json
+2024-02-01 05:56:10,465 [INFO]: Objects are of type: <class 'list'>
+2024-02-01 05:56:10,991 [INFO]: Starting tracking...
+2024-02-01 05:56:10,994 [INFO]: Update using: ['MOTION', 'VISUAL']
+2024-02-01 05:56:11,069 [INFO]: Tracking objects in frames 0 to 24 (of 150)...
+2024-02-01 05:56:12,275 [INFO]:  - Timing (Bayesian updates: 13.65ms, Linking: 1.46ms)
+2024-02-01 05:56:12,278 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-01 05:56:12,279 [INFO]:  - Stats (Active: 413, Lost: 2128, Conflicts resolved: 2086)
+2024-02-01 05:56:12,280 [INFO]: Tracking objects in frames 25 to 49 (of 150)...
+2024-02-01 05:56:13,544 [INFO]:  - Timing (Bayesian updates: 12.39ms, Linking: 1.27ms)
+2024-02-01 05:56:13,546 [INFO]:  - Probabilities (Link: 0.97844, Lost: 0.97127)
+2024-02-01 05:56:13,549 [INFO]:  - Stats (Active: 406, Lost: 4303, Conflicts resolved: 4299)
+2024-02-01 05:56:13,550 [INFO]: Tracking objects in frames 50 to 74 (of 150)...
+2024-02-01 05:56:14,683 [INFO]:  - Timing (Bayesian updates: 10.12ms, Linking: 1.14ms)
+2024-02-01 05:56:14,685 [INFO]:  - Probabilities (Link: 0.99998, Lost: 0.99999)
+2024-02-01 05:56:14,686 [INFO]:  - Stats (Active: 368, Lost: 6383, Conflicts resolved: 6413)
+2024-02-01 05:56:14,688 [INFO]: Tracking objects in frames 75 to 99 (of 150)...
+2024-02-01 05:56:15,696 [INFO]:  - Timing (Bayesian updates: 6.03ms, Linking: 0.92ms)
+2024-02-01 05:56:15,698 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-01 05:56:15,700 [INFO]:  - Stats (Active: 324, Lost: 8233, Conflicts resolved: 8314)
+2024-02-01 05:56:15,701 [INFO]: Tracking objects in frames 100 to 124 (of 150)...
+2024-02-01 05:56:16,469 [INFO]:  - Timing (Bayesian updates: 5.94ms, Linking: 0.95ms)
+2024-02-01 05:56:16,472 [INFO]:  - Probabilities (Link: 0.99997, Lost: 1.00000)
+2024-02-01 05:56:16,479 [INFO]:  - Stats (Active: 315, Lost: 9933, Conflicts resolved: 9947)
+2024-02-01 05:56:16,481 [INFO]: Tracking objects in frames 125 to 149 (of 150)...
+2024-02-01 05:56:17,174 [INFO]:  - Timing (Bayesian updates: 7.71ms, Linking: 0.99ms)
+2024-02-01 05:56:17,177 [INFO]:  - Probabilities (Link: 0.99998, Lost: 0.99115)
+2024-02-01 05:56:17,179 [INFO]: SUCCESS.
+2024-02-01 05:56:17,180 [INFO]:  - Found 4446 tracks in 150 frames (in 0.0s)
+2024-02-01 05:56:17,244 [INFO]:  - Inserted 7639 dummy objects to fill tracking gaps
+2024-02-01 05:56:17,246 [INFO]: Loading hypothesis model: particle_hypothesis
+2024-02-01 05:56:17,248 [INFO]: Calculating hypotheses (relax: True)...
+2024-02-01 05:56:17,318 [INFO]: Setting up constraints matrix for global optimisation...
+2024-02-01 05:56:17,320 [INFO]: Using GLPK options: {'tm_lim': 60000}...
+2024-02-01 05:56:17,452 [INFO]: Optimizing...
+2024-02-01 05:56:18,813 [INFO]: Optimization complete. (Solution: optimal)
+2024-02-01 05:56:18,852 [INFO]:  - Fates.FALSE_POSITIVE: 2320 (of 4446)
+2024-02-01 05:56:18,855 [INFO]:  - Fates.LINK: 832 (of 1524)
+2024-02-01 05:56:18,857 [INFO]:  - Fates.INITIALIZE_BORDER: 172 (of 464)
+2024-02-01 05:56:18,859 [INFO]:  - Fates.INITIALIZE_FRONT: 260 (of 388)
+2024-02-01 05:56:18,861 [INFO]:  - Fates.INITIALIZE_LAZY: 862 (of 3594)
+2024-02-01 05:56:18,863 [INFO]:  - Fates.TERMINATE_BORDER: 178 (of 475)
+2024-02-01 05:56:18,865 [INFO]:  - Fates.TERMINATE_BACK: 194 (of 299)
+2024-02-01 05:56:18,867 [INFO]:  - Fates.TERMINATE_LAZY: 922 (of 3672)
+2024-02-01 05:56:18,868 [INFO]:  - TOTAL: 14862 hypotheses
+2024-02-01 05:56:18,936 [INFO]: Completed optimization with 3614 tracks
+2024-02-01 05:56:19,690 [INFO]: Ending BayesianTracker session
+2024-02-01 05:56:19,837 [INFO]: Position (3, 8): Saving tracking
+2024-02-01 05:56:19,839 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 8)_first_pass.h5...
+2024-02-01 05:56:20,244 [INFO]: Writing objects/obj_type_1
+2024-02-01 05:56:20,247 [INFO]: Writing labels/obj_type_1
+2024-02-01 05:56:20,250 [INFO]: Loading objects/obj_type_1 (27158, 5) (27158 filtered: None)
+2024-02-01 05:56:20,493 [INFO]: Writing properties/obj_type_1/area (27158,)
+2024-02-01 05:56:20,504 [INFO]: Writing properties/obj_type_1/major_axis_length (27158,)
+2024-02-01 05:56:20,513 [INFO]: Writing properties/obj_type_1/minor_axis_length (27158,)
+2024-02-01 05:56:20,522 [INFO]: Writing properties/obj_type_1/orientation (27158,)
+2024-02-01 05:56:20,548 [INFO]: Writing properties/obj_type_1/mean_intensity (27158, 3)
+2024-02-01 05:56:20,566 [INFO]: Writing properties/obj_type_1/Infected (27158,)
+2024-02-01 05:56:20,572 [INFO]: Writing tracks/obj_type_1
+2024-02-01 05:56:20,593 [INFO]: Writing LBEP/obj_type_1
+2024-02-01 05:56:20,595 [INFO]: Writing fates/obj_type_1
+2024-02-01 05:57:09,327 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 8)_first_pass.h5
+2024-02-01 05:57:09,816 [INFO]: Position (3, 8): Processing completed successfully
+2024-02-01 05:57:09,819 [INFO]: Position (3, 9): Starting new acquisition
+2024-02-01 06:03:15,008 [INFO]: Position (3, 9): Images loaded and stacked
+2024-02-01 06:03:15,017 [INFO]: Position (3, 9): Starting segmentation
+2024-02-01 09:12:28,565 [INFO]: Position (3, 9): Finished segmentation
+2024-02-01 09:12:28,566 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 9)_first_pass_seg_backup.h5...
+2024-02-01 09:13:18,007 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 9)_first_pass_seg_backup.h5
+2024-02-01 09:13:18,502 [INFO]: Position (3, 9): Saved out masks
+2024-02-01 09:13:18,504 [INFO]: Position (3, 9): Measuring Mtb area
+2024-02-01 09:13:26,094 [INFO]: Position (3, 9): Creating intensity image for localisation
+2024-02-01 09:13:41,847 [INFO]: Position (3, 9): Localising objects
+2024-02-01 09:13:41,848 [INFO]: Localizing objects from segmentation...
+2024-02-01 09:13:41,849 [WARNING]: Multichannel intensity image detected, using unweighted centroid.
+2024-02-01 09:19:22,409 [INFO]: Objects are of type: <class 'dict'>
+2024-02-01 09:19:23,598 [INFO]: ...Found 77632 objects in 150 frames.
+2024-02-01 09:19:23,616 [INFO]: Position (3, 9): Filtering small objects
+2024-02-01 09:19:23,691 [INFO]: Position (3, 9): Adding infection labels to objects
+2024-02-01 09:19:23,734 [INFO]: Position (3, 9): Beginning tracking
+2024-02-01 09:19:23,736 [INFO]: Loaded btrack: /home/dayn/analysis/btrack/btrack/libs/libtracker.so
+2024-02-01 09:19:23,739 [INFO]: Starting BayesianTracker session
+2024-02-01 09:19:23,741 [INFO]: Loading configuration file: /home/dayn/analysis/models/btrack/particle_config_pnassign.json
+2024-02-01 09:19:23,743 [INFO]: Objects are of type: <class 'list'>
+2024-02-01 09:19:24,256 [INFO]: Starting tracking...
+2024-02-01 09:19:24,258 [INFO]: Update using: ['MOTION', 'VISUAL']
+2024-02-01 09:19:24,357 [INFO]: Tracking objects in frames 0 to 24 (of 150)...
+2024-02-01 09:19:25,665 [INFO]:  - Timing (Bayesian updates: 12.34ms, Linking: 1.26ms)
+2024-02-01 09:19:25,667 [INFO]:  - Probabilities (Link: 0.99995, Lost: 1.00000)
+2024-02-01 09:19:25,675 [INFO]:  - Stats (Active: 392, Lost: 2136, Conflicts resolved: 2222)
+2024-02-01 09:19:25,676 [INFO]: Tracking objects in frames 25 to 49 (of 150)...
+2024-02-01 09:19:26,807 [INFO]:  - Timing (Bayesian updates: 12.39ms, Linking: 1.21ms)
+2024-02-01 09:19:26,810 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.85466)
+2024-02-01 09:19:26,811 [INFO]:  - Stats (Active: 401, Lost: 4325, Conflicts resolved: 4463)
+2024-02-01 09:19:26,812 [INFO]: Tracking objects in frames 50 to 74 (of 150)...
+2024-02-01 09:19:28,023 [INFO]:  - Timing (Bayesian updates: 13.67ms, Linking: 1.28ms)
+2024-02-01 09:19:28,026 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.99998)
+2024-02-01 09:19:28,028 [INFO]:  - Stats (Active: 399, Lost: 6420, Conflicts resolved: 6573)
+2024-02-01 09:19:28,029 [INFO]: Tracking objects in frames 75 to 99 (of 150)...
+2024-02-01 09:19:29,298 [INFO]:  - Timing (Bayesian updates: 15.70ms, Linking: 1.35ms)
+2024-02-01 09:19:29,300 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-01 09:19:29,301 [INFO]:  - Stats (Active: 422, Lost: 8543, Conflicts resolved: 8797)
+2024-02-01 09:19:29,302 [INFO]: Tracking objects in frames 100 to 124 (of 150)...
+2024-02-01 09:19:31,007 [INFO]:  - Timing (Bayesian updates: 16.92ms, Linking: 1.70ms)
+2024-02-01 09:19:31,009 [INFO]:  - Probabilities (Link: 0.99952, Lost: 1.00000)
+2024-02-01 09:19:31,011 [INFO]:  - Stats (Active: 424, Lost: 10707, Conflicts resolved: 11140)
+2024-02-01 09:19:31,013 [INFO]: Tracking objects in frames 125 to 149 (of 150)...
+2024-02-01 09:19:32,487 [INFO]:  - Timing (Bayesian updates: 18.19ms, Linking: 1.70ms)
+2024-02-01 09:19:32,490 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-01 09:19:32,491 [INFO]: SUCCESS.
+2024-02-01 09:19:32,493 [INFO]:  - Found 4987 tracks in 150 frames (in 0.0s)
+2024-02-01 09:19:32,558 [INFO]:  - Inserted 9441 dummy objects to fill tracking gaps
+2024-02-01 09:19:32,560 [INFO]: Loading hypothesis model: particle_hypothesis
+2024-02-01 09:19:32,562 [INFO]: Calculating hypotheses (relax: True)...
+2024-02-01 09:19:32,637 [INFO]: Setting up constraints matrix for global optimisation...
+2024-02-01 09:19:32,640 [INFO]: Using GLPK options: {'tm_lim': 60000}...
+2024-02-01 09:19:32,838 [INFO]: Optimizing...
+2024-02-01 09:19:35,460 [INFO]: Optimization complete. (Solution: optimal)
+2024-02-01 09:19:35,505 [INFO]:  - Fates.FALSE_POSITIVE: 2482 (of 4987)
+2024-02-01 09:19:35,508 [INFO]:  - Fates.LINK: 976 (of 1870)
+2024-02-01 09:19:35,511 [INFO]:  - Fates.INITIALIZE_BORDER: 233 (of 554)
+2024-02-01 09:19:35,513 [INFO]:  - Fates.INITIALIZE_FRONT: 272 (of 438)
+2024-02-01 09:19:35,516 [INFO]:  - Fates.INITIALIZE_LAZY: 1024 (of 3995)
+2024-02-01 09:19:35,518 [INFO]:  - Fates.TERMINATE_BORDER: 211 (of 514)
+2024-02-01 09:19:35,521 [INFO]:  - Fates.TERMINATE_BACK: 270 (of 410)
+2024-02-01 09:19:35,523 [INFO]:  - Fates.TERMINATE_LAZY: 1048 (of 4063)
+2024-02-01 09:19:35,526 [INFO]:  - TOTAL: 16831 hypotheses
+2024-02-01 09:19:35,615 [INFO]: Completed optimization with 4011 tracks
+2024-02-01 09:19:35,749 [INFO]: Ending BayesianTracker session
+2024-02-01 09:19:35,953 [INFO]: Position (3, 9): Saving tracking
+2024-02-01 09:19:35,955 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 9)_first_pass.h5...
+2024-02-01 09:19:36,370 [INFO]: Writing objects/obj_type_1
+2024-02-01 09:19:36,373 [INFO]: Writing labels/obj_type_1
+2024-02-01 09:19:36,378 [INFO]: Loading objects/obj_type_1 (30252, 5) (30252 filtered: None)
+2024-02-01 09:19:36,704 [INFO]: Writing properties/obj_type_1/area (30252,)
+2024-02-01 09:19:36,725 [INFO]: Writing properties/obj_type_1/major_axis_length (30252,)
+2024-02-01 09:19:36,743 [INFO]: Writing properties/obj_type_1/minor_axis_length (30252,)
+2024-02-01 09:19:36,762 [INFO]: Writing properties/obj_type_1/orientation (30252,)
+2024-02-01 09:19:36,802 [INFO]: Writing properties/obj_type_1/mean_intensity (30252, 3)
+2024-02-01 09:19:36,829 [INFO]: Writing properties/obj_type_1/Infected (30252,)
+2024-02-01 09:19:36,837 [INFO]: Writing tracks/obj_type_1
+2024-02-01 09:19:36,877 [INFO]: Writing LBEP/obj_type_1
+2024-02-01 09:19:36,880 [INFO]: Writing fates/obj_type_1
+2024-02-01 09:20:30,105 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 9)_first_pass.h5
+2024-02-01 09:20:30,620 [INFO]: Position (3, 9): Processing completed successfully
+2024-02-01 09:20:30,622 [INFO]: Position (3, 10): Starting new acquisition
+2024-02-01 09:26:31,556 [INFO]: Position (3, 10): Images loaded and stacked
+2024-02-01 09:26:31,565 [INFO]: Position (3, 10): Starting segmentation
+2024-02-01 12:01:21,068 [INFO]: Position (3, 10): Finished segmentation
+2024-02-01 12:01:21,069 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 10)_first_pass_seg_backup.h5...
+2024-02-01 12:02:06,915 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 10)_first_pass_seg_backup.h5
+2024-02-01 12:02:07,325 [INFO]: Position (3, 10): Saved out masks
+2024-02-01 12:02:07,327 [INFO]: Position (3, 10): Measuring Mtb area
+2024-02-01 12:02:14,676 [INFO]: Position (3, 10): Creating intensity image for localisation
+2024-02-01 12:02:31,282 [INFO]: Position (3, 10): Localising objects
+2024-02-01 12:02:31,283 [INFO]: Localizing objects from segmentation...
+2024-02-01 12:02:31,285 [WARNING]: Multichannel intensity image detected, using unweighted centroid.
+2024-02-01 12:08:12,634 [INFO]: Objects are of type: <class 'dict'>
+2024-02-01 12:08:14,312 [INFO]: ...Found 159446 objects in 150 frames.
+2024-02-01 12:08:14,336 [INFO]: Position (3, 10): Filtering small objects
+2024-02-01 12:08:14,486 [INFO]: Position (3, 10): Adding infection labels to objects
+2024-02-01 12:08:14,517 [INFO]: Position (3, 10): Beginning tracking
+2024-02-01 12:08:14,519 [INFO]: Loaded btrack: /home/dayn/analysis/btrack/btrack/libs/libtracker.so
+2024-02-01 12:08:14,523 [INFO]: Starting BayesianTracker session
+2024-02-01 12:08:14,525 [INFO]: Loading configuration file: /home/dayn/analysis/models/btrack/particle_config_pnassign.json
+2024-02-01 12:08:14,527 [INFO]: Objects are of type: <class 'list'>
+2024-02-01 12:08:14,897 [INFO]: Starting tracking...
+2024-02-01 12:08:14,900 [INFO]: Update using: ['MOTION', 'VISUAL']
+2024-02-01 12:08:14,970 [INFO]: Tracking objects in frames 0 to 24 (of 150)...
+2024-02-01 12:08:15,937 [INFO]:  - Timing (Bayesian updates: 9.92ms, Linking: 1.36ms)
+2024-02-01 12:08:15,940 [INFO]:  - Probabilities (Link: 0.99983, Lost: 1.00000)
+2024-02-01 12:08:15,942 [INFO]:  - Stats (Active: 335, Lost: 1995, Conflicts resolved: 1672)
+2024-02-01 12:08:15,943 [INFO]: Tracking objects in frames 25 to 49 (of 150)...
+2024-02-01 12:08:16,877 [INFO]:  - Timing (Bayesian updates: 7.41ms, Linking: 1.20ms)
+2024-02-01 12:08:16,879 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.99482)
+2024-02-01 12:08:16,881 [INFO]:  - Stats (Active: 321, Lost: 3859, Conflicts resolved: 3384)
+2024-02-01 12:08:16,883 [INFO]: Tracking objects in frames 50 to 74 (of 150)...
+2024-02-01 12:08:17,555 [INFO]:  - Timing (Bayesian updates: 5.60ms, Linking: 1.05ms)
+2024-02-01 12:08:17,558 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-01 12:08:17,559 [INFO]:  - Stats (Active: 289, Lost: 5640, Conflicts resolved: 4871)
+2024-02-01 12:08:17,560 [INFO]: Tracking objects in frames 75 to 99 (of 150)...
+2024-02-01 12:08:18,273 [INFO]:  - Timing (Bayesian updates: 6.63ms, Linking: 1.11ms)
+2024-02-01 12:08:18,276 [INFO]:  - Probabilities (Link: 0.99876, Lost: 0.97570)
+2024-02-01 12:08:18,277 [INFO]:  - Stats (Active: 291, Lost: 7395, Conflicts resolved: 6299)
+2024-02-01 12:08:18,279 [INFO]: Tracking objects in frames 100 to 124 (of 150)...
+2024-02-01 12:08:18,922 [INFO]:  - Timing (Bayesian updates: 5.49ms, Linking: 1.02ms)
+2024-02-01 12:08:18,924 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-01 12:08:18,925 [INFO]:  - Stats (Active: 285, Lost: 9324, Conflicts resolved: 7769)
+2024-02-01 12:08:18,926 [INFO]: Tracking objects in frames 125 to 149 (of 150)...
+2024-02-01 12:08:19,528 [INFO]:  - Timing (Bayesian updates: 5.26ms, Linking: 1.05ms)
+2024-02-01 12:08:19,530 [INFO]:  - Probabilities (Link: 0.99964, Lost: 1.00000)
+2024-02-01 12:08:19,532 [INFO]: SUCCESS.
+2024-02-01 12:08:19,534 [INFO]:  - Found 3847 tracks in 150 frames (in 0.0s)
+2024-02-01 12:08:19,592 [INFO]:  - Inserted 6384 dummy objects to fill tracking gaps
+2024-02-01 12:08:19,594 [INFO]: Loading hypothesis model: particle_hypothesis
+2024-02-01 12:08:19,596 [INFO]: Calculating hypotheses (relax: True)...
+2024-02-01 12:08:19,660 [INFO]: Setting up constraints matrix for global optimisation...
+2024-02-01 12:08:19,662 [INFO]: Using GLPK options: {'tm_lim': 60000}...
+2024-02-01 12:08:19,832 [INFO]: Optimizing...
+2024-02-01 12:08:21,266 [INFO]: Optimization complete. (Solution: optimal)
+2024-02-01 12:08:21,306 [INFO]:  - Fates.FALSE_POSITIVE: 2176 (of 3847)
+2024-02-01 12:08:21,309 [INFO]:  - Fates.LINK: 621 (of 1247)
+2024-02-01 12:08:21,313 [INFO]:  - Fates.INITIALIZE_BORDER: 155 (of 424)
+2024-02-01 12:08:21,316 [INFO]:  - Fates.INITIALIZE_FRONT: 202 (of 350)
+2024-02-01 12:08:21,319 [INFO]:  - Fates.INITIALIZE_LAZY: 693 (of 3073)
+2024-02-01 12:08:21,323 [INFO]:  - Fates.TERMINATE_BORDER: 166 (of 421)
+2024-02-01 12:08:21,326 [INFO]:  - Fates.TERMINATE_BACK: 176 (of 251)
+2024-02-01 12:08:21,328 [INFO]:  - Fates.TERMINATE_LAZY: 708 (of 3175)
+2024-02-01 12:08:21,330 [INFO]:  - TOTAL: 12788 hypotheses
+2024-02-01 12:08:21,390 [INFO]: Completed optimization with 3226 tracks
+2024-02-01 12:08:21,499 [INFO]: Ending BayesianTracker session
+2024-02-01 12:08:21,689 [INFO]: Position (3, 10): Saving tracking
+2024-02-01 12:08:21,692 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 10)_first_pass.h5...
+2024-02-01 12:08:22,021 [INFO]: Writing objects/obj_type_1
+2024-02-01 12:08:22,025 [INFO]: Writing labels/obj_type_1
+2024-02-01 12:08:22,028 [INFO]: Loading objects/obj_type_1 (21732, 5) (21732 filtered: None)
+2024-02-01 12:08:22,768 [INFO]: Writing properties/obj_type_1/area (21732,)
+2024-02-01 12:08:22,787 [INFO]: Writing properties/obj_type_1/major_axis_length (21732,)
+2024-02-01 12:08:22,800 [INFO]: Writing properties/obj_type_1/minor_axis_length (21732,)
+2024-02-01 12:08:22,813 [INFO]: Writing properties/obj_type_1/orientation (21732,)
+2024-02-01 12:08:22,846 [INFO]: Writing properties/obj_type_1/mean_intensity (21732, 3)
+2024-02-01 12:08:22,875 [INFO]: Writing properties/obj_type_1/Infected (21732,)
+2024-02-01 12:08:22,882 [INFO]: Writing tracks/obj_type_1
+2024-02-01 12:08:22,913 [INFO]: Writing LBEP/obj_type_1
+2024-02-01 12:08:22,915 [INFO]: Writing fates/obj_type_1
+2024-02-01 12:09:09,950 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 10)_first_pass.h5
+2024-02-01 12:09:10,371 [INFO]: Position (3, 10): Processing completed successfully
+2024-02-01 12:09:10,373 [INFO]: Position (3, 11): Starting new acquisition
+2024-02-01 12:15:09,279 [INFO]: Position (3, 11): Images loaded and stacked
+2024-02-01 12:15:09,287 [INFO]: Position (3, 11): Starting segmentation
+2024-02-01 14:27:28,654 [INFO]: Position (3, 11): Finished segmentation
+2024-02-01 14:27:28,656 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 11)_first_pass_seg_backup.h5...
+2024-02-01 14:28:13,094 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 11)_first_pass_seg_backup.h5
+2024-02-01 14:28:13,459 [INFO]: Position (3, 11): Saved out masks
+2024-02-01 14:28:13,461 [INFO]: Position (3, 11): Measuring Mtb area
+2024-02-01 14:28:20,526 [INFO]: Position (3, 11): Creating intensity image for localisation
+2024-02-01 14:28:36,101 [INFO]: Position (3, 11): Localising objects
+2024-02-01 14:28:36,102 [INFO]: Localizing objects from segmentation...
+2024-02-01 14:28:36,104 [WARNING]: Multichannel intensity image detected, using unweighted centroid.
+2024-02-01 14:33:09,828 [INFO]: Objects are of type: <class 'dict'>
+2024-02-01 14:33:10,369 [INFO]: ...Found 57744 objects in 150 frames.
+2024-02-01 14:33:10,394 [INFO]: Position (3, 11): Filtering small objects
+2024-02-01 14:33:10,479 [INFO]: Position (3, 11): Adding infection labels to objects
+2024-02-01 14:33:10,515 [INFO]: Position (3, 11): Beginning tracking
+2024-02-01 14:33:10,517 [INFO]: Loaded btrack: /home/dayn/analysis/btrack/btrack/libs/libtracker.so
+2024-02-01 14:33:10,521 [INFO]: Starting BayesianTracker session
+2024-02-01 14:33:10,523 [INFO]: Loading configuration file: /home/dayn/analysis/models/btrack/particle_config_pnassign.json
+2024-02-01 14:33:10,527 [INFO]: Objects are of type: <class 'list'>
+2024-02-01 14:33:11,001 [INFO]: Starting tracking...
+2024-02-01 14:33:11,004 [INFO]: Update using: ['MOTION', 'VISUAL']
+2024-02-01 14:33:11,027 [INFO]: Tracking objects in frames 0 to 24 (of 150)...
+2024-02-01 14:33:11,451 [INFO]:  - Timing (Bayesian updates: 3.77ms, Linking: 0.97ms)
+2024-02-01 14:33:11,453 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.98951)
+2024-02-01 14:33:11,455 [INFO]:  - Stats (Active: 240, Lost: 1674, Conflicts resolved: 1127)
+2024-02-01 14:33:11,457 [INFO]: Tracking objects in frames 25 to 49 (of 150)...
+2024-02-01 14:33:11,917 [INFO]:  - Timing (Bayesian updates: 4.68ms, Linking: 1.01ms)
+2024-02-01 14:33:11,920 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-01 14:33:11,921 [INFO]:  - Stats (Active: 263, Lost: 3249, Conflicts resolved: 2273)
+2024-02-01 14:33:11,922 [INFO]: Tracking objects in frames 50 to 74 (of 150)...
+2024-02-01 14:33:12,483 [INFO]:  - Timing (Bayesian updates: 3.92ms, Linking: 0.97ms)
+2024-02-01 14:33:12,486 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-01 14:33:12,487 [INFO]:  - Stats (Active: 246, Lost: 4784, Conflicts resolved: 3487)
+2024-02-01 14:33:12,488 [INFO]: Tracking objects in frames 75 to 99 (of 150)...
+2024-02-01 14:33:12,996 [INFO]:  - Timing (Bayesian updates: 4.15ms, Linking: 0.96ms)
+2024-02-01 14:33:12,999 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-01 14:33:13,000 [INFO]:  - Stats (Active: 231, Lost: 6101, Conflicts resolved: 4739)
+2024-02-01 14:33:13,002 [INFO]: Tracking objects in frames 100 to 124 (of 150)...
+2024-02-01 14:33:13,516 [INFO]:  - Timing (Bayesian updates: 4.67ms, Linking: 0.97ms)
+2024-02-01 14:33:13,518 [INFO]:  - Probabilities (Link: 0.99995, Lost: 0.45317)
+2024-02-01 14:33:13,520 [INFO]:  - Stats (Active: 238, Lost: 7217, Conflicts resolved: 5853)
+2024-02-01 14:33:13,522 [INFO]: Tracking objects in frames 125 to 149 (of 150)...
+2024-02-01 14:33:13,978 [INFO]:  - Timing (Bayesian updates: 3.73ms, Linking: 0.86ms)
+2024-02-01 14:33:13,981 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-01 14:33:13,982 [INFO]: SUCCESS.
+2024-02-01 14:33:13,984 [INFO]:  - Found 2725 tracks in 150 frames (in 0.0s)
+2024-02-01 14:33:14,012 [INFO]:  - Inserted 4888 dummy objects to fill tracking gaps
+2024-02-01 14:33:14,014 [INFO]: Loading hypothesis model: particle_hypothesis
+2024-02-01 14:33:14,016 [INFO]: Calculating hypotheses (relax: True)...
+2024-02-01 14:33:14,684 [INFO]: Setting up constraints matrix for global optimisation...
+2024-02-01 14:33:14,686 [INFO]: Using GLPK options: {'tm_lim': 60000}...
+2024-02-01 14:33:14,769 [INFO]: Optimizing...
+2024-02-01 14:33:15,536 [INFO]: Optimization complete. (Solution: optimal)
+2024-02-01 14:33:15,566 [INFO]:  - Fates.FALSE_POSITIVE: 1400 (of 2725)
+2024-02-01 14:33:15,569 [INFO]:  - Fates.LINK: 523 (of 907)
+2024-02-01 14:33:15,571 [INFO]:  - Fates.INITIALIZE_BORDER: 121 (of 324)
+2024-02-01 14:33:15,574 [INFO]:  - Fates.INITIALIZE_FRONT: 141 (of 238)
+2024-02-01 14:33:15,576 [INFO]:  - Fates.INITIALIZE_LAZY: 540 (of 2163)
+2024-02-01 14:33:15,578 [INFO]:  - Fates.TERMINATE_BORDER: 125 (of 337)
+2024-02-01 14:33:15,581 [INFO]:  - Fates.TERMINATE_BACK: 166 (of 199)
+2024-02-01 14:33:15,583 [INFO]:  - Fates.TERMINATE_LAZY: 511 (of 2189)
+2024-02-01 14:33:15,585 [INFO]:  - TOTAL: 9082 hypotheses
+2024-02-01 14:33:15,638 [INFO]: Completed optimization with 2202 tracks
+2024-02-01 14:33:15,742 [INFO]: Ending BayesianTracker session
+2024-02-01 14:33:15,881 [INFO]: Position (3, 11): Saving tracking
+2024-02-01 14:33:15,883 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 11)_first_pass.h5...
+2024-02-01 14:33:16,197 [INFO]: Writing objects/obj_type_1
+2024-02-01 14:33:16,201 [INFO]: Writing labels/obj_type_1
+2024-02-01 14:33:16,204 [INFO]: Loading objects/obj_type_1 (19058, 5) (19058 filtered: None)
+2024-02-01 14:33:16,379 [INFO]: Writing properties/obj_type_1/area (19058,)
+2024-02-01 14:33:16,395 [INFO]: Writing properties/obj_type_1/major_axis_length (19058,)
+2024-02-01 14:33:16,409 [INFO]: Writing properties/obj_type_1/minor_axis_length (19058,)
+2024-02-01 14:33:16,424 [INFO]: Writing properties/obj_type_1/orientation (19058,)
+2024-02-01 14:33:16,462 [INFO]: Writing properties/obj_type_1/mean_intensity (19058, 3)
+2024-02-01 14:33:16,489 [INFO]: Writing properties/obj_type_1/Infected (19058,)
+2024-02-01 14:33:16,495 [INFO]: Writing tracks/obj_type_1
+2024-02-01 14:33:16,515 [INFO]: Writing LBEP/obj_type_1
+2024-02-01 14:33:16,518 [INFO]: Writing fates/obj_type_1
+2024-02-01 14:34:02,941 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 11)_first_pass.h5
+2024-02-01 14:34:03,315 [INFO]: Position (3, 11): Processing completed successfully
+2024-02-01 14:34:03,318 [INFO]: Position (3, 12): Starting new acquisition
+2024-02-01 14:40:01,173 [INFO]: Position (3, 12): Images loaded and stacked
+2024-02-01 14:40:01,182 [INFO]: Position (3, 12): Starting segmentation
+2024-02-01 16:53:05,041 [INFO]: Position (3, 12): Finished segmentation
+2024-02-01 16:53:05,042 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 12)_first_pass_seg_backup.h5...
+2024-02-01 16:53:46,432 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 12)_first_pass_seg_backup.h5
+2024-02-01 16:53:46,687 [INFO]: Position (3, 12): Saved out masks
+2024-02-01 16:53:46,688 [INFO]: Position (3, 12): Measuring Mtb area
+2024-02-01 16:53:53,739 [INFO]: Position (3, 12): Creating intensity image for localisation
+2024-02-01 16:54:09,182 [INFO]: Position (3, 12): Localising objects
+2024-02-01 16:54:09,183 [INFO]: Localizing objects from segmentation...
+2024-02-01 16:54:09,184 [WARNING]: Multichannel intensity image detected, using unweighted centroid.
+2024-02-01 16:58:44,749 [INFO]: Objects are of type: <class 'dict'>
+2024-02-01 16:58:50,447 [INFO]: ...Found 467267 objects in 150 frames.
+2024-02-01 16:58:50,463 [INFO]: Position (3, 12): Filtering small objects
+2024-02-01 16:58:50,849 [INFO]: Position (3, 12): Adding infection labels to objects
+2024-02-01 16:58:50,865 [INFO]: Position (3, 12): Beginning tracking
+2024-02-01 16:58:50,868 [INFO]: Loaded btrack: /home/dayn/analysis/btrack/btrack/libs/libtracker.so
+2024-02-01 16:58:50,874 [INFO]: Starting BayesianTracker session
+2024-02-01 16:58:50,876 [INFO]: Loading configuration file: /home/dayn/analysis/models/btrack/particle_config_pnassign.json
+2024-02-01 16:58:50,878 [INFO]: Objects are of type: <class 'list'>
+2024-02-01 16:58:51,034 [INFO]: Starting tracking...
+2024-02-01 16:58:51,036 [INFO]: Update using: ['MOTION', 'VISUAL']
+2024-02-01 16:58:51,068 [INFO]: Tracking objects in frames 0 to 24 (of 150)...
+2024-02-01 16:58:51,417 [INFO]:  - Timing (Bayesian updates: 1.70ms, Linking: 0.63ms)
+2024-02-01 16:58:51,419 [INFO]:  - Probabilities (Link: 0.99996, Lost: 1.00000)
+2024-02-01 16:58:51,421 [INFO]:  - Stats (Active: 161, Lost: 1123, Conflicts resolved: 830)
+2024-02-01 16:58:51,423 [INFO]: Tracking objects in frames 25 to 49 (of 150)...
+2024-02-01 16:58:51,550 [INFO]:  - Timing (Bayesian updates: 0.34ms, Linking: 0.29ms)
+2024-02-01 16:58:51,552 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-01 16:58:51,553 [INFO]:  - Stats (Active: 83, Lost: 1809, Conflicts resolved: 1261)
+2024-02-01 16:58:51,554 [INFO]: Tracking objects in frames 50 to 74 (of 150)...
+2024-02-01 16:58:51,638 [INFO]:  - Timing (Bayesian updates: 0.58ms, Linking: 0.52ms)
+2024-02-01 16:58:51,641 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-01 16:58:51,643 [INFO]:  - Stats (Active: 70, Lost: 2225, Conflicts resolved: 1404)
+2024-02-01 16:58:51,644 [INFO]: Tracking objects in frames 75 to 99 (of 150)...
+2024-02-01 16:58:51,732 [INFO]:  - Timing (Bayesian updates: 0.14ms, Linking: 0.22ms)
+2024-02-01 16:58:51,735 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-01 16:58:51,737 [INFO]:  - Stats (Active: 55, Lost: 2731, Conflicts resolved: 1513)
+2024-02-01 16:58:51,738 [INFO]: Tracking objects in frames 100 to 124 (of 150)...
+2024-02-01 16:58:51,782 [INFO]:  - Timing (Bayesian updates: 0.11ms, Linking: 0.24ms)
+2024-02-01 16:58:51,785 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-01 16:58:51,787 [INFO]:  - Stats (Active: 46, Lost: 3143, Conflicts resolved: 1560)
+2024-02-01 16:58:51,789 [INFO]: Tracking objects in frames 125 to 149 (of 150)...
+2024-02-01 16:58:51,824 [INFO]:  - Timing (Bayesian updates: 0.17ms, Linking: 0.28ms)
+2024-02-01 16:58:51,827 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-01 16:58:51,829 [INFO]: SUCCESS.
+2024-02-01 16:58:51,830 [INFO]:  - Found 821 tracks in 150 frames (in 0.0s)
+2024-02-01 16:58:51,846 [INFO]:  - Inserted 1387 dummy objects to fill tracking gaps
+2024-02-01 16:58:51,849 [INFO]: Loading hypothesis model: particle_hypothesis
+2024-02-01 16:58:51,851 [INFO]: Calculating hypotheses (relax: True)...
+2024-02-01 16:58:51,869 [INFO]: Setting up constraints matrix for global optimisation...
+2024-02-01 16:58:51,871 [INFO]: Using GLPK options: {'tm_lim': 60000}...
+2024-02-01 16:58:51,902 [INFO]: Optimizing...
+2024-02-01 16:58:51,983 [INFO]: Optimization complete. (Solution: optimal)
+2024-02-01 16:58:51,989 [INFO]:  - Fates.FALSE_POSITIVE: 401 (of 821)
+2024-02-01 16:58:51,991 [INFO]:  - Fates.LINK: 111 (of 188)
+2024-02-01 16:58:51,993 [INFO]:  - Fates.INITIALIZE_BORDER: 21 (of 53)
+2024-02-01 16:58:51,996 [INFO]:  - Fates.INITIALIZE_FRONT: 145 (of 233)
+2024-02-01 16:58:51,998 [INFO]:  - Fates.INITIALIZE_LAZY: 143 (of 535)
+2024-02-01 16:58:52,000 [INFO]:  - Fates.TERMINATE_BORDER: 27 (of 68)
+2024-02-01 16:58:52,002 [INFO]:  - Fates.TERMINATE_BACK: 37 (of 48)
+2024-02-01 16:58:52,004 [INFO]:  - Fates.TERMINATE_LAZY: 245 (of 705)
+2024-02-01 16:58:52,006 [INFO]:  - TOTAL: 2651 hypotheses
+2024-02-01 16:58:52,021 [INFO]: Completed optimization with 710 tracks
+2024-02-01 16:58:52,070 [INFO]: Ending BayesianTracker session
+2024-02-01 16:58:52,167 [INFO]: Position (3, 12): Saving tracking
+2024-02-01 16:58:52,169 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 12)_first_pass.h5...
+2024-02-01 16:58:52,361 [INFO]: Writing objects/obj_type_1
+2024-02-01 16:58:52,365 [INFO]: Writing labels/obj_type_1
+2024-02-01 16:58:52,369 [INFO]: Loading objects/obj_type_1 (8665, 5) (8665 filtered: None)
+2024-02-01 16:58:52,474 [INFO]: Writing properties/obj_type_1/area (8665,)
+2024-02-01 16:58:52,482 [INFO]: Writing properties/obj_type_1/major_axis_length (8665,)
+2024-02-01 16:58:52,489 [INFO]: Writing properties/obj_type_1/minor_axis_length (8665,)
+2024-02-01 16:58:52,496 [INFO]: Writing properties/obj_type_1/orientation (8665,)
+2024-02-01 16:58:52,511 [INFO]: Writing properties/obj_type_1/mean_intensity (8665, 3)
+2024-02-01 16:58:52,522 [INFO]: Writing properties/obj_type_1/Infected (8665,)
+2024-02-01 16:58:52,526 [INFO]: Writing tracks/obj_type_1
+2024-02-01 16:58:52,537 [INFO]: Writing LBEP/obj_type_1
+2024-02-01 16:58:52,540 [INFO]: Writing fates/obj_type_1
+2024-02-01 16:59:36,090 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 12)_first_pass.h5
+2024-02-01 16:59:36,349 [INFO]: Position (3, 12): Processing completed successfully
+2024-02-01 16:59:36,352 [INFO]: Position (4, 3): Starting new acquisition
+2024-02-01 17:08:21,879 [INFO]: Position (4, 3): Images loaded and stacked
+2024-02-01 17:08:21,881 [INFO]: Position (4, 3): Starting segmentation
+2024-02-01 21:02:47,470 [INFO]: Position (4, 3): Finished segmentation
+2024-02-01 21:02:47,471 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 3)_first_pass_seg_backup.h5...
+2024-02-01 21:03:42,631 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 3)_first_pass_seg_backup.h5
+2024-02-01 21:03:43,285 [INFO]: Position (4, 3): Saved out masks
+2024-02-01 21:03:43,287 [INFO]: Position (4, 3): Measuring Mtb area
+2024-02-01 21:03:50,735 [INFO]: Position (4, 3): Creating intensity image for localisation
+2024-02-01 21:04:06,191 [INFO]: Position (4, 3): Localising objects
+2024-02-01 21:04:06,192 [INFO]: Localizing objects from segmentation...
+2024-02-01 21:04:06,194 [WARNING]: Multichannel intensity image detected, using unweighted centroid.
+2024-02-01 21:11:00,525 [INFO]: Objects are of type: <class 'dict'>
+2024-02-01 21:11:01,166 [INFO]: ...Found 77813 objects in 150 frames.
+2024-02-01 21:11:01,171 [INFO]: Position (4, 3): Filtering small objects
+2024-02-01 21:11:01,224 [INFO]: Position (4, 3): Adding infection labels to objects
+2024-02-01 21:11:01,278 [INFO]: Position (4, 3): Beginning tracking
+2024-02-01 21:11:01,279 [INFO]: Loaded btrack: /home/dayn/analysis/btrack/btrack/libs/libtracker.so
+2024-02-01 21:11:01,281 [INFO]: Starting BayesianTracker session
+2024-02-01 21:11:01,283 [INFO]: Loading configuration file: /home/dayn/analysis/models/btrack/particle_config_pnassign.json
+2024-02-01 21:11:01,286 [INFO]: Objects are of type: <class 'list'>
+2024-02-01 21:11:02,638 [INFO]: Starting tracking...
+2024-02-01 21:11:02,640 [INFO]: Update using: ['MOTION', 'VISUAL']
+2024-02-01 21:11:02,857 [INFO]: Tracking objects in frames 0 to 24 (of 150)...
+2024-02-01 21:11:08,710 [INFO]:  - Timing (Bayesian updates: 49.11ms, Linking: 2.86ms)
+2024-02-01 21:11:08,712 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-01 21:11:08,714 [INFO]:  - Stats (Active: 734, Lost: 3662, Conflicts resolved: 4470)
+2024-02-01 21:11:08,716 [INFO]: Tracking objects in frames 25 to 49 (of 150)...
+2024-02-01 21:11:12,768 [INFO]:  - Timing (Bayesian updates: 45.22ms, Linking: 2.58ms)
+2024-02-01 21:11:12,771 [INFO]:  - Probabilities (Link: 0.99999, Lost: 0.99963)
+2024-02-01 21:11:12,773 [INFO]:  - Stats (Active: 658, Lost: 6829, Conflicts resolved: 8797)
+2024-02-01 21:11:12,774 [INFO]: Tracking objects in frames 50 to 74 (of 150)...
+2024-02-01 21:11:16,306 [INFO]:  - Timing (Bayesian updates: 46.27ms, Linking: 2.69ms)
+2024-02-01 21:11:16,308 [INFO]:  - Probabilities (Link: 0.99952, Lost: 0.99932)
+2024-02-01 21:11:16,309 [INFO]:  - Stats (Active: 667, Lost: 9676, Conflicts resolved: 12759)
+2024-02-01 21:11:16,309 [INFO]: Tracking objects in frames 75 to 99 (of 150)...
+2024-02-01 21:11:20,139 [INFO]:  - Timing (Bayesian updates: 55.35ms, Linking: 2.85ms)
+2024-02-01 21:11:20,141 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-01 21:11:20,143 [INFO]:  - Stats (Active: 682, Lost: 12214, Conflicts resolved: 16681)
+2024-02-01 21:11:20,145 [INFO]: Tracking objects in frames 100 to 124 (of 150)...
+2024-02-01 21:11:23,802 [INFO]:  - Timing (Bayesian updates: 46.56ms, Linking: 2.50ms)
+2024-02-01 21:11:23,804 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-01 21:11:23,805 [INFO]:  - Stats (Active: 615, Lost: 14519, Conflicts resolved: 20495)
+2024-02-01 21:11:23,806 [INFO]: Tracking objects in frames 125 to 149 (of 150)...
+2024-02-01 21:11:26,923 [INFO]:  - Timing (Bayesian updates: 41.11ms, Linking: 2.36ms)
+2024-02-01 21:11:26,926 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.58239)
+2024-02-01 21:11:26,927 [INFO]: SUCCESS.
+2024-02-01 21:11:26,928 [INFO]:  - Found 7496 tracks in 150 frames (in 0.0s)
+2024-02-01 21:11:26,978 [INFO]:  - Inserted 16171 dummy objects to fill tracking gaps
+2024-02-01 21:11:26,981 [INFO]: Loading hypothesis model: particle_hypothesis
+2024-02-01 21:11:26,983 [INFO]: Calculating hypotheses (relax: True)...
+2024-02-01 21:11:27,087 [INFO]: Setting up constraints matrix for global optimisation...
+2024-02-01 21:11:27,090 [INFO]: Using GLPK options: {'tm_lim': 60000}...
+2024-02-01 21:11:27,447 [INFO]: Optimizing...
+2024-02-01 21:11:31,893 [INFO]: Optimization complete. (Solution: optimal)
+2024-02-01 21:11:31,920 [INFO]:  - Fates.FALSE_POSITIVE: 2888 (of 7496)
+2024-02-01 21:11:31,923 [INFO]:  - Fates.LINK: 2034 (of 3637)
+2024-02-01 21:11:31,926 [INFO]:  - Fates.INITIALIZE_BORDER: 283 (of 636)
+2024-02-01 21:11:31,930 [INFO]:  - Fates.INITIALIZE_FRONT: 523 (of 787)
+2024-02-01 21:11:31,933 [INFO]:  - Fates.INITIALIZE_LAZY: 1768 (of 6073)
+2024-02-01 21:11:31,936 [INFO]:  - Fates.TERMINATE_BORDER: 274 (of 620)
+2024-02-01 21:11:31,940 [INFO]:  - Fates.TERMINATE_BACK: 438 (of 553)
+2024-02-01 21:11:31,943 [INFO]:  - Fates.TERMINATE_LAZY: 1862 (of 6323)
+2024-02-01 21:11:31,945 [INFO]:  - TOTAL: 26125 hypotheses
+2024-02-01 21:11:32,044 [INFO]: Completed optimization with 5462 tracks
+2024-02-01 21:11:32,748 [INFO]: Ending BayesianTracker session
+2024-02-01 21:11:32,901 [INFO]: Position (4, 3): Saving tracking
+2024-02-01 21:11:32,903 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 3)_first_pass.h5...
+2024-02-01 21:11:33,574 [INFO]: Writing objects/obj_type_1
+2024-02-01 21:11:33,578 [INFO]: Writing labels/obj_type_1
+2024-02-01 21:11:33,581 [INFO]: Loading objects/obj_type_1 (50457, 5) (50457 filtered: None)
+2024-02-01 21:11:33,896 [INFO]: Writing properties/obj_type_1/area (50457,)
+2024-02-01 21:11:33,916 [INFO]: Writing properties/obj_type_1/major_axis_length (50457,)
+2024-02-01 21:11:33,932 [INFO]: Writing properties/obj_type_1/minor_axis_length (50457,)
+2024-02-01 21:11:33,947 [INFO]: Writing properties/obj_type_1/orientation (50457,)
+2024-02-01 21:11:33,986 [INFO]: Writing properties/obj_type_1/mean_intensity (50457, 3)
+2024-02-01 21:11:34,015 [INFO]: Writing properties/obj_type_1/Infected (50457,)
+2024-02-01 21:11:34,024 [INFO]: Writing tracks/obj_type_1
+2024-02-01 21:11:34,051 [INFO]: Writing LBEP/obj_type_1
+2024-02-01 21:11:34,053 [INFO]: Writing fates/obj_type_1
+2024-02-01 21:12:29,123 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 3)_first_pass.h5
+2024-02-01 21:12:29,800 [INFO]: Position (4, 3): Processing completed successfully
+2024-02-01 21:12:29,803 [INFO]: Position (4, 4): Starting new acquisition
+2024-02-01 21:19:11,202 [INFO]: Position (4, 4): Images loaded and stacked
+2024-02-01 21:19:11,204 [INFO]: Position (4, 4): Starting segmentation
+2024-02-02 01:25:21,443 [INFO]: Position (4, 4): Finished segmentation
+2024-02-02 01:25:21,445 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 4)_first_pass_seg_backup.h5...
+2024-02-02 01:26:16,446 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 4)_first_pass_seg_backup.h5
+2024-02-02 01:26:17,145 [INFO]: Position (4, 4): Saved out masks
+2024-02-02 01:26:17,147 [INFO]: Position (4, 4): Measuring Mtb area
+2024-02-02 01:26:24,874 [INFO]: Position (4, 4): Creating intensity image for localisation
+2024-02-02 01:26:40,691 [INFO]: Position (4, 4): Localising objects
+2024-02-02 01:26:40,692 [INFO]: Localizing objects from segmentation...
+2024-02-02 01:26:40,693 [WARNING]: Multichannel intensity image detected, using unweighted centroid.
+2024-02-02 01:34:41,388 [INFO]: Objects are of type: <class 'dict'>
+2024-02-02 01:34:43,375 [INFO]: ...Found 194220 objects in 150 frames.
+2024-02-02 01:34:43,409 [INFO]: Position (4, 4): Filtering small objects
+2024-02-02 01:34:43,584 [INFO]: Position (4, 4): Adding infection labels to objects
+2024-02-02 01:34:43,655 [INFO]: Position (4, 4): Beginning tracking
+2024-02-02 01:34:43,658 [INFO]: Loaded btrack: /home/dayn/analysis/btrack/btrack/libs/libtracker.so
+2024-02-02 01:34:43,663 [INFO]: Starting BayesianTracker session
+2024-02-02 01:34:43,665 [INFO]: Loading configuration file: /home/dayn/analysis/models/btrack/particle_config_pnassign.json
+2024-02-02 01:34:43,669 [INFO]: Objects are of type: <class 'list'>
+2024-02-02 01:34:45,823 [INFO]: Starting tracking...
+2024-02-02 01:34:45,825 [INFO]: Update using: ['MOTION', 'VISUAL']
+2024-02-02 01:34:46,022 [INFO]: Tracking objects in frames 0 to 24 (of 150)...
+2024-02-02 01:34:51,262 [INFO]:  - Timing (Bayesian updates: 56.23ms, Linking: 3.25ms)
+2024-02-02 01:34:51,264 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.99996)
+2024-02-02 01:34:51,266 [INFO]:  - Stats (Active: 731, Lost: 3532, Conflicts resolved: 4533)
+2024-02-02 01:34:51,267 [INFO]: Tracking objects in frames 25 to 49 (of 150)...
+2024-02-02 01:34:55,405 [INFO]:  - Timing (Bayesian updates: 57.67ms, Linking: 3.14ms)
+2024-02-02 01:34:55,407 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-02 01:34:55,408 [INFO]:  - Stats (Active: 728, Lost: 6553, Conflicts resolved: 8691)
+2024-02-02 01:34:55,409 [INFO]: Tracking objects in frames 50 to 74 (of 150)...
+2024-02-02 01:34:59,499 [INFO]:  - Timing (Bayesian updates: 50.41ms, Linking: 2.86ms)
+2024-02-02 01:34:59,501 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-02 01:34:59,503 [INFO]:  - Stats (Active: 685, Lost: 9448, Conflicts resolved: 12813)
+2024-02-02 01:34:59,505 [INFO]: Tracking objects in frames 75 to 99 (of 150)...
+2024-02-02 01:35:03,984 [INFO]:  - Timing (Bayesian updates: 57.78ms, Linking: 3.02ms)
+2024-02-02 01:35:03,986 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-02 01:35:03,988 [INFO]:  - Stats (Active: 709, Lost: 12152, Conflicts resolved: 16930)
+2024-02-02 01:35:03,989 [INFO]: Tracking objects in frames 100 to 124 (of 150)...
+2024-02-02 01:35:08,478 [INFO]:  - Timing (Bayesian updates: 61.83ms, Linking: 3.14ms)
+2024-02-02 01:35:08,480 [INFO]:  - Probabilities (Link: 0.99538, Lost: 0.52903)
+2024-02-02 01:35:08,481 [INFO]:  - Stats (Active: 703, Lost: 14827, Conflicts resolved: 21262)
+2024-02-02 01:35:08,482 [INFO]: Tracking objects in frames 125 to 149 (of 150)...
+2024-02-02 01:35:12,702 [INFO]:  - Timing (Bayesian updates: 54.22ms, Linking: 2.94ms)
+2024-02-02 01:35:12,704 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-02 01:35:12,706 [INFO]: SUCCESS.
+2024-02-02 01:35:12,708 [INFO]:  - Found 7972 tracks in 150 frames (in 0.0s)
+2024-02-02 01:35:12,819 [INFO]:  - Inserted 17009 dummy objects to fill tracking gaps
+2024-02-02 01:35:12,821 [INFO]: Loading hypothesis model: particle_hypothesis
+2024-02-02 01:35:12,823 [INFO]: Calculating hypotheses (relax: True)...
+2024-02-02 01:35:12,930 [INFO]: Setting up constraints matrix for global optimisation...
+2024-02-02 01:35:12,932 [INFO]: Using GLPK options: {'tm_lim': 60000}...
+2024-02-02 01:35:13,397 [INFO]: Optimizing...
+2024-02-02 01:35:18,747 [INFO]: Optimization complete. (Solution: optimal)
+2024-02-02 01:35:18,775 [INFO]:  - Fates.FALSE_POSITIVE: 2951 (of 7972)
+2024-02-02 01:35:18,778 [INFO]:  - Fates.LINK: 2322 (of 4066)
+2024-02-02 01:35:18,779 [INFO]:  - Fates.INITIALIZE_BORDER: 300 (of 696)
+2024-02-02 01:35:18,781 [INFO]:  - Fates.INITIALIZE_FRONT: 534 (of 816)
+2024-02-02 01:35:18,784 [INFO]:  - Fates.INITIALIZE_LAZY: 1865 (of 6460)
+2024-02-02 01:35:18,785 [INFO]:  - Fates.TERMINATE_BORDER: 296 (of 672)
+2024-02-02 01:35:18,787 [INFO]:  - Fates.TERMINATE_BACK: 480 (of 604)
+2024-02-02 01:35:18,790 [INFO]:  - Fates.TERMINATE_LAZY: 1923 (of 6696)
+2024-02-02 01:35:18,792 [INFO]:  - TOTAL: 27982 hypotheses
+2024-02-02 01:35:18,890 [INFO]: Completed optimization with 5650 tracks
+2024-02-02 01:35:19,104 [INFO]: Ending BayesianTracker session
+2024-02-02 01:35:19,439 [INFO]: Position (4, 4): Saving tracking
+2024-02-02 01:35:19,441 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 4)_first_pass.h5...
+2024-02-02 01:35:20,124 [INFO]: Writing objects/obj_type_1
+2024-02-02 01:35:20,127 [INFO]: Writing labels/obj_type_1
+2024-02-02 01:35:20,130 [INFO]: Loading objects/obj_type_1 (53180, 5) (53180 filtered: None)
+2024-02-02 01:35:20,544 [INFO]: Writing properties/obj_type_1/area (53180,)
+2024-02-02 01:35:20,566 [INFO]: Writing properties/obj_type_1/major_axis_length (53180,)
+2024-02-02 01:35:20,582 [INFO]: Writing properties/obj_type_1/minor_axis_length (53180,)
+2024-02-02 01:35:20,599 [INFO]: Writing properties/obj_type_1/orientation (53180,)
+2024-02-02 01:35:20,646 [INFO]: Writing properties/obj_type_1/mean_intensity (53180, 3)
+2024-02-02 01:35:20,712 [INFO]: Writing properties/obj_type_1/Infected (53180,)
+2024-02-02 01:35:20,726 [INFO]: Writing tracks/obj_type_1
+2024-02-02 01:35:20,778 [INFO]: Writing LBEP/obj_type_1
+2024-02-02 01:35:20,780 [INFO]: Writing fates/obj_type_1
+2024-02-02 01:36:15,894 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 4)_first_pass.h5
+2024-02-02 01:36:16,622 [INFO]: Position (4, 4): Processing completed successfully
+2024-02-02 01:36:16,625 [INFO]: Position (4, 5): Starting new acquisition
+2024-02-02 01:42:27,023 [INFO]: Position (4, 5): Images loaded and stacked
+2024-02-02 01:42:27,032 [INFO]: Position (4, 5): Starting segmentation
+2024-02-02 05:07:03,934 [INFO]: Position (4, 5): Finished segmentation
+2024-02-02 05:07:03,936 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 5)_first_pass_seg_backup.h5...
+2024-02-02 05:07:59,273 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 5)_first_pass_seg_backup.h5
+2024-02-02 05:07:59,916 [INFO]: Position (4, 5): Saved out masks
+2024-02-02 05:07:59,918 [INFO]: Position (4, 5): Measuring Mtb area
+2024-02-02 05:08:07,244 [INFO]: Position (4, 5): Creating intensity image for localisation
+2024-02-02 05:08:22,803 [INFO]: Position (4, 5): Localising objects
+2024-02-02 05:08:22,805 [INFO]: Localizing objects from segmentation...
+2024-02-02 05:08:22,806 [WARNING]: Multichannel intensity image detected, using unweighted centroid.
+2024-02-02 05:15:21,892 [INFO]: Objects are of type: <class 'dict'>
+2024-02-02 05:15:23,466 [INFO]: ...Found 122976 objects in 150 frames.
+2024-02-02 05:15:23,497 [INFO]: Position (4, 5): Filtering small objects
+2024-02-02 05:15:23,605 [INFO]: Position (4, 5): Adding infection labels to objects
+2024-02-02 05:15:23,669 [INFO]: Position (4, 5): Beginning tracking
+2024-02-02 05:15:23,672 [INFO]: Loaded btrack: /home/dayn/analysis/btrack/btrack/libs/libtracker.so
+2024-02-02 05:15:23,674 [INFO]: Starting BayesianTracker session
+2024-02-02 05:15:23,676 [INFO]: Loading configuration file: /home/dayn/analysis/models/btrack/particle_config_pnassign.json
+2024-02-02 05:15:23,679 [INFO]: Objects are of type: <class 'list'>
+2024-02-02 05:15:25,365 [INFO]: Starting tracking...
+2024-02-02 05:15:25,367 [INFO]: Update using: ['MOTION', 'VISUAL']
+2024-02-02 05:15:25,532 [INFO]: Tracking objects in frames 0 to 24 (of 150)...
+2024-02-02 05:15:28,889 [INFO]:  - Timing (Bayesian updates: 39.38ms, Linking: 2.27ms)
+2024-02-02 05:15:28,891 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.99994)
+2024-02-02 05:15:28,893 [INFO]:  - Stats (Active: 656, Lost: 3056, Conflicts resolved: 3894)
+2024-02-02 05:15:28,894 [INFO]: Tracking objects in frames 25 to 49 (of 150)...
+2024-02-02 05:15:32,209 [INFO]:  - Timing (Bayesian updates: 43.53ms, Linking: 2.35ms)
+2024-02-02 05:15:32,212 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-02 05:15:32,213 [INFO]:  - Stats (Active: 610, Lost: 5536, Conflicts resolved: 7604)
+2024-02-02 05:15:32,214 [INFO]: Tracking objects in frames 50 to 74 (of 150)...
+2024-02-02 05:15:35,737 [INFO]:  - Timing (Bayesian updates: 42.11ms, Linking: 2.41ms)
+2024-02-02 05:15:35,739 [INFO]:  - Probabilities (Link: 0.99986, Lost: 1.00000)
+2024-02-02 05:15:35,741 [INFO]:  - Stats (Active: 640, Lost: 7914, Conflicts resolved: 11344)
+2024-02-02 05:15:35,743 [INFO]: Tracking objects in frames 75 to 99 (of 150)...
+2024-02-02 05:15:39,287 [INFO]:  - Timing (Bayesian updates: 46.06ms, Linking: 2.41ms)
+2024-02-02 05:15:39,289 [INFO]:  - Probabilities (Link: 0.99999, Lost: 0.99996)
+2024-02-02 05:15:39,290 [INFO]:  - Stats (Active: 632, Lost: 10518, Conflicts resolved: 15144)
+2024-02-02 05:15:39,292 [INFO]: Tracking objects in frames 100 to 124 (of 150)...
+2024-02-02 05:15:43,322 [INFO]:  - Timing (Bayesian updates: 55.57ms, Linking: 2.80ms)
+2024-02-02 05:15:43,324 [INFO]:  - Probabilities (Link: 0.99553, Lost: 0.99993)
+2024-02-02 05:15:43,332 [INFO]:  - Stats (Active: 686, Lost: 12937, Conflicts resolved: 19092)
+2024-02-02 05:15:43,334 [INFO]: Tracking objects in frames 125 to 149 (of 150)...
+2024-02-02 05:15:47,150 [INFO]:  - Timing (Bayesian updates: 53.87ms, Linking: 2.73ms)
+2024-02-02 05:15:47,152 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.99923)
+2024-02-02 05:15:47,154 [INFO]: SUCCESS.
+2024-02-02 05:15:47,155 [INFO]:  - Found 7325 tracks in 150 frames (in 0.0s)
+2024-02-02 05:15:47,210 [INFO]:  - Inserted 15167 dummy objects to fill tracking gaps
+2024-02-02 05:15:47,212 [INFO]: Loading hypothesis model: particle_hypothesis
+2024-02-02 05:15:47,213 [INFO]: Calculating hypotheses (relax: True)...
+2024-02-02 05:15:47,330 [INFO]: Setting up constraints matrix for global optimisation...
+2024-02-02 05:15:47,332 [INFO]: Using GLPK options: {'tm_lim': 60000}...
+2024-02-02 05:15:47,697 [INFO]: Optimizing...
+2024-02-02 05:15:52,962 [INFO]: Optimization complete. (Solution: optimal)
+2024-02-02 05:15:52,988 [INFO]:  - Fates.FALSE_POSITIVE: 3007 (of 7325)
+2024-02-02 05:15:52,991 [INFO]:  - Fates.LINK: 1899 (of 3505)
+2024-02-02 05:15:52,994 [INFO]:  - Fates.INITIALIZE_BORDER: 260 (of 618)
+2024-02-02 05:15:52,995 [INFO]:  - Fates.INITIALIZE_FRONT: 459 (of 701)
+2024-02-02 05:15:52,998 [INFO]:  - Fates.INITIALIZE_LAZY: 1700 (of 6006)
+2024-02-02 05:15:52,999 [INFO]:  - Fates.TERMINATE_BORDER: 270 (of 625)
+2024-02-02 05:15:53,002 [INFO]:  - Fates.TERMINATE_BACK: 472 (of 627)
+2024-02-02 05:15:53,005 [INFO]:  - Fates.TERMINATE_LAZY: 1677 (of 6073)
+2024-02-02 05:15:53,007 [INFO]:  - TOTAL: 25480 hypotheses
+2024-02-02 05:15:53,120 [INFO]: Completed optimization with 5426 tracks
+2024-02-02 05:15:53,254 [INFO]: Ending BayesianTracker session
+2024-02-02 05:15:53,597 [INFO]: Position (4, 5): Saving tracking
+2024-02-02 05:15:53,599 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 5)_first_pass.h5...
+2024-02-02 05:15:54,202 [INFO]: Writing objects/obj_type_1
+2024-02-02 05:15:54,206 [INFO]: Writing labels/obj_type_1
+2024-02-02 05:15:54,209 [INFO]: Loading objects/obj_type_1 (50087, 5) (50087 filtered: None)
+2024-02-02 05:15:54,582 [INFO]: Writing properties/obj_type_1/area (50087,)
+2024-02-02 05:15:54,618 [INFO]: Writing properties/obj_type_1/major_axis_length (50087,)
+2024-02-02 05:15:54,640 [INFO]: Writing properties/obj_type_1/minor_axis_length (50087,)
+2024-02-02 05:15:54,663 [INFO]: Writing properties/obj_type_1/orientation (50087,)
+2024-02-02 05:15:54,712 [INFO]: Writing properties/obj_type_1/mean_intensity (50087, 3)
+2024-02-02 05:15:54,743 [INFO]: Writing properties/obj_type_1/Infected (50087,)
+2024-02-02 05:15:54,753 [INFO]: Writing tracks/obj_type_1
+2024-02-02 05:15:54,811 [INFO]: Writing LBEP/obj_type_1
+2024-02-02 05:15:54,814 [INFO]: Writing fates/obj_type_1
+2024-02-02 05:16:48,620 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 5)_first_pass.h5
+2024-02-02 05:16:49,295 [INFO]: Position (4, 5): Processing completed successfully
+2024-02-02 05:16:49,297 [INFO]: Position (4, 6): Starting new acquisition
+2024-02-02 05:22:57,845 [INFO]: Position (4, 6): Images loaded and stacked
+2024-02-02 05:22:57,854 [INFO]: Position (4, 6): Starting segmentation
+2024-02-02 08:27:40,600 [INFO]: Position (4, 6): Finished segmentation
+2024-02-02 08:27:40,601 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 6)_first_pass_seg_backup.h5...
+2024-02-02 08:28:34,400 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 6)_first_pass_seg_backup.h5
+2024-02-02 08:28:35,063 [INFO]: Position (4, 6): Saved out masks
+2024-02-02 08:28:35,064 [INFO]: Position (4, 6): Measuring Mtb area
+2024-02-02 08:28:41,863 [INFO]: Position (4, 6): Creating intensity image for localisation
+2024-02-02 08:28:56,117 [INFO]: Position (4, 6): Localising objects
+2024-02-02 08:28:56,118 [INFO]: Localizing objects from segmentation...
+2024-02-02 08:28:56,120 [WARNING]: Multichannel intensity image detected, using unweighted centroid.
+2024-02-02 08:35:14,632 [INFO]: Objects are of type: <class 'dict'>
+2024-02-02 08:35:15,744 [INFO]: ...Found 79671 objects in 150 frames.
+2024-02-02 08:35:15,773 [INFO]: Position (4, 6): Filtering small objects
+2024-02-02 08:35:15,838 [INFO]: Position (4, 6): Adding infection labels to objects
+2024-02-02 08:35:15,937 [INFO]: Position (4, 6): Beginning tracking
+2024-02-02 08:35:15,939 [INFO]: Loaded btrack: /home/dayn/analysis/btrack/btrack/libs/libtracker.so
+2024-02-02 08:35:15,941 [INFO]: Starting BayesianTracker session
+2024-02-02 08:35:15,942 [INFO]: Loading configuration file: /home/dayn/analysis/models/btrack/particle_config_pnassign.json
+2024-02-02 08:35:15,944 [INFO]: Objects are of type: <class 'list'>
+2024-02-02 08:35:16,877 [INFO]: Starting tracking...
+2024-02-02 08:35:16,880 [INFO]: Update using: ['MOTION', 'VISUAL']
+2024-02-02 08:35:17,023 [INFO]: Tracking objects in frames 0 to 24 (of 150)...
+2024-02-02 08:35:22,388 [INFO]:  - Timing (Bayesian updates: 61.69ms, Linking: 3.33ms)
+2024-02-02 08:35:22,390 [INFO]:  - Probabilities (Link: 0.99999, Lost: 1.00000)
+2024-02-02 08:35:22,391 [INFO]:  - Stats (Active: 729, Lost: 3449, Conflicts resolved: 4553)
+2024-02-02 08:35:22,392 [INFO]: Tracking objects in frames 25 to 49 (of 150)...
+2024-02-02 08:35:27,718 [INFO]:  - Timing (Bayesian updates: 53.36ms, Linking: 2.78ms)
+2024-02-02 08:35:27,720 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.99981)
+2024-02-02 08:35:27,721 [INFO]:  - Stats (Active: 730, Lost: 6514, Conflicts resolved: 9039)
+2024-02-02 08:35:27,721 [INFO]: Tracking objects in frames 50 to 74 (of 150)...
+2024-02-02 08:35:31,988 [INFO]:  - Timing (Bayesian updates: 53.66ms, Linking: 2.71ms)
+2024-02-02 08:35:31,990 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.64944)
+2024-02-02 08:35:31,992 [INFO]:  - Stats (Active: 690, Lost: 9374, Conflicts resolved: 13242)
+2024-02-02 08:35:31,994 [INFO]: Tracking objects in frames 75 to 99 (of 150)...
+2024-02-02 08:35:35,974 [INFO]:  - Timing (Bayesian updates: 47.79ms, Linking: 2.62ms)
+2024-02-02 08:35:35,976 [INFO]:  - Probabilities (Link: 0.99997, Lost: 0.82010)
+2024-02-02 08:35:35,978 [INFO]:  - Stats (Active: 677, Lost: 12264, Conflicts resolved: 17344)
+2024-02-02 08:35:35,980 [INFO]: Tracking objects in frames 100 to 124 (of 150)...
+2024-02-02 08:35:39,689 [INFO]:  - Timing (Bayesian updates: 51.07ms, Linking: 2.59ms)
+2024-02-02 08:35:39,692 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.57558)
+2024-02-02 08:35:39,693 [INFO]:  - Stats (Active: 688, Lost: 15108, Conflicts resolved: 21294)
+2024-02-02 08:35:39,695 [INFO]: Tracking objects in frames 125 to 149 (of 150)...
+2024-02-02 08:35:44,192 [INFO]:  - Timing (Bayesian updates: 68.49ms, Linking: 3.22ms)
+2024-02-02 08:35:44,194 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.99124)
+2024-02-02 08:35:44,196 [INFO]: SUCCESS.
+2024-02-02 08:35:44,198 [INFO]:  - Found 8394 tracks in 150 frames (in 0.0s)
+2024-02-02 08:35:44,261 [INFO]:  - Inserted 17598 dummy objects to fill tracking gaps
+2024-02-02 08:35:44,262 [INFO]: Loading hypothesis model: particle_hypothesis
+2024-02-02 08:35:44,264 [INFO]: Calculating hypotheses (relax: True)...
+2024-02-02 08:35:45,301 [INFO]: Setting up constraints matrix for global optimisation...
+2024-02-02 08:35:45,303 [INFO]: Using GLPK options: {'tm_lim': 60000}...
+2024-02-02 08:35:45,726 [INFO]: Optimizing...
+2024-02-02 08:35:51,353 [INFO]: Optimization complete. (Solution: optimal)
+2024-02-02 08:35:51,416 [INFO]:  - Fates.FALSE_POSITIVE: 3257 (of 8394)
+2024-02-02 08:35:51,418 [INFO]:  - Fates.LINK: 2293 (of 4171)
+2024-02-02 08:35:51,420 [INFO]:  - Fates.INITIALIZE_BORDER: 319 (of 722)
+2024-02-02 08:35:51,423 [INFO]:  - Fates.INITIALIZE_FRONT: 525 (of 806)
+2024-02-02 08:35:51,426 [INFO]:  - Fates.INITIALIZE_LAZY: 2000 (of 6866)
+2024-02-02 08:35:51,429 [INFO]:  - Fates.TERMINATE_BORDER: 313 (of 727)
+2024-02-02 08:35:51,432 [INFO]:  - Fates.TERMINATE_BACK: 533 (of 732)
+2024-02-02 08:35:51,436 [INFO]:  - Fates.TERMINATE_LAZY: 1998 (of 6935)
+2024-02-02 08:35:51,438 [INFO]:  - TOTAL: 29353 hypotheses
+2024-02-02 08:35:51,558 [INFO]: Completed optimization with 6101 tracks
+2024-02-02 08:35:51,768 [INFO]: Ending BayesianTracker session
+2024-02-02 08:35:52,091 [INFO]: Position (4, 6): Saving tracking
+2024-02-02 08:35:52,093 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 6)_first_pass.h5...
+2024-02-02 08:35:52,764 [INFO]: Writing objects/obj_type_1
+2024-02-02 08:35:52,767 [INFO]: Writing labels/obj_type_1
+2024-02-02 08:35:52,770 [INFO]: Loading objects/obj_type_1 (51799, 5) (51799 filtered: None)
+2024-02-02 08:35:53,162 [INFO]: Writing properties/obj_type_1/area (51799,)
+2024-02-02 08:35:53,184 [INFO]: Writing properties/obj_type_1/major_axis_length (51799,)
+2024-02-02 08:35:53,202 [INFO]: Writing properties/obj_type_1/minor_axis_length (51799,)
+2024-02-02 08:35:53,234 [INFO]: Writing properties/obj_type_1/orientation (51799,)
+2024-02-02 08:35:53,301 [INFO]: Writing properties/obj_type_1/mean_intensity (51799, 3)
+2024-02-02 08:35:53,342 [INFO]: Writing properties/obj_type_1/Infected (51799,)
+2024-02-02 08:35:53,358 [INFO]: Writing tracks/obj_type_1
+2024-02-02 08:35:53,418 [INFO]: Writing LBEP/obj_type_1
+2024-02-02 08:35:53,420 [INFO]: Writing fates/obj_type_1
+2024-02-02 08:36:48,174 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 6)_first_pass.h5
+2024-02-02 08:36:48,870 [INFO]: Position (4, 6): Processing completed successfully
+2024-02-02 08:36:48,873 [INFO]: Position (4, 7): Starting new acquisition
+2024-02-02 08:42:55,359 [INFO]: Position (4, 7): Images loaded and stacked
+2024-02-02 08:42:55,368 [INFO]: Position (4, 7): Starting segmentation
+2024-02-02 12:01:36,230 [INFO]: Position (4, 7): Finished segmentation
+2024-02-02 12:01:36,231 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 7)_first_pass_seg_backup.h5...
+2024-02-02 12:02:30,030 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 7)_first_pass_seg_backup.h5
+2024-02-02 12:02:30,631 [INFO]: Position (4, 7): Saved out masks
+2024-02-02 12:02:30,633 [INFO]: Position (4, 7): Measuring Mtb area
+2024-02-02 12:02:37,521 [INFO]: Position (4, 7): Creating intensity image for localisation
+2024-02-02 12:02:52,306 [INFO]: Position (4, 7): Localising objects
+2024-02-02 12:02:52,307 [INFO]: Localizing objects from segmentation...
+2024-02-02 12:02:52,309 [WARNING]: Multichannel intensity image detected, using unweighted centroid.
+2024-02-02 12:09:19,598 [INFO]: Objects are of type: <class 'dict'>
+2024-02-02 12:09:20,254 [INFO]: ...Found 72979 objects in 150 frames.
+2024-02-02 12:09:20,297 [INFO]: Position (4, 7): Filtering small objects
+2024-02-02 12:09:20,386 [INFO]: Position (4, 7): Adding infection labels to objects
+2024-02-02 12:09:20,465 [INFO]: Position (4, 7): Beginning tracking
+2024-02-02 12:09:20,467 [INFO]: Loaded btrack: /home/dayn/analysis/btrack/btrack/libs/libtracker.so
+2024-02-02 12:09:20,469 [INFO]: Starting BayesianTracker session
+2024-02-02 12:09:20,471 [INFO]: Loading configuration file: /home/dayn/analysis/models/btrack/particle_config_pnassign.json
+2024-02-02 12:09:20,475 [INFO]: Objects are of type: <class 'list'>
+2024-02-02 12:09:22,536 [INFO]: Starting tracking...
+2024-02-02 12:09:22,539 [INFO]: Update using: ['MOTION', 'VISUAL']
+2024-02-02 12:09:22,770 [INFO]: Tracking objects in frames 0 to 24 (of 150)...
+2024-02-02 12:09:27,845 [INFO]:  - Timing (Bayesian updates: 49.19ms, Linking: 3.36ms)
+2024-02-02 12:09:27,848 [INFO]:  - Probabilities (Link: 0.62561, Lost: 1.00000)
+2024-02-02 12:09:27,849 [INFO]:  - Stats (Active: 712, Lost: 3604, Conflicts resolved: 4372)
+2024-02-02 12:09:27,850 [INFO]: Tracking objects in frames 25 to 49 (of 150)...
+2024-02-02 12:09:32,425 [INFO]:  - Timing (Bayesian updates: 44.23ms, Linking: 2.90ms)
+2024-02-02 12:09:32,427 [INFO]:  - Probabilities (Link: 0.94460, Lost: 1.00000)
+2024-02-02 12:09:32,428 [INFO]:  - Stats (Active: 694, Lost: 6842, Conflicts resolved: 8603)
+2024-02-02 12:09:32,429 [INFO]: Tracking objects in frames 50 to 74 (of 150)...
+2024-02-02 12:09:36,744 [INFO]:  - Timing (Bayesian updates: 39.05ms, Linking: 2.44ms)
+2024-02-02 12:09:36,746 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.85079)
+2024-02-02 12:09:36,748 [INFO]:  - Stats (Active: 682, Lost: 9876, Conflicts resolved: 12575)
+2024-02-02 12:09:36,750 [INFO]: Tracking objects in frames 75 to 99 (of 150)...
+2024-02-02 12:09:39,765 [INFO]:  - Timing (Bayesian updates: 30.45ms, Linking: 2.15ms)
+2024-02-02 12:09:39,767 [INFO]:  - Probabilities (Link: 0.99825, Lost: 0.92393)
+2024-02-02 12:09:39,769 [INFO]:  - Stats (Active: 620, Lost: 12840, Conflicts resolved: 16296)
+2024-02-02 12:09:39,770 [INFO]: Tracking objects in frames 100 to 124 (of 150)...
+2024-02-02 12:09:43,478 [INFO]:  - Timing (Bayesian updates: 57.99ms, Linking: 3.73ms)
+2024-02-02 12:09:43,480 [INFO]:  - Probabilities (Link: 0.99773, Lost: 0.97834)
+2024-02-02 12:09:43,481 [INFO]:  - Stats (Active: 661, Lost: 15668, Conflicts resolved: 19882)
+2024-02-02 12:09:43,482 [INFO]: Tracking objects in frames 125 to 149 (of 150)...
+2024-02-02 12:09:47,313 [INFO]:  - Timing (Bayesian updates: 47.70ms, Linking: 2.56ms)
+2024-02-02 12:09:47,315 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-02 12:09:47,316 [INFO]: SUCCESS.
+2024-02-02 12:09:47,318 [INFO]:  - Found 8758 tracks in 150 frames (in 0.0s)
+2024-02-02 12:09:47,416 [INFO]:  - Inserted 16915 dummy objects to fill tracking gaps
+2024-02-02 12:09:47,418 [INFO]: Loading hypothesis model: particle_hypothesis
+2024-02-02 12:09:47,419 [INFO]: Calculating hypotheses (relax: True)...
+2024-02-02 12:09:47,522 [INFO]: Setting up constraints matrix for global optimisation...
+2024-02-02 12:09:47,524 [INFO]: Using GLPK options: {'tm_lim': 60000}...
+2024-02-02 12:09:47,927 [INFO]: Optimizing...
+2024-02-02 12:09:54,523 [INFO]: Optimization complete. (Solution: optimal)
+2024-02-02 12:09:54,555 [INFO]:  - Fates.FALSE_POSITIVE: 3818 (of 8758)
+2024-02-02 12:09:54,558 [INFO]:  - Fates.LINK: 2211 (of 4339)
+2024-02-02 12:09:54,561 [INFO]:  - Fates.INITIALIZE_BORDER: 325 (of 761)
+2024-02-02 12:09:54,563 [INFO]:  - Fates.INITIALIZE_FRONT: 497 (of 804)
+2024-02-02 12:09:54,565 [INFO]:  - Fates.INITIALIZE_LAZY: 1907 (of 7193)
+2024-02-02 12:09:54,568 [INFO]:  - Fates.TERMINATE_BORDER: 327 (of 767)
+2024-02-02 12:09:54,570 [INFO]:  - Fates.TERMINATE_BACK: 413 (of 641)
+2024-02-02 12:09:54,573 [INFO]:  - Fates.TERMINATE_LAZY: 1989 (of 7350)
+2024-02-02 12:09:54,575 [INFO]:  - TOTAL: 30613 hypotheses
+2024-02-02 12:09:54,660 [INFO]: Completed optimization with 6547 tracks
+2024-02-02 12:09:54,803 [INFO]: Ending BayesianTracker session
+2024-02-02 12:09:55,117 [INFO]: Position (4, 7): Saving tracking
+2024-02-02 12:09:55,120 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 7)_first_pass.h5...
+2024-02-02 12:09:55,749 [INFO]: Writing objects/obj_type_1
+2024-02-02 12:09:55,752 [INFO]: Writing labels/obj_type_1
+2024-02-02 12:09:55,756 [INFO]: Loading objects/obj_type_1 (43714, 5) (43714 filtered: None)
+2024-02-02 12:09:56,157 [INFO]: Writing properties/obj_type_1/area (43714,)
+2024-02-02 12:09:56,179 [INFO]: Writing properties/obj_type_1/major_axis_length (43714,)
+2024-02-02 12:09:56,197 [INFO]: Writing properties/obj_type_1/minor_axis_length (43714,)
+2024-02-02 12:09:56,225 [INFO]: Writing properties/obj_type_1/orientation (43714,)
+2024-02-02 12:09:56,279 [INFO]: Writing properties/obj_type_1/mean_intensity (43714, 3)
+2024-02-02 12:09:56,310 [INFO]: Writing properties/obj_type_1/Infected (43714,)
+2024-02-02 12:09:56,323 [INFO]: Writing tracks/obj_type_1
+2024-02-02 12:09:56,377 [INFO]: Writing LBEP/obj_type_1
+2024-02-02 12:09:56,380 [INFO]: Writing fates/obj_type_1
+2024-02-02 12:10:51,037 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 7)_first_pass.h5
+2024-02-02 12:10:51,671 [INFO]: Position (4, 7): Processing completed successfully
+2024-02-02 12:10:51,673 [INFO]: Position (4, 8): Starting new acquisition
+2024-02-02 12:17:04,868 [INFO]: Position (4, 8): Images loaded and stacked
+2024-02-02 12:17:04,877 [INFO]: Position (4, 8): Starting segmentation
+2024-02-02 15:18:43,499 [INFO]: Position (4, 8): Finished segmentation
+2024-02-02 15:18:43,500 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 8)_first_pass_seg_backup.h5...
+2024-02-02 15:19:36,046 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 8)_first_pass_seg_backup.h5
+2024-02-02 15:19:36,886 [INFO]: Position (4, 8): Saved out masks
+2024-02-02 15:19:36,888 [INFO]: Position (4, 8): Measuring Mtb area
+2024-02-02 15:19:44,604 [INFO]: Position (4, 8): Creating intensity image for localisation
+2024-02-02 15:19:59,162 [INFO]: Position (4, 8): Localising objects
+2024-02-02 15:19:59,164 [INFO]: Localizing objects from segmentation...
+2024-02-02 15:19:59,165 [WARNING]: Multichannel intensity image detected, using unweighted centroid.
+2024-02-02 15:26:21,415 [INFO]: Objects are of type: <class 'dict'>
+2024-02-02 15:26:23,414 [INFO]: ...Found 181042 objects in 150 frames.
+2024-02-02 15:26:23,465 [INFO]: Position (4, 8): Filtering small objects
+2024-02-02 15:26:23,677 [INFO]: Position (4, 8): Adding infection labels to objects
+2024-02-02 15:26:23,746 [INFO]: Position (4, 8): Beginning tracking
+2024-02-02 15:26:23,748 [INFO]: Loaded btrack: /home/dayn/analysis/btrack/btrack/libs/libtracker.so
+2024-02-02 15:26:23,753 [INFO]: Starting BayesianTracker session
+2024-02-02 15:26:23,755 [INFO]: Loading configuration file: /home/dayn/analysis/models/btrack/particle_config_pnassign.json
+2024-02-02 15:26:23,766 [INFO]: Objects are of type: <class 'list'>
+2024-02-02 15:26:25,632 [INFO]: Starting tracking...
+2024-02-02 15:26:25,635 [INFO]: Update using: ['MOTION', 'VISUAL']
+2024-02-02 15:26:25,769 [INFO]: Tracking objects in frames 0 to 24 (of 150)...
+2024-02-02 15:26:29,598 [INFO]:  - Timing (Bayesian updates: 44.08ms, Linking: 2.47ms)
+2024-02-02 15:26:29,600 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-02 15:26:29,601 [INFO]:  - Stats (Active: 676, Lost: 2955, Conflicts resolved: 3928)
+2024-02-02 15:26:29,601 [INFO]: Tracking objects in frames 25 to 49 (of 150)...
+2024-02-02 15:26:33,862 [INFO]:  - Timing (Bayesian updates: 44.76ms, Linking: 2.72ms)
+2024-02-02 15:26:33,864 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-02 15:26:33,865 [INFO]:  - Stats (Active: 624, Lost: 5768, Conflicts resolved: 7805)
+2024-02-02 15:26:33,866 [INFO]: Tracking objects in frames 50 to 74 (of 150)...
+2024-02-02 15:26:37,138 [INFO]:  - Timing (Bayesian updates: 30.50ms, Linking: 2.26ms)
+2024-02-02 15:26:37,140 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-02 15:26:37,147 [INFO]:  - Stats (Active: 590, Lost: 8546, Conflicts resolved: 11472)
+2024-02-02 15:26:37,149 [INFO]: Tracking objects in frames 75 to 99 (of 150)...
+2024-02-02 15:26:39,457 [INFO]:  - Timing (Bayesian updates: 29.75ms, Linking: 2.11ms)
+2024-02-02 15:26:39,460 [INFO]:  - Probabilities (Link: 0.99982, Lost: 1.00000)
+2024-02-02 15:26:39,461 [INFO]:  - Stats (Active: 568, Lost: 10938, Conflicts resolved: 14706)
+2024-02-02 15:26:39,463 [INFO]: Tracking objects in frames 100 to 124 (of 150)...
+2024-02-02 15:26:42,290 [INFO]:  - Timing (Bayesian updates: 32.21ms, Linking: 2.50ms)
+2024-02-02 15:26:42,293 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-02 15:26:42,294 [INFO]:  - Stats (Active: 513, Lost: 13206, Conflicts resolved: 17824)
+2024-02-02 15:26:42,296 [INFO]: Tracking objects in frames 125 to 149 (of 150)...
+2024-02-02 15:26:44,553 [INFO]:  - Timing (Bayesian updates: 22.62ms, Linking: 1.71ms)
+2024-02-02 15:26:44,554 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.98679)
+2024-02-02 15:26:44,555 [INFO]: SUCCESS.
+2024-02-02 15:26:44,556 [INFO]:  - Found 7066 tracks in 150 frames (in 0.0s)
+2024-02-02 15:26:44,637 [INFO]:  - Inserted 13998 dummy objects to fill tracking gaps
+2024-02-02 15:26:44,640 [INFO]: Loading hypothesis model: particle_hypothesis
+2024-02-02 15:26:44,641 [INFO]: Calculating hypotheses (relax: True)...
+2024-02-02 15:26:44,721 [INFO]: Setting up constraints matrix for global optimisation...
+2024-02-02 15:26:44,723 [INFO]: Using GLPK options: {'tm_lim': 60000}...
+2024-02-02 15:26:45,073 [INFO]: Optimizing...
+2024-02-02 15:26:49,373 [INFO]: Optimization complete. (Solution: optimal)
+2024-02-02 15:26:49,400 [INFO]:  - Fates.FALSE_POSITIVE: 3069 (of 7066)
+2024-02-02 15:26:49,403 [INFO]:  - Fates.LINK: 1819 (of 3430)
+2024-02-02 15:26:49,404 [INFO]:  - Fates.INITIALIZE_BORDER: 249 (of 605)
+2024-02-02 15:26:49,406 [INFO]:  - Fates.INITIALIZE_FRONT: 453 (of 687)
+2024-02-02 15:26:49,410 [INFO]:  - Fates.INITIALIZE_LAZY: 1476 (of 5774)
+2024-02-02 15:26:49,413 [INFO]:  - Fates.TERMINATE_BORDER: 243 (of 587)
+2024-02-02 15:26:49,416 [INFO]:  - Fates.TERMINATE_BACK: 325 (of 482)
+2024-02-02 15:26:49,419 [INFO]:  - Fates.TERMINATE_LAZY: 1610 (of 5997)
+2024-02-02 15:26:49,420 [INFO]:  - TOTAL: 24628 hypotheses
+2024-02-02 15:26:49,525 [INFO]: Completed optimization with 5247 tracks
+2024-02-02 15:26:49,740 [INFO]: Ending BayesianTracker session
+2024-02-02 15:26:50,008 [INFO]: Position (4, 8): Saving tracking
+2024-02-02 15:26:50,010 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 8)_first_pass.h5...
+2024-02-02 15:26:50,567 [INFO]: Writing objects/obj_type_1
+2024-02-02 15:26:50,570 [INFO]: Writing labels/obj_type_1
+2024-02-02 15:26:50,574 [INFO]: Loading objects/obj_type_1 (42285, 5) (42285 filtered: None)
+2024-02-02 15:26:50,935 [INFO]: Writing properties/obj_type_1/area (42285,)
+2024-02-02 15:26:50,951 [INFO]: Writing properties/obj_type_1/major_axis_length (42285,)
+2024-02-02 15:26:50,965 [INFO]: Writing properties/obj_type_1/minor_axis_length (42285,)
+2024-02-02 15:26:50,978 [INFO]: Writing properties/obj_type_1/orientation (42285,)
+2024-02-02 15:26:51,015 [INFO]: Writing properties/obj_type_1/mean_intensity (42285, 3)
+2024-02-02 15:26:51,040 [INFO]: Writing properties/obj_type_1/Infected (42285,)
+2024-02-02 15:26:51,049 [INFO]: Writing tracks/obj_type_1
+2024-02-02 15:26:51,098 [INFO]: Writing LBEP/obj_type_1
+2024-02-02 15:26:51,100 [INFO]: Writing fates/obj_type_1
+2024-02-02 15:27:44,204 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 8)_first_pass.h5
+2024-02-02 15:27:44,973 [INFO]: Position (4, 8): Processing completed successfully
+2024-02-02 15:27:44,976 [INFO]: Position (4, 9): Starting new acquisition
+2024-02-02 15:34:54,245 [INFO]: Position (4, 9): Images loaded and stacked
+2024-02-02 15:34:54,246 [INFO]: Position (4, 9): Starting segmentation
+2024-02-02 18:18:32,324 [INFO]: Position (4, 9): Finished segmentation
+2024-02-02 18:18:32,326 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 9)_first_pass_seg_backup.h5...
+2024-02-02 18:19:23,859 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 9)_first_pass_seg_backup.h5
+2024-02-02 18:19:24,460 [INFO]: Position (4, 9): Saved out masks
+2024-02-02 18:19:24,462 [INFO]: Position (4, 9): Measuring Mtb area
+2024-02-02 18:19:32,091 [INFO]: Position (4, 9): Creating intensity image for localisation
+2024-02-02 19:54:26,520 [INFO]: Position (3, 1): Starting new acquisition
+2024-02-02 19:54:26,522 [INFO]: Position (3, 1): Skipping uninfected acquisition for now
+2024-02-02 19:54:26,523 [INFO]: Position (3, 2): Starting new acquisition
+2024-02-02 19:54:26,524 [INFO]: Position (3, 2): Skipping uninfected acquisition for now
+2024-02-02 19:54:26,526 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-02 19:54:26,527 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-02 19:54:26,529 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-02 19:54:26,530 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-02 19:54:26,532 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-02 19:54:26,534 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-02 19:54:26,536 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-02 19:54:26,538 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-02 19:54:26,539 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-02 19:54:26,541 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-02 19:54:26,543 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-02 19:54:26,544 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-02 19:54:26,545 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-02 19:54:26,547 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-02 19:54:26,549 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-02 19:54:26,550 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-02 19:54:26,552 [INFO]: Position (4, 9): Starting new acquisition
+2024-02-02 20:00:25,650 [INFO]: Position (4, 9): Images loaded and stacked
+2024-02-02 20:00:25,652 [INFO]: Position (4, 9): Starting segmentation
+2024-02-02 20:00:25,653 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 9)_first_pass_seg_backup.h5...
+2024-02-02 20:00:44,876 [INFO]: Loading segmentation (150, 6048, 6048)
+2024-02-02 20:00:44,881 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 9)_first_pass_seg_backup.h5
+2024-02-02 20:00:44,885 [INFO]: Position (4, 9): Loaded previously calculated segmentation
+2024-02-02 20:00:44,886 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 9)_first_pass_seg_backup.h5...
+2024-02-02 20:01:35,639 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 9)_first_pass_seg_backup.h5
+2024-02-02 20:01:36,234 [INFO]: Position (4, 9): Saved out masks
+2024-02-02 20:01:36,236 [INFO]: Position (4, 9): Measuring Mtb area
+2024-02-02 20:01:43,900 [INFO]: Position (4, 9): Creating intensity image for localisation
+2024-02-02 20:01:59,231 [INFO]: Position (4, 9): Localising objects
+2024-02-02 20:01:59,232 [INFO]: Localizing objects from segmentation...
+2024-02-02 20:01:59,234 [WARNING]: Multichannel intensity image detected, using unweighted centroid.
+2024-02-02 20:07:56,929 [INFO]: Objects are of type: <class 'dict'>
+2024-02-02 20:07:57,556 [INFO]: ...Found 63213 objects in 150 frames.
+2024-02-02 20:07:57,559 [INFO]: Position (4, 9): Filtering small objects
+2024-02-02 20:07:57,607 [INFO]: Position (4, 9): Adding infection labels to objects
+2024-02-02 20:07:57,667 [INFO]: Position (4, 9): Beginning tracking
+2024-02-02 20:07:57,677 [INFO]: Loaded btrack: /home/dayn/analysis/btrack/btrack/libs/libtracker.so
+2024-02-02 20:07:57,680 [INFO]: Starting BayesianTracker session
+2024-02-02 20:07:57,682 [INFO]: Loading configuration file: /home/dayn/analysis/models/btrack/particle_config_pnassign.json
+2024-02-02 20:07:57,685 [INFO]: Objects are of type: <class 'list'>
+2024-02-02 20:07:58,771 [INFO]: Starting tracking...
+2024-02-02 20:07:58,773 [INFO]: Update using: ['VISUAL', 'MOTION']
+2024-02-02 20:07:58,894 [INFO]: Tracking objects in frames 0 to 24 (of 150)...
+2024-02-02 20:08:03,306 [INFO]:  - Timing (Bayesian updates: 58.16ms, Linking: 2.94ms)
+2024-02-02 20:08:03,308 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-02 20:08:03,310 [INFO]:  - Stats (Active: 787, Lost: 3436, Conflicts resolved: 4396)
+2024-02-02 20:08:03,311 [INFO]: Tracking objects in frames 25 to 49 (of 150)...
+2024-02-02 20:08:07,619 [INFO]:  - Timing (Bayesian updates: 51.73ms, Linking: 3.03ms)
+2024-02-02 20:08:07,622 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-02 20:08:07,624 [INFO]:  - Stats (Active: 734, Lost: 6833, Conflicts resolved: 8960)
+2024-02-02 20:08:07,626 [INFO]: Tracking objects in frames 50 to 74 (of 150)...
+2024-02-02 20:08:12,253 [INFO]:  - Timing (Bayesian updates: 48.51ms, Linking: 2.45ms)
+2024-02-02 20:08:12,256 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.99886)
+2024-02-02 20:08:12,263 [INFO]:  - Stats (Active: 686, Lost: 10247, Conflicts resolved: 13179)
+2024-02-02 20:08:12,265 [INFO]: Tracking objects in frames 75 to 99 (of 150)...
+2024-02-02 20:08:15,595 [INFO]:  - Timing (Bayesian updates: 41.76ms, Linking: 2.27ms)
+2024-02-02 20:08:15,597 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.99998)
+2024-02-02 20:08:15,598 [INFO]:  - Stats (Active: 678, Lost: 13457, Conflicts resolved: 17188)
+2024-02-02 20:08:15,600 [INFO]: Tracking objects in frames 100 to 124 (of 150)...
+2024-02-02 20:08:18,467 [INFO]:  - Timing (Bayesian updates: 35.13ms, Linking: 2.00ms)
+2024-02-02 20:08:18,469 [INFO]:  - Probabilities (Link: 0.83183, Lost: 1.00000)
+2024-02-02 20:08:18,470 [INFO]:  - Stats (Active: 613, Lost: 16532, Conflicts resolved: 20855)
+2024-02-02 20:08:18,472 [INFO]: Tracking objects in frames 125 to 149 (of 150)...
+2024-02-02 20:08:21,903 [INFO]:  - Timing (Bayesian updates: 32.89ms, Linking: 2.10ms)
+2024-02-02 20:08:21,906 [INFO]:  - Probabilities (Link: 0.99989, Lost: 1.00000)
+2024-02-02 20:08:21,907 [INFO]: SUCCESS.
+2024-02-02 20:08:21,909 [INFO]:  - Found 9053 tracks in 150 frames (in 0.0s)
+2024-02-02 20:08:22,006 [INFO]:  - Inserted 17709 dummy objects to fill tracking gaps
+2024-02-02 20:08:22,009 [INFO]: Loading hypothesis model: particle_hypothesis
+2024-02-02 20:08:22,010 [INFO]: Calculating hypotheses (relax: True)...
+2024-02-02 20:08:22,123 [INFO]: Setting up constraints matrix for global optimisation...
+2024-02-02 20:08:22,125 [INFO]: Using GLPK options: {'tm_lim': 60000}...
+2024-02-02 20:08:22,755 [INFO]: Optimizing...
+2024-02-02 20:08:30,628 [INFO]: Optimization complete. (Solution: optimal)
+2024-02-02 20:08:30,659 [INFO]:  - Fates.FALSE_POSITIVE: 4043 (of 9053)
+2024-02-02 20:08:30,662 [INFO]:  - Fates.LINK: 2223 (of 4567)
+2024-02-02 20:08:30,665 [INFO]:  - Fates.INITIALIZE_BORDER: 333 (of 817)
+2024-02-02 20:08:30,668 [INFO]:  - Fates.INITIALIZE_FRONT: 513 (of 754)
+2024-02-02 20:08:30,670 [INFO]:  - Fates.INITIALIZE_LAZY: 1941 (of 7482)
+2024-02-02 20:08:30,673 [INFO]:  - Fates.TERMINATE_BORDER: 342 (of 814)
+2024-02-02 20:08:30,675 [INFO]:  - Fates.TERMINATE_BACK: 352 (of 566)
+2024-02-02 20:08:30,678 [INFO]:  - Fates.TERMINATE_LAZY: 2093 (of 7673)
+2024-02-02 20:08:30,678 [INFO]:  - TOTAL: 31726 hypotheses
+2024-02-02 20:08:30,789 [INFO]: Completed optimization with 6830 tracks
+2024-02-02 20:08:31,010 [INFO]: Ending BayesianTracker session
+2024-02-02 20:08:31,198 [INFO]: Position (4, 9): Saving tracking
+2024-02-02 20:08:31,201 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 9)_first_pass.h5...
+2024-02-02 20:08:31,839 [INFO]: Writing objects/obj_type_1
+2024-02-02 20:08:31,844 [INFO]: Writing labels/obj_type_1
+2024-02-02 20:08:31,849 [INFO]: Loading objects/obj_type_1 (44533, 5) (44533 filtered: None)
+2024-02-02 20:08:32,649 [INFO]: Writing properties/obj_type_1/area (44533,)
+2024-02-02 20:08:32,671 [INFO]: Writing properties/obj_type_1/major_axis_length (44533,)
+2024-02-02 20:08:32,688 [INFO]: Writing properties/obj_type_1/minor_axis_length (44533,)
+2024-02-02 20:08:32,704 [INFO]: Writing properties/obj_type_1/orientation (44533,)
+2024-02-02 20:08:32,749 [INFO]: Writing properties/obj_type_1/mean_intensity (44533, 3)
+2024-02-02 20:08:32,805 [INFO]: Writing properties/obj_type_1/Infected (44533,)
+2024-02-02 20:08:32,820 [INFO]: Writing tracks/obj_type_1
+2024-02-02 20:08:32,874 [INFO]: Writing LBEP/obj_type_1
+2024-02-02 20:08:32,877 [INFO]: Writing fates/obj_type_1
+2024-02-02 20:09:24,473 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 9)_first_pass.h5
+2024-02-02 20:09:25,098 [INFO]: Position (4, 9): Processing completed successfully
+2024-02-02 20:09:25,101 [INFO]: Position (4, 10): Starting new acquisition
+2024-02-05 09:59:08,052 [INFO]: >>>> loading model /home/dayn/analysis/models/cellpose/PS0000/macrohet_seg
+2024-02-05 09:59:08,065 [INFO]: ** TORCH CUDA version installed and working. **
+2024-02-05 09:59:08,066 [INFO]: >>>> using GPU
+2024-02-05 09:59:08,228 [INFO]: >>>> model diam_mean =  30.000 (ROIs rescaled to this size during training)
+2024-02-05 09:59:08,230 [INFO]: >>>> model diam_labels =  188.746 (mean diameter of training ROIs)
+2024-02-05 09:59:53,977 [INFO]: Position (3, 1): Starting new acquisition
+2024-02-05 09:59:53,977 [INFO]: Position (3, 1): Starting new acquisition
+2024-02-05 09:59:53,978 [INFO]: Position (3, 1): Skipping uninfected acquisition for now
+2024-02-05 09:59:53,978 [INFO]: Position (3, 1): Skipping uninfected acquisition for now
+2024-02-05 09:59:53,980 [INFO]: Position (3, 2): Starting new acquisition
+2024-02-05 09:59:53,980 [INFO]: Position (3, 2): Starting new acquisition
+2024-02-05 09:59:53,981 [INFO]: Position (3, 2): Skipping uninfected acquisition for now
+2024-02-05 09:59:53,981 [INFO]: Position (3, 2): Skipping uninfected acquisition for now
+2024-02-05 09:59:53,982 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:53,982 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:53,984 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:53,984 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:53,985 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:53,985 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:53,987 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:53,987 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:53,989 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:53,989 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:53,990 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:53,990 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,006 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,006 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,009 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,009 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,010 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,010 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,012 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,012 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,013 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,013 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,015 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,015 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,016 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,016 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,018 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,018 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,019 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,019 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,021 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,021 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,023 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,023 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 09:59:54,024 [INFO]: Position (4, 10): Starting new acquisition
+2024-02-05 09:59:54,024 [INFO]: Position (4, 10): Starting new acquisition
+2024-02-05 10:06:09,609 [INFO]: Position (4, 10): Images loaded and stacked
+2024-02-05 10:06:09,609 [INFO]: Position (4, 10): Images loaded and stacked
+2024-02-05 10:06:09,619 [INFO]: Position (4, 10): Starting segmentation
+2024-02-05 10:06:09,619 [INFO]: Position (4, 10): Starting segmentation
+2024-02-05 13:50:28,315 [INFO]: Position (4, 10): Finished segmentation
+2024-02-05 13:50:28,315 [INFO]: Position (4, 10): Finished segmentation
+2024-02-05 13:50:28,316 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 10)_first_pass_seg_backup.h5...
+2024-02-05 13:50:28,316 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 10)_first_pass_seg_backup.h5...
+2024-02-05 13:51:20,896 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 10)_first_pass_seg_backup.h5
+2024-02-05 13:51:20,896 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 10)_first_pass_seg_backup.h5
+2024-02-05 13:51:21,566 [INFO]: Position (4, 10): Saved out masks
+2024-02-05 13:51:21,566 [INFO]: Position (4, 10): Saved out masks
+2024-02-05 13:51:21,568 [INFO]: Position (4, 10): Measuring Mtb area
+2024-02-05 13:51:21,568 [INFO]: Position (4, 10): Measuring Mtb area
+2024-02-05 13:51:28,549 [INFO]: Position (4, 10): Creating intensity image for localisation
+2024-02-05 13:51:28,549 [INFO]: Position (4, 10): Creating intensity image for localisation
+2024-02-05 13:51:43,674 [INFO]: Position (4, 10): Localising objects
+2024-02-05 13:51:43,674 [INFO]: Position (4, 10): Localising objects
+2024-02-05 13:51:43,675 [INFO]: Localizing objects from segmentation...
+2024-02-05 13:51:43,675 [INFO]: Localizing objects from segmentation...
+2024-02-05 13:51:43,676 [WARNING]: Multichannel intensity image detected, using unweighted centroid.
+2024-02-05 13:51:43,676 [WARNING]: Multichannel intensity image detected, using unweighted centroid.
+2024-02-05 13:58:07,101 [INFO]: Objects are of type: <class 'dict'>
+2024-02-05 13:58:07,101 [INFO]: Objects are of type: <class 'dict'>
+2024-02-05 13:58:08,153 [INFO]: ...Found 95050 objects in 150 frames.
+2024-02-05 13:58:08,153 [INFO]: ...Found 95050 objects in 150 frames.
+2024-02-05 13:58:08,156 [INFO]: Position (4, 10): Filtering small objects
+2024-02-05 13:58:08,156 [INFO]: Position (4, 10): Filtering small objects
+2024-02-05 13:58:08,235 [INFO]: Position (4, 10): Adding infection labels to objects
+2024-02-05 13:58:08,235 [INFO]: Position (4, 10): Adding infection labels to objects
+2024-02-05 13:58:08,301 [INFO]: Position (4, 10): Beginning tracking
+2024-02-05 13:58:08,301 [INFO]: Position (4, 10): Beginning tracking
+2024-02-05 13:58:08,312 [INFO]: Loaded btrack: /home/dayn/analysis/btrack/btrack/libs/libtracker.so
+2024-02-05 13:58:08,312 [INFO]: Loaded btrack: /home/dayn/analysis/btrack/btrack/libs/libtracker.so
+2024-02-05 13:58:08,315 [INFO]: Starting BayesianTracker session
+2024-02-05 13:58:08,315 [INFO]: Starting BayesianTracker session
+2024-02-05 13:58:08,317 [INFO]: Loading configuration file: /home/dayn/analysis/models/btrack/particle_config_pnassign.json
+2024-02-05 13:58:08,317 [INFO]: Loading configuration file: /home/dayn/analysis/models/btrack/particle_config_pnassign.json
+2024-02-05 13:58:08,320 [INFO]: Objects are of type: <class 'list'>
+2024-02-05 13:58:08,320 [INFO]: Objects are of type: <class 'list'>
+2024-02-05 13:58:10,093 [INFO]: Starting tracking...
+2024-02-05 13:58:10,093 [INFO]: Starting tracking...
+2024-02-05 13:58:10,095 [INFO]: Update using: ['VISUAL', 'MOTION']
+2024-02-05 13:58:10,095 [INFO]: Update using: ['VISUAL', 'MOTION']
+2024-02-05 13:58:10,388 [INFO]: Tracking objects in frames 0 to 24 (of 150)...
+2024-02-05 13:58:10,388 [INFO]: Tracking objects in frames 0 to 24 (of 150)...
+2024-02-05 13:58:18,791 [INFO]:  - Timing (Bayesian updates: 83.18ms, Linking: 3.27ms)
+2024-02-05 13:58:18,791 [INFO]:  - Timing (Bayesian updates: 83.18ms, Linking: 3.27ms)
+2024-02-05 13:58:18,793 [INFO]:  - Probabilities (Link: 0.99994, Lost: 0.52218)
+2024-02-05 13:58:18,793 [INFO]:  - Probabilities (Link: 0.99994, Lost: 0.52218)
+2024-02-05 13:58:18,794 [INFO]:  - Stats (Active: 939, Lost: 4255, Conflicts resolved: 5840)
+2024-02-05 13:58:18,794 [INFO]:  - Stats (Active: 939, Lost: 4255, Conflicts resolved: 5840)
+2024-02-05 13:58:18,796 [INFO]: Tracking objects in frames 25 to 49 (of 150)...
+2024-02-05 13:58:18,796 [INFO]: Tracking objects in frames 25 to 49 (of 150)...
+2024-02-05 13:58:25,927 [INFO]:  - Timing (Bayesian updates: 71.38ms, Linking: 2.78ms)
+2024-02-05 13:58:25,927 [INFO]:  - Timing (Bayesian updates: 71.38ms, Linking: 2.78ms)
+2024-02-05 13:58:25,929 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-05 13:58:25,929 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-05 13:58:25,931 [INFO]:  - Stats (Active: 811, Lost: 7991, Conflicts resolved: 11311)
+2024-02-05 13:58:25,931 [INFO]:  - Stats (Active: 811, Lost: 7991, Conflicts resolved: 11311)
+2024-02-05 13:58:25,933 [INFO]: Tracking objects in frames 50 to 74 (of 150)...
+2024-02-05 13:58:25,933 [INFO]: Tracking objects in frames 50 to 74 (of 150)...
+2024-02-05 13:58:30,922 [INFO]:  - Timing (Bayesian updates: 56.38ms, Linking: 2.60ms)
+2024-02-05 13:58:30,922 [INFO]:  - Timing (Bayesian updates: 56.38ms, Linking: 2.60ms)
+2024-02-05 13:58:30,925 [INFO]:  - Probabilities (Link: 0.99999, Lost: 0.96426)
+2024-02-05 13:58:30,925 [INFO]:  - Probabilities (Link: 0.99999, Lost: 0.96426)
+2024-02-05 13:58:30,926 [INFO]:  - Stats (Active: 757, Lost: 11487, Conflicts resolved: 16212)
+2024-02-05 13:58:30,926 [INFO]:  - Stats (Active: 757, Lost: 11487, Conflicts resolved: 16212)
+2024-02-05 13:58:30,927 [INFO]: Tracking objects in frames 75 to 99 (of 150)...
+2024-02-05 13:58:30,927 [INFO]: Tracking objects in frames 75 to 99 (of 150)...
+2024-02-05 13:58:35,926 [INFO]:  - Timing (Bayesian updates: 46.87ms, Linking: 2.25ms)
+2024-02-05 13:58:35,926 [INFO]:  - Timing (Bayesian updates: 46.87ms, Linking: 2.25ms)
+2024-02-05 13:58:35,928 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.99997)
+2024-02-05 13:58:35,928 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.99997)
+2024-02-05 13:58:35,930 [INFO]:  - Stats (Active: 696, Lost: 14795, Conflicts resolved: 20745)
+2024-02-05 13:58:35,930 [INFO]:  - Stats (Active: 696, Lost: 14795, Conflicts resolved: 20745)
+2024-02-05 13:58:35,932 [INFO]: Tracking objects in frames 100 to 124 (of 150)...
+2024-02-05 13:58:35,932 [INFO]: Tracking objects in frames 100 to 124 (of 150)...
+2024-02-05 13:58:40,097 [INFO]:  - Timing (Bayesian updates: 40.18ms, Linking: 2.59ms)
+2024-02-05 13:58:40,097 [INFO]:  - Timing (Bayesian updates: 40.18ms, Linking: 2.59ms)
+2024-02-05 13:58:40,099 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.46417)
+2024-02-05 13:58:40,099 [INFO]:  - Probabilities (Link: 1.00000, Lost: 0.46417)
+2024-02-05 13:58:40,100 [INFO]:  - Stats (Active: 658, Lost: 17872, Conflicts resolved: 24876)
+2024-02-05 13:58:40,100 [INFO]:  - Stats (Active: 658, Lost: 17872, Conflicts resolved: 24876)
+2024-02-05 13:58:40,101 [INFO]: Tracking objects in frames 125 to 149 (of 150)...
+2024-02-05 13:58:40,101 [INFO]: Tracking objects in frames 125 to 149 (of 150)...
+2024-02-05 13:58:43,245 [INFO]:  - Timing (Bayesian updates: 39.32ms, Linking: 2.19ms)
+2024-02-05 13:58:43,245 [INFO]:  - Timing (Bayesian updates: 39.32ms, Linking: 2.19ms)
+2024-02-05 13:58:43,248 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-05 13:58:43,248 [INFO]:  - Probabilities (Link: 1.00000, Lost: 1.00000)
+2024-02-05 13:58:43,248 [INFO]: SUCCESS.
+2024-02-05 13:58:43,248 [INFO]: SUCCESS.
+2024-02-05 13:58:43,249 [INFO]:  - Found 10118 tracks in 150 frames (in 0.0s)
+2024-02-05 13:58:43,249 [INFO]:  - Found 10118 tracks in 150 frames (in 0.0s)
+2024-02-05 13:58:43,310 [INFO]:  - Inserted 20784 dummy objects to fill tracking gaps
+2024-02-05 13:58:43,310 [INFO]:  - Inserted 20784 dummy objects to fill tracking gaps
+2024-02-05 13:58:43,312 [INFO]: Loading hypothesis model: particle_hypothesis
+2024-02-05 13:58:43,312 [INFO]: Loading hypothesis model: particle_hypothesis
+2024-02-05 13:58:43,313 [INFO]: Calculating hypotheses (relax: True)...
+2024-02-05 13:58:43,313 [INFO]: Calculating hypotheses (relax: True)...
+2024-02-05 13:58:43,403 [INFO]: Setting up constraints matrix for global optimisation...
+2024-02-05 13:58:43,403 [INFO]: Setting up constraints matrix for global optimisation...
+2024-02-05 13:58:43,405 [INFO]: Using GLPK options: {'tm_lim': 60000}...
+2024-02-05 13:58:43,405 [INFO]: Using GLPK options: {'tm_lim': 60000}...
+2024-02-05 13:58:43,897 [INFO]: Optimizing...
+2024-02-05 13:58:43,897 [INFO]: Optimizing...
+2024-02-05 13:58:52,916 [INFO]: Optimization complete. (Solution: optimal)
+2024-02-05 13:58:52,916 [INFO]: Optimization complete. (Solution: optimal)
+2024-02-05 13:58:52,950 [INFO]:  - Fates.FALSE_POSITIVE: 3916 (of 10118)
+2024-02-05 13:58:52,950 [INFO]:  - Fates.FALSE_POSITIVE: 3916 (of 10118)
+2024-02-05 13:58:52,952 [INFO]:  - Fates.LINK: 2879 (of 5642)
+2024-02-05 13:58:52,952 [INFO]:  - Fates.LINK: 2879 (of 5642)
+2024-02-05 13:58:52,954 [INFO]:  - Fates.INITIALIZE_BORDER: 364 (of 850)
+2024-02-05 13:58:52,954 [INFO]:  - Fates.INITIALIZE_BORDER: 364 (of 850)
+2024-02-05 13:58:52,956 [INFO]:  - Fates.INITIALIZE_FRONT: 660 (of 977)
+2024-02-05 13:58:52,956 [INFO]:  - Fates.INITIALIZE_FRONT: 660 (of 977)
+2024-02-05 13:58:52,958 [INFO]:  - Fates.INITIALIZE_LAZY: 2299 (of 8291)
+2024-02-05 13:58:52,958 [INFO]:  - Fates.INITIALIZE_LAZY: 2299 (of 8291)
+2024-02-05 13:58:52,960 [INFO]:  - Fates.TERMINATE_BORDER: 379 (of 857)
+2024-02-05 13:58:52,960 [INFO]:  - Fates.TERMINATE_BORDER: 379 (of 857)
+2024-02-05 13:58:52,962 [INFO]:  - Fates.TERMINATE_BACK: 411 (of 632)
+2024-02-05 13:58:52,962 [INFO]:  - Fates.TERMINATE_BACK: 411 (of 632)
+2024-02-05 13:58:52,965 [INFO]:  - Fates.TERMINATE_LAZY: 2533 (of 8629)
+2024-02-05 13:58:52,965 [INFO]:  - Fates.TERMINATE_LAZY: 2533 (of 8629)
+2024-02-05 13:58:52,966 [INFO]:  - TOTAL: 35996 hypotheses
+2024-02-05 13:58:52,966 [INFO]:  - TOTAL: 35996 hypotheses
+2024-02-05 13:58:53,071 [INFO]: Completed optimization with 7239 tracks
+2024-02-05 13:58:53,071 [INFO]: Completed optimization with 7239 tracks
+2024-02-05 13:58:53,290 [INFO]: Ending BayesianTracker session
+2024-02-05 13:58:53,290 [INFO]: Ending BayesianTracker session
+2024-02-05 13:58:53,485 [INFO]: Position (4, 10): Saving tracking
+2024-02-05 13:58:53,485 [INFO]: Position (4, 10): Saving tracking
+2024-02-05 13:58:53,489 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 10)_first_pass.h5...
+2024-02-05 13:58:53,489 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 10)_first_pass.h5...
+2024-02-05 13:58:54,157 [INFO]: Writing objects/obj_type_1
+2024-02-05 13:58:54,157 [INFO]: Writing objects/obj_type_1
+2024-02-05 13:58:54,160 [INFO]: Writing labels/obj_type_1
+2024-02-05 13:58:54,160 [INFO]: Writing labels/obj_type_1
+2024-02-05 13:58:54,164 [INFO]: Loading objects/obj_type_1 (50961, 5) (50961 filtered: None)
+2024-02-05 13:58:54,164 [INFO]: Loading objects/obj_type_1 (50961, 5) (50961 filtered: None)
+2024-02-05 13:58:55,000 [INFO]: Writing properties/obj_type_1/area (50961,)
+2024-02-05 13:58:55,000 [INFO]: Writing properties/obj_type_1/area (50961,)
+2024-02-05 13:58:55,024 [INFO]: Writing properties/obj_type_1/major_axis_length (50961,)
+2024-02-05 13:58:55,024 [INFO]: Writing properties/obj_type_1/major_axis_length (50961,)
+2024-02-05 13:58:55,042 [INFO]: Writing properties/obj_type_1/minor_axis_length (50961,)
+2024-02-05 13:58:55,042 [INFO]: Writing properties/obj_type_1/minor_axis_length (50961,)
+2024-02-05 13:58:55,071 [INFO]: Writing properties/obj_type_1/orientation (50961,)
+2024-02-05 13:58:55,071 [INFO]: Writing properties/obj_type_1/orientation (50961,)
+2024-02-05 13:58:55,138 [INFO]: Writing properties/obj_type_1/mean_intensity (50961, 3)
+2024-02-05 13:58:55,138 [INFO]: Writing properties/obj_type_1/mean_intensity (50961, 3)
+2024-02-05 13:58:55,189 [INFO]: Writing properties/obj_type_1/Infected (50961,)
+2024-02-05 13:58:55,189 [INFO]: Writing properties/obj_type_1/Infected (50961,)
+2024-02-05 13:58:55,200 [INFO]: Writing tracks/obj_type_1
+2024-02-05 13:58:55,200 [INFO]: Writing tracks/obj_type_1
+2024-02-05 13:58:55,261 [INFO]: Writing LBEP/obj_type_1
+2024-02-05 13:58:55,261 [INFO]: Writing LBEP/obj_type_1
+2024-02-05 13:58:55,264 [INFO]: Writing fates/obj_type_1
+2024-02-05 13:58:55,264 [INFO]: Writing fates/obj_type_1
+2024-02-05 13:59:47,793 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 10)_first_pass.h5
+2024-02-05 13:59:47,793 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 10)_first_pass.h5
+2024-02-05 13:59:48,485 [INFO]: Position (4, 10): Processing completed successfully
+2024-02-05 13:59:48,485 [INFO]: Position (4, 10): Processing completed successfully
+2024-02-05 13:59:48,488 [INFO]: Position (4, 11): Starting new acquisition
+2024-02-05 13:59:48,488 [INFO]: Position (4, 11): Starting new acquisition
+2024-02-05 14:27:59,907 [INFO]: Position (3, 1): Starting new acquisition
+2024-02-05 14:27:59,909 [INFO]: Position (3, 1): Skipping uninfected acquisition for now
+2024-02-05 14:27:59,910 [INFO]: Position (3, 2): Starting new acquisition
+2024-02-05 14:27:59,911 [INFO]: Position (3, 2): Skipping uninfected acquisition for now
+2024-02-05 14:27:59,912 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 14:27:59,914 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 14:27:59,915 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 14:27:59,917 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 14:27:59,918 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 14:27:59,919 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 14:27:59,921 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 14:27:59,922 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 14:27:59,923 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 14:27:59,925 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 14:27:59,926 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 14:27:59,928 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 14:27:59,929 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 14:27:59,931 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 14:27:59,932 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 14:27:59,933 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 14:27:59,935 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 14:27:59,936 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-05 14:27:59,937 [INFO]: Position (4, 11): Starting new acquisition
+2024-02-05 14:33:58,911 [INFO]: Position (4, 11): Images loaded and stacked
+2024-02-05 14:33:58,920 [INFO]: Position (4, 11): Starting segmentation
+2024-02-05 16:08:44,293 [INFO]: Position (3, 1): Starting new acquisition
+2024-02-05 16:08:44,295 [INFO]: Position (3, 1): Skipping uninfected acquisition for now
+2024-02-05 16:08:44,297 [INFO]: Position (3, 2): Starting new acquisition
+2024-02-05 16:08:44,298 [INFO]: Position (3, 2): Skipping uninfected acquisition for now
+2024-02-05 16:08:44,299 [INFO]: Position (3, 3): Starting new acquisition
+2024-02-05 16:19:50,987 [INFO]: Position (3, 1): Starting new acquisition
+2024-02-05 16:19:50,989 [INFO]: Position (3, 1): Skipping uninfected acquisition for now
+2024-02-05 16:19:50,990 [INFO]: Position (3, 2): Starting new acquisition
+2024-02-05 16:19:50,991 [INFO]: Position (3, 2): Skipping uninfected acquisition for now
+2024-02-05 16:19:50,992 [INFO]: Position (3, 3): Starting new acquisition
+2024-02-05 16:25:52,212 [INFO]: Position (3, 3): Images loaded and stacked
+2024-02-05 16:25:52,221 [INFO]: Position (3, 3): Starting segmentation
+2024-02-05 16:25:52,255 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 3)_first_pass_seg_backup.h5...
+2024-02-05 16:26:10,971 [INFO]: Loading segmentation (150, 6048, 6048)
+2024-02-05 16:26:10,976 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 3)_first_pass_seg_backup.h5
+2024-02-05 16:26:10,980 [INFO]: Position (3, 3): Loaded previously calculated segmentation
+2024-02-05 16:26:10,980 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 3)_first_pass_seg_backup.h5...
+2024-02-05 16:27:00,415 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 3)_first_pass_seg_backup.h5
+2024-02-05 16:27:00,990 [INFO]: Position (3, 3): Saved out masks
+2024-02-05 16:27:00,992 [INFO]: Position (3, 3): Measuring Mtb area
+2024-02-05 16:27:18,081 [INFO]: Position (3, 3): Creating intensity image for localisation
+2024-02-05 16:29:52,924 [INFO]: Position (3, 1): Starting new acquisition
+2024-02-05 16:29:52,926 [INFO]: Position (3, 1): Skipping uninfected acquisition for now
+2024-02-05 16:29:52,927 [INFO]: Position (3, 2): Starting new acquisition
+2024-02-05 16:29:52,928 [INFO]: Position (3, 2): Skipping uninfected acquisition for now
+2024-02-05 16:29:52,929 [INFO]: Position (3, 3): Starting new acquisition
+2024-02-05 16:34:47,895 [INFO]: Position (3, 1): Starting new acquisition
+2024-02-05 16:34:47,897 [INFO]: Position (3, 1): Skipping uninfected acquisition for now
+2024-02-05 16:34:47,899 [INFO]: Position (3, 2): Starting new acquisition
+2024-02-05 16:34:47,900 [INFO]: Position (3, 2): Skipping uninfected acquisition for now
+2024-02-05 16:34:47,902 [INFO]: Position (3, 3): Starting new acquisition
+2024-02-05 16:36:14,544 [INFO]: Position (3, 3): Images loaded and stacked
+2024-02-05 16:36:14,553 [INFO]: Position (3, 3): Starting segmentation
+2024-02-05 16:36:14,555 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 3)_first_pass_seg_backup.h5...
+2024-02-05 16:36:34,749 [INFO]: Loading segmentation (150, 6048, 6048)
+2024-02-05 16:36:34,754 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 3)_first_pass_seg_backup.h5
+2024-02-05 16:36:34,758 [INFO]: Position (3, 3): Loaded previously calculated segmentation
+2024-02-05 16:36:34,759 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 3)_first_pass_seg_backup.h5...
+2024-02-05 16:37:27,589 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(3, 3)_first_pass_seg_backup.h5
+2024-02-05 16:37:28,171 [INFO]: Position (3, 3): Saved out masks
+2024-02-05 16:37:28,174 [INFO]: Position (3, 3): Measuring Mtb area
+2024-02-05 16:37:39,097 [INFO]: Position (3, 3): Creating intensity image for localisation
+2024-02-06 11:55:45,618 [INFO]: Position (3, 1): Starting new acquisition
+2024-02-06 11:55:45,619 [INFO]: Position (3, 1): Skipping uninfected acquisition for now
+2024-02-06 11:55:45,621 [INFO]: Position (3, 2): Starting new acquisition
+2024-02-06 11:55:45,622 [INFO]: Position (3, 2): Skipping uninfected acquisition for now
+2024-02-06 11:55:45,623 [INFO]: Position (3, 3): Starting new acquisition
+2024-02-06 11:57:07,360 [INFO]: Position (3, 1): Starting new acquisition
+2024-02-06 11:57:07,362 [INFO]: Position (3, 1): Skipping uninfected acquisition for now
+2024-02-06 11:57:07,364 [INFO]: Position (3, 2): Starting new acquisition
+2024-02-06 11:57:07,365 [INFO]: Position (3, 2): Skipping uninfected acquisition for now
+2024-02-06 11:57:07,366 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-06 11:57:07,368 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-06 11:57:07,370 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-06 11:57:07,372 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-06 11:57:07,374 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-06 11:57:07,376 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-06 11:57:07,378 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-06 11:57:07,380 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-06 11:57:07,382 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-06 11:57:07,384 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-06 11:57:07,386 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-06 11:57:07,389 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-06 11:57:07,391 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-06 11:57:07,394 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-06 11:57:07,396 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-06 11:57:07,398 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-06 11:57:07,400 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-06 11:57:07,403 [INFO]: Position (3, 2): Already exists, skipping
+2024-02-06 11:57:07,404 [INFO]: Position (4, 11): Starting new acquisition
+2024-02-06 11:57:39,180 [INFO]: Position (3, 1): Starting new acquisition
+2024-02-06 11:57:39,182 [INFO]: Position (3, 1): Skipping uninfected acquisition for now
+2024-02-06 11:57:39,184 [INFO]: Position (3, 2): Starting new acquisition
+2024-02-06 11:57:39,185 [INFO]: Position (3, 2): Skipping uninfected acquisition for now
+2024-02-06 11:57:39,186 [INFO]: Position (3, 3): Already exists, skipping
+2024-02-06 11:57:39,188 [INFO]: Position (3, 4): Already exists, skipping
+2024-02-06 11:57:39,189 [INFO]: Position (3, 5): Already exists, skipping
+2024-02-06 11:57:39,191 [INFO]: Position (3, 6): Already exists, skipping
+2024-02-06 11:57:39,193 [INFO]: Position (3, 7): Already exists, skipping
+2024-02-06 11:57:39,196 [INFO]: Position (3, 8): Already exists, skipping
+2024-02-06 11:57:39,198 [INFO]: Position (3, 9): Already exists, skipping
+2024-02-06 11:57:39,200 [INFO]: Position (3, 10): Already exists, skipping
+2024-02-06 11:57:39,202 [INFO]: Position (3, 11): Already exists, skipping
+2024-02-06 11:57:39,205 [INFO]: Position (3, 12): Already exists, skipping
+2024-02-06 11:57:39,207 [INFO]: Position (4, 3): Already exists, skipping
+2024-02-06 11:57:39,209 [INFO]: Position (4, 4): Already exists, skipping
+2024-02-06 11:57:39,211 [INFO]: Position (4, 5): Already exists, skipping
+2024-02-06 11:57:39,213 [INFO]: Position (4, 6): Already exists, skipping
+2024-02-06 11:57:39,216 [INFO]: Position (4, 7): Already exists, skipping
+2024-02-06 11:57:39,218 [INFO]: Position (4, 8): Already exists, skipping
+2024-02-06 11:57:39,220 [INFO]: Position (4, 9): Already exists, skipping
+2024-02-06 11:57:39,222 [INFO]: Position (4, 10): Already exists, skipping
+2024-02-06 11:57:39,224 [INFO]: Position (4, 11): Starting new acquisition
+2024-02-06 12:05:52,766 [INFO]: Position (4, 11): Images loaded and stacked
+2024-02-06 12:05:52,776 [INFO]: Position (4, 11): Starting segmentation
+2024-02-06 14:48:55,223 [INFO]: Position (4, 11): Finished segmentation
+2024-02-06 14:48:55,232 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 11)_first_pass_seg_backup.h5...
+2024-02-06 16:17:20,868 [INFO]: Position (3, 1): Starting new acquisition
+2024-02-06 16:17:20,870 [INFO]: Position (3, 1): Skipping uninfected acquisition for now
+2024-02-06 16:17:20,871 [INFO]: Position (3, 2): Starting new acquisition
+2024-02-06 16:17:20,872 [INFO]: Position (3, 2): Skipping uninfected acquisition for now
+2024-02-06 16:17:20,873 [INFO]: Position (3, 3): Starting new acquisition
+2024-02-06 16:21:43,083 [INFO]: Position (3, 1): Starting new acquisition
+2024-02-06 16:21:43,085 [INFO]: Position (3, 1): Skipping uninfected acquisition for now
+2024-02-06 16:21:43,086 [INFO]: Position (3, 2): Starting new acquisition
+2024-02-06 16:21:43,087 [INFO]: Position (3, 2): Skipping uninfected acquisition for now
+2024-02-06 16:21:43,088 [INFO]: Position (3, 3): Starting new acquisition
+2024-02-06 16:21:43,090 [INFO]: Position (3, 3): Skipping already processed
+2024-02-06 16:21:43,091 [INFO]: Position (3, 4): Starting new acquisition
+2024-02-06 16:21:43,092 [INFO]: Position (3, 4): Skipping already processed
+2024-02-06 16:21:43,093 [INFO]: Position (3, 5): Starting new acquisition
+2024-02-06 16:21:43,094 [INFO]: Position (3, 5): Skipping already processed
+2024-02-06 16:21:43,096 [INFO]: Position (3, 6): Starting new acquisition
+2024-02-06 16:21:43,097 [INFO]: Position (3, 6): Skipping already processed
+2024-02-06 16:21:43,098 [INFO]: Position (3, 7): Starting new acquisition
+2024-02-06 16:21:43,099 [INFO]: Position (3, 7): Skipping already processed
+2024-02-06 16:21:43,100 [INFO]: Position (3, 8): Starting new acquisition
+2024-02-06 16:21:43,101 [INFO]: Position (3, 8): Skipping already processed
+2024-02-06 16:21:43,102 [INFO]: Position (3, 9): Starting new acquisition
+2024-02-06 16:21:43,103 [INFO]: Position (3, 9): Skipping already processed
+2024-02-06 16:21:43,104 [INFO]: Position (3, 10): Starting new acquisition
+2024-02-06 16:21:43,105 [INFO]: Position (3, 10): Skipping already processed
+2024-02-06 16:21:43,107 [INFO]: Position (3, 11): Starting new acquisition
+2024-02-06 16:21:43,108 [INFO]: Position (3, 11): Skipping already processed
+2024-02-06 16:21:43,109 [INFO]: Position (3, 12): Starting new acquisition
+2024-02-06 16:21:43,110 [INFO]: Position (3, 12): Skipping already processed
+2024-02-06 16:21:43,111 [INFO]: Position (4, 3): Starting new acquisition
+2024-02-06 16:21:43,112 [INFO]: Position (4, 3): Skipping already processed
+2024-02-06 16:21:43,113 [INFO]: Position (4, 4): Starting new acquisition
+2024-02-06 16:21:43,114 [INFO]: Position (4, 4): Skipping already processed
+2024-02-06 16:21:43,116 [INFO]: Position (4, 5): Starting new acquisition
+2024-02-06 16:21:43,116 [INFO]: Position (4, 5): Skipping already processed
+2024-02-06 16:21:43,117 [INFO]: Position (4, 6): Starting new acquisition
+2024-02-06 16:21:43,118 [INFO]: Position (4, 6): Skipping already processed
+2024-02-06 16:21:43,119 [INFO]: Position (4, 7): Starting new acquisition
+2024-02-06 16:21:43,120 [INFO]: Position (4, 7): Skipping already processed
+2024-02-06 16:21:43,121 [INFO]: Position (4, 8): Starting new acquisition
+2024-02-06 16:21:43,122 [INFO]: Position (4, 8): Skipping already processed
+2024-02-06 16:21:43,123 [INFO]: Position (4, 9): Starting new acquisition
+2024-02-06 16:21:43,124 [INFO]: Position (4, 9): Skipping already processed
+2024-02-06 16:21:43,126 [INFO]: Position (4, 10): Starting new acquisition
+2024-02-06 16:21:43,127 [INFO]: Position (4, 10): Skipping already processed
+2024-02-06 16:21:43,128 [INFO]: Position (4, 11): Starting new acquisition
+2024-02-06 16:27:18,140 [INFO]: Position (4, 11): Images loaded and stacked
+2024-02-06 16:27:18,141 [INFO]: Position (4, 11): Starting segmentation
+2024-02-06 16:27:18,166 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 11)_first_pass_seg_backup.h5...
+2024-02-06 16:27:18,215 [INFO]: Position (4, 11): Processing failed: Unable to synchronously open file (bad object header version number)
+2024-02-06 16:27:18,219 [INFO]: Position (4, 12): Starting new acquisition
+2024-02-06 16:32:53,129 [INFO]: Position (4, 12): Images loaded and stacked
+2024-02-06 16:32:53,131 [INFO]: Position (4, 12): Starting segmentation
+2024-02-06 18:57:09,377 [INFO]: Position (4, 12): Finished segmentation
+2024-02-06 18:57:09,379 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 12)_first_pass_seg_backup.h5...
+2024-02-06 18:57:58,143 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 12)_first_pass_seg_backup.h5
+2024-02-06 18:57:58,507 [INFO]: Position (4, 12): Saved out masks
+2024-02-06 18:57:58,508 [INFO]: Position (4, 12): Measuring Mtb area
+2024-02-06 18:59:10,749 [INFO]: Position (4, 12): Creating intensity image for localisation
+2024-02-07 11:29:16,556 [INFO]: Position (3, 1): Starting new acquisition
+2024-02-07 11:29:16,558 [INFO]: Position (3, 1): Skipping uninfected acquisition for now
+2024-02-07 11:29:16,559 [INFO]: Position (3, 2): Starting new acquisition
+2024-02-07 11:29:16,560 [INFO]: Position (3, 2): Skipping uninfected acquisition for now
+2024-02-07 11:29:16,561 [INFO]: Position (3, 3): Starting new acquisition
+2024-02-07 11:29:16,562 [INFO]: Position (3, 3): Skipping already processed
+2024-02-07 11:29:16,563 [INFO]: Position (3, 4): Starting new acquisition
+2024-02-07 11:29:16,564 [INFO]: Position (3, 4): Skipping already processed
+2024-02-07 11:29:16,566 [INFO]: Position (3, 5): Starting new acquisition
+2024-02-07 11:29:16,567 [INFO]: Position (3, 5): Skipping already processed
+2024-02-07 11:29:16,568 [INFO]: Position (3, 6): Starting new acquisition
+2024-02-07 11:29:16,568 [INFO]: Position (3, 6): Skipping already processed
+2024-02-07 11:29:16,570 [INFO]: Position (3, 7): Starting new acquisition
+2024-02-07 11:29:16,571 [INFO]: Position (3, 7): Skipping already processed
+2024-02-07 11:29:16,572 [INFO]: Position (3, 8): Starting new acquisition
+2024-02-07 11:29:16,573 [INFO]: Position (3, 8): Skipping already processed
+2024-02-07 11:29:16,574 [INFO]: Position (3, 9): Starting new acquisition
+2024-02-07 11:29:16,575 [INFO]: Position (3, 9): Skipping already processed
+2024-02-07 11:29:16,577 [INFO]: Position (3, 10): Starting new acquisition
+2024-02-07 11:29:16,578 [INFO]: Position (3, 10): Skipping already processed
+2024-02-07 11:29:16,579 [INFO]: Position (3, 11): Starting new acquisition
+2024-02-07 11:29:16,580 [INFO]: Position (3, 11): Skipping already processed
+2024-02-07 11:29:16,581 [INFO]: Position (3, 12): Starting new acquisition
+2024-02-07 11:29:16,582 [INFO]: Position (3, 12): Skipping already processed
+2024-02-07 11:29:16,583 [INFO]: Position (4, 3): Starting new acquisition
+2024-02-07 11:29:16,584 [INFO]: Position (4, 3): Skipping already processed
+2024-02-07 11:29:16,586 [INFO]: Position (4, 4): Starting new acquisition
+2024-02-07 11:29:16,587 [INFO]: Position (4, 4): Skipping already processed
+2024-02-07 11:29:16,588 [INFO]: Position (4, 5): Starting new acquisition
+2024-02-07 11:29:16,589 [INFO]: Position (4, 5): Skipping already processed
+2024-02-07 11:29:16,590 [INFO]: Position (4, 6): Starting new acquisition
+2024-02-07 11:29:16,591 [INFO]: Position (4, 6): Skipping already processed
+2024-02-07 11:29:16,593 [INFO]: Position (4, 7): Starting new acquisition
+2024-02-07 11:29:16,594 [INFO]: Position (4, 7): Skipping already processed
+2024-02-07 11:29:16,595 [INFO]: Position (4, 8): Starting new acquisition
+2024-02-07 11:29:16,596 [INFO]: Position (4, 8): Skipping already processed
+2024-02-07 11:29:16,597 [INFO]: Position (4, 9): Starting new acquisition
+2024-02-07 11:29:16,598 [INFO]: Position (4, 9): Skipping already processed
+2024-02-07 11:29:16,600 [INFO]: Position (4, 10): Starting new acquisition
+2024-02-07 11:29:16,600 [INFO]: Position (4, 10): Skipping already processed
+2024-02-07 11:29:16,602 [INFO]: Position (4, 11): Starting new acquisition
+2024-02-07 11:29:50,878 [INFO]: Position (3, 1): Starting new acquisition
+2024-02-07 11:29:50,880 [INFO]: Position (3, 1): Skipping uninfected acquisition for now
+2024-02-07 11:29:50,881 [INFO]: Position (3, 2): Starting new acquisition
+2024-02-07 11:29:50,882 [INFO]: Position (3, 2): Skipping uninfected acquisition for now
+2024-02-07 11:29:50,884 [INFO]: Position (3, 3): Starting new acquisition
+2024-02-07 11:29:50,885 [INFO]: Position (3, 3): Skipping already processed
+2024-02-07 11:29:50,886 [INFO]: Position (3, 4): Starting new acquisition
+2024-02-07 11:29:50,888 [INFO]: Position (3, 4): Skipping already processed
+2024-02-07 11:29:50,889 [INFO]: Position (3, 5): Starting new acquisition
+2024-02-07 11:29:50,890 [INFO]: Position (3, 5): Skipping already processed
+2024-02-07 11:29:50,891 [INFO]: Position (3, 6): Starting new acquisition
+2024-02-07 11:29:50,892 [INFO]: Position (3, 6): Skipping already processed
+2024-02-07 11:29:50,894 [INFO]: Position (3, 7): Starting new acquisition
+2024-02-07 11:29:50,895 [INFO]: Position (3, 7): Skipping already processed
+2024-02-07 11:29:50,896 [INFO]: Position (3, 8): Starting new acquisition
+2024-02-07 11:29:50,897 [INFO]: Position (3, 8): Skipping already processed
+2024-02-07 11:29:50,898 [INFO]: Position (3, 9): Starting new acquisition
+2024-02-07 11:29:50,899 [INFO]: Position (3, 9): Skipping already processed
+2024-02-07 11:29:50,901 [INFO]: Position (3, 10): Starting new acquisition
+2024-02-07 11:29:50,902 [INFO]: Position (3, 10): Skipping already processed
+2024-02-07 11:29:50,903 [INFO]: Position (3, 11): Starting new acquisition
+2024-02-07 11:29:50,904 [INFO]: Position (3, 11): Skipping already processed
+2024-02-07 11:29:50,905 [INFO]: Position (3, 12): Starting new acquisition
+2024-02-07 11:29:50,906 [INFO]: Position (3, 12): Skipping already processed
+2024-02-07 11:29:50,908 [INFO]: Position (4, 3): Starting new acquisition
+2024-02-07 11:29:50,909 [INFO]: Position (4, 3): Skipping already processed
+2024-02-07 11:29:50,910 [INFO]: Position (4, 4): Starting new acquisition
+2024-02-07 11:29:50,911 [INFO]: Position (4, 4): Skipping already processed
+2024-02-07 11:29:50,912 [INFO]: Position (4, 5): Starting new acquisition
+2024-02-07 11:29:50,914 [INFO]: Position (4, 5): Skipping already processed
+2024-02-07 11:29:50,915 [INFO]: Position (4, 6): Starting new acquisition
+2024-02-07 11:29:50,916 [INFO]: Position (4, 6): Skipping already processed
+2024-02-07 11:29:50,917 [INFO]: Position (4, 7): Starting new acquisition
+2024-02-07 11:29:50,918 [INFO]: Position (4, 7): Skipping already processed
+2024-02-07 11:29:50,919 [INFO]: Position (4, 8): Starting new acquisition
+2024-02-07 11:29:50,920 [INFO]: Position (4, 8): Skipping already processed
+2024-02-07 11:29:50,921 [INFO]: Position (4, 9): Starting new acquisition
+2024-02-07 11:29:50,923 [INFO]: Position (4, 9): Skipping already processed
+2024-02-07 11:29:50,924 [INFO]: Position (4, 10): Starting new acquisition
+2024-02-07 11:29:50,925 [INFO]: Position (4, 10): Skipping already processed
+2024-02-07 11:29:50,926 [INFO]: Position (4, 11): Starting new acquisition
+2024-02-07 11:36:19,753 [INFO]: Position (4, 11): Images loaded and stacked
+2024-02-07 11:36:19,763 [INFO]: Position (4, 11): Starting segmentation
+2024-02-07 11:36:19,764 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 11)_first_pass_seg_backup.h5...
+2024-02-07 11:36:19,823 [INFO]: Position (4, 11): Processing failed: Unable to synchronously open file (bad object header version number)
+2024-02-07 11:36:19,826 [INFO]: Position (4, 12): Starting new acquisition
+2024-02-07 11:42:51,409 [INFO]: Position (4, 12): Images loaded and stacked
+2024-02-07 11:42:51,411 [INFO]: Position (4, 12): Starting segmentation
+2024-02-07 11:42:51,413 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 12)_first_pass_seg_backup.h5...
+2024-02-07 11:43:13,610 [INFO]: Loading segmentation (150, 6048, 6048)
+2024-02-07 11:43:13,617 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 12)_first_pass_seg_backup.h5
+2024-02-07 11:43:13,621 [INFO]: Position (4, 12): Loaded previously calculated segmentation
+2024-02-07 11:43:13,622 [INFO]: Opening HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 12)_first_pass_seg_backup.h5...
+2024-02-07 11:44:35,800 [INFO]: Closing HDF file: /mnt/SYNO/macrohet_syno/ND0002/labels/macrohet_seg_model/(4, 12)_first_pass_seg_backup.h5
+2024-02-07 11:44:35,914 [INFO]: Position (4, 12): Saved out masks
+2024-02-07 11:44:35,916 [INFO]: Position (4, 12): Measuring Mtb area
+2024-02-07 11:46:22,304 [INFO]: Position (4, 12): Creating intensity image for localisation
+2024-02-08 12:07:40,856 [INFO]: Position (3, 1): Starting new acquisition
+2024-02-08 13:17:14,753 [INFO]: Position (3, 1): Starting new acquisition
+2024-02-08 19:36:23,379 [INFO]: >>>> loading model /home/dayn/analysis/models/cellpose/PS0000/macrohet_seg
+2024-02-08 19:36:23,380 [INFO]: ** TORCH CUDA version installed and working. **
+2024-02-08 19:36:23,381 [INFO]: >>>> using GPU
+2024-02-08 19:36:23,589 [INFO]: >>>> model diam_mean =  30.000 (ROIs rescaled to this size during training)
+2024-02-08 19:36:23,591 [INFO]: >>>> model diam_labels =  188.746 (mean diameter of training ROIs)
+2024-02-08 19:37:17,723 [INFO]: Position (3, 1): Starting new acquisition
+2024-02-08 19:37:17,723 [INFO]: Position (3, 1): Starting new acquisition

@@ -147,7 +147,7 @@ def measure_mtb_area(track, masks, rfp_images, threshold=480, scale_factor=5.04,
             rfp_frame = rfp_images[t]
             masked_image = rfp_frame * mask
 
-            # Apply threshold to identify microtubule region
+            # Apply threshold to identify mtb region
             thresholded_masked_image = masked_image >= threshold
 
             # Calculate the area of the microtubule region

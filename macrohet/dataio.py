@@ -1,10 +1,121 @@
 import os
 import xml.etree.ElementTree as ET
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
 from lxml import etree as ET_iter
 from tqdm.auto import tqdm
+
+
+def get_folder_size(folder):
+    """
+    ByteSize Class
+    ==============
+
+    This class represents a byte size value and provides utility methods for
+    formatting and manipulating byte sizes.
+
+    Usage:
+    ------
+    1. Create a ByteSize object:
+       bs = ByteSize(1024)  # Initialize with bytes (e.g., 1024 bytes)
+
+    2. Access byte sizes in different units:
+       bs.bytes          # Get size in bytes
+       bs.kilobytes      # Get size in kilobytes
+       bs.megabytes      # Get size in megabytes
+       bs.gigabytes      # Get size in gigabytes
+       bs.petabytes      # Get size in petabytes
+
+    3. Get a human-readable representation of the byte size:
+       str(bs)           # Get a formatted string (e.g., '1.00 KB')
+
+    4. Perform arithmetic operations with ByteSize objects:
+       addition, subtraction, and multiplication are supported.
+
+    Example:
+    --------
+    bs1 = ByteSize(2048)
+    bs2 = ByteSize(4096)
+
+    # Perform arithmetic operations
+    result = bs1 + bs2    # Addition
+    result = bs2 - bs1    # Subtraction
+    result = bs1 * 2      # Multiplication
+
+    Attributes:
+    -----------
+    - bytes: Size in bytes.
+    - kilobytes: Size in kilobytes.
+    - megabytes: Size in megabytes.
+    - gigabytes: Size in gigabytes.
+    - petabytes: Size in petabytes.
+    - readable: A tuple with the unit suffix and the corresponding value (e.g., ('KB', 2.0)).
+
+    Methods:
+    --------
+    - __str__: Return a formatted string representation of the byte size.
+    - __repr__: Return a string representation suitable for object inspection.
+    - __format__: Format the byte size according to a specified format.
+    - __add__, __sub__, __mul__: Perform arithmetic operations with ByteSize objects.
+    - __radd__, __rsub__, __rmul__: Perform reverse arithmetic operations with ByteSize objects.
+    """
+
+    return ByteSize(sum(file.stat().st_size for file in Path(folder).rglob('*')))
+
+
+class ByteSize(int):
+
+    _KB = 1024
+    _suffixes = 'B', 'KB', 'MB', 'GB', 'PB'
+
+    def __new__(cls, *args, **kwargs):
+        return super().__new__(cls, *args, **kwargs)
+
+    def __init__(self, *args, **kwargs):
+        self.bytes = self.B = int(self)
+        self.kilobytes = self.KB = self / self._KB**1
+        self.megabytes = self.MB = self / self._KB**2
+        self.gigabytes = self.GB = self / self._KB**3
+        self.petabytes = self.PB = self / self._KB**4
+        *suffixes, last = self._suffixes
+        suffix = next((
+            suffix
+            for suffix in suffixes
+            if 1 < getattr(self, suffix) < self._KB
+        ), last)
+        self.readable = suffix, getattr(self, suffix)
+
+        super().__init__()
+
+    def __str__(self):
+        return self.__format__('.2f')
+
+    def __repr__(self):
+        return '{}({})'.format(self.__class__.__name__, super().__repr__())
+
+    def __format__(self, format_spec):
+        suffix, val = self.readable
+        return '{val:{fmt}} {suf}'.format(val=val, fmt=format_spec, suf=suffix)
+
+    def __sub__(self, other):
+        return self.__class__(super().__sub__(other))
+
+    def __add__(self, other):
+        return self.__class__(super().__add__(other))
+
+    def __mul__(self, other):
+        return self.__class__(super().__mul__(other))
+
+    def __rsub__(self, other):
+        return self.__class__(super().__sub__(other))
+
+    def __radd__(self, other):
+        return self.__class__(super().__add__(other))
+
+    def __rmul__(self, other):
+        return self.__class__(super().__rmul__(other))
 
 
 def generate_url(row):
