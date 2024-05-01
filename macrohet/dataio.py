@@ -167,7 +167,8 @@ def track_to_df(track):
 
 
 def read_harmony_metadata(metadata_path: os.PathLike, assay_layout=False,
-                          mask_exist=False, image_dir=None, image_metadata=None
+                          mask_exist=False, image_dir=None, image_metadata=None,
+                          replicate_number=True
                           ) -> pd.DataFrame:
     """
     Read the metadata from the Harmony software for the Opera Phenix microscope.
@@ -249,6 +250,8 @@ def read_harmony_metadata(metadata_path: os.PathLike, assay_layout=False,
                 df.drop(columns='Cell Count', inplace=True)
         if 'double' in df.columns:
             df.rename(columns={'double': 'Cell Count'}, inplace=True)
+        if replicate_number:
+            df['Replicate #'] = df.groupby(['Strain', 'Compound', 'Concentration', 'ConcentrationEC']).cumcount() + 1
 
     print('Extracting metadata complete!')
     return df
