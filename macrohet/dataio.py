@@ -1,9 +1,142 @@
 import os
 import xml.etree.ElementTree as ET
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from lxml import etree as ET_iter
 from tqdm.auto import tqdm
+
+
+def get_folder_size(folder):
+    """
+    ByteSize Class
+    ==============
+
+    This class represents a byte size value and provides utility methods for
+    formatting and manipulating byte sizes.
+
+    Usage:
+    ------
+    1. Create a ByteSize object:
+       bs = ByteSize(1024)  # Initialize with bytes (e.g., 1024 bytes)
+
+    2. Access byte sizes in different units:
+       bs.bytes          # Get size in bytes
+       bs.kilobytes      # Get size in kilobytes
+       bs.megabytes      # Get size in megabytes
+       bs.gigabytes      # Get size in gigabytes
+       bs.petabytes      # Get size in petabytes
+
+    3. Get a human-readable representation of the byte size:
+       str(bs)           # Get a formatted string (e.g., '1.00 KB')
+
+    4. Perform arithmetic operations with ByteSize objects:
+       addition, subtraction, and multiplication are supported.
+
+    Example:
+    --------
+    bs1 = ByteSize(2048)
+    bs2 = ByteSize(4096)
+
+    # Perform arithmetic operations
+    result = bs1 + bs2    # Addition
+    result = bs2 - bs1    # Subtraction
+    result = bs1 * 2      # Multiplication
+
+    Attributes:
+    -----------
+    - bytes: Size in bytes.
+    - kilobytes: Size in kilobytes.
+    - megabytes: Size in megabytes.
+    - gigabytes: Size in gigabytes.
+    - petabytes: Size in petabytes.
+    - readable: A tuple with the unit suffix and the corresponding value (e.g., ('KB', 2.0)).
+
+    Methods:
+    --------
+    - __str__: Return a formatted string representation of the byte size.
+    - __repr__: Return a string representation suitable for object inspection.
+    - __format__: Format the byte size according to a specified format.
+    - __add__, __sub__, __mul__: Perform arithmetic operations with ByteSize objects.
+    - __radd__, __rsub__, __rmul__: Perform reverse arithmetic operations with ByteSize objects.
+    """
+
+    return ByteSize(sum(file.stat().st_size for file in Path(folder).rglob('*')))
+
+
+class ByteSize(int):
+
+    _KB = 1024
+    _suffixes = 'B', 'KB', 'MB', 'GB', 'PB'
+
+    def __new__(cls, *args, **kwargs):
+        return super().__new__(cls, *args, **kwargs)
+
+    def __init__(self, *args, **kwargs):
+        self.bytes = self.B = int(self)
+        self.kilobytes = self.KB = self / self._KB**1
+        self.megabytes = self.MB = self / self._KB**2
+        self.gigabytes = self.GB = self / self._KB**3
+        self.petabytes = self.PB = self / self._KB**4
+        *suffixes, last = self._suffixes
+        suffix = next((
+            suffix
+            for suffix in suffixes
+            if 1 < getattr(self, suffix) < self._KB
+        ), last)
+        self.readable = suffix, getattr(self, suffix)
+
+        super().__init__()
+
+    def __str__(self):
+        return self.__format__('.2f')
+
+    def __repr__(self):
+        return '{}({})'.format(self.__class__.__name__, super().__repr__())
+
+    def __format__(self, format_spec):
+        suffix, val = self.readable
+        return '{val:{fmt}} {suf}'.format(val=val, fmt=format_spec, suf=suffix)
+
+    def __sub__(self, other):
+        return self.__class__(super().__sub__(other))
+
+    def __add__(self, other):
+        return self.__class__(super().__add__(other))
+
+    def __mul__(self, other):
+        return self.__class__(super().__mul__(other))
+
+    def __rsub__(self, other):
+        return self.__class__(super().__sub__(other))
+
+    def __radd__(self, other):
+        return self.__class__(super().__add__(other))
+
+    def __rmul__(self, other):
+        return self.__class__(super().__rmul__(other))
+
+
+def generate_url(row):
+    """
+    Generate a properly formatted local file address for the 'URL' column in Harmony metadata.
+    This function replaces remote addresses, ensuring consistency when metadata is exported separately from the images.
+
+    Parameters:
+    row (pd.Series): A row of Harmony metadata containing 'Row', 'Col', 'FieldID', 'PlaneID', 'ChannelID', 'TimepointID', and 'FlimID' columns.
+
+    Returns:
+    str: The formatted local file address.
+    """
+    m_row = row['Row'].zfill(2)
+    m_col = row['Col'].zfill(2)
+    m_field = row['FieldID'].zfill(2)
+    m_plane = row['PlaneID'].zfill(2)
+    m_ch = row['ChannelID']
+    m_time = int(row['TimepointID']) + 1
+    m_flim = row['FlimID']
+    return f'r{m_row}c{m_col}f{m_field}p{m_plane}-ch{m_ch}sk{m_time}fk1fl{m_flim}.tiff'
 
 
 def load_macrohet_metadata(location='desktop'):
@@ -34,7 +167,8 @@ def track_to_df(track):
 
 
 def read_harmony_metadata(metadata_path: os.PathLike, assay_layout=False,
-                          mask_exist=False, image_dir=None, image_metadata=None
+                          mask_exist=False, image_dir=None, image_metadata=None,
+                          replicate_number=True
                           ) -> pd.DataFrame:
     """
     Read the metadata from the Harmony software for the Opera Phenix microscope.
@@ -49,31 +183,35 @@ def read_harmony_metadata(metadata_path: os.PathLike, assay_layout=False,
     """
     # read xml metadata file
     print('Reading metadata XML file...')
-    xml_data = open(metadata_path, 'r', encoding="utf-8-sig").read()
-    root = ET.XML(xml_data)
+
     # extraction procedure for image volume metadata
     if not assay_layout:
-        # extract the metadata from the xml file
-        images_metadata = [child for child in root if "Images" in child.tag][0]
-        # create an empty list for storing individual image metadata
-        metadata = list()
-        # iterate over every image entry extracting the metadata
-        for image_metadata in tqdm(images_metadata, total=len(images_metadata),
-                                   desc='Extracting HarmonyV5 metadata'):
-            # create empty dict to store single image metadata
-            single_image_dict = dict()
-            # iterate over every metadata item in that image metadata
-            for item in image_metadata:
-                # get column names from metadata
-                col = item.tag.replace('{http://www.perkinelmer.com/PEHH/HarmonyV5}', '')
-                # get metadata
-                entry = item.text
-                # make dictionary out of metadata
-                single_image_dict[col] = entry
-            # append that image metadata to list of all images
-            metadata.append(single_image_dict)
+        metadata = []
+
+        # for the large image metadata file using iterative reading of metadata
+        for event, elem in tqdm(ET_iter.iterparse(metadata_path, events=("end",))):
+            # Check for the 'Images' tag in the element
+            if event == "end" and "Images" in elem.tag:
+                for image_metadata in elem:
+                    single_image_dict = {}
+                    for item in image_metadata:
+                        # Extract column name, removing namespace if necessary
+                        col = item.tag.split('}')[-1]  # This splits the tag by '}' and takes the last part
+                        # Get metadata value
+                        entry = item.text
+                        # Store in dictionary
+                        single_image_dict[col] = entry
+
+                    # Append to list
+                    metadata.append(single_image_dict)
+
+                # Clear processed element to free memory
+                elem.clear()
+
     # extraction procedure for assay layout metadata
     if assay_layout:
+        xml_data = open(metadata_path, 'r', encoding="utf-8-sig").read()
+        root = ET.XML(xml_data)
         metadata = dict()
         for branch in root:
             for subbranch in branch:
@@ -112,6 +250,8 @@ def read_harmony_metadata(metadata_path: os.PathLike, assay_layout=False,
                 df.drop(columns='Cell Count', inplace=True)
         if 'double' in df.columns:
             df.rename(columns={'double': 'Cell Count'}, inplace=True)
+        if replicate_number:
+            df['Replicate #'] = df.groupby(['Strain', 'Compound', 'Concentration', 'ConcentrationEC']).cumcount() + 1
 
     print('Extracting metadata complete!')
     return df
