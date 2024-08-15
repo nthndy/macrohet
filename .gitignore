@@ -18,3 +18,4 @@ aws_tools.py
 *.svg
 *.pdf
 *.mp4
+*.log
