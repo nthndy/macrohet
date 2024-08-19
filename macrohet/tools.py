@@ -16,6 +16,48 @@ class ImageDimensionError(Exception):
         super().__init__(message)
 
 
+def process_mtb_area(df, id_column='ID', mtb_column='Mtb Area'):
+    """
+    Process the 'Mtb Area' column of the DataFrame by applying linear interpolation,
+    backfill interpolation, and a rolling median with a dynamic window size based on the 'ID' column.
+
+    The window size is set to 5 if 'PS000' is in the ID, otherwise it is set to 10.
+
+    Parameters:
+    - df: pandas.DataFrame
+        The input DataFrame containing the data to process.
+    - id_column: str, optional (default='ID')
+        The name of the column containing the IDs to group by.
+    - mtb_column: str, optional (default='Mtb Area')
+        The name of the column containing the Mtb Area values to process.
+
+    Returns:
+    - pandas.Series
+        A Series with the processed 'Mtb Area' values.
+    """
+
+    def dynamic_window(id_value):
+        """
+        Determine the window size based on the presence of 'PS000' in the ID.
+
+        Parameters:
+        - id_value: str
+            The ID value to check.
+
+        Returns:
+        - int
+            The window size for the rolling median.
+        """
+        return 5 if 'PS000' in id_value else 10
+
+    return df.groupby(id_column)[mtb_column].apply(
+        lambda group: group.interpolate(method='linear')
+                           .interpolate(method='backfill')
+                           .rolling(window=dynamic_window(group.name))
+                           .median()
+    )
+
+
 def merge_tracks(track_ID_1, track_ID_2, tracks):
     """
     Merges two tracks identified by their IDs into a single pandas DataFrame.
