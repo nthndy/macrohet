@@ -48,7 +48,7 @@ def process_mtb_area(df, id_column='ID', mtb_column='Mtb Area'):
         - int
             The window size for the rolling median.
         """
-        return 5 if 'PS000' in id_value else 10
+        return 5 if 'PS0000' in id_value else 10
 
     return df.groupby(id_column)[mtb_column].apply(
         lambda group: group.interpolate(method='linear')
