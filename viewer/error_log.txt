@@ -2770,3 +2770,1713 @@ Error: cannot convert float NaN to integer
 Unique ID: 1822.6.12.ND0003
 Error: cannot convert float NaN to integer
 Unique ID: 1874.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1874.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1822.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1815.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1803.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1796.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1672.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1650.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1622.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1587.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1516.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1496.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1462.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1449.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1454.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1429.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1403.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1417.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1384.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1321.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1314.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1197.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1175.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1135.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1101.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1057.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1022.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 970.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 948.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 815.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 810.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 726.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 664.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 646.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 536.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 513.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 464.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 477.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 393.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 412.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 308.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 258.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 253.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 250.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 83.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 74.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 123.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 119.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 105.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 96.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 20.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 17.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 45.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 42.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 41.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 39.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 188.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 245.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 241.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 240.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 219.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 234.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 140.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 126.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 176.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 167.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 161.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2177.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2198.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2137.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2122.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1995.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2008.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1974.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1970.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1929.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1809.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1822.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1768.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1770.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1773.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1711.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1705.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1707.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1667.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1635.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1581.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1587.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1554.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1549.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1562.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1529.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1533.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1474.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1403.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1415.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1387.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1399.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1342.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1332.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1312.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1301.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1265.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1204.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1217.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1220.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1191.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1162.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1160.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1081.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1095.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1041.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1038.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1067.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1060.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1023.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1017.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 991.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 806.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 783.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 670.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 596.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 609.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 535.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 483.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 416.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 390.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 289.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 80.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 87.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 89.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 115.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 112.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 111.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 108.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 61.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 90.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 24.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 52.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 47.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 34.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 33.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 195.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 185.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 179.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 178.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 222.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 205.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 216.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 220.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 140.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 129.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 118.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 174.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 167.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 928.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 930.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 977.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1073.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1163.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1145.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1181.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1186.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1245.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1282.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1298.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1356.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1352.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1433.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1496.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1479.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1503.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1547.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1580.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1603.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1583.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1587.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1661.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1713.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1732.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1737.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1760.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1853.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1873.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1878.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1860.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1907.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1937.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1926.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2010.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2055.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2086.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2106.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2135.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2165.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2142.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2193.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2173.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2201.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2227.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2213.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2214.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2245.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2274.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2320.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2306.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2294.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2321.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2332.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2350.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2386.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2372.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2404.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2437.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2428.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2423.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2469.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2440.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2445.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2453.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2478.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2511.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2605.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2663.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2669.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2702.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2726.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2725.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2724.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2717.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2742.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2746.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2750.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2739.6.7.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 218.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 213.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 210.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 242.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 231.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 229.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 227.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 176.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 167.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 165.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 163.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 198.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 187.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 185.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 302.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 290.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 287.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 314.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 308.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 253.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 262.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 257.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 254.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 281.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 269.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 267.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 55.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 47.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 46.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 72.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 81.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 12.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 16.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 22.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 6.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 32.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 41.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 34.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 33.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 161.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 30.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 25.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 24.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 23.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 137.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 131.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 127.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 100.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 99.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 121.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 91.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 87.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 86.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 103.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 113.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 108.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 356.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 334.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 344.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 433.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 447.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 383.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 404.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 501.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 554.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 575.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 733.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 714.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 732.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 823.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 865.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1013.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 976.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1051.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1078.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1092.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1094.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1154.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1129.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1169.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1171.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1258.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1261.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1285.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1300.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1303.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1356.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1338.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1410.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1376.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1390.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1441.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1449.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1593.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1606.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1607.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1656.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1638.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1702.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1744.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1755.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1766.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1826.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1812.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1854.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1831.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1862.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1890.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1878.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1930.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1933.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1950.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1989.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1995.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2032.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2056.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2081.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2087.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2072.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2064.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2066.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2101.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2141.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2167.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2146.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2150.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2215.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2205.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2238.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2244.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2278.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2261.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2252.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2254.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2256.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2258.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2293.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2283.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2313.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2324.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2318.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2317.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2326.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2357.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2359.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2360.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2365.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2349.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2390.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2385.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2368.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2400.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2421.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2430.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2457.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2458.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2467.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2507.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2483.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2515.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2547.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2546.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2542.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2571.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2562.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2554.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2588.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2593.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2620.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2665.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2693.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2681.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2730.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2715.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2748.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2746.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2764.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2769.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2768.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2765.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2791.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2774.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2801.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2806.6.8.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 180.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 178.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 184.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 174.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 196.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 188.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 185.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 150.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 141.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 156.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 247.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 246.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 254.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 253.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 252.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 211.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 208.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 207.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 206.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 205.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 204.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 225.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 227.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 228.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 37.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 35.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 55.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 63.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 10.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 17.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 20.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 24.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 25.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 34.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 111.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 110.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 118.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 126.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 129.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 69.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 120.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 81.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 365.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 436.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 411.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 474.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 503.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 538.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 618.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 606.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 690.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 691.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 693.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 729.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 855.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 912.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 970.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 965.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1018.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1050.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1084.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1094.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1099.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1063.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1168.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1225.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1251.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1311.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1345.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1417.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1433.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1511.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1523.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1562.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1571.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1604.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1636.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1638.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1652.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1743.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1741.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1753.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1809.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1816.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1847.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1844.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1842.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1858.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1900.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1909.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1960.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1992.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1998.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1989.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2021.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2077.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2075.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2072.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2116.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2145.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2182.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2158.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2193.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2213.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2251.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2256.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2290.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2366.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2380.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2415.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2428.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2423.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2454.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2444.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2480.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2462.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2471.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2472.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2493.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2491.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2547.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2546.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2543.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2582.6.9.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 193.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 209.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 205.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 155.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 153.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 150.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 145.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 175.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 171.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 263.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 260.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 259.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 279.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 273.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 271.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 219.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 217.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 239.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 240.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 236.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 232.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 46.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 49.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 40.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 39.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 71.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 67.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 57.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 56.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 11.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 13.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 12.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 20.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 7.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 5.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 33.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 32.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 22.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 118.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 113.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 109.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 142.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 132.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 80.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 78.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 74.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 320.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 333.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 288.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 297.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 406.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 399.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 503.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 554.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 588.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 624.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 625.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 644.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 713.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 683.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 871.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 882.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 900.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 942.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1015.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1024.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1093.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1098.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1070.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1074.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1110.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1120.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1171.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1156.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1203.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1229.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1286.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1327.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1298.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1299.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1302.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1344.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1395.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1402.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1381.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1435.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1446.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1468.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1516.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1522.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1528.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1645.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1651.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1654.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1631.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1667.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1733.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1722.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1756.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1757.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1759.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1820.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1807.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1857.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1861.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1885.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1906.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1901.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1930.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1967.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2004.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2078.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2111.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2090.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2120.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2161.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2171.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2169.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2230.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2239.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2264.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2261.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2271.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2303.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2316.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2309.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2335.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2363.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2391.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2389.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2387.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2418.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2405.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2409.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2400.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2434.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2456.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2474.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2508.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2550.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2540.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2535.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2565.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2590.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2577.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2612.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2634.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2616.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2620.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2675.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2683.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2685.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2725.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2723.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2720.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2771.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2764.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2786.6.10.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 167.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 174.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 118.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 129.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 140.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 220.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 216.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 205.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 222.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 178.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 179.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 185.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 195.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 33.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 34.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 47.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 52.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 24.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 90.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 61.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 108.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 111.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 112.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 115.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 89.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 87.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 80.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 289.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 390.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 416.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 483.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 535.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 609.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 596.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 670.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 783.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 806.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 991.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1017.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1023.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1060.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1067.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1038.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1041.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1095.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1081.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1160.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1162.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1191.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1220.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1217.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1204.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1265.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1301.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1312.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1332.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1342.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1399.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1387.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1415.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1403.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1474.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1533.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1529.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1562.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1549.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1554.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1587.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1581.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1635.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1667.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1707.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1705.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1711.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1773.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1770.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1768.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1822.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1809.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1929.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1970.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1974.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2008.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1995.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2122.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2137.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2198.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2177.6.11.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 161.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 167.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 176.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 126.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 140.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 234.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 219.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 240.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 241.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 245.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 188.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 2.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 39.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 41.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 42.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 45.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 17.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 20.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 96.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 105.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 119.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 123.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 74.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 83.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 250.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 253.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 258.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 308.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 412.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 393.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 477.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 464.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 513.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 536.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 646.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 664.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 726.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 810.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 815.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 948.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 970.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1022.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1057.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1101.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1135.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1175.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1197.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1314.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1321.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1384.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1417.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1403.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1429.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1454.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1449.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1462.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1496.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1516.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1587.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1622.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1650.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1672.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1796.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1803.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1815.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1822.6.12.ND0003
+Error: cannot convert float NaN to integer
+Unique ID: 1874.6.12.ND0003

@@ -1,5 +1,6 @@
 import os
-import xml.etree.ElementTree as ET
+
+# import xml.etree.ElementTree as ET
 from pathlib import Path
 
 import numpy as np
@@ -168,7 +169,7 @@ def track_to_df(track):
 
 def read_harmony_metadata(metadata_path: os.PathLike, assay_layout=False,
                           mask_exist=False, image_dir=None, image_metadata=None,
-                          replicate_number=True
+                          replicate_number=True, iter=True
                           ) -> pd.DataFrame:
     """
     Read the metadata from the Harmony software for the Opera Phenix microscope.
@@ -180,15 +181,18 @@ def read_harmony_metadata(metadata_path: os.PathLike, assay_layout=False,
     If mask_exist is True then the existence of masks will be checked, which the
     image directory (image_dir) is required with the image metadata
     (image_metadata)
+    iter arg is to use the iterative loading of xml files, best practice to
+    set to false for smaller xml files.
     """
-    # read xml metadata file
+    # Read the XML metadata file
     print('Reading metadata XML file...')
 
     # extraction procedure for image volume metadata
-    if not assay_layout:
-        metadata = []
+    metadata = []
 
-        # for the large image metadata file using iterative reading of metadata
+    # Handle the iteration mode with iterparse (iter=True)
+    if not assay_layout and iter:
+        # Use the iterative parsing method
         for event, elem in tqdm(ET_iter.iterparse(metadata_path, events=("end",))):
             # Check for the 'Images' tag in the element
             if event == "end" and "Images" in elem.tag:
@@ -208,10 +212,41 @@ def read_harmony_metadata(metadata_path: os.PathLike, assay_layout=False,
                 # Clear processed element to free memory
                 elem.clear()
 
+    # Handle the non-iterative method (iter=False)
+    elif not assay_layout and not iter:
+        try:
+            # Parse the entire XML document at once
+            tree = ET_iter.parse(metadata_path)
+            root = tree.getroot()
+
+            # Find the 'Images' tag
+            for images in root.iter('{http://www.perkinelmer.com/PEHH/HarmonyV5}Images'):
+                for image_metadata in images:
+                    single_image_dict = {}
+                    for item in image_metadata:
+                        # Extract column name, removing namespace if necessary
+                        col = item.tag.split('}')[-1]  # This splits the tag by '}' and takes the last part
+                        # Get metadata value
+                        entry = item.text
+                        # Store in dictionary
+                        single_image_dict[col] = entry
+
+                    # Append to list
+                    metadata.append(single_image_dict)
+
+        except ET_iter.XMLSyntaxError as e:
+            print(f"XML Syntax Error: {e}")
+            raise
+        except OSError as e:
+            print(f"Error parsing file: {e}")
+            raise
+
     # extraction procedure for assay layout metadata
     if assay_layout:
-        xml_data = open(metadata_path, 'r', encoding="utf-8-sig").read()
-        root = ET.XML(xml_data)
+        # Open XML file in binary mode to handle encoding declarations
+        with open(metadata_path, 'rb') as f:
+            xml_data = f.read()
+        root = ET_iter.XML(xml_data)
         metadata = dict()
         for branch in root:
             for subbranch in branch:
@@ -227,7 +262,7 @@ def read_harmony_metadata(metadata_path: os.PathLike, assay_layout=False,
                         val = subsubbranch.text
                         metadata[col_name][int(row), int(col)] = val
 
-    # create a dataframe out of all metadata
+    # Create a dataframe out of all metadata
     df = pd.DataFrame(metadata)
 
     if assay_layout and mask_exist:
@@ -240,11 +275,11 @@ def read_harmony_metadata(metadata_path: os.PathLike, assay_layout=False,
             df.at[(row, col), 'Missing masks'] = missing_mask_dict[row, col]
             df = df.where(pd.notnull(df), None)
 
-    # final few aesthetic touches to assay layout
+    # Final few aesthetic touches to assay layout
     if assay_layout:
-        # add names to assay layout indexing
+        # Add names to assay layout indexing
         df.index.set_names(['Row', 'Column'], inplace=True)
-        # clearing few hacky errors in some recent assay layout
+        # Clearing few hacky errors in some recent assay layout
         if 'Cell Count' in df.columns:
             if pd.isna(df['Cell Count']).any():
                 df.drop(columns='Cell Count', inplace=True)

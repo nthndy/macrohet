@@ -309,6 +309,8 @@ def stitch(load_transform_image: partial,
     find_files_exist(fns, image_dir)
     fns = [glob.glob(os.path.join(image_dir, fn))[0] for fn in fns]
 
+    print(fns[0])
+
     # Load and transform images
     sample = imread(fns[0])
 
