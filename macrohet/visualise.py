@@ -2,9 +2,12 @@ import os
 
 import btrack
 import cv2
+import matplotlib as mpl
+import matplotlib.font_manager as fm
 import matplotlib.pyplot as plt
 import napari
 import numpy as np
+import seaborn as sns
 from magicgui import magicgui
 from natsort import natsorted
 from skimage.morphology import area_closing, label, remove_small_objects
@@ -13,6 +16,7 @@ from tqdm.auto import tqdm
 
 from macrohet import dataio, tile
 
+from . import colours  # Import the colours from the macrohet module
 from .colours import custom_colours
 
 # default scale value taken from harmony metadata
@@ -20,6 +24,41 @@ napari_scale = [1.49e-05, 1.4949402023919043E-7, 1.4949402023919043E-7]
 # default scale factor
 # for datasets that have been tracked on scaled down images
 scale_factor = 6048 / 1200
+
+
+def set_plotting_defaults():
+    # Check for Helvetica font
+    if any('Helvetica' in font.name for font in fm.fontManager.ttflist):
+        mpl.rcParams['font.family'] = 'Helvetica'
+        print("Using Helvetica font.")
+    else:
+        mpl.rcParams['font.family'] = 'Nimbus Sans'
+        print("Helvetica not found. Using Nimbus Sans font.")
+
+    # Seaborn and matplotlib style settings
+    sns.set(style='white')
+
+    # Set default font size
+    default_fontsize = 12
+    plt.rcParams['font.size'] = default_fontsize            # Overall font size
+    plt.rcParams['axes.titlesize'] = default_fontsize       # Font size of axes titles
+    plt.rcParams['axes.labelsize'] = default_fontsize       # Font size of x and y labels
+    plt.rcParams['xtick.labelsize'] = default_fontsize      # Font size of x-tick labels
+    plt.rcParams['ytick.labelsize'] = default_fontsize      # Font size of y-tick labels
+    plt.rcParams['legend.fontsize'] = default_fontsize      # Font size of legends
+    plt.rcParams['figure.titlesize'] = default_fontsize + 4    # Font size of figure title
+
+    # Matplotlib text and color settings
+    plt.rcParams['text.usetex'] = False
+    plt.rcParams['text.color'] = 'black'          # Default color for text (titles, labels, etc.)
+    plt.rcParams['axes.labelcolor'] = 'black'     # Default color for axis labels
+    plt.rcParams['xtick.color'] = 'black'         # Default color for x-axis tick labels
+    plt.rcParams['ytick.color'] = 'black'         # Default color for y-axis tick labels
+
+    # Set the color palette using the expanded PiYG from colours module
+    expanded_piyg = colours.expanded_piyg
+    sns.set_palette(expanded_piyg)
+    print('Default plotting aesthetic loaded.')
 
 
 def highlight_cell_gui(tracks, viewer):
