@@ -19,3 +19,5 @@ aws_tools.py
 *.pdf
 *.mp4
 *.log
+*.txt
+*error_log*
