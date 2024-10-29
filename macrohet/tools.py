@@ -16,6 +16,113 @@ class ImageDimensionError(Exception):
         super().__init__(message)
 
 
+def is_edge_cell(row):
+    """
+    Determine if a cell is near the boundary of a defined area, marking it as an edge cell
+    based on its coordinates and a calculated safe margin.
+
+    Parameters:
+    -----------
+    row : Series
+        A pandas Series representing a row of data with at least the columns 'x', 'y',
+        and 'Mphi Area (µm)', where 'x' and 'y' denote cell coordinates, and 'Mphi Area (µm)'
+        is used to set the safe margin.
+
+    Returns:
+    --------
+    bool
+        True if the cell is considered an edge cell, meaning it lies within a defined safe margin
+        from any boundary of the area; False otherwise.
+
+    Example:
+    --------
+    # Sample row with columns 'x', 'y', and 'Mphi Area (µm)'
+    sample_row = pd.Series({
+        'x': 50,
+        'y': 1150,
+        'Mphi Area (µm)': 500
+    })
+
+    # Check if the cell is an edge cell
+    is_edge = is_edge_cell(sample_row)
+    # or apply over whole df
+    df.apply(is_edge_cell, axis=1)
+    """
+
+    # Calculate the safe margin for the current row's area
+    safe_margin = 60  # Can be dynamically calculated based on 'Mphi Area (µm)'
+
+    # Define bounding box limits
+    x_min, x_max = 0, 1200
+    y_min, y_max = 0, 1200
+
+    # Check if the cell's coordinates are within the safe margin from the edge
+    near_left_edge = row['x'] <= x_min + safe_margin
+    near_right_edge = row['x'] >= x_max - safe_margin
+    near_bottom_edge = row['y'] <= y_min + safe_margin
+    near_top_edge = row['y'] >= y_max - safe_margin
+
+    return near_left_edge or near_right_edge or near_bottom_edge or near_top_edge
+
+
+def mark_infection_status(group):
+    """
+    Determine and label the infection status of macrophage cells based on Mtb infection area
+    over a time series. The function adds columns to the DataFrame indicating whether the
+    macrophage cell is considered infected in the initial, final, and overall time periods.
+
+    Parameters:
+    -----------
+    group : DataFrame
+        A pandas DataFrame grouped by cell or sample, containing columns 'Time Model (hours)'
+        and 'Mtb Area Model (µm)' for each timepoint.
+
+    Returns:
+    --------
+    DataFrame
+        The input DataFrame with added columns:
+        - 'Infection Status': A boolean indicating if the cell is infected (mean Mtb area ≥ 1.92 µm²).
+        - 'Initial Infection Status': A boolean indicating infection within the first 3 hours of
+          available Mtb area data.
+        - 'Final Infection Status': A boolean indicating infection in the last 3 hours of available
+          Mtb area data.
+
+    Example:
+    --------
+    # Sample DataFrame with columns 'Time Model (hours)' and 'Mtb Area Model (µm)'
+    sample_df = pd.DataFrame({
+        'Time Model (hours)': [0, 1, 2, 3, 4, 5, 6, 7, 8],
+        'Mtb Area Model (µm)': [0.5, 1.0, 2.0, 2.5, None, 1.9, 2.1, 2.0, 2.2]
+    })
+
+    # Apply function to each group
+    result = sample_df.groupby('Cell ID').apply(mark_infection_status)
+    """
+
+    # Sort the group by 'Time (hours)' just in case
+    group = group.sort_values(by='Time (hours)')
+
+    # Filter out rows where 'Mtb Area (µm)' is NaN
+    valid_group = group.dropna(subset=['Mtb Area Model (µm)'])
+
+    # Determine the time range for the first three hours of non-NaN data
+    initial_period = valid_group[valid_group['Time Model (hours)'] <= valid_group['Time Model (hours)'].min() + 3]
+
+    # Determine the time range for the last three hours of non-NaN data
+    final_period = valid_group[valid_group['Time Model (hours)'] >= valid_group['Time Model (hours)'].max() - 3]
+
+    # Infection Status: If the mean Mtb Area (µm) in the entire group is >= 1.92
+    group['Infection Status'] = valid_group['Mtb Area Model (µm)'] >= 1.92
+
+    # Initial Infection Status: If the mean Mtb Area (µm) in the first 3 non-NaN hours is >= 1.92
+    group['Initial Infection Status'] = (initial_period['Mtb Area Model (µm)'] >= 1.92).all()
+
+    # Final Infection Status: If the mean Mtb Area (µm) in the last 3 non-NaN hours is >= 1.92
+    group['Final Infection Status'] = (final_period['Mtb Area Model (µm)'] >= 1.92).all()
+
+    return group
+
+
 def process_mtb_area(df, id_column='ID', mtb_column='Mtb Area'):
     """
     Process the 'Mtb Area' column of the DataFrame by applying linear interpolation,
