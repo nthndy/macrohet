@@ -1,0 +1,17 @@
+name: macrohet
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - jupyterlab
+  - numpy
+  - pandas
+  - scikit-image
+  - scipy
+  - zarr
+  - napari
+  - seaborn
+  - matplotlib
+  - tqdm
+  - ipywidgets
+  - pip
