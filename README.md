@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/nthndy/macrohet/raw/main/docs/images/landing_img.png" alt="macrohet image" width="600">
+</p>
+
 # macro*het*
 
 **Fast-growing intracellular _Mycobacterium tuberculosis_ populations evade antibiotic treatment**
@@ -12,7 +16,6 @@ GitHub Pages for this project (figures + interactive plots are work in progress,
 ## Contents
 
 - `docs/`: HTML manuscript and supporting content (hosted via GitHub Pages)
-- `index.html`: Landing page
 - `.pre-commit-config.yaml`: Style and linting config
 - `README.md`: You’re reading it.
 
