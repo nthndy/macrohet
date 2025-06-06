@@ -15,19 +15,30 @@ GitHub Pages for this project (figures + interactive plots are work in progress,
 
 ## Contents
 
+- `notebooks/`: Reproducible analysis notebooks for data loading, segmentation, tracking, and quantification
+- `macrohet/`: Python module with core analysis functions
 - `docs/`: HTML manuscript and supporting content (hosted via GitHub Pages)
-- `.pre-commit-config.yaml`: Style and linting config
-- `README.md`: You’re reading it.
+- `environment.yml`: Conda environment specification
+- `.pre-commit-config.yaml`: Code formatting and linting hooks
+- `README.md`: Project overview and usage instructions
 
 ---
 
-## License
+## Installation and reproducibility
 
-This repository is made available under the MIT License. See [LICENSE](LICENSE) for full terms.
+Clone the repository:
 
----
+```bash
+git clone https://github.com/nthndy/macrohet.git
+cd macrohet
+```
 
-## Reproducibility
+Create and activate the environment:
+
+```bash
+mamba env create -f environment.yml
+conda activate macrohet
+```
 
 Details of the hardware and software used to generate the analyses in this repository are provided in [reproducibility.md](reproducibility.md).
 
