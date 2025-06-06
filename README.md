@@ -6,6 +6,7 @@
 
 **Fast-growing intracellular _Mycobacterium tuberculosis_ populations evade antibiotic treatment**
 
+WORK IN PROGRESS (tidying code up pending publication)
 This repository accompanies the manuscript exploring single-cell heterogeneity in _Mtb_-infected macrophages using time-lapse microscopy, tracking and single-cell growth rate analysis.
 
 GitHub Pages for this project (figures + interactive plots are work in progress, pending publication):
@@ -17,6 +18,7 @@ GitHub Pages for this project (figures + interactive plots are work in progress,
 
 - `notebooks/`: Reproducible analysis notebooks for data loading, segmentation, tracking, and quantification
 - `macrohet/`: Python module with core analysis functions
+- `data/`: Subset of image data with associated segmentation and tracks
 - `models/`: Bespoke segmentation model and _btrack_ tracking parameters
 - `docs/`: HTML manuscript and supporting content (hosted via GitHub Pages)
 - `environment.yml`: Conda environment specification
