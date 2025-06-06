@@ -1,11 +1,11 @@
-# macrohet
+# macro*het*
 
 **Fast-growing intracellular _Mycobacterium tuberculosis_ populations evade antibiotic treatment**
 
 This repository accompanies the manuscript exploring single-cell heterogeneity in _Mtb_-infected macrophages using time-lapse microscopy, tracking and single-cell growth rate analysis.
 
-GitHub Pages for this project (figures + interactive plots, work in progress pending publication):
-👉 [https://nthndy.github.io/macrohet](https://nthndy.github.io/macrohet)
+GitHub Pages for this project (figures + interactive plots are work in progress, pending publication):
+[https://nthndy.github.io/macrohet](https://nthndy.github.io/macrohet)
 
 ---
 
