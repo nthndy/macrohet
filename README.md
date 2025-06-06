@@ -17,6 +17,7 @@ GitHub Pages for this project (figures + interactive plots are work in progress,
 
 - `notebooks/`: Reproducible analysis notebooks for data loading, segmentation, tracking, and quantification
 - `macrohet/`: Python module with core analysis functions
+- `models/`: Bespoke segmentation model and _btrack_ tracking parameters
 - `docs/`: HTML manuscript and supporting content (hosted via GitHub Pages)
 - `environment.yml`: Conda environment specification
 - `.pre-commit-config.yaml`: Code formatting and linting hooks
@@ -53,4 +54,4 @@ _Host–Pathogen Interactions in Tuberculosis Laboratory_ <br>
 The Francis Crick Institute <br>
 nathan.day@crick.ac.uk <br>
 [@nthndy.bsky.social](https://bsky.app/profile/nthndy.bsky.social) <br>
-[github.com/nthndy](https://github.com/nthndy)<br>
+[github.com/nthndy](https://github.com/nthndy) <br>
