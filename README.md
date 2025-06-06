@@ -24,6 +24,12 @@ This repository is made available under the MIT License. See [LICENSE](LICENSE) 
 
 ---
 
+## Reproducibility
+
+Details of the hardware and software used to generate the analyses in this repository are provided in [reproducibility.md](reproducibility.md).
+
+---
+
 ## Contact
 
 For questions or access to underlying data/code, please contact:
