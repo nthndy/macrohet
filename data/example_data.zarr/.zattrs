@@ -1,0 +1,18 @@
+{
+    "labels": [
+        {
+            "path": "labels/0",
+            "type": "label"
+        }
+    ],
+    "tracks_metadata": {
+        "columns": [
+            "track_id",
+            "time",
+            "y",
+            "x"
+        ],
+        "format_version": "0.1",
+        "type": "napari_tracks"
+    }
+}
