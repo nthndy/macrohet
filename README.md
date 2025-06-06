@@ -34,9 +34,9 @@ Details of the hardware and software used to generate the analyses in this repos
 
 For questions or access to underlying data/code, please contact:
 
-**Nathan Day**
-_Host–Pathogen Interactions in Tuberculosis Laboratory_
-The Francis Crick Institute
-nathan.day@crick.ac.uk
-[@nthndy.bsky.social](https://bsky.app/profile/nthndy.bsky.social)
-[github.com/nthndy](https://github.com/nthndy)
+**Nathan Day** <br>
+_Host–Pathogen Interactions in Tuberculosis Laboratory_ <br>
+The Francis Crick Institute <br>
+nathan.day@crick.ac.uk <br>
+[@nthndy.bsky.social](https://bsky.app/profile/nthndy.bsky.social) <br>
+[github.com/nthndy](https://github.com/nthndy)<br>
