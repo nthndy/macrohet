@@ -19,11 +19,8 @@ from shapely.geometry import LineString
 from shapely.geometry.base import BaseGeometry
 from shapely.geometry.polygon import Polygon
 from shapely.strtree import STRtree
-from skimage.io import imread, imsave
+from skimage.io import imread
 from skimage.transform import AffineTransform
-from tqdm.auto import tqdm
-
-from .dataio import read_harmony_metadata
 
 # ignore shapely depreciation warning
 warnings.filterwarnings("ignore", category=ShapelyDeprecationWarning)
@@ -219,12 +216,16 @@ def compile_mosaic(
     images = [frame.rechunk(tile_size, tile_size) for frame in images]
     # stack them together and call compute so the it returns a single da and not a da of a da
     images = da.stack(images, axis=0)  # .compute()
+
+    stacked = da.stack(images, axis=0).compute()
+    print("Stacked shape:", stacked.shape)
+
+    print("Expected reshape:", (len(timepoint_IDs), len(channel_IDs), len(plane_IDs), stacked.shape[-2], stacked.shape[-1]))
     # reshape them according to TCZXY
     images = images.reshape((len(timepoint_IDs),
                              len(channel_IDs),
                              len(plane_IDs),
                              images.shape[-2], images.shape[-1]))
-
     # conduct projection according to specified type
     if projection == 'max_proj':
         images = np.max(images, axis=2)
@@ -332,7 +333,7 @@ def stitch(load_transform_image: partial,
     shifted_tiles = [transform_tile_coord(sample.shape, t) for t in transforms_with_shift]
 
     # Determine chunk size and boundaries
-    chunk_size = (stitched_shape[0] / n_tile_rows, stitched_shape[1] / n_tile_cols)
+    chunk_size = (int(stitched_shape[0] / n_tile_rows), int(stitched_shape[1] / n_tile_cols))
     chunks = normalize_chunks(chunk_size, shape=stitched_shape)
     assert np.all(np.array(stitched_shape) == np.array(list(map(sum, chunks)))), "Chunks do not fit into mosaic size"
     chunk_boundaries = list(get_chunk_coord(stitched_shape, chunk_size))
@@ -573,7 +574,7 @@ def final_image_size(size_of_tile, overlap_percentage, n_tile_rows, n_tile_cols)
     n_tile_rows (int): Number of tiles along the width.
     n_tile_cols (int): Number of tiles along the height.
     size_of_tile (int): Size of each tile in pixels.
-    overlap_percentage (float): Overlap between the tiles as a percentage (0.1 for 10%).
+    overlap_percentage (float): Overlap between the tiles as a percentage.
 
     Returns
     -------
@@ -590,57 +591,3 @@ def final_image_size(size_of_tile, overlap_percentage, n_tile_rows, n_tile_cols)
     final_image_height = (n_tile_rows * size_of_tile) - ((n_tile_rows - 1) * overlap)
 
     return (int(final_image_width), int(final_image_height))
-
-
-def compile_and_export_mosaic(image_dir: str, metadata_file_path: str, chunk_fraction=9):
-    """Uses various functions to compile a more user-friendly experience of tiling
-    a set of images that have been exported from the Harmony software.
-    """
-    fns = glob.glob(os.path.join(image_dir, '*.tiff'))
-    print(len(fns), 'image files found')
-    df = read_harmony_metadata(metadata_file_path)
-    # extract some necessary information from the metadata before tiling
-    channel_IDs = df['ChannelID'].unique()
-    plane_IDs = df['PlaneID'].unique()
-    timepoint_IDs = df['TimepointID'].unique()
-    # set a few parameters for the tiling approach
-
-    load_transform_image = partial(load_image, transforms=[])
-    row_col_list = list()
-    for index, row in (df.iterrows()):
-        row_col_list.append(tuple((int(row['Row']), int(row['Col']))))
-    row_col_list = list(set(row_col_list))
-    for n, i in enumerate(row_col_list):
-        print('Position index and (row,column):', n, i)
-    # get user input for desired row and column
-    print('Enter the row number you want:')
-    row = input()
-    print('Enter the column number you want:')
-    col = input()
-    print('Enter the output directory, or enter for Desktop output')
-    output_directory = input()
-    if output_directory == '':
-        from datetime import datetime
-        now = datetime.now()  # current date and time
-        date_time = now.strftime("%m_%d_%Y")
-        output_directory = f'Images_{date_time}'
-        if not os.path.exists(output_directory):
-            os.mkdir(output_directory)
-    else:
-        if not os.path.exists(output_directory):
-            os.mkdir(output_directory)
-    for time in tqdm(timepoint_IDs, leave=False, desc='Timepoint progress'):
-        for channel in tqdm(channel_IDs, leave=False, desc='Channel progress'):
-            for plane in tqdm(plane_IDs, leave=False, desc='Z-slice progress'):
-                frame, chunk_info = stitch(load_transform_image,
-                                           df,
-                                           image_dir,
-                                           time,
-                                           plane,
-                                           channel,
-                                           row,
-                                           col,
-                                           chunk_fraction)
-                fn = f'image_t{str(time).zfill(6)}_c{str(channel).zfill(4)}_z{str(plane).zfill(4)}.tiff'
-                output_path = os.path.join(output_directory, fn)
-                imsave(output_path, frame)
