@@ -1,18 +1,65 @@
 {
-    "labels": [
+    "axes": "TCZYX",
+    "description": "Example time-lapse of Mtb-infected macrophages",
+    "harmony_metadata": {
+        "Channels": [
+            "EGFP",
+            "E2Crimson"
+        ],
+        "ExposureTime (ms)": 0.15001234872808103,
+        "ObjectiveNA": 1.1
+    },
+    "multiscales": [
         {
-            "path": "labels/0",
-            "type": "label"
+            "axes": [
+                {
+                    "name": "t",
+                    "type": "time"
+                },
+                {
+                    "name": "c",
+                    "type": "space"
+                },
+                {
+                    "name": "z",
+                    "type": "space"
+                },
+                {
+                    "name": "y",
+                    "type": "space"
+                },
+                {
+                    "name": "x",
+                    "type": "space"
+                }
+            ],
+            "datasets": [
+                {
+                    "coordinateTransformations": [
+                        {
+                            "scale": [
+                                1.0,
+                                1.0,
+                                2e-06,
+                                7.534498620055198e-07,
+                                7.534498620055198e-07
+                            ],
+                            "type": "scale"
+                        }
+                    ],
+                    "path": "images/0"
+                }
+            ],
+            "version": "0.4"
         }
     ],
-    "tracks_metadata": {
-        "columns": [
-            "track_id",
-            "time",
-            "y",
-            "x"
-        ],
-        "format_version": "0.1",
-        "type": "napari_tracks"
-    }
+    "n_channels": 2,
+    "n_timepoints": 75,
+    "n_zplanes": 3,
+    "pixel_size": {
+        "X": 7.534498620055198e-07,
+        "Y": 7.534498620055198e-07,
+        "Z": 2e-06
+    },
+    "unit": "micrometer"
 }

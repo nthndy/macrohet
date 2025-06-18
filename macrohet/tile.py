@@ -19,8 +19,11 @@ from shapely.geometry import LineString
 from shapely.geometry.base import BaseGeometry
 from shapely.geometry.polygon import Polygon
 from shapely.strtree import STRtree
-from skimage.io import imread
+from skimage.io import imread, imsave
 from skimage.transform import AffineTransform
+from tqdm.auto import tqdm
+
+from .dataio import read_harmony_metadata
 
 # ignore shapely depreciation warning
 warnings.filterwarnings("ignore", category=ShapelyDeprecationWarning)
@@ -217,10 +220,6 @@ def compile_mosaic(
     # stack them together and call compute so the it returns a single da and not a da of a da
     images = da.stack(images, axis=0)  # .compute()
 
-    stacked = da.stack(images, axis=0).compute()
-    print("Stacked shape:", stacked.shape)
-
-    print("Expected reshape:", (len(timepoint_IDs), len(channel_IDs), len(plane_IDs), stacked.shape[-2], stacked.shape[-1]))
     # reshape them according to TCZXY
     images = images.reshape((len(timepoint_IDs),
                              len(channel_IDs),
@@ -307,8 +306,6 @@ def stitch(load_transform_image: partial,
     # Check if files exist
     find_files_exist(fns, image_dir)
     fns = [glob.glob(os.path.join(image_dir, fn))[0] for fn in fns]
-
-    # print(fns[0])
 
     # Load and transform images
     sample = imread(fns[0])
