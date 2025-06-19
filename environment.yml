@@ -14,4 +14,7 @@ dependencies:
   - matplotlib
   - tqdm
   - ipywidgets
+  - cellpose
   - pip
+  - pip:
+      - git+https://github.com/quantumjot/btrack.git@v0.6.6rc2

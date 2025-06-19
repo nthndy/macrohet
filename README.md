@@ -44,6 +44,9 @@ mamba env create -f environment.yml
 conda activate macrohet
 ```
 
+This project uses a development version of btrack that includes compatibility with pydantic ≥2, required by napari.
+To ensure compatibility with both tracking and visualisation components, btrack is installed directly from GitHub via pyproject.toml or the environment.yml file.
+
 Details of the hardware and software used to generate the analyses in this repository are provided in [reproducibility.md](reproducibility.md).
 
 ---
