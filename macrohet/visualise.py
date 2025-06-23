@@ -1,6 +1,6 @@
 import os
 
-# import btrack
+import btrack
 import cv2
 import matplotlib as mpl
 import matplotlib.font_manager as fm
@@ -72,8 +72,7 @@ def highlight_cell_gui(tracks, viewer):
               cell_property={"choices": list(tracks[0].properties.keys()) + ["Show All"]},
               )
     def highlight_cell(cell_ID=1, size=100, opacity=1, symbol="o", edge_color="white", edge_width=0.1, cell_property="area", tracking_scale_factor=6048 / 1200) -> napari.types.LayerDataTuple:
-        """
-        Highlights and displays a specific cell in Napari viewer with customizable visualization parameters.
+        """Highlights and displays a specific cell in Napari viewer with customizable visualization parameters.
 
         Parameters
         ----------
@@ -105,6 +104,7 @@ def highlight_cell_gui(tracks, viewer):
         - If 'Show All' is selected for cell_property, all properties of the cell are included.
           Otherwise, only the specified property is included. Special handling is applied
           if the property is 'mean_intensity'.
+
         """
         try:
             # Attempt to find the track with the given cell_ID
@@ -147,41 +147,47 @@ class ColorPalette:
         self.colors = custom_colours[color_map]
 
     def replace(self, index, new_color):
-        """
-        Replace a color code at the specified index with a new color.
+        """Replace a color code at the specified index with a new color.
 
-        Parameters:
+        Parameters
+        ----------
             index (int): The index of the color code to replace.
             new_color (str): The new color code.
 
-        Returns:
+        Returns
+        -------
             None
+
         """
         self.colors[index] = new_color
 
 
 def color_palette(color_map):
-    """
-    Get the color palette of the specified color map.
+    """Get the color palette of the specified color map.
 
-    Parameters:
+    Parameters
+    ----------
         color_map (str): The name of the color map.
 
-    Returns:
+    Returns
+    -------
         ColorPalette: The color palette object.
+
     """
     return ColorPalette(color_map)
 
 
 def show_colors(color_map):
-    """
-    Display the colors in the specified color map as bars.
+    """Display the colors in the specified color map as bars.
 
-    Parameters:
+    Parameters
+    ----------
         color_map (str): The name of the color map to display.
 
-    Returns:
+    Returns
+    -------
         None
+
     """
     colors = custom_colours[color_map]
     num_colors = len(colors)
@@ -205,14 +211,15 @@ def show_colors(color_map):
 
 
 def upscale_labels_post_manual_annotation(labels, scale_factor):
-    """
-    Upscales labels after manual annotation to restore to original size.
+    """Upscales labels after manual annotation to restore to original size.
 
-    Parameters:
+    Parameters
+    ----------
     labels (numpy.ndarray): The input labels to be upscaled.
     scale_factor (int): The scale factor for upscaling the labels.
 
-    Returns:
+    Returns
+    -------
     numpy.ndarray: The upscaled labels.
 
     This function takes in manually annotated labels and a scale factor and performs
@@ -238,15 +245,16 @@ def upscale_labels_post_manual_annotation(labels, scale_factor):
 
 
 def downscale_images_for_manual_annotation(image, labels, scale_factor):
-    """
-    Downscale an image and its corresponding labels for manual annotation.
+    """Downscale an image and its corresponding labels for manual annotation.
 
-    Parameters:
+    Parameters
+    ----------
         image (ndarray): The original image.
         labels (ndarray): The original labels.
         scale_factor (int): The scale factor for downsampling.
 
-    Returns:
+    Returns
+    -------
         tuple: A tuple containing the downsampled image and downsampled labels.
 
     This function downscales an image and its corresponding labels to a lower resolution
@@ -274,6 +282,7 @@ def downscale_images_for_manual_annotation(image, labels, scale_factor):
     # Downscale the image and labels for manual annotation
     downsampled_image, downsampled_labels = downscale_images_for_manual_annotation(image, labels, scale_factor)
     ```
+
     """
     # Downscale the image using the 'downscale_local_mean' function
     downsampled_image = downscale_local_mean(image, (scale_factor, scale_factor))
@@ -290,10 +299,10 @@ def downscale_images_for_manual_annotation(image, labels, scale_factor):
 def add_napari_grid_overlay(
     viewer, N_rows_cols=10, scale_factor=1, edge_width=10, edge_color="cyan"
 ):
-    """
-    Adds a rectangular grid overlay to a Napari viewer window.
+    """Adds a rectangular grid overlay to a Napari viewer window.
 
-    Parameters:
+    Parameters
+    ----------
     viewer (napari.viewer.Viewer): A Napari viewer instance.
     N_rows_cols (int, optional): The number of divisions to divide the grid
         into. Default is 10.
@@ -302,7 +311,8 @@ def add_napari_grid_overlay(
     edge_width (int, optional): The width of the grid lines. Default is 10.
     edge_color (str, optional): The color of the grid lines. Default is 'cyan'.
 
-    Returns:
+    Returns
+    -------
     napari.layers.Shapes: A shapes layer representing the grid lines.
 
     This function adds a rectangular grid overlay to the Napari viewer window.
@@ -331,8 +341,8 @@ def add_napari_grid_overlay(
     # Display the viewer
     napari.run()
     ```
-    """
 
+    """
     # Get the spatial extent of what is presumed to be a square image, scaled
     # by the factor
     max_coord = max(viewer.layers[0].data.shape) * scale_factor
@@ -367,8 +377,7 @@ def add_napari_grid_overlay(
 
 
 def clear_previous_cell_highlight(viewer):
-    """
-    Clears latest added points layer (presuming its the points layer)
+    """Clears latest added points layer (presuming its the points layer)
     Useful if iteratively checking on cell identities, just call before either
     of the other cell highlight functions (highlight_cell/highlight_cell_fate)
     """
@@ -379,8 +388,7 @@ def clear_previous_cell_highlight(viewer):
 def highlight_cell_fate(cell_ID, viewer, tracks,
                         scale_factor=scale_factor,
                         napari_scale=napari_scale):
-    """
-    Puts a napari point layer around the final frame of the cell of interest
+    """Puts a napari point layer around the final frame of the cell of interest
 
     Parameters
     ----------
@@ -397,11 +405,11 @@ def highlight_cell_fate(cell_ID, viewer, tracks,
 
 
     Returns
-    ----------
+    -------
     highlight : napari.layers.points.points.Points
         Napari layer with cell highlighted at final frame
-    """
 
+    """
     track = [track for track in tracks if track.ID == cell_ID][0]
     x, y = track.x[-1] * scale_factor, track.y[-1] * scale_factor
     t = track.t[-1]
@@ -419,8 +427,7 @@ def highlight_cell_fate(cell_ID, viewer, tracks,
 def highlight_cell(cell_ID, viewer, tracks, scale_factor=scale_factor,
                    napari_scale=napari_scale, size=300, opacity=1,
                    symbol='o', reset_position=True):
-    """
-    Puts a Napari point layer around the cell of interest over all frames.
+    """Puts a Napari point layer around the cell of interest over all frames.
 
     Parameters
     ----------
@@ -444,9 +451,10 @@ def highlight_cell(cell_ID, viewer, tracks, scale_factor=scale_factor,
         Whether to reset the viewer's position to the first frame of the highlighted cell.
 
     Returns
-    ----------
+    -------
     highlight : napari.layers.points.points.Points
         Napari layer with the cell highlighted at the final frame.
+
     """
     track = [track for track in tracks if track.ID == cell_ID][0]
     points = [[track.t[i], track.y[i] * scale_factor, track.x[i] * scale_factor]
@@ -467,8 +475,7 @@ def highlight_cell(cell_ID, viewer, tracks, scale_factor=scale_factor,
 
 
 def scale_napari_tracks(napari_tracks, scale=scale_factor):
-    """
-    Quick fix for tracking hack:
+    """Quick fix for tracking hack:
     Iterates over each track entry from the output of
     btrack.utils.tracks_to_napari() and scales the xy coords up to original
     image size
@@ -482,14 +489,13 @@ def scale_napari_tracks(napari_tracks, scale=scale_factor):
         Integer value to scale tracks up by to match original image
 
     Returns
-    ----------
+    -------
     scaled_tracks : array (N, D+1)
         Scaled coordinates for N points in D+1 dimensions. ID,T,Y,X. The first
         axis is the integer ID of the track. D is 3 for planar timeseries only.
 
     """
-
-    scaled_tracks = np.zeros((napari_tracks.shape))
+    scaled_tracks = np.zeros(napari_tracks.shape)
     for n, entry in enumerate(napari_tracks):
         y, x = entry[-2], entry[-1]
         scaled_y, scaled_x = y * scale, x * scale
@@ -500,8 +506,7 @@ def scale_napari_tracks(napari_tracks, scale=scale_factor):
 
 
 def scale_masks(masks_stack, final_image_size=(6048, 6048)):
-    """
-    Quick fix for upscaling masks to be original image size (after they were
+    """Quick fix for upscaling masks to be original image size (after they were
     downscaled for tracking hacky fix)
 
     Parameters
@@ -512,7 +517,7 @@ def scale_masks(masks_stack, final_image_size=(6048, 6048)):
         Desired final image size of a single time frame in the array
 
     Returns
-    ----------
+    -------
     mod_masks : array ()
         2D (XY) or 3D (TXY) array of instance segmentation that has been resized
 
@@ -548,9 +553,9 @@ def scale_masks(masks_stack, final_image_size=(6048, 6048)):
 
 def create_glimpse_from_sc_df(sc_df, acq_ID, ID, images,
                               scale=6048 / 1200, size=500):
-    """
-    Takes a pandas dataframe containing information pertaining to a single cell
+    """Takes a pandas dataframe containing information pertaining to a single cell
     and creates a glimpse set of images showing that single cell over time
+
     Parameters
     ----------
     sc_df : pd.DataFrame()
@@ -567,8 +572,8 @@ def create_glimpse_from_sc_df(sc_df, acq_ID, ID, images,
         a scaling factor needs to be provided to match tracks to original images
     size : int
         Size of the final glimpse
-    """
 
+    """
     # create empty list for stack of images
     glimpse_stack = list()
     # iterate over time points from single cell
@@ -598,8 +603,7 @@ def create_glimpse_from_sc_df(sc_df, acq_ID, ID, images,
 
 def create_mask_glimpse_from_sc_df(sc_df, acq_ID, ID, masks,
                                    scale=6048 / 1200, size=500):
-    """
-    Takes a pandas dataframe containing information pertaining to a single cell
+    """Takes a pandas dataframe containing information pertaining to a single cell
     and creates a MASK glimpse set of images showing that single cell mask over
     time.
 
@@ -619,8 +623,8 @@ def create_mask_glimpse_from_sc_df(sc_df, acq_ID, ID, masks,
         a scaling factor needs to be provided to match tracks to original images
     size : int
         Size of the final glimpse
-    """
 
+    """
     # create empty list for stack of images
     mask_glimpse_stack = list()
     # iterate over time points from single cell
@@ -682,8 +686,7 @@ def create_mask_glimpse_from_sc_df(sc_df, acq_ID, ID, masks,
 
 
 def compile_mp4(input_dir, output_fn, frame_rate=3, fileformat : str = '.tiff'):
-    """
-    Take a series of images and compile mp4 video from them.
+    """Take a series of images and compile mp4 video from them.
 
     Parameters
     ----------
@@ -695,8 +698,8 @@ def compile_mp4(input_dir, output_fn, frame_rate=3, fileformat : str = '.tiff'):
         The number of frames per second you would like to generate the video at.
     fileformat : str
         Optional input for different types of image fileformat
-    """
 
+    """
     # Get the list of images in the directory
     frames = [img for img in os.listdir(input_dir) if img.endswith(fileformat)]
     # Sort the images in alphabetical order
@@ -721,8 +724,7 @@ def compile_mp4(input_dir, output_fn, frame_rate=3, fileformat : str = '.tiff'):
 
 
 def add_scale(viewer, font_size=24, text_colour='white', ticks=False):
-    """
-    Params for adding a scale bar to napari.Viewer()
+    """Params for adding a scale bar to napari.Viewer()
     Actual scale must be defined in the viewer methods (i.e. viewer.add_image())
     """
     viewer.scale_bar.visible = True
@@ -735,8 +737,7 @@ def add_scale(viewer, font_size=24, text_colour='white', ticks=False):
 
 def add_time(viewer, frame_rate=1, font_size=24, text_colour='white',
              position='bottom_left'):
-    """
-    Params for adding a time counter to napari.Viewer().
+    """Params for adding a time counter to napari.Viewer().
     Used in conjunction with update_slider()
     """
     def update_slider(event):
@@ -755,8 +756,7 @@ def add_time(viewer, frame_rate=1, font_size=24, text_colour='white',
 def tn_glimpse_maker(unique_ID, df, time, metadata=None, segmentation=None,
                      base_dir='desktop', crop_size=None,
                      track_scale_factor=5.04, mask_outline=True):
-    """
-    Create a cropped RGB image for a specific unique ID and time.
+    """Create a cropped RGB image for a specific unique ID and time.
 
     Args:
         unique_ID (str): The unique identifier of the cell.
@@ -776,6 +776,7 @@ def tn_glimpse_maker(unique_ID, df, time, metadata=None, segmentation=None,
 
     Raises:
         ValueError: If an invalid input type is provided for 'time'.
+
     """
     # extract row and column from unique_ID
     cell_ID, row, column = unique_ID.split('.')
@@ -807,7 +808,7 @@ def tn_glimpse_maker(unique_ID, df, time, metadata=None, segmentation=None,
 
     if isinstance(time, int):
         time_values = [time]
-    elif isinstance(time, (list, tuple)):
+    elif isinstance(time, list | tuple):
         time_values = time
     elif isinstance(time, range):
         time_values = list(time)

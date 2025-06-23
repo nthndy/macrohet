@@ -1,5 +1,4 @@
-"""
-colours.py
+"""colours.py
 
 This module defines custom color maps for visualizations.
 

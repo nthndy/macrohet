@@ -1,5 +1,4 @@
-"""
-growth_model.py
+"""growth_model.py
 
 Tools for processing single-cell intracellular Mtb growth data,
 including smoothing, fitting, and growth/doubling metrics.

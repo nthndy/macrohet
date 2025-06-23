@@ -44,8 +44,7 @@ def load_prism_file(file_path):
 
 
 def get_folder_size(folder):
-    """
-    ByteSize Class
+    """ByteSize Class
     ==============
 
     This class represents a byte size value and provides utility methods for
@@ -70,7 +69,7 @@ def get_folder_size(folder):
        addition, subtraction, and multiplication are supported.
 
     Example:
-    --------
+    -------
     bs1 = ByteSize(2048)
     bs2 = ByteSize(4096)
 
@@ -80,7 +79,7 @@ def get_folder_size(folder):
     result = bs1 * 2      # Multiplication
 
     Attributes:
-    -----------
+    ----------
     - bytes: Size in bytes.
     - kilobytes: Size in kilobytes.
     - megabytes: Size in megabytes.
@@ -89,14 +88,14 @@ def get_folder_size(folder):
     - readable: A tuple with the unit suffix and the corresponding value (e.g., ('KB', 2.0)).
 
     Methods:
-    --------
+    -------
     - __str__: Return a formatted string representation of the byte size.
     - __repr__: Return a string representation suitable for object inspection.
     - __format__: Format the byte size according to a specified format.
     - __add__, __sub__, __mul__: Perform arithmetic operations with ByteSize objects.
     - __radd__, __rsub__, __rmul__: Perform reverse arithmetic operations with ByteSize objects.
-    """
 
+    """
     return ByteSize(sum(file.stat().st_size for file in Path(folder).rglob('*')))
 
 
@@ -128,7 +127,7 @@ class ByteSize(int):
         return self.__format__('.2f')
 
     def __repr__(self):
-        return '{}({})'.format(self.__class__.__name__, super().__repr__())
+        return f'{self.__class__.__name__}({super().__repr__()})'
 
     def __format__(self, format_spec):
         suffix, val = self.readable
@@ -154,15 +153,17 @@ class ByteSize(int):
 
 
 def generate_url(row):
-    """
-    Generate a properly formatted local file address for the 'URL' column in Harmony metadata.
+    """Generate a properly formatted local file address for the 'URL' column in Harmony metadata.
     This function replaces remote addresses, ensuring consistency when metadata is exported separately from the images.
 
-    Parameters:
+    Parameters
+    ----------
     row (pd.Series): A row of Harmony metadata containing 'Row', 'Col', 'FieldID', 'PlaneID', 'ChannelID', 'TimepointID', and 'FlimID' columns.
 
-    Returns:
+    Returns
+    -------
     str: The formatted local file address.
+
     """
     m_row = row['Row'].zfill(2)
     m_col = row['Col'].zfill(2)
@@ -175,11 +176,9 @@ def generate_url(row):
 
 
 def load_macrohet_metadata(location='desktop'):
-    """
-    Lazy function for loading a couple of bits of info that usually take the
+    """Lazy function for loading a couple of bits of info that usually take the
     first couple of cells to load
     """
-
     if location == 'desktop':
         base_dir = '/mnt/DATA/sandbox/pierre_live_cell_data/outputs/Replication_IPSDM_GFP/'
     else:
@@ -194,10 +193,8 @@ def load_macrohet_metadata(location='desktop'):
 
 
 def track_to_df(track):
+    """Quick hack to return a single track as a dataframe for output into excel
     """
-    Quick hack to return a single track as a dataframe for output into excel
-    """
-
     return pd.DataFrame(track.to_dict(), columns=list(track.to_dict().keys()))
 
 
@@ -205,8 +202,7 @@ def read_harmony_metadata(metadata_path: os.PathLike, assay_layout=False,
                           mask_exist=False, image_dir=None, image_metadata=None,
                           replicate_number=True, iter=True
                           ) -> pd.DataFrame:
-    """
-    Read the metadata from the Harmony software for the Opera Phenix microscope.
+    """Read the metadata from the Harmony software for the Opera Phenix microscope.
     Takes an input of the path to the metadata .xml file.
     Returns the metadata in a pandas dataframe format.
     If assay_layout is True then alternate xml format is anticipated, returning
@@ -327,8 +323,7 @@ def read_harmony_metadata(metadata_path: os.PathLike, assay_layout=False,
 
 
 def do_masks_exist(image_dir, metadata, row=None, col=None, print_output=True):
-    """
-    Iterates over all positions in experiment and checks if masks have been
+    """Iterates over all positions in experiment and checks if masks have been
     created for each individual tiled image, returns missing mask info as dict()
     If row and col are not defined then iterates over all found instances
     """
