@@ -17,19 +17,18 @@ class ImageDimensionError(Exception):
 
 
 def is_edge_cell(row):
-    """
-    Determine if a cell is near the boundary of a defined area, marking it as an edge cell
+    """Determine if a cell is near the boundary of a defined area, marking it as an edge cell
     based on its coordinates and a calculated safe margin.
 
-    Parameters:
-    -----------
+    Parameters
+    ----------
     row : Series
         A pandas Series representing a row of data with at least the columns 'x', 'y',
         and 'Mphi Area (µm)', where 'x' and 'y' denote cell coordinates, and 'Mphi Area (µm)'
         is used to set the safe margin.
 
-    Returns:
-    --------
+    Returns
+    -------
     bool
         True if the cell is considered an edge cell, meaning it lies within a defined safe margin
         from any boundary of the area; False otherwise.
@@ -47,8 +46,8 @@ def is_edge_cell(row):
     is_edge = is_edge_cell(sample_row)
     # or apply over whole df
     df.apply(is_edge_cell, axis=1)
-    """
 
+    """
     # Calculate the safe margin for the current row's area
     safe_margin = 60  # Can be dynamically calculated based on 'Mphi Area (µm)'
 
@@ -66,19 +65,18 @@ def is_edge_cell(row):
 
 
 def mark_infection_status(group):
-    """
-    Determine and label the infection status of macrophage cells based on Mtb infection area
+    """Determine and label the infection status of macrophage cells based on Mtb infection area
     over a time series. The function adds columns to the DataFrame indicating whether the
     macrophage cell is considered infected in the initial, final, and overall time periods.
 
-    Parameters:
-    -----------
+    Parameters
+    ----------
     group : DataFrame
         A pandas DataFrame grouped by cell or sample, containing columns 'Time Model (hours)'
         and 'Mtb Area Model (µm)' for each timepoint.
 
-    Returns:
-    --------
+    Returns
+    -------
     DataFrame
         The input DataFrame with added columns:
         - 'Infection Status': A boolean indicating if the cell is infected (mean Mtb area ≥ 1.92 µm²).
@@ -97,8 +95,8 @@ def mark_infection_status(group):
 
     # Apply function to each group
     result = sample_df.groupby('Cell ID').apply(mark_infection_status)
-    """
 
+    """
     # Sort the group by 'Time (hours)' just in case
     group = group.sort_values(by='Time (hours)')
 
@@ -124,13 +122,13 @@ def mark_infection_status(group):
 
 
 def process_mtb_area(df, id_column='ID', mtb_column='Mtb Area'):
-    """
-    Process the 'Mtb Area' column of the DataFrame by applying linear interpolation,
+    """Process the 'Mtb Area' column of the DataFrame by applying linear interpolation,
     backfill interpolation, and a rolling median with a dynamic window size based on the 'ID' column.
 
     The window size is set to 5 if 'PS000' is in the ID, otherwise it is set to 10.
 
-    Parameters:
+    Parameters
+    ----------
     - df: pandas.DataFrame
         The input DataFrame containing the data to process.
     - id_column: str, optional (default='ID')
@@ -138,22 +136,26 @@ def process_mtb_area(df, id_column='ID', mtb_column='Mtb Area'):
     - mtb_column: str, optional (default='Mtb Area')
         The name of the column containing the Mtb Area values to process.
 
-    Returns:
+    Returns
+    -------
     - pandas.Series
         A Series with the processed 'Mtb Area' values.
+
     """
 
     def dynamic_window(id_value):
-        """
-        Determine the window size based on the presence of 'PS000' in the ID.
+        """Determine the window size based on the presence of 'PS000' in the ID.
 
-        Parameters:
+        Parameters
+        ----------
         - id_value: str
             The ID value to check.
 
-        Returns:
+        Returns
+        -------
         - int
             The window size for the rolling median.
+
         """
         return 5 if 'PS0000' in id_value else 10
 
@@ -166,26 +168,28 @@ def process_mtb_area(df, id_column='ID', mtb_column='Mtb Area'):
 
 
 def merge_tracks(track_ID_1, track_ID_2, tracks):
-    """
-    Merges two tracks identified by their IDs into a single pandas DataFrame.
+    """Merges two tracks identified by their IDs into a single pandas DataFrame.
 
     This function finds the tracks with the specified IDs from a list of track objects,
     converts them to dictionaries, applies the split_mean_intensity function to split
     the 'mean_intensity' into separate channels, and then merges the two tracks into a
     single DataFrame.
 
-    Parameters:
+    Parameters
+    ----------
     track_ID_1 (int): The ID of the first track to merge.
     track_ID_2 (int): The ID of the second track to merge.
     tracks (list): A list of track objects, each with a 'to_dict' method and an 'ID' attribute.
 
-    Returns:
+    Returns
+    -------
     pandas.DataFrame: A DataFrame containing the merged data from the two specified tracks.
 
-    Raises:
+    Raises
+    ------
     ValueError: If track IDs are not found in the provided track list.
-    """
 
+    """
     # Find and validate tracks by IDs
     track_1 = next((t for t in tracks if t.ID == track_ID_1), None)
     track_2 = next((t for t in tracks if t.ID == track_ID_2), None)
@@ -208,18 +212,19 @@ def merge_tracks(track_ID_1, track_ID_2, tracks):
 
 
 def split_mean_intensity(input_dict):
-    """
-    Splits the 'mean_intensity' entry in a track dictionary from a multi-dimensional
+    """Splits the 'mean_intensity' entry in a track dictionary from a multi-dimensional
     array into separate entries for each channel. This is useful for integrating the data
     into a pandas DataFrame when each channel needs to be a separate column.
 
     The function dynamically handles any number of intensity channels.
 
-    Parameters:
+    Parameters
+    ----------
     input_dict (dict): A dictionary containing a 'mean_intensity' key with a multi-dimensional
                        array as its value.
 
-    Returns:
+    Returns
+    -------
     dict: The modified dictionary with separate entries for each intensity channel.
           The original 'mean_intensity' key is removed.
 
@@ -229,6 +234,7 @@ def split_mean_intensity(input_dict):
     }
     output_dict = split_mean_intensity(input_dict)
     # output_dict will have keys 'mean_intensity_0', 'mean_intensity_1', 'mean_intensity_2', etc.
+
     """
     # Check if 'mean_intensity' is in the dictionary
     if 'mean_intensity' in input_dict:
@@ -256,10 +262,10 @@ def split_mean_intensity(input_dict):
 
 
 def measure_mtb_area(track, masks, rfp_images, threshold=480, scale_factor=5.04, image_resolution=1.4949402023919043e-07):
-    """
-    Measures the area of a region in each frame of an image sequence.
+    """Measures the area of a region in each frame of an image sequence.
 
-    Parameters:
+    Parameters
+    ----------
     - track (object): An object containing tracking information with attributes 't', 'x', 'y', and 'ID'.
     - masks (array): A numpy array representing the segmented masks of the images.
     - rfp_images (array): A numpy array of RFP (red fluorescent protein) images.
@@ -267,15 +273,16 @@ def measure_mtb_area(track, masks, rfp_images, threshold=480, scale_factor=5.04,
     - scale_factor (float): Factor for scaling the coordinates from the track object.
     - image_resolution (float): The resolution of the images in pixels per meter.
 
-    Returns:
+    Returns
+    -------
     - mtb_areas (list): A list of areas (in micrometers squared) of the region for each frame.
 
     The function iterates over each frame specified in the track object, scales the coordinates,
     and selects the corresponding mask. If a mask exists at the specified coordinates, it calculates
     the area of the region with intensity above the threshold in the RFP image. The area is then converted
     from pixels to micrometers squared using the image resolution.
-    """
 
+    """
     mtb_areas = []
     for t, x, y in tqdm(zip(track.t, track.x, track.y),
                         total=len(track),
@@ -318,13 +325,13 @@ def measure_mtb_area(track, masks, rfp_images, threshold=480, scale_factor=5.04,
 
 
 def remove_small_segments(mask_stack, threshold_size=1000):
-    """
-    Remove small segments from a stack of binary masks.
+    """Remove small segments from a stack of binary masks.
 
     This function iterates over a stack of binary masks (mask_stack) representing segmented objects and removes
     small segments whose total area is less than the specified threshold_size.
 
-    Parameters:
+    Parameters
+    ----------
         mask_stack (numpy.ndarray): A 3D NumPy array containing a stack of binary masks.
                                    Each 2D mask represents segmented objects with labeled regions.
                                    Non-zero values in each mask indicate different segments.
@@ -332,20 +339,23 @@ def remove_small_segments(mask_stack, threshold_size=1000):
                                         and not removed. Segments with an area less than threshold_size will be
                                         set to 0 (removed). Default value is 1000.
 
-    Returns:
+    Returns
+    -------
         numpy.ndarray: A modified version of the input mask_stack with small segments removed.
 
     Note:
         This function modifies the input mask_stack in place. If you want to preserve the original data,
         make a copy of the mask_stack before calling this function.
 
-    Examples:
+    Examples
+    --------
         # Example usage:
         import numpy as np
         from skimage.measure import regionprops
 
         # Assuming you have a 3D mask_stack and want to remove segments smaller than 500 pixels.
         modified_mask_stack = remove_small_segments(mask_stack, threshold_size=500)
+
     """
     # Check the dimensionality of the input mask_stack
     if len(mask_stack.shape) != 3:
@@ -365,15 +375,17 @@ def remove_small_segments(mask_stack, threshold_size=1000):
 
 
 def create_track_dictionary(track, info, key):
-    """
-    Create a dictionary of track information for a single track.
+    """Create a dictionary of track information for a single track.
 
-    Parameters:
+    Parameters
+    ----------
     - track (dict): Track information dictionary
     - info (Series): Assay layout info for the track
 
-    Returns:
+    Returns
+    -------
     - dict: Dictionary containing track information
+
     """
     # Raw MTB values (interpolated)
     raw_mtb_values = pd.Series(track['mean_intensity'][:, 1]).interpolate(method='linear')
@@ -441,10 +453,8 @@ def create_track_dictionary(track, info, key):
 
 
 def instance_to_semantic(instance_image):
+    """Quick function to change instance segmentation map to semantic segmentation
     """
-    Quick function to change instance segmentation map to semantic segmentation
-    """
-
     # check dimensionality of image
     if len(instance_image.shape) == 3:
 
@@ -516,10 +526,8 @@ def instance_to_semantic(instance_image):
 
 
 def semantic_to_instance(semantic_image):
+    """Quick function to change semantic segmentation map to instance segmentation
     """
-    Quick function to change semantic segmentation map to instance segmentation
-    """
-
     # check dimensionality of image
     if len(semantic_image.shape) == 3:
 
@@ -551,8 +559,7 @@ def semantic_to_instance(semantic_image):
 
 
 def euc_dist(x1, y1, x2, y2):
-    """
-    Euclidean distance diplacement calculation for cell movement between frames
+    """Euclidean distance diplacement calculation for cell movement between frames
 
     Parameters
     ----------
@@ -560,20 +567,18 @@ def euc_dist(x1, y1, x2, y2):
         Coordinates for 2 cells in 2 dimensions at 2 different time points.
 
     Returns
-    ----------
+    -------
     euc_dist : float
         The Euclidean distance between the two cells
 
     """
-
     euc_dist = np.sqrt((x1 - x2)**2 + (y1 - y2)**2)
 
     return euc_dist
 
 
 def calc_eccentricity(major_axis, minor_axis):
-    """
-    Calculates the eccentricity of an object given its major and minor axis
+    """Calculates the eccentricity of an object given its major and minor axis
     lengths
 
     Parameters
@@ -582,11 +587,11 @@ def calc_eccentricity(major_axis, minor_axis):
         Scalar values for major and minor axis of object in question
 
     Returns
-    ----------
+    -------
     eccentricity : float
         The eccentricity of the object
-    """
 
+    """
     if major_axis < minor_axis:
         major_axis, minor_axis = minor_axis, major_axis  # swap if major axis is smaller
     eccentricity = math.sqrt(1 - (minor_axis**2 / major_axis**2))
@@ -595,8 +600,7 @@ def calc_eccentricity(major_axis, minor_axis):
 
 
 def track_euc_dist(track):
-    """
-    Calculate the Euclidean distance between frames for a track over all frames
+    """Calculate the Euclidean distance between frames for a track over all frames
 
     Parameters
     ----------
@@ -604,9 +608,10 @@ def track_euc_dist(track):
         btrack track of interest
 
     Returns
-    ----------
+    -------
     euc_dist : list
         List of Euclidean distance between frames for track of interest
+
     """
     # first convert it to a df
     track = dataio.track_to_df(track)
@@ -620,8 +625,7 @@ def track_euc_dist(track):
 
 
 def compile_multi_track_df(tracks_dict, assay_layout, track_len=None):
-    """
-    Iterates over many tracks stored in dictionary format and returns a df with
+    """Iterates over many tracks stored in dictionary format and returns a df with
     additional features calculated
 
     Parameters
@@ -630,8 +634,8 @@ def compile_multi_track_df(tracks_dict, assay_layout, track_len=None):
         A dictionary containing different sets of tracks from different expts
     track_len : int, optional
         Optional input to only store tracks of a set length
-    """
 
+    """
     # list of track info dfs
     dfs = list()
     # empty dictionary for filtered tracks
