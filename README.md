@@ -46,7 +46,7 @@ conda activate macrohet
 
 This project uses a development version of btrack that includes compatibility with pydantic ≥2, required by napari.
 To ensure compatibility with both tracking and visualisation components, btrack is installed directly from GitHub via pyproject.toml or the environment.yml file.
-
+Parts of the image tiling and stitching pipeline were adapted from [Volker Hilsenstein’s DaskFusion project](https://github.com/VolkerH/DaskFusion), used under the MIT License.
 Details of the hardware and software used to generate the analyses in this repository are provided in [reproducibility.md](reproducibility.md).
 
 ---

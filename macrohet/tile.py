@@ -19,11 +19,8 @@ from shapely.geometry import LineString
 from shapely.geometry.base import BaseGeometry
 from shapely.geometry.polygon import Polygon
 from shapely.strtree import STRtree
-from skimage.io import imread, imsave
+from skimage.io import imread
 from skimage.transform import AffineTransform
-from tqdm.auto import tqdm
-
-from .dataio import read_harmony_metadata
 
 # ignore shapely depreciation warning
 warnings.filterwarnings("ignore", category=ShapelyDeprecationWarning)
