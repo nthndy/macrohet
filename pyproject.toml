@@ -15,7 +15,7 @@ dependencies = [
                 "lxml",
                 "cellpose",
                 "scikit-learn",
-                "git+https://github.com/quantumjot/btrack.git@v0.6.6rc2"
+                "btrack @ git+https://github.com/quantumjot/btrack.git@v0.6.6rc2"
 ]
 
 [project.optional-dependencies]
