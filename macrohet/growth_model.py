@@ -116,15 +116,19 @@ def process_mtb_area(df, window=10, spike_threshold=2.0):
 def fit_lowess(df, frac=0.25, default_window=10, control_window=5):
     df = df.copy()
     df["Time Model (hours)"] = np.nan
-    df["Mtb Area Model (\u00b5m)"] = np.nan
+    df["Mtb Area Model (µm)"] = np.nan
     df["r2"] = np.nan
 
     for ID in tqdm(df["ID"].unique(), desc="Fitting LOWESS"):
         sc_df = df[df["ID"] == ID]
-        window = control_window if "PS0000" in ID else default_window
+
+        if isinstance(ID, str) and "PS0000" in ID:
+            window = control_window
+        else:
+            window = default_window
 
         time = sc_df["Time (hours)"].values
-        pop = sc_df["Mtb Area Processed (\u00b5m)"].values
+        pop = sc_df["Mtb Area Processed (µm)"].values
         if len(time) < 2:
             continue
 
@@ -135,27 +139,20 @@ def fit_lowess(df, frac=0.25, default_window=10, control_window=5):
         if len(time_model) < len(sc_df):
             pad = len(sc_df) - len(time_model)
             time_model = np.concatenate(
-                [
-                    np.full(pad // 2, np.nan),
-                    time_model,
-                    np.full(pad - pad // 2, np.nan),
-                ]
+                [np.full(pad // 2, np.nan), time_model, np.full(pad - pad // 2, np.nan)]
             )
             population_model = np.concatenate(
-                [
-                    np.full(pad // 2, np.nan),
-                    population_model,
-                    np.full(pad - pad // 2, np.nan),
-                ]
+                [np.full(pad // 2, np.nan), population_model, np.full(pad - pad // 2, np.nan)]
             )
 
         df.loc[df["ID"] == ID, "Time Model (hours)"] = time_model
-        df.loc[df["ID"] == ID, "Mtb Area Model (\u00b5m)"] = population_model
+        df.loc[df["ID"] == ID, "Mtb Area Model (µm)"] = population_model
         df.loc[df["ID"] == ID, "r2"] = r2_score(
-            sc_df["Mtb Area Processed (\u00b5m)"], model[:, 1]
+            sc_df["Mtb Area Processed (µm)"], model[:, 1]
         )
 
     return df
+
 
 
 def compute_doubling_metrics(df, min_area=1.92, r2_threshold=0.7):
