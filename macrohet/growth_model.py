@@ -103,7 +103,7 @@ def smooth_and_fix(area_series, window=10, spike_threshold=2.0):
 
 
 def process_mtb_area(df, window=10, spike_threshold=2.0):
-    cleaned_series = df.groupby("ID")["Mtb Area (\u00b5m)"].apply(
+    cleaned_series = df.groupby("ID")["Mtb Area (\u00b5m)"].transform(
         lambda x: smooth_and_fix(x, window, spike_threshold)
     )
     df = df.copy()
