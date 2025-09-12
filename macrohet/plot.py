@@ -502,3 +502,251 @@ def doubling_times_with_piecharts(subset_df, expanded_piyg, width_in=10, height_
 
     plt.tight_layout()
     plt.show()
+
+
+def doubling_times_with_stacked_bars(
+    subset_df,
+    box_cmap="expanded_piyg",   # left panel palette/colormap
+    bar_cmap="viridis",         # right panel palette/colormap
+    width_in=12,
+    height_in=6,
+    bar_height=0.6,
+    use_hatches=True,
+    hatch_patterns=("///", "xxx", "---"),
+    hatch_edgecolor="white",
+    hatch_linewidth=0.6
+):
+    """
+    Left: box/strip plots of doubling times (box_cmap).
+    Right: stacked horizontal bars (Fast/Normal/Slow) with independent palette/colormap (bar_cmap).
+
+    box_cmap / bar_cmap can be:
+      • str  → matplotlib/seaborn colormap name
+      • list → explicit list of hex codes (custom palette like expanded_piyg)
+
+    CTRL coerced to EC0 (no blank EC50/EC99 rows).
+    Rows top→bottom: WT (CTRL) → RD1 (CTRL) → PZA → INH → RIF.
+    """
+    import math
+    import numpy as np
+    import pandas as pd
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import matplotlib.gridspec as gridspec
+    import matplotlib.patches as mpatches
+    import matplotlib.cm as cm
+    from matplotlib.colors import to_rgba, ListedColormap
+    from matplotlib import font_manager as fm
+
+
+    # Theme
+    sns.set_theme(style="white")
+    plt.rcParams["font.family"] = "Helvetica"
+    plt.rcParams["hatch.linewidth"] = hatch_linewidth
+
+    df = subset_df.copy()
+    for c in ("Compound", "Strain"):
+        if c in df:
+            df[c] = df[c].astype(str)
+    df["Concentration"] = df.get("Concentration", "EC0").fillna("EC0").astype(str)
+    df.loc[df["Compound"].eq("CTRL"), "Concentration"] = "EC0"
+
+    # Scalarize doubling times
+    if df["Doubling Times"].apply(lambda v: isinstance(v, (list, tuple, np.ndarray))).any():
+        df = df.explode("Doubling Times", ignore_index=True)
+    df["Doubling Times"] = pd.to_numeric(df["Doubling Times"], errors="coerce")
+    df["Doubling Times"] = df["Doubling Times"].replace([np.inf, -np.inf], np.nan)
+    df = df[df["Doubling Times"].notna() & (df["Doubling Times"] > 0)]
+
+    keys = [k for k in ["ID", "Compound", "Strain", "Concentration", "Doubling Times"] if k in df.columns]
+    df = df.drop_duplicates(subset=keys).copy()
+
+    # Growth categories
+    bins = [0, 16, 24, np.inf]
+    labels = ["Fast", "Normal", "Slow"]
+    df["Growth Category"] = pd.cut(df["Doubling Times"], bins=bins, labels=labels, right=False)
+
+    df["Mtb Strain or Drug Compound"] = np.where(df["Compound"].eq("CTRL"), "CTRL", df["Compound"])
+    rd1_aliases = {"ΔRD1", "DeltaRD1", "deltaRD1", "RD1del", "RD1"}
+    df["Strain_norm"] = np.where(df["Strain"].isin(rd1_aliases), "RD1", "WT")
+    df["CTRL Type"] = np.where(df["Compound"].eq("CTRL"), df["Strain_norm"], pd.NA)
+    df["Display Compound"] = np.where(df["Compound"].eq("CTRL"),
+                                      df["Strain_norm"] + " (CTRL)",
+                                      df["Compound"])
+
+    strain_order = ["CTRL", "PZA", "INH", "RIF"]
+    right_row_order = ["WT (CTRL)", "RD1 (CTRL)", "PZA", "INH", "RIF"]
+    concentration_order = ["EC50", "EC0", "EC99"]
+    growth_order = ["Fast", "Normal", "Slow"]
+
+    # --- Colors ---
+    # Left panel palette
+    if isinstance(box_cmap, list):
+        palette = box_cmap
+        box_cmap_name = "custom list"
+    else:
+        palette = sns.color_palette(box_cmap, 4)
+        box_cmap_name = str(box_cmap)
+
+    # We need exactly 4 colors: WT control, ΔRD1 control, EC50, EC99
+    palette4 = _sample_colors(box_cmap, 4)
+    ctrl_wt_c, ctrl_rd1_c, ec50_c, ec99_c = palette4
+
+    # Right panel palette
+    if isinstance(bar_cmap, list):
+        cmap = ListedColormap(bar_cmap)
+        bar_cmap_name = "custom list"
+
+        # Sample evenly spaced positions across the full range [0,1]
+        positions = np.linspace(0, 1, len(growth_order))
+        growth_colors = {gr: to_rgba(cmap(pos)) for gr, pos in zip(growth_order, positions)}
+
+    else:
+        cmap = cm.get_cmap(bar_cmap, len(growth_order))
+        bar_cmap_name = str(bar_cmap)
+        growth_colors = {gr: to_rgba(cmap(i)) for i, gr in enumerate(growth_order)}
+    # Optional alpha adjust for hatches
+    for k in growth_colors:
+        r, g, b, a = growth_colors[k]
+        growth_colors[k] = (r, g, b, 0.95)
+
+    # Hatch pattern mapping
+    hatch_map = dict(zip(growth_order, hatch_patterns)) if use_hatches else {gr: None for gr in growth_order}
+
+    # --- Figure ---
+    fig = plt.figure(figsize=(width_in, height_in))
+    gs = gridspec.GridSpec(1, 2, width_ratios=[3, 1], wspace=0.2)
+    ax = plt.subplot(gs[0])
+    ax_bar = plt.subplot(gs[1])
+
+    xmax = math.ceil(float(df["Doubling Times"].max()) / 10) * 10
+    ax.axvspan(0, bins[1], alpha=0.05)
+    ax.axvspan(bins[1], bins[2], alpha=0.15)
+    ax.axvspan(bins[2], xmax, alpha=0.05)
+    ymax = len(strain_order) - 0.65
+    ax.text(bins[0],  ymax, "Fast",   fontsize=48, color="gray", alpha=0.25, ha="left",  rotation=90)
+    ax.text(bins[1], ymax, "Normal", fontsize=48, color="gray", alpha=0.35, ha="left",  rotation=90)
+    ax.text(xmax, ymax, "Slow",  fontsize=48, color="gray", alpha=0.25, ha="right", rotation=90)
+
+    # --- Left panel: CTRL
+    ctrl_df = df[df["Mtb Strain or Drug Compound"] == "CTRL"]
+    if not ctrl_df.empty:
+        sns.boxplot(data=ctrl_df, x="Doubling Times", y="Mtb Strain or Drug Compound", hue="CTRL Type",
+                    whis=[0, 100], width=.75, palette=[ctrl_wt_c, ctrl_rd1_c],
+                    ax=ax, order=strain_order)
+        sns.stripplot(data=ctrl_df, x="Doubling Times", y="Mtb Strain or Drug Compound", hue="CTRL Type",
+                      size=3.5, linewidth=0.7, edgecolor="gray", jitter=0.25, dodge=True, alpha=0.5,
+                      palette=[ctrl_wt_c, ctrl_rd1_c], ax=ax, order=strain_order)
+        if ax.legend_: ax.legend_.remove()
+
+    # --- Left panel: drugs
+    drug_df = df[df["Mtb Strain or Drug Compound"] != "CTRL"]
+    for compound in ["PZA", "INH", "RIF"]:
+        sub = drug_df[drug_df["Mtb Strain or Drug Compound"] == compound]
+        if sub.empty: continue
+        present = [c for c in concentration_order if c in sub["Concentration"].unique()]
+        pal = [ec50_c if c == "EC50" else ec99_c if c == "EC99" else ec0_c for c in present]
+        sns.boxplot(data=sub, x="Doubling Times", y="Mtb Strain or Drug Compound", hue="Concentration",
+                    whis=[0, 100], width=.75, palette=pal, hue_order=present, ax=ax, order=strain_order)
+        sns.stripplot(data=sub, x="Doubling Times", y="Mtb Strain or Drug Compound", hue="Concentration",
+                      size=3.5, linewidth=0.7, edgecolor="gray", jitter=0.25, dodge=True, alpha=0.5,
+                      palette=pal, hue_order=present, ax=ax, order=strain_order)
+        if ax.legend_: ax.legend_.remove()
+
+    ax.set_xlabel("Doubling Times (hours)")
+    ax.set_ylabel("")
+    ax.tick_params(axis="y", which="major", pad=-20)
+
+    ax.xaxis.grid(True)
+    sns.despine(offset=10, left=True, ax=ax)
+
+    legend_handles = [
+        mpatches.Patch(color=ctrl_wt_c, label="Wild-type control"),
+        mpatches.Patch(color=ctrl_rd1_c, label="ΔRD1 control"),
+        mpatches.Patch(color=ec50_c, label="EC50"),
+        mpatches.Patch(color=ec99_c, label="EC99"),
+    ]
+    ax.legend(handles=legend_handles, loc="upper center",
+              bbox_to_anchor=(0.5, 1.17), ncol=len(legend_handles), frameon=False,
+              handlelength=2, handleheight=1.0, fontsize=12,
+              title="Intracellular Doubling Times per Drug Condition & Concentration",
+              title_fontproperties=fm.FontProperties(weight="bold", size=16))
+
+    # --- Right panel stacked bars
+    g = (df.groupby(["Display Compound", "Concentration", "Growth Category"], observed=True)
+           .size()
+           .unstack("Growth Category", fill_value=0)
+           .reindex(columns=growth_order, fill_value=0))
+
+    rows = [(comp, conc)
+            for comp in right_row_order
+            for conc in concentration_order
+            if (comp, conc) in g.index and g.loc[(comp, conc)].sum() > 0]
+
+    if rows:
+        g = g.loc[pd.MultiIndex.from_tuples(rows, names=["Display Compound", "Concentration"])]
+        totals = g.sum(axis=1).replace(0, np.nan)
+        props = (g.T / totals).T.fillna(0.0)
+
+        y_pos = _grouped_y_positions(props.index, inner_gap=0.5, outer_gap=1.)
+
+        y_labels = [
+            f"{comp} • {conc}" if conc != "EC0"
+            else ("CTRL • WT" if comp.startswith("WT") else
+                  "CTRL • RD1" if comp.startswith("RD1") else comp)
+            for comp, conc in props.index
+        ]
+        lefts = np.zeros(len(props))
+        for gr in growth_order:
+            vals = props[gr].values
+            bars = ax_bar.barh(
+                y=y_pos, width=vals, left=lefts, height=bar_height,
+                label=gr, color=growth_colors[gr],
+                edgecolor=hatch_edgecolor if use_hatches else "none",
+                hatch=hatch_map[gr] if use_hatches else None,
+                linewidth=hatch_linewidth if use_hatches else 0.0
+            )
+            for bar, v in zip(bars, vals):
+                if v > 0.05:
+                    x_center = bar.get_x() + bar.get_width() / 2
+                    y_center = bar.get_y() + bar.get_height() / 2
+                    ax_bar.text(
+                        x_center, y_center, f"{v*100:.0f}%",
+                        ha="center", va="center", fontsize=9, fontweight="bold",
+                        bbox=dict(facecolor="white", edgecolor="none", boxstyle="round,pad=0.2"),
+                        zorder=5
+                    )
+            lefts += vals
+
+        ax_bar.set_xlim(0, 1)
+        ax_bar.set_xticks([0,0.5,1])
+        ax_bar.set_xticklabels(["0%", "50%","100%"])
+        ax_bar.set_yticks(y_pos)
+        ax_bar.set_yticklabels(y_labels, fontsize=12, fontweight='bold')
+        ax_bar.set_xlabel("Phenotype Proportions")
+        ax_bar.set_ylabel("")
+        ax_bar.invert_yaxis()
+        sns.despine(offset=10, left=True, ax=ax_bar)
+
+        handles = [
+            mpatches.Patch(
+                facecolor=growth_colors[k],
+                edgecolor=hatch_edgecolor if use_hatches else "none",
+                hatch=hatch_map[k] if use_hatches else None,
+                label=k,
+                linewidth=hatch_linewidth if use_hatches else 0.0
+            )
+            for k in growth_order
+        ]
+        ax_bar.legend(handles=handles, frameon=False, loc="upper center",
+                      bbox_to_anchor=(0.5, 1.1), ncol=len(handles),
+                      handlelength=2, handleheight=1.0, fontsize=12,
+                      title="Growth Phenotype Category",
+                      title_fontproperties=fm.FontProperties(weight="bold", size=12))
+    else:
+        ax_bar.axis("off")
+
+    ax.set_yticks(y_pos/2 - 0.25)
+    ax.set_yticklabels(y_labels, fontsize=12, fontweight='bold')
+    plt.tight_layout()
+    plt.show()
