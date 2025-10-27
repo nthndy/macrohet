@@ -1,9 +1,8 @@
 import io
 import json
 import os
+import xml.etree.ElementTree as ET
 import zipfile
-
-# import xml.etree.ElementTree as ET
 from pathlib import Path
 
 import numpy as np
@@ -175,23 +174,6 @@ def generate_url(row):
     return f'r{m_row}c{m_col}f{m_field}p{m_plane}-ch{m_ch}sk{m_time}fk1fl{m_flim}.tiff'
 
 
-def load_macrohet_metadata(location='desktop'):
-    """Lazy function for loading a couple of bits of info that usually take the
-    first couple of cells to load
-    """
-    if location == 'desktop':
-        base_dir = '/mnt/DATA/sandbox/pierre_live_cell_data/outputs/Replication_IPSDM_GFP/'
-    else:
-        base_dir = '/Volumes/lab-gutierrezm/home/users/dayn/macrohet/'
-    metadata_fn = os.path.join(base_dir, 'macrohet_images/Index.idx.xml')
-    metadata = read_harmony_metadata(metadata_fn)
-    metadata_path = os.path.join(base_dir, 'macrohet_images/Assaylayout/20210602_Live_cell_IPSDMGFP_ATB.xml')
-    assay_layout = read_harmony_metadata(metadata_path,
-                                         assay_layout=True,)
-
-    return metadata, assay_layout
-
-
 def track_to_df(track):
     """Quick hack to return a single track as a dataframe for output into excel
     """
@@ -208,6 +190,7 @@ def read_harmony_metadata(metadata_path: os.PathLike, assay_layout=False,
     If assay_layout is True then alternate xml format is anticipated, returning
     information about the assay layout of the experiment rather than the general
     organisation of image volume.
+    ASSAY_LAYOUT in the process of being depreciated for standalone function.
     If mask_exist is True then the existence of masks will be checked, which the
     image directory (image_dir) is required with the image metadata
     (image_metadata)
@@ -273,6 +256,7 @@ def read_harmony_metadata(metadata_path: os.PathLike, assay_layout=False,
 
     # extraction procedure for assay layout metadata
     if assay_layout:
+        print('Try the newer dataio.read_harmony_assaylayout function for added compatibility')
         # Open XML file in binary mode to handle encoding declarations
         with open(metadata_path, 'rb') as f:
             xml_data = f.read()
@@ -369,3 +353,111 @@ def do_masks_exist(image_dir, metadata, row=None, col=None, print_output=True):
                 print(f'All masks present and correct for row, col {row, col}')
             missing_mask_dict[row, col] = None
         return missing_mask_dict
+
+
+def read_harmony_assaylayout(xml_path: str | Path, replicate_number: bool = False) -> pd.DataFrame:
+    """
+    Parse PerkinElmer/Revvity Harmony assay layout XML (V5 or V6) into a DataFrame.
+
+    Parameters
+    ----------
+    xml_path : str or Path
+        Path to the Harmony assay layout XML file.
+    replicate_number : bool, optional
+        If True, add a 'Replicate #' column when the columns 'Strain', 'Compound',
+        and at least one of ['Concentration', 'ConcentrationEC'] exist.
+
+    Returns
+    -------
+    pd.DataFrame
+        Index = MultiIndex (Row, Column), columns = each Layer <Name>,
+        values coerced according to <ValueType> where possible.
+    """
+    xml_path = Path(xml_path)
+    root = ET.parse(xml_path).getroot()
+
+    layers = []
+    for layer in root.findall(".//{*}Layer"):
+        name_el = layer.find("./{*}Name")
+        vtype_el = layer.find("./{*}ValueType")
+        lname = (name_el.text or "").strip() if name_el is not None else f"Layer_{len(layers)+1}"
+        vtype = (vtype_el.text or "").strip() if vtype_el is not None else None
+
+        # V5 puts <Well> under <Wells>; V6 may put <Well> directly under <Layer>
+        wells_parent = layer.find("./{*}Wells")
+        if wells_parent is not None:
+            well_nodes = wells_parent.findall("./{*}Well")
+        else:
+            well_nodes = layer.findall("./{*}Well")
+
+        wells = []
+        for w in well_nodes:
+            r_el = w.find("./{*}Row")
+            c_el = w.find("./{*}Col")
+            val_el = w.find("./{*}Value")
+            if r_el is None or c_el is None:
+                continue
+            r = int(r_el.text)
+            c = int(c_el.text)
+            v = _coerce(val_el.text if val_el is not None else None, vtype)
+            wells.append((r, c, v))
+        layers.append((lname, vtype, wells))
+
+    # Collect coordinates and assemble table
+    coords = sorted({(r, c) for _, _, ws in layers for (r, c, _) in ws})
+    idx = pd.MultiIndex.from_tuples(coords, names=["Row", "Column"])
+    rows = {coord: {} for coord in idx}
+    for lname, _, ws in layers:
+        for r, c, v in ws:
+            rows[(r, c)][lname] = v
+
+    df = pd.DataFrame([rows[k] for k in idx], index=idx).where(pd.notnull, None)
+
+    # Optional replicate numbering
+    if replicate_number:
+        # Require Strain + Compound + (Concentration and/or ConcentrationEC)
+        options = [
+            ["Strain", "Compound", "Concentration", "ConcentrationEC"],
+            ["Strain", "Compound", "Concentration"],
+            ["Strain", "Compound", "ConcentrationEC"],
+        ]
+        have = set(df.columns)
+        for group in options:
+            if set(group).issubset(have):
+                df = df.copy()
+                df["Replicate #"] = df.groupby(group, dropna=False).cumcount() + 1
+                break
+
+    # drop nananaaa values from df
+    df = df.dropna()
+
+    return df
+
+
+def _strip_ns(tag: str) -> str:
+    return tag.split('}', 1)[-1] if '}' in tag else tag
+
+
+def _coerce(val_text: str | None, value_type: str | None):
+    if val_text is None:
+        return None
+    s = val_text.strip()
+    if s == "":
+        return None
+    vt = (value_type or "").strip().lower()
+    if vt in {"double", "float"}:
+        try:
+            return float(s)
+        except ValueError:
+            return s
+    if vt in {"int", "integer"}:
+        try:
+            return int(s)
+        except ValueError:
+            try:
+                return int(float(s))
+            except ValueError:
+                return s
+    if vt in {"bool", "boolean"}:
+        return s.lower() in {"true", "1", "yes"}
+    return s
