@@ -6,10 +6,8 @@ import matplotlib as mpl
 import matplotlib.font_manager as fm
 import matplotlib.pyplot as plt
 import napari
-import napari
 import numpy as np
 import seaborn as sns
-from magicgui import magicgui
 from magicgui import magicgui
 from natsort import natsorted
 from skimage.morphology import area_closing, label, remove_small_objects
