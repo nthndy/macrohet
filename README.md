@@ -1,24 +1,63 @@
-<!-- #region -->
+<p align="center">
+  <img src="https://github.com/nthndy/macrohet/raw/main/docs/images/landing_img.png" alt="macrohet image" width="600">
+</p>
 
 # macro*het*
 
-![Funky image showing misrendered 3D view (XYT) of a timelapse microscopy image volume, looks like pink and green marble with a projected scale bar and time counter along the bottom](./landing_img.png)
+**Fast-growing intracellular _Mycobacterium tuberculosis_ populations evade antibiotic treatment**
 
-A repo for bringing together all of the threads of analyses for studying the single cell heterogeneity of human macrophages infected with _Mycobacterium tuberculosis_ (Mtb).
+WORK IN PROGRESS (tidying code up pending publication)
+This repository accompanies the manuscript exploring single-cell heterogeneity in _Mtb_-infected macrophages using time-lapse microscopy, tracking and single-cell growth rate analysis.
 
-WORK IN PROGRESS
+GitHub Pages for this project (figures + interactive plots are work in progress, pending publication):
+[nthndy.github.io/macrohet](https://nthndy.github.io/macrohet)
 
-Currently mainly using it to back up various messy notebooks etc.
+---
 
-### This repository has 2 main aspects to it: labelling and analysis
+## Contents
 
-1. The upstream labelling section is for the tiling, segmentation and tracking of timelapse microscopy data featuring human macrophages infected with _Mycobacterium tuberculosis_.
-2. The downstream analysis section is for investigating and interrogating the single-cell trajectories created in the first section as well as any further biological analysis of the microscopy data.
+- `notebooks/`: Reproducible analysis notebooks for data loading, segmentation, tracking, and quantification
+- `macrohet/`: Python module with core analysis functions
+- `data/`: Subset of image data with associated segmentation and tracks
+- `models/`: Bespoke segmentation model and _btrack_ tracking parameters
+- `docs/`: HTML manuscript and supporting content (hosted via GitHub Pages)
+- `environment.yml`: Conda environment specification
+- `.pre-commit-config.yaml`: Code formatting and linting hooks
+- `README.md`: Project overview and usage instructions
 
-Both sections contain `dev` folders where the bulk of the WIP notebooks will be located and zipped in archive. The more generally applicable and polished notebooks will be in the main directories of each section.
+---
 
-### Here is an interactive example graph for browsing:
+## Installation and reproducibility
 
-[![Example analysis](example_graph.png)](https://macrohet.s3.eu-west-2.amazonaws.com/dMtb/dMtb_kde.html)
+Clone the repository:
 
-<!-- #endregion -->
+```bash
+git clone https://github.com/nthndy/macrohet.git
+cd macrohet
+pip install -e .
+```
+
+Create and activate the environment:
+
+```bash
+mamba env create -f environment.yml
+conda activate macrohet
+```
+
+This project uses a development version of btrack that includes compatibility with pydantic ≥2, required by napari.
+To ensure compatibility with both tracking and visualisation components, btrack is installed directly from GitHub via pyproject.toml or the environment.yml file.
+Parts of the image tiling and stitching pipeline were adapted from [Volker Hilsenstein’s DaskFusion project](https://github.com/VolkerH/DaskFusion), used under the MIT License.
+Details of the hardware and software used to generate the analyses in this repository are provided in [reproducibility.md](reproducibility.md).
+
+---
+
+## Contact
+
+For questions or access to underlying data/code, please contact:
+
+**Nathan J. Day** <br>
+_Host–Pathogen Interactions in Tuberculosis Laboratory_ <br>
+The Francis Crick Institute <br>
+nathan.day@crick.ac.uk <br>
+[@nthndy.bsky.social](https://bsky.app/profile/nthndy.bsky.social) <br>
+[github.com/nthndy](https://github.com/nthndy) <br>

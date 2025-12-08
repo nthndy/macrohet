@@ -2,9 +2,10 @@ import glob
 import logging
 import os
 import warnings
+from collections.abc import Callable, Iterator
 from functools import partial
 from pathlib import Path
-from typing import Any, Callable, Dict, Iterator, List, Optional, Tuple, Union
+from typing import Any, Union
 
 import dask
 import dask.array as da
@@ -18,33 +19,29 @@ from shapely.geometry import LineString
 from shapely.geometry.base import BaseGeometry
 from shapely.geometry.polygon import Polygon
 from shapely.strtree import STRtree
-from skimage.io import imread, imsave
+from skimage.io import imread
 from skimage.transform import AffineTransform
-from tqdm.auto import tqdm
-
-from .dataio import read_harmony_metadata
 
 # ignore shapely depreciation warning
 warnings.filterwarnings("ignore", category=ShapelyDeprecationWarning)
 pkg_resources.require("Shapely<2.0.0")
 # ignore error message for pandas new col assignment
 pd.options.mode.chained_assignment = None
-FilePath = Union[Path, str]
+FilePath = Path | str
 ArrayLike = Union[np.ndarray, "dask.array.Array"]
 
 logging.basicConfig(level=logging.INFO)
 
 
 class FileNotFoundError(Exception):
+    """Custom exception raised when a file is not found.
     """
-    Custom exception raised when a file is not found.
-    """
+
     pass
 
 
-def find_files_exist(fns: List[str], image_dir: str):
-    """
-    Check if the given list of filenames exist in the specified directory.
+def find_files_exist(fns: list[str], image_dir: str):
+    """Check if the given list of filenames exist in the specified directory.
     logging.info('Entering function: find_files_exist')
 
     Parameters
@@ -71,17 +68,16 @@ def compile_mosaic(
     metadata: pd.DataFrame,
     row: int,
     col: int,
-    input_transforms: Optional[List[Callable[[np.ndarray], np.ndarray]]] = None,
-    set_plane: Optional[Any] = None,  # Can be int or 'max_proj'/'sum_proj'
-    set_channel: Optional[int] = None,
-    set_time: Optional[int] = None,
+    input_transforms: list[Callable[[np.ndarray], np.ndarray]] | None = None,
+    set_plane: Any | None = None,  # Can be int or 'max_proj'/'sum_proj'
+    set_channel: int | None = None,
+    set_time: int | None = None,
     overlap_percentage: float = 0.1,
-    subset_field_IDs: Optional[List[int]] = None,
-    n_tile_rows: Optional[int] = None,
-    n_tile_cols: Optional[int] = None
+    subset_field_IDs: list[int] | None = None,
+    n_tile_rows: int | None = None,
+    n_tile_cols: int | None = None
 ) -> np.ndarray:
-    """
-    Compiles a mosaic of images from fragmented image files, typically exported
+    """Compiles a mosaic of images from fragmented image files, typically exported
     from the Harmony software, and returns a dask array for on-the-fly stitching.
 
     This function is versatile, allowing for the stitching of any contiguous region
@@ -142,8 +138,8 @@ def compile_mosaic(
     >>> image_dir = '/path/to/images'
     >>> metadata = pd.read_csv('/path/to/metadata.csv')
     >>> mosaic = compile_mosaic(image_dir, metadata, row=1, col=2)
-    """
 
+    """
     # logging.info(f'Entering function: compile_mosaic\n Parameters: row, col, plane, channel, time {row, col, set_plane, set_channel, set_time} ')
 
     # check if specified row and column exists by checking metadata
@@ -220,12 +216,12 @@ def compile_mosaic(
     images = [frame.rechunk(tile_size, tile_size) for frame in images]
     # stack them together and call compute so the it returns a single da and not a da of a da
     images = da.stack(images, axis=0)  # .compute()
+
     # reshape them according to TCZXY
     images = images.reshape((len(timepoint_IDs),
                              len(channel_IDs),
                              len(plane_IDs),
                              images.shape[-2], images.shape[-1]))
-
     # conduct projection according to specified type
     if projection == 'max_proj':
         images = np.max(images, axis=2)
@@ -253,9 +249,8 @@ def stitch(load_transform_image: partial,
            col: int,
            n_tile_rows: int,
            n_tile_cols: int,
-           subset_field_IDs=None,) -> Tuple[da.Array, List[Tuple]]:
-    """
-    Function to stitch a single-frame/slice mosaic image together from individual image tiles.
+           subset_field_IDs=None,) -> tuple[da.Array, list[tuple]]:
+    """Function to stitch a single-frame/slice mosaic image together from individual image tiles.
 
     This function takes metadata for image tiles and their spatial coordinates, then
     stitches them together into a single large image. It supports selective stitching
@@ -292,8 +287,8 @@ def stitch(load_transform_image: partial,
         Stitched mosaic image as a Dask array.
     tiles_shifted_shapely : List[Tuple]
         List of tuples containing chunk information and transformations for each tile.
-    """
 
+    """
     # Filter metadata for the current mosaic
     conditions = (df['TimepointID'] == str(time)) & (df['PlaneID'] == str(plane)) & \
                  (df['ChannelID'] == str(channel)) & (df['Row'] == str(row)) & (df['Col'] == str(col))
@@ -332,7 +327,7 @@ def stitch(load_transform_image: partial,
     shifted_tiles = [transform_tile_coord(sample.shape, t) for t in transforms_with_shift]
 
     # Determine chunk size and boundaries
-    chunk_size = (stitched_shape[0] / n_tile_rows, stitched_shape[1] / n_tile_cols)
+    chunk_size = (int(stitched_shape[0] / n_tile_rows), int(stitched_shape[1] / n_tile_cols))
     chunks = normalize_chunks(chunk_size, shape=stitched_shape)
     assert np.all(np.array(stitched_shape) == np.array(list(map(sum, chunks)))), "Chunks do not fit into mosaic size"
     chunk_boundaries = list(get_chunk_coord(stitched_shape, chunk_size))
@@ -357,9 +352,8 @@ def stitch(load_transform_image: partial,
     return frame, tiles_shifted_shapely
 
 
-def transform_tile_coord(shape: Tuple[int, int], affine_matrix: np.ndarray) -> np.ndarray:
-    """
-    Returns the corner coordinates of a 2D array after applying a transformation.
+def transform_tile_coord(shape: tuple[int, int], affine_matrix: np.ndarray) -> np.ndarray:
+    """Returns the corner coordinates of a 2D array after applying a transformation.
 
     Parameters
     ----------
@@ -372,6 +366,7 @@ def transform_tile_coord(shape: Tuple[int, int], affine_matrix: np.ndarray) -> n
     -------
     np.ndarray
         Transformed corner coordinates.
+
     """
     h, w = shape
     baserect = np.array([[0, 0], [h, 0], [h, w], [0, w]])
@@ -380,9 +375,8 @@ def transform_tile_coord(shape: Tuple[int, int], affine_matrix: np.ndarray) -> n
     return transformed_rect
 
 
-def get_chunk_coord(shape: Tuple[int, int], chunk_size: Tuple[int, int]) -> Iterator[Tuple[Tuple[int, int], Tuple[int, int]]]:
-    """
-    Iterator that returns the bounding coordinates for the individual chunks of a dask array.
+def get_chunk_coord(shape: tuple[int, int], chunk_size: tuple[int, int]) -> Iterator[tuple[tuple[int, int], tuple[int, int]]]:
+    """Iterator that returns the bounding coordinates for the individual chunks of a dask array.
 
     Parameters
     ----------
@@ -395,6 +389,7 @@ def get_chunk_coord(shape: Tuple[int, int], chunk_size: Tuple[int, int]) -> Iter
     -------
     Iterator[Tuple[Tuple[int, int], Tuple[int, int]]]
         Iterator over chunk boundaries.
+
     """
     chunksy, chunksx = normalize_chunks(chunk_size, shape=shape)
     y = 0
@@ -407,8 +402,7 @@ def get_chunk_coord(shape: Tuple[int, int], chunk_size: Tuple[int, int]) -> Iter
 
 
 def numpy_shape_to_shapely(coords: np.ndarray, shape_type: str = "polygon") -> BaseGeometry:
-    """
-    Convert a numpy array of coordinates to a shapely object.
+    """Convert a numpy array of coordinates to a shapely object.
 
     Parameters
     ----------
@@ -421,6 +415,7 @@ def numpy_shape_to_shapely(coords: np.ndarray, shape_type: str = "polygon") -> B
     -------
     BaseGeometry
         Shapely object.
+
     """
     _coords = coords[:, ::-1].copy()
     _coords[:, 1] *= -1
@@ -432,9 +427,8 @@ def numpy_shape_to_shapely(coords: np.ndarray, shape_type: str = "polygon") -> B
         raise ValueError("Invalid shape type")
 
 
-def get_rect_from_chunk_boundary(chunk_boundary: Tuple[Tuple[int, int], Tuple[int, int]]) -> np.ndarray:
-    """
-    Given a chunk boundary tuple, return a numpy array representing a rectangle.
+def get_rect_from_chunk_boundary(chunk_boundary: tuple[tuple[int, int], tuple[int, int]]) -> np.ndarray:
+    """Given a chunk boundary tuple, return a numpy array representing a rectangle.
 
     Parameters
     ----------
@@ -445,6 +439,7 @@ def get_rect_from_chunk_boundary(chunk_boundary: Tuple[Tuple[int, int], Tuple[in
     -------
     np.ndarray
         Rectangle coordinates.
+
     """
     ylim, xlim = chunk_boundary
     miny, maxy = ylim[0], ylim[1] - 1
@@ -453,11 +448,10 @@ def get_rect_from_chunk_boundary(chunk_boundary: Tuple[Tuple[int, int], Tuple[in
 
 
 def find_chunk_tile_intersections(
-    tiles_shapely: List[BaseGeometry],
-    chunks_shapely: List[BaseGeometry]
-) -> Dict[Tuple[int, int], List[Tuple[Union[str, np.ndarray], np.ndarray]]]:
-    """
-    For each output array chunk, find the intersecting image tiles.
+    tiles_shapely: list[BaseGeometry],
+    chunks_shapely: list[BaseGeometry]
+) -> dict[tuple[int, int], list[tuple[str | np.ndarray, np.ndarray]]]:
+    """For each output array chunk, find the intersecting image tiles.
 
     Parameters
     ----------
@@ -470,6 +464,7 @@ def find_chunk_tile_intersections(
     -------
     Dict[Tuple[int, int], List[Tuple[Union[str, np.ndarray], np.ndarray]]]
         Dictionary mapping chunk anchor points to tuples of image file names and their corresponding affine transform matrices.
+
     """
     chunk_to_tiles = {}
     tile_tree = STRtree(tiles_shapely)
@@ -486,13 +481,12 @@ def find_chunk_tile_intersections(
 
 
 def fuse_func(
-    input_tile_info: Dict[Tuple[int, int], List[Tuple[Union[str, Path, np.ndarray], np.ndarray]]],
-    imload_fn: Optional[Callable] = imread,
+    input_tile_info: dict[tuple[int, int], list[tuple[str | Path | np.ndarray, np.ndarray]]],
+    imload_fn: Callable | None = imread,
     block_info=None,
     dtype=np.uint16,
 ) -> np.ndarray:
-    """
-    Fuses the tiles that intersect the current chunk of a dask array using maximum projection.
+    """Fuses the tiles that intersect the current chunk of a dask array using maximum projection.
 
     Parameters
     ----------
@@ -509,6 +503,7 @@ def fuse_func(
     -------
     np.ndarray
         Array of chunk-shape containing max projection of tiles falling into chunk.
+
     """
     array_location = block_info[None]["array-location"]
     anchor_point = (array_location[0][0], array_location[1][0])
@@ -535,9 +530,8 @@ def fuse_func(
     return fused
 
 
-def load_image(file: Union[str, Path], transforms: List[Callable[[np.ndarray], np.ndarray]] = None) -> np.ndarray:
-    """
-    Load image from given filepath with optional transformation implementation.
+def load_image(file: str | Path, transforms: list[Callable[[np.ndarray], np.ndarray]] = None) -> np.ndarray:
+    """Load image from given filepath with optional transformation implementation.
 
     Parameters
     ----------
@@ -550,6 +544,7 @@ def load_image(file: Union[str, Path], transforms: List[Callable[[np.ndarray], n
     -------
     np.ndarray
         Loaded and possibly transformed image.
+
     """
     try:
         img = imread(file)
@@ -566,17 +561,19 @@ def load_image(file: Union[str, Path], transforms: List[Callable[[np.ndarray], n
 
 
 def final_image_size(size_of_tile, overlap_percentage, n_tile_rows, n_tile_cols):
-    """
-    Calculate the size of the final stitched image for a rectangular mosaic.
+    """Calculate the size of the final stitched image for a rectangular mosaic.
 
-    Parameters:
+    Parameters
+    ----------
     n_tile_rows (int): Number of tiles along the width.
     n_tile_cols (int): Number of tiles along the height.
     size_of_tile (int): Size of each tile in pixels.
-    overlap_percentage (float): Overlap between the tiles as a percentage (0.1 for 10%).
+    overlap_percentage (float): Overlap between the tiles as a percentage.
 
-    Returns:
+    Returns
+    -------
     tuple: Size of the final stitched image in pixels (width, height).
+
     """
     # Calculate the actual overlap in pixels
     overlap = overlap_percentage * size_of_tile
@@ -588,58 +585,3 @@ def final_image_size(size_of_tile, overlap_percentage, n_tile_rows, n_tile_cols)
     final_image_height = (n_tile_rows * size_of_tile) - ((n_tile_rows - 1) * overlap)
 
     return (int(final_image_width), int(final_image_height))
-
-
-def compile_and_export_mosaic(image_dir: str, metadata_file_path: str, chunk_fraction=9):
-    """
-    Uses various functions to compile a more user-friendly experience of tiling
-    a set of images that have been exported from the Harmony software.
-    """
-    fns = glob.glob(os.path.join(image_dir, '*.tiff'))
-    print(len(fns), 'image files found')
-    df = read_harmony_metadata(metadata_file_path)
-    # extract some necessary information from the metadata before tiling
-    channel_IDs = df['ChannelID'].unique()
-    plane_IDs = df['PlaneID'].unique()
-    timepoint_IDs = df['TimepointID'].unique()
-    # set a few parameters for the tiling approach
-
-    load_transform_image = partial(load_image, transforms=[])
-    row_col_list = list()
-    for index, row in (df.iterrows()):
-        row_col_list.append(tuple((int(row['Row']), int(row['Col']))))
-    row_col_list = list(set(row_col_list))
-    for n, i in enumerate(row_col_list):
-        print('Position index and (row,column):', n, i)
-    # get user input for desired row and column
-    print('Enter the row number you want:')
-    row = input()
-    print('Enter the column number you want:')
-    col = input()
-    print('Enter the output directory, or enter for Desktop output')
-    output_directory = input()
-    if output_directory == '':
-        from datetime import datetime
-        now = datetime.now()  # current date and time
-        date_time = now.strftime("%m_%d_%Y")
-        output_directory = f'Images_{date_time}'
-        if not os.path.exists(output_directory):
-            os.mkdir(output_directory)
-    else:
-        if not os.path.exists(output_directory):
-            os.mkdir(output_directory)
-    for time in tqdm(timepoint_IDs, leave=False, desc='Timepoint progress'):
-        for channel in tqdm(channel_IDs, leave=False, desc='Channel progress'):
-            for plane in tqdm(plane_IDs, leave=False, desc='Z-slice progress'):
-                frame, chunk_info = stitch(load_transform_image,
-                                           df,
-                                           image_dir,
-                                           time,
-                                           plane,
-                                           channel,
-                                           row,
-                                           col,
-                                           chunk_fraction)
-                fn = f'image_t{str(time).zfill(6)}_c{str(channel).zfill(4)}_z{str(plane).zfill(4)}.tiff'
-                output_path = os.path.join(output_directory, fn)
-                imsave(output_path, frame)

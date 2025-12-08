@@ -1,0 +1,21 @@
+name: macrohet
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - jupyterlab
+  - numpy
+  - pandas
+  - scikit-image
+  - scikit-learn
+  - scipy
+  - zarr
+  - napari
+  - seaborn
+  - matplotlib
+  - tqdm
+  - ipywidgets
+  - cellpose
+  - pip
+  - pip:
+      - git+https://github.com/quantumjot/btrack.git@v0.6.6rc2
