@@ -21,15 +21,13 @@ from shapely.strtree import STRtree
 from skimage.io import imread
 from skimage.transform import AffineTransform
 
+
 # ignore shapely depreciation warning
 warnings.filterwarnings("ignore", category=ShapelyDeprecationWarning)
 # ignore error message for pandas new col assignment
-pd.options.mode.chained_assignment = None
 FilePath = Path | str
 ArrayLike = Union[np.ndarray, "dask.array.Array"]
-
-logging.basicConfig(level=logging.INFO)
-
+logger = logging.getLogger(__name__)
 
 class FileNotFoundError(Exception):
     """Custom exception raised when a file is not found.
@@ -303,7 +301,7 @@ def stitch(load_transform_image: partial,
     _fuse_func = partial(fuse_func, imload_fn=load_transform_image, dtype=sample.dtype)
 
     # Convert coordinates from standard units to pixels
-    coords = filtered_df[["URL", "PositionX", "PositionY", "ImageResolutionX", "ImageResolutionY"]]
+    coords = filtered_df[["URL", "PositionX", "PositionY", "ImageResolutionX", "ImageResolutionY"]].copy()
     coords['PositionXPix'] = coords['PositionX'].astype(float) / coords['ImageResolutionX'].astype(float)
     coords['PositionYPix'] = coords['PositionY'].astype(float) / coords['ImageResolutionY'].astype(float)
 
