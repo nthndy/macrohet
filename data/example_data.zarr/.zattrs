@@ -1,14 +1,4 @@
 {
-    "axes": "TCZYX",
-    "description": "Example time-lapse of Mtb-infected macrophages",
-    "harmony_metadata": {
-        "Channels": [
-            "EGFP",
-            "E2Crimson"
-        ],
-        "ExposureTime (ms)": 0.15001234872808103,
-        "ObjectiveNA": 1.1
-    },
     "multiscales": [
         {
             "axes": [
@@ -18,7 +8,7 @@
                 },
                 {
                     "name": "c",
-                    "type": "space"
+                    "type": "channel"
                 },
                 {
                     "name": "z",
@@ -47,19 +37,10 @@
                             "type": "scale"
                         }
                     ],
-                    "path": "images/0"
+                    "path": "0"
                 }
             ],
             "version": "0.4"
         }
-    ],
-    "n_channels": 2,
-    "n_timepoints": 75,
-    "n_zplanes": 3,
-    "pixel_size": {
-        "X": 7.534498620055198e-07,
-        "Y": 7.534498620055198e-07,
-        "Z": 2e-06
-    },
-    "unit": "micrometer"
+    ]
 }

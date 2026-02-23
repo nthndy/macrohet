@@ -6,12 +6,11 @@ from collections.abc import Callable, Iterator
 from functools import partial
 from pathlib import Path
 from typing import Any, Union
-
+import importlib.resources as resources
 import dask
 import dask.array as da
 import numpy as np
 import pandas as pd
-import pkg_resources
 from dask.array.core import normalize_chunks
 from scipy.ndimage import affine_transform
 from shapely.errors import ShapelyDeprecationWarning
@@ -22,16 +21,13 @@ from shapely.strtree import STRtree
 from skimage.io import imread
 from skimage.transform import AffineTransform
 
+
 # ignore shapely depreciation warning
 warnings.filterwarnings("ignore", category=ShapelyDeprecationWarning)
-pkg_resources.require("Shapely<2.0.0")
 # ignore error message for pandas new col assignment
-pd.options.mode.chained_assignment = None
 FilePath = Path | str
 ArrayLike = Union[np.ndarray, "dask.array.Array"]
-
-logging.basicConfig(level=logging.INFO)
-
+logger = logging.getLogger(__name__)
 
 class FileNotFoundError(Exception):
     """Custom exception raised when a file is not found.
@@ -189,33 +185,27 @@ def compile_mosaic(
 
     load_transform_image = partial(load_image, transforms=input_transforms)
 
-    # stitch the images together over all defined axis using dask delayed
-    images = [dask.delayed(stitch)(load_transform_image,
-                                   metadata,
-                                   image_dir,
-                                   time,
-                                   plane,
-                                   channel,
-                                   str(row),
-                                   str(col),
-                                   n_tile_rows,
-                                   n_tile_cols,
-                                   subset_field_IDs)[0]
+    # stitch the images together over all defined axis natively
+    images = [stitch(load_transform_image,
+                     metadata,
+                     image_dir,
+                     time,
+                     plane,
+                     channel,
+                     str(row),
+                     str(col),
+                     n_tile_rows,
+                     n_tile_cols,
+                     subset_field_IDs)[0]
               for time in timepoint_IDs
               for channel in channel_IDs
               for plane in plane_IDs]
 
-    # create a series of dask arrays out of the delayed funcs
-    images = [da.from_delayed(frame,
-                              shape=image_size,
-                              dtype=dtype)
-              # for frame in tqdm(images, desc='Stitching images together')]
-              for frame in images]
-
-    # rechunk so they are more managable along original image tile size
+    # rechunk so they are more manageable along original image tile size
     images = [frame.rechunk(tile_size, tile_size) for frame in images]
-    # stack them together and call compute so the it returns a single da and not a da of a da
-    images = da.stack(images, axis=0)  # .compute()
+    
+    # stack them together directly
+    images = da.stack(images, axis=0) 
 
     # reshape them according to TCZXY
     images = images.reshape((len(timepoint_IDs),
@@ -311,7 +301,7 @@ def stitch(load_transform_image: partial,
     _fuse_func = partial(fuse_func, imload_fn=load_transform_image, dtype=sample.dtype)
 
     # Convert coordinates from standard units to pixels
-    coords = filtered_df[["URL", "PositionX", "PositionY", "ImageResolutionX", "ImageResolutionY"]]
+    coords = filtered_df[["URL", "PositionX", "PositionY", "ImageResolutionX", "ImageResolutionY"]].copy()
     coords['PositionXPix'] = coords['PositionX'].astype(float) / coords['ImageResolutionX'].astype(float)
     coords['PositionYPix'] = coords['PositionY'].astype(float) / coords['ImageResolutionY'].astype(float)
 
@@ -531,27 +521,14 @@ def fuse_func(
 
 
 def load_image(file: str | Path, transforms: list[Callable[[np.ndarray], np.ndarray]] = None) -> np.ndarray:
-    """Load image from given filepath with optional transformation implementation.
-
-    Parameters
-    ----------
-    file : Union[str, Path]
-        Path to the image file.
-    transforms : List[Callable[[np.ndarray], np.ndarray]], optional
-        List of transformation functions to apply to the image, by default None.
-
-    Returns
-    -------
-    np.ndarray
-        Loaded and possibly transformed image.
-
-    """
+    """Load image from given filepath with optional transformation implementation."""
     try:
         img = imread(file)
     except Exception as e:
         raise Exception(f'{e} \n Could not load file: {file}') from e
 
-    img = da.rot90(img, k=3)  # Need this to bridge cartesian coords with python image coords
+    # Changed from da.rot90 to np.rot90
+    img = np.rot90(img, k=3) 
 
     if transforms is not None:
         for transform in transforms:
