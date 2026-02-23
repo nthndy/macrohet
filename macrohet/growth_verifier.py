@@ -9,143 +9,15 @@ import napari
 import numpy as np
 import pandas as pd
 import seaborn as sns
-import statsmodels.api as sm
-from sklearn.metrics import r2_score
+
+from macrohet.growth_model import (
+    compute_doubling_metrics,
+    fit_lowess,
+    process_mtb_area,
+)
 
 # ==========================================
-# PART 1: ROBUST PROCESSING LOGIC
-# ==========================================
-
-
-#### TO-DO: ensure smooth and process mtb signals are same as in main modules
-#### and load from growth_model.py rather than in here
-
-
-def smooth_and_fix_relaxed(area_series, window=10, spike_threshold=10.0):
-    """
-    Smooths data using a CENTERED rolling mean to detect spikes.
-    Allows for large biological jumps (10x) but removes single-pixel noise.
-    """
-    original_index = area_series.index
-    area_series = area_series.reset_index(drop=True)
-
-    # center=True allows the mean to 'see' the jump coming
-    rolling_mean = area_series.rolling(window=window, min_periods=1, center=True).mean()
-
-    cleaned = area_series.copy()
-    for i in range(1, len(cleaned) - 1):
-        # Relaxed Threshold Check
-        if cleaned.iloc[i] > spike_threshold * rolling_mean.iloc[i]:
-            cleaned.iloc[i] = np.nan
-        # Zero-Bounce Check
-        elif (
-            cleaned.iloc[i] == 0
-            and cleaned.iloc[i - 1] > 0
-            and cleaned.iloc[i + 1] > 0
-        ):
-            cleaned.iloc[i] = np.nan
-
-    result = cleaned.interpolate(limit_direction='both')
-    result.index = original_index
-    return result
-
-def process_mtb_area_relaxed(df, window=10, spike_threshold=10.0):
-    """Applies relaxed smoothing to the DataFrame group-wise."""
-    df = df.copy()
-    # We use transform to keep the index aligned strictly
-    cleaned_series = df.groupby("ID")["Mtb Area (\u00b5m)"].transform(
-        lambda x: smooth_and_fix_relaxed(x, window, spike_threshold)
-    )
-    df["Mtb Area Processed (\u00b5m)"] = cleaned_series
-    return df
-
-def fit_lowess(df, frac=0.25):
-    """Robust Lowess fitting with explicit index alignment."""
-    df = df.copy()
-    cols = ["Time Model (hours)", "Mtb Area Model (\u00b5m)", "r2"]
-    for c in cols:
-        if c not in df.columns:
-            df[c] = np.nan
-
-    # Iterate unique IDs (using list to avoid tqdm spam in GUI mode)
-    for ID in df["ID"].unique():
-        mask = df["ID"] == ID
-        sc_df = df[mask]
-
-        valid_df = sc_df.dropna(subset=["Time (hours)", "Mtb Area Processed (\u00b5m)"])
-        if len(valid_df) < 5:
-            continue
-
-        valid_df = valid_df.sort_values("Time (hours)")
-        valid_idx = valid_df.index
-
-        time = valid_df["Time (hours)"].values
-        pop = valid_df["Mtb Area Processed (\u00b5m)"].values
-
-        try:
-            z = sm.nonparametric.lowess(endog=pop, exog=time, frac=frac)
-            df.loc[valid_idx, "Time Model (hours)"] = z[:, 0]
-            df.loc[valid_idx, "Mtb Area Model (\u00b5m)"] = z[:, 1]
-            df.loc[mask, "r2"] = r2_score(pop, z[:, 1])
-        except Exception:
-            continue
-    return df
-
-def compute_doubling_metrics(df, min_area=1.92, r2_threshold=0.7, min_doubling_time=4.0):
-    """Calculates doubling metrics, filtering out impossible speeds (<4h)."""
-    df = df.copy()
-    df["Doubling Amounts"] = None
-    df["Doubling Times"] = None
-
-    for ID in df["ID"].unique():
-        mask = df["ID"] == ID
-        full_group_len = mask.sum()
-
-        sc_df = df[mask].dropna(subset=["Time Model (hours)", "Mtb Area Model (\u00b5m)"])
-        if sc_df.empty:
-            continue
-
-        if sc_df["r2"].iloc[0] < r2_threshold:
-            continue
-
-        min_val = max(sc_df["Mtb Area Model (\u00b5m)"].min(), min_area)
-        max_val = sc_df["Mtb Area Model (\u00b5m)"].max()
-        if max_val <= min_val:
-            continue
-
-        N_series = []
-        curr = min_val
-        while curr <= max_val:
-            N_series.append(curr)
-            curr *= 2
-
-        if len(N_series) < 2:
-            continue
-
-        times = sc_df["Time Model (hours)"]
-        vals = sc_df["Mtb Area Model (\u00b5m)"]
-
-        doubling_idx = [np.abs(vals - target).idxmin() for target in N_series]
-        dt_intervals = np.diff(times.loc[doubling_idx].values)
-
-        # Filter noise
-        valid_amounts = [N_series[0]]
-        valid_intervals = []
-        for i, dt in enumerate(dt_intervals):
-            if dt >= min_doubling_time:
-                valid_intervals.append(dt)
-                valid_amounts.append(N_series[i+1])
-
-        if not valid_intervals:
-            continue
-
-        df.loc[mask, "Doubling Amounts"] = pd.Series([valid_amounts] * full_group_len, index=df[mask].index)
-        df.loc[mask, "Doubling Times"] = pd.Series([valid_intervals] * full_group_len, index=df[mask].index)
-
-    return df
-
-# ==========================================
-# PART 2: THE ANNOTATOR GUI CLASS
+# THE ANNOTATOR GUI CLASS
 # ==========================================
 
 class GlimpseAnnotator:
@@ -349,10 +221,10 @@ class GlimpseAnnotator:
 
         sub_df = self.df[mask].copy()
 
-        # Run Pipeline
-        sub_df = process_mtb_area_relaxed(sub_df)
+        # Run Pipeline — relaxed spike threshold for verifier context
+        sub_df = process_mtb_area(sub_df, spike_threshold=10.0)
         sub_df = fit_lowess(sub_df)
-        sub_df = compute_doubling_metrics(sub_df)
+        sub_df = compute_doubling_metrics(sub_df, min_doubling_time=4.0)
 
         # Update Main DF
         cols = ['Mtb Area Processed (µm)', 'Time Model (hours)',

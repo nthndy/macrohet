@@ -5,9 +5,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "macrohet"
-version = "2.1.0.dev0"
+version = "3.0.0"
 description = "Single-cell analysis of macrophages infected with Mtb"
-authors = [{ name = "Nathan J. Day", email = "nathan.day@crick.ac.uk" }]
+authors = [
+    {name = "Nathan J. Day", email = "nathan.day@crick.ac.uk" }]
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
@@ -17,7 +18,10 @@ dependencies = [
                 "scikit-learn",
                 "btrack @ git+https://github.com/quantumjot/btrack.git@v0.6.6rc2"
 ]
-
+license = { text = "MIT License" } 
+[project.urls]
+Homepage = "https://github.com/nthndy/macrohet"
+Repository = "https://github.com/nthndy/macrohet"
 [project.optional-dependencies]
 dev = ["pre-commit", "ruff", "black", "mypy"]
 

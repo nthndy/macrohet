@@ -1,5 +1,5 @@
 import btrack
-
+from macrohet.growth_model import euc_dist
 
 def localise(
     masks,

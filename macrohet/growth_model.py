@@ -10,8 +10,10 @@ import statsmodels.api as sm
 from sklearn.metrics import r2_score
 from tqdm.auto import tqdm
 
-from macrohet.tools import euc_dist
 
+def euc_dist(x1, y1, x2, y2):
+    """Euclidean distance displacement calculation for cell movement between frames."""
+    return np.sqrt((x1 - x2)**2 + (y1 - y2)**2)
 
 def collate_tracks_to_df(
     tracks,
@@ -197,7 +199,10 @@ def compute_doubling_metrics(df, min_area=1.92, r2_threshold=0.7):
     """
     Calculates doubling times and safely assigns them back to the DataFrame
     even if rows were dropped during processing.
-    """
+
+    Parameters
+    ----------
+
     df = df.copy()
     df["Doubling Amounts"] = None
     df["Doubling Times"] = None
@@ -240,7 +245,20 @@ def compute_doubling_metrics(df, min_area=1.92, r2_threshold=0.7):
 
         # Find index of closest value to target
         doubling_idx = [np.abs(vals - target).idxmin() for target in N_series]
-        doubling_times = times.loc[doubling_idx].diff().dropna().values.tolist()
+        dt_intervals = np.diff(times.loc[doubling_idx].values)
+
+        # Filter sub-physiological intervals
+        valid_amounts = [N_series[0]]
+        valid_intervals = []
+        for i, dt in enumerate(dt_intervals):
+            valid_intervals.append(dt)
+            valid_amounts.append(N_series[i + 1])
+
+        if not valid_intervals:
+            continue
+
+        N_series = valid_amounts
+        doubling_times = valid_intervals
 
         # 7. Safe Assignment
         # We create a Series matching the index of the FULL group (mask)

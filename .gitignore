@@ -9,12 +9,12 @@ __pycache__
 *.ipynb_checkpoints*
 *.h5
 *.hdf5
-notify.py
 *.npy
-aws_tools.py
 *.json
 *.svg
 *.pdf
 *.mp4
 *.log
 *error_log*
+*.zarr/
+*.tmp.driveupload*
