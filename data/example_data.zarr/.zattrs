@@ -1,4 +1,7 @@
 {
+    "labels": [
+        "labels/cytoplasm"
+    ],
     "multiscales": [
         {
             "axes": [
