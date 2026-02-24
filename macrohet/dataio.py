@@ -181,70 +181,58 @@ def track_to_df(track):
 
 
 def read_harmony_metadata(metadata_path: os.PathLike, assay_layout=False,
-                          mask_exist=False, image_dir=None, image_metadata=None,
-                          replicate_number=True, iter=True
-                          ) -> pd.DataFrame:
+                        mask_exist=False, image_dir=None, image_metadata=None,
+                        replicate_number=True, iter=True
+                        ) -> pd.DataFrame:
     """Read the metadata from the Harmony software for the Opera Phenix microscope.
     Takes an input of the path to the metadata .xml file.
     Returns the metadata in a pandas dataframe format.
-    If assay_layout is True then alternate xml format is anticipated, returning
-    information about the assay layout of the experiment rather than the general
-    organisation of image volume.
-    ASSAY_LAYOUT in the process of being depreciated for standalone function.
-    If mask_exist is True then the existence of masks will be checked, which the
-    image directory (image_dir) is required with the image metadata
-    (image_metadata)
-    iter arg is to use the iterative loading of xml files, best practice to
-    set to false for smaller xml files.
     """
-    # Read the XML metadata file
-    print('Reading metadata XML file...')
-
     # extraction procedure for image volume metadata
     metadata = []
 
     # Handle the iteration mode with iterparse (iter=True)
     if not assay_layout and iter:
-        # Use the iterative parsing method
-        for event, elem in tqdm(ET_iter.iterparse(metadata_path, events=("end",))):
-            # Check for the 'Images' tag in the element
-            if event == "end" and "Images" in elem.tag:
-                for image_metadata in elem:
-                    single_image_dict = {}
-                    for item in image_metadata:
-                        # Extract column name, removing namespace if necessary
-                        col = item.tag.split('}')[-1]  # This splits the tag by '}' and takes the last part
-                        # Get metadata value
-                        entry = item.text
-                        # Store in dictionary
-                        single_image_dict[col] = entry
+        # Get the total size of the XML file for a finite progress bar
+        file_size = os.path.getsize(metadata_path)
+        
+        # Open the file and wrap iterparse in tqdm using file size as the limit
+        with open(metadata_path, 'rb') as f:
+            pbar = tqdm(total=file_size, unit='B', unit_scale=True, desc="Parsing Harmony Metadata")
+            
+            # Use 'end' events to clear elements from memory after processing
+            for event, elem in ET_iter.iterparse(f, events=("end",)):
+                # Update the progress bar based on the current file pointer position
+                pbar.update(f.tell() - pbar.n)
+                
+                if event == "end" and "Images" in elem.tag:
+                    for image_metadata_elem in elem:
+                        # Professional dictionary comprehension for extraction
+                        single_image_dict = {
+                            item.tag.split('}')[-1]: item.text 
+                            for item in image_metadata_elem
+                        }
+                        metadata.append(single_image_dict)
 
-                    # Append to list
-                    metadata.append(single_image_dict)
-
-                # Clear processed element to free memory
-                elem.clear()
+                    # CRITICAL: Clear processed element to free memory on the workstation
+                    elem.clear()
+            
+            pbar.close()
 
     # Handle the non-iterative method (iter=False)
     elif not assay_layout and not iter:
+        print('Reading metadata XML file (Non-iterative)...')
         try:
-            # Parse the entire XML document at once
             tree = ET_iter.parse(metadata_path)
             root = tree.getroot()
 
-            # Find the 'Images' tag
+            # Find the 'Images' tag with the specific Harmony namespace
             for images in root.iter('{http://www.perkinelmer.com/PEHH/HarmonyV5}Images'):
-                for image_metadata in images:
-                    single_image_dict = {}
-                    for item in image_metadata:
-                        # Extract column name, removing namespace if necessary
-                        col = item.tag.split('}')[-1]  # This splits the tag by '}' and takes the last part
-                        # Get metadata value
-                        entry = item.text
-                        # Store in dictionary
-                        single_image_dict[col] = entry
-
-                    # Append to list
+                for image_metadata_elem in images:
+                    single_image_dict = {
+                        item.tag.split('}')[-1]: item.text 
+                        for item in image_metadata_elem
+                    }
                     metadata.append(single_image_dict)
 
         except ET_iter.XMLSyntaxError as e:
@@ -257,16 +245,15 @@ def read_harmony_metadata(metadata_path: os.PathLike, assay_layout=False,
     # extraction procedure for assay layout metadata
     if assay_layout:
         print('Try the newer dataio.read_harmony_assaylayout function for added compatibility')
-        # Open XML file in binary mode to handle encoding declarations
         with open(metadata_path, 'rb') as f:
             xml_data = f.read()
         root = ET_iter.XML(xml_data)
-        metadata = dict()
+        metadata_dict = dict()
         for branch in root:
             for subbranch in branch:
                 if subbranch.text.strip() and subbranch.text.strip() != 'string':
                     col_name = subbranch.text
-                    metadata[col_name] = dict()
+                    metadata_dict[col_name] = dict()
                 for subsubbranch in subbranch:
                     if 'Row' in subsubbranch.tag:
                         row = int(subsubbranch.text)
@@ -274,26 +261,15 @@ def read_harmony_metadata(metadata_path: os.PathLike, assay_layout=False,
                         col = int(subsubbranch.text)
                     if 'Value' in subsubbranch.tag and subsubbranch.text is not None:
                         val = subsubbranch.text
-                        metadata[col_name][int(row), int(col)] = val
+                        metadata_dict[col_name][int(row), int(col)] = val
+        metadata = metadata_dict
 
     # Create a dataframe out of all metadata
     df = pd.DataFrame(metadata)
 
-    if assay_layout and mask_exist:
-        df['Missing masks'] = np.nan
-        for index, row in df.iterrows():
-            row, col = index
-            missing_mask_dict = do_masks_exist(image_dir, image_metadata,
-                                               row=row, col=col,
-                                               print_output=False)
-            df.at[(row, col), 'Missing masks'] = missing_mask_dict[row, col]
-            df = df.where(pd.notnull(df), None)
-
-    # Final few aesthetic touches to assay layout
+    # Aesthetics and secondary processing for assay layout
     if assay_layout:
-        # Add names to assay layout indexing
         df.index.set_names(['Row', 'Column'], inplace=True)
-        # Clearing few hacky errors in some recent assay layout
         if 'Cell Count' in df.columns:
             if pd.isna(df['Cell Count']).any():
                 df.drop(columns='Cell Count', inplace=True)
@@ -304,7 +280,6 @@ def read_harmony_metadata(metadata_path: os.PathLike, assay_layout=False,
 
     print('Extracting metadata complete!')
     return df
-
 
 def do_masks_exist(image_dir, metadata, row=None, col=None, print_output=True):
     """Iterates over all positions in experiment and checks if masks have been
