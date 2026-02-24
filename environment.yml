@@ -4,6 +4,7 @@ channels:
 dependencies:
   - python=3.10
   - pydantic<2
+  - pre-commit
   - jupyterlab
   - numpy
   - pandas
