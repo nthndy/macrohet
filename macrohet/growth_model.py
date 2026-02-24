@@ -15,6 +15,7 @@ def euc_dist(x1, y1, x2, y2):
     """Euclidean distance displacement calculation for cell movement between frames."""
     return np.sqrt((x1 - x2)**2 + (y1 - y2)**2)
 
+
 def collate_tracks_to_df(
     tracks,
     expt_ID="EXP1",
@@ -199,10 +200,39 @@ def fit_lowess(df, frac=0.25):
     return df
 
 
+def _find_crossing(target, t_arr, a_arr):
+    """
+    Helper function using linear interpolation to find the exact
+    time a model crosses a target area threshold.
+    """
+    valid_mask = ~np.isnan(a_arr)
+    clean_a = a_arr[valid_mask]
+
+    if not np.any(clean_a >= target):
+        return None
+
+    filled_a = np.nan_to_num(a_arr, nan=-np.inf)
+    idx = np.argmax(filled_a >= target)
+
+    if idx == 0 and filled_a[0] < target:
+        return None
+    if idx == 0:
+        return t_arr[0]
+
+    t1, t2 = t_arr[idx-1], t_arr[idx]
+    a1, a2 = filled_a[idx-1], filled_a[idx]
+    if a2 == a1:
+        return t1
+
+    fraction = (target - a1) / (a2 - a1)
+    return t1 + (t2 - t1) * fraction
+
+
 def compute_doubling_metrics(df, min_area=1.92, r2_threshold=0.7):
     """
-    Calculates doubling times and safely assigns them back to the DataFrame.
-    Filters out sub-physiological intervals (< min_doubling_time).
+    Calculates robust doubling times AND amounts dynamically, starting from
+    the actual interpolated crossing of the baseline.
+    Filters by R-squared, but allows sub-physiological intervals to remain.
 
     Parameters
     ----------
@@ -218,15 +248,18 @@ def compute_doubling_metrics(df, min_area=1.92, r2_threshold=0.7):
     pandas.DataFrame
     """
     df = df.copy()
-    df["Doubling Amounts"] = None
-    df["Doubling Times"] = None
+
+    # Initialize columns as object type to safely store lists
+    df['Doubling Times'] = np.nan
+    df['Doubling Times'] = df['Doubling Times'].astype(object)
+    df['Doubling Amounts'] = np.nan
+    df['Doubling Amounts'] = df['Doubling Amounts'].astype(object)
 
     for ID in tqdm(df["ID"].unique(), desc="Doubling Metrics"):
         mask = df["ID"] == ID
         full_group_len = mask.sum()
 
         sc_df = df[mask].dropna(subset=["Time Model (hours)", "Mtb Area Model (\u00b5m)"])
-
         if sc_df.empty:
             continue
 
@@ -234,45 +267,56 @@ def compute_doubling_metrics(df, min_area=1.92, r2_threshold=0.7):
         if r2 < r2_threshold:
             continue
 
-        min_val = max(sc_df["Mtb Area Model (\u00b5m)"].min(), min_area)
-        max_val = sc_df["Mtb Area Model (\u00b5m)"].max()
-        if max_val <= min_val:
+        sc_df = sc_df.sort_values(by='Time Model (hours)')
+        times = sc_df['Time Model (hours)'].values
+        area_model = sc_df['Mtb Area Model (\u00b5m)'].values
+
+        if len(times) < 2:
             continue
 
-        N_series = []
-        curr = min_val
-        while curr <= max_val:
-            N_series.append(curr)
-            curr *= 2
+        start_area = area_model[0] if not np.isnan(area_model[0]) else min_area
+        baseline = max(min_area, start_area)
 
-        if len(N_series) < 2:
+        # Dynamic grid generation (Baseline -> 2x -> 4x -> 8x...)
+        grid = [baseline * (2**i) for i in range(1, 6)]
+
+        calc_intervals = []
+        calc_amounts = [round(baseline, 2)]
+        prev_time = times[0]
+
+        if start_area < baseline:
+            t_start_real = _find_crossing(baseline, times, area_model)
+            if t_start_real is not None:
+                prev_time = t_start_real
+            else:
+                continue
+
+        for target in grid:
+            t_cross = _find_crossing(target, times, area_model)
+
+            if t_cross is not None:
+                # Forward-time check (prevents interval noise, replaces the min_time filter)
+                if t_cross >= prev_time:
+                    dt = t_cross - prev_time
+                    calc_intervals.append(round(dt, 1))
+                    calc_amounts.append(round(target, 2))
+                    prev_time = t_cross
+                else:
+                    break
+            else:
+                break
+
+        if not calc_intervals:
             continue
 
-        times = sc_df["Time Model (hours)"]
-        vals = sc_df["Mtb Area Model (\u00b5m)"]
+        # Create properly formatted object arrays for the pandas DataFrame assignment
+        dt_series = np.empty(full_group_len, dtype=object)
+        dt_series[:] = [calc_intervals] * full_group_len
 
-        doubling_idx = [np.abs(vals - target).idxmin() for target in N_series]
-        dt_intervals = np.diff(times.loc[doubling_idx].values)
+        amt_series = np.empty(full_group_len, dtype=object)
+        amt_series[:] = [calc_amounts] * full_group_len
 
-        # Filter sub-physiological intervals accurately
-        valid_amounts = [N_series[0]]
-        valid_intervals = []
-        for i, dt in enumerate(dt_intervals):
-            valid_intervals.append(dt)
-            valid_amounts.append(N_series[i + 1])
-
-        if not valid_intervals:
-            continue
-
-        N_series = valid_amounts
-        doubling_times = valid_intervals
-
-        df.loc[mask, "Doubling Amounts"] = pd.Series(
-            [N_series] * full_group_len, index=df[mask].index
-        )
-
-        df.loc[mask, "Doubling Times"] = pd.Series(
-            [doubling_times] * full_group_len, index=df[mask].index
-        )
+        df.loc[mask, 'Doubling Times'] = dt_series
+        df.loc[mask, 'Doubling Amounts'] = amt_series
 
     return df
