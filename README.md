@@ -8,6 +8,7 @@ Interactive figures and plots for this project can be explored via GitHub Pages:
 <p align="left">
   <img src="https://github.com/nthndy/macrohet/raw/main/docs/images/landing_img.png" alt="macrohet image" width="800">
 </p>
+Image description: A pseudocoloured timelapse image of Mtb, projected along the time axis visualise spatiotemporal evolution.
 
 ## Contents
 
