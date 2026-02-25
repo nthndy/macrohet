@@ -3,13 +3,71 @@ import json
 import os
 import xml.etree.ElementTree as ET
 import zipfile
+import h5py
+import zarr
+import btrack
 from pathlib import Path
-
 import numpy as np
 import pandas as pd
 from lxml import etree as ET_iter
 from tqdm.auto import tqdm
 
+
+def export_tracks_to_h5(tracks, output_fn, obj_type='obj_type_1'):
+    """Writes btrack tracks to HDF5 and injects placeholder dummies to prevent reload bugs."""
+    with btrack.dataio.HDF5FileHandler(output_fn, 'w', obj_type=obj_type) as writer:
+        writer.write_tracks(tracks)
+
+    with h5py.File(output_fn, 'a') as f:
+        tracks_grp = f[f'tracks/{obj_type}']
+        if 'dummies' not in tracks_grp:
+            refs = tracks_grp['tracks'][:]
+            min_ref = int(np.min(refs))
+            if min_ref < 0:
+                num_dummies = abs(min_ref)
+                dummy_data = np.zeros((num_dummies, 5), dtype=np.float32)
+                for i in range(num_dummies):
+                    dummy_data[i, 0] = -(i + 1)
+                tracks_grp.create_dataset('dummies', data=dummy_data)
+
+def export_tracks_to_zarr(tracks, zarr_path, component="tracks/0"):
+    """Packs btrack tracks and features into an OME-NGFF compatible Zarr store."""
+    track_data, area_list, gfp_list, rfp_list, mtb_area_list, infected_list = [], [], [], [], [], []
+    
+    for track_id, track in enumerate(tracks):
+        n_frames = len(track)
+        ids = np.full(n_frames, track_id)
+        coords = np.column_stack((ids, track.t, track.y, track.x))
+        track_data.append(coords)
+        
+        area_list.extend(track.properties["area"])
+        gfp_list.extend(track.properties["mean_intensity-0"])
+        rfp_list.extend(track.properties["mean_intensity-1"])
+        mtb_area_list.extend(track.properties["Mtb area px"])
+        infected_list.extend(track.properties["Infected"])
+
+    track_array = np.vstack(track_data).astype(np.float32)
+    features = {
+        "area": np.array(area_list, dtype=np.float32),
+        "gfp_intensity": np.array(gfp_list, dtype=np.float32),
+        "rfp_intensity": np.array(rfp_list, dtype=np.float32),
+        "mtb_area_px": np.array(mtb_area_list, dtype=np.float32),
+        "infected": np.array(infected_list, dtype=bool)
+    }
+
+    store = zarr.open(zarr_path, mode="a")
+    tracks_grp = store.require_group(component)
+    tracks_grp.create_dataset("track_data", data=track_array, compressor=zarr.Blosc(), overwrite=True)
+    
+    feat_grp = tracks_grp.require_group("features")
+    for key, arr in features.items():
+        feat_grp.create_dataset(key, data=arr, compressor=zarr.Blosc(), overwrite=True)
+
+    tracks_grp.attrs["tracks_metadata"] = {
+        "format_version": "0.1",
+        "type": "napari_tracks",
+        "columns": ["track_id", "time", "y", "x"]
+    }
 
 def load_prism_file(file_path):
     tables = []

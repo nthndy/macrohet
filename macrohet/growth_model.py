@@ -9,11 +9,7 @@ import pandas as pd
 import statsmodels.api as sm
 from sklearn.metrics import r2_score
 from tqdm.auto import tqdm
-
-
-def euc_dist(x1, y1, x2, y2):
-    """Euclidean distance displacement calculation for cell movement between frames."""
-    return np.sqrt((x1 - x2)**2 + (y1 - y2)**2)
+from macrohet import utils
 
 
 def collate_tracks_to_df(
@@ -59,11 +55,7 @@ def collate_tracks_to_df(
         minor_axis = np.array(props.get("minor_axis_length", np.zeros(len(t))))
 
         # Safe eccentricity calculation
-        eccentricity = np.where(
-            major_axis > 0,
-            np.sqrt(np.clip(1 - (minor_axis**2 / np.maximum(major_axis**2, 1e-9)), 0, 1)),
-            0.0
-        )
+        eccentricity = utils.calc_eccentricity(major_axis, minor_axis)
 
         mtb_area_px = np.array(props.get("Mtb area px", props.get("mtb_area_px", np.full(len(t), np.nan))))
         infected = np.array(props.get("Infected", props.get("infected", np.zeros(len(t), dtype=bool))))
@@ -83,7 +75,7 @@ def collate_tracks_to_df(
         d_mphi_area = (area[-1] - area[0]) * pixel_to_mum_sq_scale_factor if len(area) > 1 else 0
 
         msd = [
-            euc_dist(x[i - 1], y[i - 1], x[i], y[i]) if i > 0 else 0
+            utils.euc_dist(x[i - 1], y[i - 1], x[i], y[i]) if i > 0 else 0
             for i in range(len(t))
         ]
 
@@ -113,35 +105,6 @@ def collate_tracks_to_df(
 
     return pd.concat(dfs, ignore_index=True)
 
-
-def smooth_and_fix(area_series, window=10, spike_threshold=10.0):
-    """
-    Smoothing logic:
-    1. Uses center=True to prevent valid jumps from looking like spikes.
-    2. Preserves Index to prevent NaN errors when merging back.
-    3. Uses relaxed spike_threshold=10.0 to prevent valid biological jumps being dropped.
-    """
-    original_index = area_series.index
-    area_series = area_series.reset_index(drop=True)
-    rolling_mean = area_series.rolling(window=window, min_periods=1, center=True).mean()
-
-    cleaned = area_series.copy()
-    for i in range(1, len(cleaned) - 1):
-        if cleaned.iloc[i] > spike_threshold * rolling_mean.iloc[i]:
-            cleaned.iloc[i] = np.nan
-        elif (
-            cleaned.iloc[i] == 0
-            and cleaned.iloc[i - 1] > 0
-            and cleaned.iloc[i + 1] > 0
-        ):
-            cleaned.iloc[i] = np.nan
-
-    result = cleaned.interpolate(limit_direction='both')
-    result.index = original_index
-
-    return result
-
-
 def process_mtb_area(df, window=10, spike_threshold=10.0):
     """
     Applies the safe smoothing to the entire DataFrame.
@@ -150,11 +113,11 @@ def process_mtb_area(df, window=10, spike_threshold=10.0):
     df = df.copy()
     tqdm.pandas(desc="Smoothing Data")
 
-    cleaned_series = df.groupby("ID")["Mtb Area (\u00b5m)"].progress_transform(
-        lambda x: smooth_and_fix(x, window, spike_threshold)
+    cleaned_series = df.groupby("ID")["Mtb Area (µm)"].progress_transform(
+        lambda x: utils.smooth_and_fix(x, window, spike_threshold)
     )
 
-    df["Mtb Area Processed (\u00b5m)"] = cleaned_series
+    df["Mtb Area Processed (µm)"] = cleaned_series
     return df
 
 
@@ -198,35 +161,6 @@ def fit_lowess(df, frac=0.25):
             continue
 
     return df
-
-
-def _find_crossing(target, t_arr, a_arr):
-    """
-    Helper function using linear interpolation to find the exact
-    time a model crosses a target area threshold.
-    """
-    valid_mask = ~np.isnan(a_arr)
-    clean_a = a_arr[valid_mask]
-
-    if not np.any(clean_a >= target):
-        return None
-
-    filled_a = np.nan_to_num(a_arr, nan=-np.inf)
-    idx = np.argmax(filled_a >= target)
-
-    if idx == 0 and filled_a[0] < target:
-        return None
-    if idx == 0:
-        return t_arr[0]
-
-    t1, t2 = t_arr[idx-1], t_arr[idx]
-    a1, a2 = filled_a[idx-1], filled_a[idx]
-    if a2 == a1:
-        return t1
-
-    fraction = (target - a1) / (a2 - a1)
-    return t1 + (t2 - t1) * fraction
-
 
 def compute_doubling_metrics(df, min_area=1.92, r2_threshold=0.7):
     """
@@ -285,14 +219,14 @@ def compute_doubling_metrics(df, min_area=1.92, r2_threshold=0.7):
         prev_time = times[0]
 
         if start_area < baseline:
-            t_start_real = _find_crossing(baseline, times, area_model)
+            t_start_real = utils.find_crossing(baseline, times, area_model)
             if t_start_real is not None:
                 prev_time = t_start_real
             else:
                 continue
 
         for target in grid:
-            t_cross = _find_crossing(target, times, area_model)
+            t_cross = utils.find_crossing(target, times, area_model)
 
             if t_cross is not None:
                 # Forward-time check (prevents interval noise, replaces the min_time filter)
