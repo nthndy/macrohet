@@ -1,7 +1,7 @@
 # macro*het* 
 *Macro*phage *het*erogeneity
 
-**Fast-growing intracellular _Mycobacterium tuberculosis_ populations evade antibiotic treatment**
+# **Fast-growing intracellular _Mycobacterium tuberculosis_ populations evade antibiotic treatment**
 
 This repository accompanies the manuscript exploring single-cell heterogeneity in _Mtb_-infected macrophages using time-lapse microscopy, tracking, and single-cell growth rate analysis.
 
