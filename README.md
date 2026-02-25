@@ -1,5 +1,5 @@
 # macro*het* 
-Investigating *Macro*phage *het*erogeneity
+*Macro*phage *het*erogeneity
 
 **Fast-growing intracellular _Mycobacterium tuberculosis_ populations evade antibiotic treatment**
 
@@ -9,7 +9,7 @@ Interactive figures and plots for this project can be explored via GitHub Pages:
 [nthndy.github.io/macrohet](https://nthndy.github.io/macrohet)
 
 <p align="center">
-  <img src="https://github.com/nthndy/macrohet/raw/main/docs/images/landing_img.png" alt="macrohet image" width="400">
+  <img src="https://github.com/nthndy/macrohet/raw/main/docs/images/landing_img.png" alt="macrohet image" width="600">
 </p>
 
 ## Contents
