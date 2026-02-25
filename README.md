@@ -1,15 +1,12 @@
-# macro*het* 
-*Macro*phage *het*erogeneity
-
 # **Fast-growing intracellular _Mycobacterium tuberculosis_ populations evade antibiotic treatment**
 
-This repository accompanies the manuscript exploring single-cell heterogeneity in _Mtb_-infected macrophages using time-lapse microscopy, tracking, and single-cell growth rate analysis.
+macro*het* is a code repository designed to investigate *Macro*phage *het*erogeneity. It accompanies the aforementioned manuscript exploring single-cell heterogeneity in _Mtb_-infected macrophages using time-lapse microscopy, tracking, and single-cell growth rate analysis.
 
 Interactive figures and plots for this project can be explored via GitHub Pages:
 [nthndy.github.io/macrohet](https://nthndy.github.io/macrohet)
 
-<p align="center">
-  <img src="https://github.com/nthndy/macrohet/raw/main/docs/images/landing_img.png" alt="macrohet image" width="600">
+<p align="left">
+  <img src="https://github.com/nthndy/macrohet/raw/main/docs/images/landing_img.png" alt="macrohet image" width="800">
 </p>
 
 ## Contents
