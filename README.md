@@ -1,18 +1,16 @@
-<p align="center">
-  <img src="https://github.com/nthndy/macrohet/raw/main/docs/images/landing_img.png" alt="macrohet image" width="600">
-</p>
-
-# macro*het*
+# macro*het* 
+Investigating *Macro*phage *het*erogeneity
 
 **Fast-growing intracellular _Mycobacterium tuberculosis_ populations evade antibiotic treatment**
 
-WORK IN PROGRESS (tidying code up pending publication)
-This repository accompanies the manuscript exploring single-cell heterogeneity in _Mtb_-infected macrophages using time-lapse microscopy, tracking and single-cell growth rate analysis.
+This repository accompanies the manuscript exploring single-cell heterogeneity in _Mtb_-infected macrophages using time-lapse microscopy, tracking, and single-cell growth rate analysis.
 
-GitHub Pages for this project (figures + interactive plots are work in progress, pending publication):
+Interactive figures and plots for this project can be explored via GitHub Pages:
 [nthndy.github.io/macrohet](https://nthndy.github.io/macrohet)
 
----
+<p align="center">
+  <img src="https://github.com/nthndy/macrohet/raw/main/docs/images/landing_img.png" alt="macrohet image" width="400">
+</p>
 
 ## Contents
 
@@ -23,16 +21,17 @@ GitHub Pages for this project (figures + interactive plots are work in progress,
 - `docs/`: HTML manuscript and supporting content (hosted via GitHub Pages)
 - `environment.yml`: Conda environment specification
 - `.pre-commit-config.yaml`: Code formatting and linting hooks
-- `README.md`: Project overview and usage instructions
 
 ---
 
-## Installation and reproducibility
+## Installation and Reproducibility
+
+The following instructions are configured for an Ubuntu workstation. 
 
 Clone the repository:
 
 ```bash
-git clone https://github.com/nthndy/macrohet.git
+git clone [https://github.com/nthndy/macrohet.git](https://github.com/nthndy/macrohet.git)
 cd macrohet
 pip install -e .
 ```
