@@ -20,6 +20,7 @@ dependencies:
   - ipywidgets
   - cellpose
   - lxml
+  - lxml
   - pip
   - pip:
       - btrack
