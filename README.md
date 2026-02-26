@@ -33,17 +33,11 @@ git clone https://github.com/nthndy/macrohet.git
 cd macrohet
 ```
 
-Create and activate the environment:
+Create, install and activate the environment:
 
 ```bash
 mamba env create -f environment.yml
 conda activate macrohet
-```
-
-Install the macrohet repository in that environment.
-
-```bash
-pip install -e .
 ```
 
 Parts of the image tiling and stitching pipeline were adapted from [Volker Hilsenstein’s DaskFusion project](https://github.com/VolkerH/DaskFusion), used under the MIT License.
