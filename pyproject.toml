@@ -1,6 +1,6 @@
 [project]
 name = "macrohet"
-dynamic = ["version"]
+version = "3.0.0"
 description = "Single-cell analysis of macrophages infected with Mtb"
 authors = [
     {name = "Nathan J. Day", email = "nathan.day@crick.ac.uk" }
