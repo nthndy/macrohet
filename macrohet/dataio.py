@@ -15,7 +15,7 @@ from tqdm.auto import tqdm
 
 def export_tracks_to_h5(tracks, output_fn, obj_type='obj_type_1'):
     """Writes btrack tracks to HDF5 and injects placeholder dummies to prevent reload bugs."""
-    with btrack.dataio.HDF5FileHandler(output_fn, 'w', obj_type=obj_type) as writer:
+    with btrack.io.HDF5FileHandler(output_fn, 'w', obj_type=obj_type) as writer:
         writer.write_tracks(tracks)
 
     with h5py.File(output_fn, 'a') as f:
