@@ -29,7 +29,7 @@ The following instructions are configured for an Ubuntu workstation.
 Clone the repository:
 
 ```bash
-git clone [https://github.com/nthndy/macrohet.git](https://github.com/nthndy/macrohet.git)
+git clone https://github.com/nthndy/macrohet.git
 cd macrohet
 pip install -e .
 ```
