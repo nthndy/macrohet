@@ -29,9 +29,8 @@ The following instructions are configured for an Ubuntu workstation.
 Clone the repository:
 
 ```bash
-git clone [https://github.com/nthndy/macrohet.git](https://github.com/nthndy/macrohet.git)
+git clone https://github.com/nthndy/macrohet.git
 cd macrohet
-pip install -e .
 ```
 
 Create and activate the environment:
@@ -41,8 +40,12 @@ mamba env create -f environment.yml
 conda activate macrohet
 ```
 
-This project uses a development version of btrack that includes compatibility with pydantic ≥2, required by napari.
-To ensure compatibility with both tracking and visualisation components, btrack is installed directly from GitHub via pyproject.toml or the environment.yml file.
+Install the macrohet repository in that environment.
+
+```bash
+pip install -e .
+```
+
 Parts of the image tiling and stitching pipeline were adapted from [Volker Hilsenstein’s DaskFusion project](https://github.com/VolkerH/DaskFusion), used under the MIT License.
 Details of the hardware and software used to generate the analyses in this repository are provided in [reproducibility.md](reproducibility.md).
 
