@@ -5,7 +5,6 @@ dependencies:
   - python=3.10
   - pydantic<2
   - av
-  - btrack
   - pre-commit
   - jupyterlab
   - numpy
@@ -20,7 +19,7 @@ dependencies:
   - tqdm
   - ipywidgets
   - cellpose
+  - lxml
   - pip
   - pip:
-      # - git+https://github.com/quantumjot/btrack.git@v0.6.6rc2
-      # - .
+      - btrack

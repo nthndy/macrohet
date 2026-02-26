@@ -229,7 +229,7 @@ def extract_features(masks, max_proj_images, mtb_load_thresh=480, segment_size_t
     valid_objects = []
     for obj in objects:
         if obj.properties['area'] > segment_size_thresh:
-            mtb_intensity = obj.properties['mean_intensity-2']
+            mtb_intensity = obj.properties['mean_intensity'][2]
             obj.properties['Infected'] = bool(mtb_intensity > 0)
             obj.properties['Mtb area px'] = mtb_intensity * obj.properties['area']
             valid_objects.append(obj)
