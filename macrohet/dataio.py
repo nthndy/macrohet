@@ -41,8 +41,8 @@ def export_tracks_to_zarr(tracks, zarr_path, component="tracks/0"):
         track_data.append(coords)
         
         area_list.extend(track.properties["area"])
-        gfp_list.extend(track.properties["mean_intensity"][0])
-        rfp_list.extend(track.properties["mean_intensity"][1])
+        gfp_list.extend(track.properties["mean_intensity"][:,0])
+        rfp_list.extend(track.properties["mean_intensity"][:,1])
         mtb_area_list.extend(track.properties["Mtb area px"])
         infected_list.extend(track.properties["Infected"])
 
