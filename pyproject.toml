@@ -1,19 +1,28 @@
-[build-system]
-requires = ["setuptools>=61.0", "setuptools-scm"]
-build-backend = "setuptools.build_meta"
-
-
 [project]
 name = "macrohet"
-version = "3.0.0"
+dynamic = ["version"]
 description = "Single-cell analysis of macrophages infected with Mtb"
 authors = [
-    {name = "Nathan J. Day", email = "nathan.day@crick.ac.uk" }]
+    {name = "Nathan J. Day", email = "nathan.day@crick.ac.uk" }
+]
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-                "shapely<2.0.0",
-                lxml,
+    "btrack>=0.4.6",
+    "shapely<2.0.0",
+    "lxml",
+    "cellpose>=2.0.0",
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "statsmodels",
+    "napari",
+    "imageio",
+    "av",
+    "matplotlib",
+    "seaborn",
+    "pyarrow",
+    "tqdm",
 ]
 license = { text = "MIT License" } 
 [project.urls]
