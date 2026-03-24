@@ -37,7 +37,7 @@ Create, install and activate the environment:
 
 ```bash
 mamba env create -f environment.yml
-conda activate macrohet
+mamba activate macrohet
 ```
 
 Parts of the image tiling and stitching pipeline were adapted from [Volker Hilsenstein’s DaskFusion project](https://github.com/VolkerH/DaskFusion), used under the MIT License.
