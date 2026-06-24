@@ -45,6 +45,30 @@ Details of the hardware and software used to generate the analyses in this repos
 
 ---
 
+## Example data
+
+To let the pipeline run end to end without the full dataset, the repository ships a
+small example acquisition under `data/`:
+
+- `data/untiled_images/` — a down-scaled 3×3-tile Opera Phenix field of view (well
+  r03c05), comprising the individual acquisition fields and the `Index.idx.xml`
+  metadata. This is the only example image input tracked in the repository.
+
+Everything downstream is derived from this and is generated locally rather than
+committed, to keep the repository lean:
+
+1. `notebooks/tile_image.ipynb` parses the Harmony metadata with
+   `dataio.read_harmony_metadata` and stitches the fields into a contiguous mosaic
+   with `tile.compile_mosaic`.
+2. The save step writes the stitched mosaic to `data/example_data.zarr` (OME-Zarr,
+   recommended) or `data/example_data.ome.tiff` (OME-TIFF).
+
+These outputs are git-ignored; generate them by running `tile_image.ipynb` once after
+cloning. The full processed single-cell dataset and the raw imaging data are held
+externally, see the Data Availability statement for the repository DOI.
+
+---
+
 ## Contact
 
 For questions or access to underlying data/code, please contact:
@@ -52,6 +76,6 @@ For questions or access to underlying data/code, please contact:
 **Nathan J. Day** <br>
 _Host–Pathogen Interactions in Tuberculosis Laboratory_ <br>
 The Francis Crick Institute <br>
-nathan.day@crick.ac.uk <br>
+nthndy@gmail.com <br>
 [@nthndy.bsky.social](https://bsky.app/profile/nthndy.bsky.social) <br>
 [github.com/nthndy](https://github.com/nthndy) <br>
